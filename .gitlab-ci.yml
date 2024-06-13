@@ -1,5 +1,6 @@
 stages:
   - pull
+  - compile
 
 
 variables:
@@ -24,5 +25,18 @@ pull master:
     - echo "OK"
   only:
     - main
+
+compile: 
+  stage: compile
+  tags:
+    bivium_front
+  script:
+    - echo "Start Compile"
+    - cd /var/www/nextjs
+    - sudo npm run build
+    - sudo service pm2 restart
+    - echo "Compile OK"
+  only:
+    - main  
 
 
