@@ -31,13 +31,19 @@ compile:
     - bivium_front
   script:
     - echo "Start Compile"
-    - cd /var/www/nextjs/
-    - npm install
+    - cd /var/www/nextjs
+    - echo "Running npm install"
+    - sudo npm install
+    - if [ $? -ne 0 ]; then echo "npm install failed"; exit 1; fi
+    - echo "Sleeping for 30 seconds"
     - sleep 30
-    - npm run build
+    - echo "Running npm run build"
+    - sudo npm run build
+    - if [ $? -ne 0 ]; then echo "npm run build failed"; exit 1; fi
+    - echo "Sleeping for 30 seconds"
     - sleep 30
     - echo "Compile OK"
   only:
-    - main  
+    - main
 
 
