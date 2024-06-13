@@ -33,8 +33,9 @@ compile:
     - echo "Start Compile"
     - cd /var/www/nextjs
     - npm install
+    - sleep 30
     - npm run build
-    - service pm2 restart
+    - sleep 30
     - echo "Compile OK"
   only:
     - main  
