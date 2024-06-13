@@ -29,7 +29,7 @@ pull master:
 compile: 
   stage: compile
   tags:
-    bivium_front
+    - bivium_front
   script:
     - echo "Start Compile"
     - cd /var/www/nextjs
