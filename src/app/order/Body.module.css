@@ -1,0 +1,18 @@
+.wrapper {
+  flex-grow: 1;
+}
+
+.surveyDropdown {
+  margin-top: 20px;
+  width: 330px;
+}
+
+.surveyInformationText {
+  margin-top: 10px;
+}
+
+.surveyButton {
+  margin-top: 20px;
+  width: 300px;
+  justify-content: center;
+}

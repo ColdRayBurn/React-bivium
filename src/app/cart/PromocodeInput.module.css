@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  border: 1px solid #979797;
+  border-radius: 4px;
+
+  background-color: #FFF;
+}
+
+.input {
+  flex-grow: 1;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  color: #000;
+}
+
+.input::placeholder {
+  opacity: 1;
+  color: #979797;
+}
+
+.submitButton {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3AB940;
+}
+
+.submitButton:disabled {
+  color: #979797;
+}
+
+.discount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+}
+
+.wrapper svg {
+  color: #3AB940;
+}

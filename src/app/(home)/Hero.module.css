@@ -1,0 +1,17 @@
+.wrapper {
+  aspect-ratio: 3.2;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('/images/hero.png');
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.button {
+  margin-top: auto;
+  margin-bottom: 75px;
+}

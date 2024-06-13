@@ -1,0 +1,60 @@
+.wrapper {
+  flex-basis: calc(50% - 40px);
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.purchases {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #3D4143;
+}
+
+.promocodeInput {
+  margin-top: 15px;
+}
+
+.orderButton {
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.informationText {
+  margin-top: 15px;
+}
+
+.summary {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+
+  color: #3D4143;
+}
+
+.summaryText {
+  font-weight: 600;
+}
+
+.summaryPrice {
+  font-weight: 300;
+}
+
+.sslInformation {
+  margin-top: 20px;
+}

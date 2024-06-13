@@ -1,0 +1,31 @@
+.wrapper {
+  margin-top: 85px;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.cities {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+}
+
+.cityTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.cityContent {
+  margin-top: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}

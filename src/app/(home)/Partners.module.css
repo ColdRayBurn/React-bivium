@@ -1,0 +1,30 @@
+.wrapper {
+  aspect-ratio: 4.25;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  background-image: url('/images/partners.jpg');
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #FFF;
+}
+
+.subtitle {
+  margin-top: auto;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 80px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}

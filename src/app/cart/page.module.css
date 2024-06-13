@@ -1,0 +1,22 @@
+.title {
+  margin-top: 25px;
+}
+
+.wrapper {
+  display: flex;
+  column-gap: 40px;
+  padding-bottom: 100px;
+}
+
+.wrapper_emptyCart {
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+.products {
+  margin-top: 60px;
+}
+
+.deliveryInformation {
+  margin-top: 30px;
+}

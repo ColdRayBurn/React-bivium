@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 40px;
+  padding-block: 50px;
+}
+
+.card {
+  flex-grow: 1;
+  aspect-ratio: 1.5;
+  padding: 15px 20px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  border-radius: 10px;
+  border: 1px solid #DADADA;
+
+  color: #3D4143;
+
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.card:nth-child(1),
+.card:nth-child(2) {
+  flex-basis: calc(50% - 20px);
+}
+
+.card:nth-child(1) {
+  background-image: url('/images/mens-equipment.jpg'), linear-gradient(180deg, #E3E3E1 0%, #E3E3E1 0.01%, #EFEFED 57.69%, #ECECEA 100%);
+}
+
+.card:nth-child(2) {
+  background-image: url('/images/womens-equipment.jpg'), linear-gradient(180deg, #F3F3F1 0%, #E8E8E6 0.01%, #EEEEEC 50.77%, #E8E8E6 99.01%);
+}
+
+.card:nth-child(3) {
+  background-image: url('/images/mens-clothing.jpg'), linear-gradient(90deg, #F3F3F1 0%, #EEEEED 0.01%, #F7F7F7 100%);
+}
+
+.card:nth-child(4) {
+  background-image: url('/images/womens-clothing.jpg'), linear-gradient(112.33deg, #DEDEDC 15.51%, #DEDEDC 15.52%, #DADBD6 44.86%, #D3D4CF 89.48%);
+}
+
+.card:nth-child(5) {
+  background-size: auto 90%;
+  background-image: url('/images/red-hat.jpg');
+}
