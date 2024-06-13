@@ -25,20 +25,26 @@ pull master:
   only:
     - main
 
-compile: 
+compile:
   stage: compile
   tags:
     - bivium_front
+  before_script:
+    - sudo apt-get update
+    - sudo apt-get install -y curl
+    - sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    - sudo export NVM_DIR="$HOME/.nvm"
+    - sudo [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    - sudo nvm install 14 
+    - sudo nvm use 14
+    - sudo node -v
+    - sudo npm -v
   script:
     - echo "Start Compile"
-    - cd /var/www/nextjs
-    - echo "Running npm install"
+    - cd /var/www/nextjs/
     - sudo npm install
-    - if [ $? -ne 0 ]; then echo "npm install failed"; exit 1; fi
-    - echo "Sleeping for 30 seconds"
-    - sleep 30
-    - echo "Running npm run build"
-    - /bin/npm run build
+    - sleep 10
+    - sudo npm run build
     - echo "Compile OK"
   only:
     - main
