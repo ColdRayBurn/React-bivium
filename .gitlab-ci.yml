@@ -21,7 +21,6 @@ pull master:
     - sudo git fetch
     - sudo git checkout main
     - sudo git pull --rebase origin main
-    - sudo chown -R bitrix:bitrix /var/www/nextjs
     - echo "OK"
   only:
     - main
