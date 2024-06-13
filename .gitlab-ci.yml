@@ -1,0 +1,28 @@
+stages:
+  - pull
+
+
+variables:
+  OKMSG: "Стенд bivium_front успешно обновлен"
+  FAILMSG: "Вниманией!Произошла ошибка при обновление стенда bivium_front"
+
+
+
+pull master:
+  stage: pull
+  variables: 
+    GIT_STRATEGY: none
+  tags:
+     - bivium_front
+  script:
+    - cd /var/www/nextjs
+    - sudo git stash
+    - sudo git fetch
+    - sudo git checkout main
+    - sudo git pull --rebase origin main
+    - sudo chown -R bitrix:bitrix /var/www/nextjs
+    - echo "OK"
+  only:
+    - main
+
+
