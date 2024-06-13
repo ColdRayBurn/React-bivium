@@ -31,7 +31,7 @@ compile:
     - bivium_front
   script:
     - echo "Start Compile"
-    - cd /var/www/nextjs
+    - cd /var/www/nextjs/
     - npm install
     - sleep 30
     - npm run build
