@@ -1,0 +1,14 @@
+.wrapper {
+  padding-bottom: 225px;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #000;
+}
+
+.button {
+  margin-top: 50px;
+}

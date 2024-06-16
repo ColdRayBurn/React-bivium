@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  flex-shrink: 0;
+}
+
+.navigationItem {
+  position: relative;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  color: #7A7A7A;
+}
+
+.navigationItem_active {
+  color: #000;
+}
+
+.navigationItem_active::before {
+  position: absolute;
+
+  top: 0;
+  left: -20px;
+
+  display: block;
+  content: '';
+
+  width: 4px;
+  height: 100%;
+
+  background-color: #000;
+}

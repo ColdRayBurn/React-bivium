@@ -1,5 +1,7 @@
 .wrapper {
   position: relative;
+
+  display: block;
   width: 265px;
 
   font-family: 'Montserrat', sans-serif;
@@ -51,4 +53,8 @@
 .price {
   margin-top: 10px;
   font-weight: 300;
+}
+
+.wrapper.small {
+  width: 160px;
 }

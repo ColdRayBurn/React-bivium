@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 

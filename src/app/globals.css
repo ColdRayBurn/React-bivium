@@ -335,7 +335,8 @@ button:focus {
   outline: none;
 }
 
-input {
+input,
+textarea {
   display: block;
   padding: 0;
 

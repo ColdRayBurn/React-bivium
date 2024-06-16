@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, MouseEvent } from 'react';
+import classNames from 'classnames';
 import Link from 'next/link';
 import styles from './ProductCard.module.css';
 
@@ -11,15 +12,16 @@ interface Props {
   image: string;
   name: string;
   price: number | null;
+  small?: boolean;
 }
 
-const ProductCard: FC<Props> = ({ id, image, name, price }) => {
+const ProductCard: FC<Props> = ({ id, image, name, price, small }) => {
   const favoriteButtonCallback = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
 
   return (
-    <Link className={styles.wrapper} href={`/catalog/${id}`}>
+    <Link className={classNames(styles.wrapper, small && styles.small)} href={`/catalog/${id}`}>
       {price === null && <div className={styles.badge}>нет в наличии</div>}
       <button className={styles.favoriteButton} type='button' onClick={favoriteButtonCallback}>
         <HeartIcon />
