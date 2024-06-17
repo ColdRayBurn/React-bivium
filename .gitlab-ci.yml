@@ -29,6 +29,7 @@ compile:
   stage: compile
   tags:
     - bivium_front
+  image: node:15
   script:
     - echo "Start Compile"
     - cd /var/www/nextjs/
