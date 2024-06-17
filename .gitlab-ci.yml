@@ -45,9 +45,9 @@ compile:
     - cd /var/www/nextjs/
     - node -v
     - npm -v
-    - npm install
+    - sudo npm install
     - sleep 10
-    - npm run build
+    - sudo npm run build
     - echo "Compile OK"
   only:
     - main
