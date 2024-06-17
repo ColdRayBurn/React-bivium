@@ -30,9 +30,9 @@ compile:
   tags:
     - bivium_front
   before_script:
-    - apt-get update
-    - apt-get install -y curl
-    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+    - sudo apt-get update
+    - sudo apt-get install -y curl
+    - sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
     - export NVM_DIR="$HOME/.nvm"
     - . "$NVM_DIR/nvm.sh"
     - . "$NVM_DIR/bash_completion"
