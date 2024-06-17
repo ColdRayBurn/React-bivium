@@ -45,6 +45,7 @@ compile:
     - cd /var/www/nextjs/
     - node -v
     - npm -v
+    - npm i --lockfile-version 3
     - npm install
     - sleep 10
     - npm run build
