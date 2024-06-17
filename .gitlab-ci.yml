@@ -29,25 +29,14 @@ compile:
   stage: compile
   tags:
     - bivium_front
-  before_script:
-    - sudo apt-get update
-    - sudo apt-get install -y curl
-    - sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-    - export NVM_DIR="$HOME/.nvm"
-    - . "$NVM_DIR/nvm.sh"
-    - . "$NVM_DIR/bash_completion"
-    - nvm install 20
-    - nvm use 20
-    - node -v
-    - npm -v
   script:
     - echo "Start Compile"
     - cd /var/www/nextjs/
     - node -v
     - npm -v
-    - sudo npm install
+    - npm install
     - sleep 10
-    - sudo npm run build
+    - npm run build
     - echo "Compile OK"
   only:
     - main
