@@ -9,14 +9,24 @@ import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import MailIcon from '@/assets/icons/mail.svg';
 import CrossIcon from '@/assets/icons/cross.svg';
 
+import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
+import ConfirmDialogPopup from '@/components/popups/OverlayingPopup/ConfirmDialogPopup/ConfirmDialogPopup';
+
 const Page: FC = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Распродажи и скидки</div>
       {isSubscribed && <Input className={styles.emailInput} defaultValue={'example@example.com'} disabled />}
-      <button className={styles.button} type='button' onClick={() => setIsSubscribed(isSubscribed => !isSubscribed)}>
+      <button className={styles.button} type='button' onClick={() => {
+        if (isSubscribed) {
+          setIsModalShown(true);
+        } else {
+          setIsSubscribed(true);
+        }
+      }}>
         {isSubscribed ? <CrossIcon /> : <MailIcon />}
         {isSubscribed ? 'Отписаться' : 'Подписаться'}
       </button>
@@ -33,6 +43,16 @@ const Page: FC = () => {
           </div>
         </div>
       </div>
+      <OverlayingPopup isOpened={isModalShown}>
+        <ConfirmDialogPopup
+          title='Отписаться от рассылки?'
+          submitButtonText='Подтвердить' submitButtonHandler={() => {
+            setIsSubscribed(false);
+            setIsModalShown(false);
+          }}
+          cancelButtonText='Отмена' cancelButtonHandler={() => setIsModalShown(false)}
+        />
+      </OverlayingPopup>
     </div>
   );
 };

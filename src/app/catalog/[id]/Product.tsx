@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import classNames from 'classnames';
 import styles from './Product.module.css';
 
@@ -8,7 +8,15 @@ import Button from '@/components/ui/Button/Button';
 import HeartIcon from '@/assets/icons/heart.svg';
 import SizeSelector from './SizeSelector';
 
+import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
+import ConfirmDialogPopup from '@/components/popups/OverlayingPopup/ConfirmDialogPopup/ConfirmDialogPopup';
+
+import { useRouter } from 'next/navigation';
+
 const Product: FC = () => {
+  const router = useRouter();
+  const [isModalShown, setIsModalShown] = useState(false);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper2}>
@@ -64,7 +72,7 @@ const Product: FC = () => {
           </div>
           <SizeSelector sizes={[{ name: 'S', value: 'S', checked: true }, { name: 'M', value: 'M' }]} onChangeCallback={console.log} />
           <div className={styles.buttons}>
-            <Button variant='negative' icon={false} type='button'>Добавить в корзину</Button>
+            <Button variant='negative' icon={false} type='button' onClick={() => setIsModalShown(true)}>Добавить в корзину</Button>
             <Button className={styles.favoriteButton} variant='default' icon={false} type='button'>
               <HeartIcon />
             </Button>
@@ -74,7 +82,22 @@ const Product: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+      <OverlayingPopup isOpened={isModalShown}>
+        <ConfirmDialogPopup
+          title='Товар добавлен в корзину'
+          submitButtonText='Перейти в корзину' submitButtonHandler={() => router.push('/cart')}
+          cancelButtonText='Продолжить покупки' cancelButtonHandler={() => setIsModalShown(false)}
+        >
+          <div className={styles.modal}>
+            <img className={styles.modalImage} src='https://placehold.co/600x400/EEE/31343C' alt='' />
+            <div className={styles.modalBody}>
+              <div className={styles.modalBodyTitle}>Шапка - «Баланс»</div>
+              <div className={styles.modalBodyPrice}>1 500 ₽</div>
+            </div>
+          </div>
+        </ConfirmDialogPopup>
+      </OverlayingPopup>
+    </div >
   );
 };
 

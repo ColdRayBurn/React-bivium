@@ -1,0 +1,39 @@
+.wrapper {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #FFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  max-width: 220px;
+  color: #3D4143;
+}
+
+.closeButton {
+  height: fit-content;
+}
+
+.body {
+  margin-top: 20px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  margin-top: 20px;
+}
+
+.footerButton {
+  flex-grow: 1;
+  min-width: fit-content;
+  justify-content: center;
+}

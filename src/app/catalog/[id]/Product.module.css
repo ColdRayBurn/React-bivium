@@ -107,3 +107,35 @@
   border-radius: 100%;
   background-color: currentColor;
 }
+
+.modal {
+  display: flex;
+  column-gap: 20px;
+}
+
+.modalImage,
+.modalBody {
+  width: calc(50% - 10px);
+  flex-shrink: 0;
+}
+
+.modalImage {
+  object-fit: scale-down;
+}
+
+.modalBodyTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3D4143;
+}
+
+.modalBodyPrice {
+  margin-top: 5px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+
+  color: #3D4143;
+}

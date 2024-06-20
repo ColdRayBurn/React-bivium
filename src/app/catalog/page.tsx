@@ -5,10 +5,12 @@ import Catalog from './Catalog';
 import ExpandableText from '@/components/ui/ExpandableText/ExpandableText';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 
-const Page: FC = () => {
+const Page: FC = async () => {
+  const json = await fetch('http://bivium.all4it.org/api/catalog/meta/').then(response => response.json());
+
   return (
     <main className='container'>
-      <Catalog />
+      <Catalog items={json.CATALOG_LIST.data.elements} />
       <div className={styles.description}>
         <h2 className={styles.descriptionTitle}>О производстве</h2>
         <ExpandableText className={styles.descriptionText}>
