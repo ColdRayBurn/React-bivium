@@ -1,7 +1,14 @@
 import { FC } from 'react';
 import styles from './Contacts.module.css';
 
-const Contacts: FC = () => {
+import { formatUrl } from '@/utils/formatUrl';
+import { IMetaContactspageResponse } from '@/api/models';
+
+interface Props {
+  contacts: IMetaContactspageResponse['topBlock'];
+}
+
+const Contacts: FC<Props> = ({ contacts }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.body}>
@@ -9,19 +16,19 @@ const Contacts: FC = () => {
         <div className={styles.items}>
           <div className={styles.item}>
             <div className={styles.itemTitle}>E-mail</div>
-            <a className={styles.itemText} href='mailto:info@bivium.ru'>info@bivium.ru</a>
+            <a className={styles.itemText} href={`mailto:${contacts.email}}`}>{contacts.email}</a>
           </div>
           <div className={styles.item}>
             <div className={styles.itemTitle}>Телефон</div>
-            <a className={styles.itemText} href='tel:8 800 555 05 64'>8 800 555 05 64</a>
+            <a className={styles.itemText} href={`tel:${contacts.phone}`}>{contacts.phone}</a>
           </div>
           <div className={styles.item}>
-            <div className={styles.itemTitle}>г. Москва</div>
-            <div className={styles.itemText}>ул. Привольная 56</div>
+            <div className={styles.itemTitle}>{contacts.addressCity}</div>
+            <div className={styles.itemText}>{contacts.addressMain}</div>
           </div>
         </div>
       </div>
-      <img className={styles.image} src='https://placehold.co/600x400/EEE/31343C' alt='' />
+      <img className={styles.image} src={formatUrl(contacts.picture)} alt='' />
     </div>
   );
 };

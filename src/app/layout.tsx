@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+import StoreProvider from './StoreProvider';
+
+import AuthComponent from './AuthComponent';
 import DesktopHeader from '@/components/layouts/DesktopHeader/DesktopHeader';
 import Footer from '@/components/layouts/Footer/Footer';
 
@@ -13,9 +16,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ru">
       <body>
-        <DesktopHeader />
-        {children}
-        <Footer />
+        <StoreProvider>
+          <AuthComponent />
+          <DesktopHeader />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );

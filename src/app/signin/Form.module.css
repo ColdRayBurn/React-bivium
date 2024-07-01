@@ -1,0 +1,61 @@
+.wrapper {
+  margin-top: 15px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.messagesItem {
+  text-align: center;
+}
+
+.messagesItem.red {
+  color: #FF5555;
+}
+
+.messagesItem.green {
+  color: #55FF55;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.messages + .body {
+  margin-top: 15px;
+}
+
+.row {
+  display: flex;
+  column-gap: 10px;
+}
+
+.row > * {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  margin-top: 15px;
+}
+
+.link {
+  display: block;
+  width: fit-content;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: underline;
+  text-align: center;
+
+  margin: 15px auto 0 auto;
+}

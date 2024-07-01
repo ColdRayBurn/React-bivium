@@ -4,6 +4,7 @@ import styles from './personal.module.css';
 
 import Navigation from './Navigation';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import AuthRedirect from './AuthRedirect';
 
 interface Props {
   children: ReactNode;
@@ -11,16 +12,19 @@ interface Props {
 
 const Layout: FC<Props> = ({ children }) => {
   return (
-    <main className={classNames(styles.container, 'container')}>
-      <h1 className={styles.title} data-discount='-15 %'>Ваш профиль</h1>
-      <div className={styles.wrapper}>
-        <Navigation />
-        <div className={styles.content}>
-          {children}
+    <>
+      <AuthRedirect />
+      <main className={classNames(styles.container, 'container')}>
+        <h1 className={styles.title} data-discount='-15 %'>Ваш профиль</h1>
+        <div className={styles.wrapper}>
+          <Navigation />
+          <div className={styles.content}>
+            {children}
+          </div>
         </div>
-      </div>
-      <DeliveryInformation />
-    </main>
+        <DeliveryInformation />
+      </main>
+    </>
   );
 };
 

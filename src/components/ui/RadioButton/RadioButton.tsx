@@ -8,7 +8,7 @@ interface Props extends ComponentProps<'input'> {
 
 const RadioButton = forwardRef<HTMLInputElement, Props>((props, forwardedRef) => {
   const controlId = useId();
-  const { ref, className, type, text, ...rest } = props;
+  const { className, type, text, ...rest } = props;
 
   return (
     <label className={classNames(className, styles.wrapper)} htmlFor={controlId}>

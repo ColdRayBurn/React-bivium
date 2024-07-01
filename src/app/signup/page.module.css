@@ -1,0 +1,17 @@
+.wrapper {
+  flex-grow: 1;
+  padding-block: 75px 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 1024px;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  text-align: center;
+}

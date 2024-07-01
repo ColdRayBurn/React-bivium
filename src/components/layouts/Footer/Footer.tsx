@@ -15,7 +15,12 @@ import YandexPayIcon from '@/assets/icons/yandex-pay.svg';
 import LogotypeIcon from '@/assets/icons/logotype.svg';
 import Button from '@/components/ui/Button/Button';
 
-const Footer: FC = () => {
+import api from '@/api';
+import { IMetaFooterResponse } from '@/api/models';
+
+const Footer: FC = async () => {
+  const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();
+
   return (
     <footer className={styles.wrapper}>
       <div className='container'>
@@ -23,18 +28,18 @@ const Footer: FC = () => {
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Обратная связь</h2>
             <h4 className={styles.blockSubtitle}>
-              <a className={styles.phonenumberLink} href='tel:+78005550564'>
+              <a className={styles.phonenumberLink} href={`tel:${meta.feedback.phone}`}>
                 <PhoneIcon />
-                8 800 555 05 64
+                {meta.feedback.phone}
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <Button type='submit' variant='negative'>Связаться с нами</Button>
+              <Button type='submit' variant='negative'>{meta.feedback.buttonText}</Button>
             </div>
           </div>
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Мы в соцсетях</h2>
-            <h4 className={styles.blockSubtitle}>Следите за нашими новостями</h4>
+            <h4 className={styles.blockSubtitle}>{meta.socialNetworks.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.socialIcons}>
                 <a href='#' target='_blank' rel='noopener noreferrer'>
@@ -51,7 +56,7 @@ const Footer: FC = () => {
           </div>
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Удобная оплата</h2>
-            <h4 className={styles.blockSubtitle}>Оплачивайте привычным Вам способом</h4>
+            <h4 className={styles.blockSubtitle}>{meta.paymentInformation.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.paymentMethods}>
                 <div className={styles.paymentMethod}>

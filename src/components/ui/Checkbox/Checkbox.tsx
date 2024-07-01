@@ -11,7 +11,7 @@ interface Props extends ComponentProps<'input'> {
 
 const Checkbox = forwardRef<HTMLInputElement, Props>((props, forwardedRef) => {
   const checkboxId = useId();
-  const { ref, className, type, text, ...rest } = props;
+  const { className, type, text, ...rest } = props;
 
   return (
     <label className={classNames(className, styles.wrapper)} htmlFor={checkboxId}>
