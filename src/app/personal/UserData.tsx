@@ -27,7 +27,7 @@ interface IForm {
 const UserData: FC = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selector => selector.user);
-  console.log(user);
+
   const { register, handleSubmit, reset } = useForm<IForm>({
     mode: 'onSubmit',
     defaultValues: {
@@ -45,12 +45,8 @@ const UserData: FC = () => {
   const emailInputId = useId();
 
   const onSubmit: SubmitHandler<IForm> = data => {
-    const { birthday, ...preparedData } = data;
-
-    api.patch('user/', {
-      json: preparedData
-    }).then(() => {
-      dispatch(setUser({ ...preparedData, isAuthorized: true }));
+    api.patch('user/', { json: data }).then(() => {
+      dispatch(setUser({ ...user, ...data, isAuthorized: true, isLoaded: true }));
     }).catch(() => {
       reset();
     });

@@ -150,7 +150,7 @@ const navigation = [
 ];
 
 const DesktopHeader: FC = () => {
-  const { isAuthorized } = useAppSelector(selector => selector.user);
+  const { isAuthorized, cartAmount, favoritesAmount } = useAppSelector(selector => selector.user);
 
   const onSearchSubmit = (query: string) => {
     console.log(query);
@@ -165,10 +165,10 @@ const DesktopHeader: FC = () => {
         <Link className={styles.logotype} href='/'>Bivium</Link>
         <div className={styles.controls}>
           <HeaderSearch onSubmit={onSearchSubmit} />
-          <Link className={styles.control} href={isAuthorized ? '/personal/favorites' : '/signin'}>
+          <Link className={styles.control} href={isAuthorized ? '/personal/favorites' : '/signin'} data-amount={favoritesAmount ? favoritesAmount : undefined}>
             <HeartIcon />
           </Link>
-          <Link className={styles.control} href='/cart' data-amount={12}>
+          <Link className={styles.control} href='/cart' data-amount={cartAmount ? cartAmount : undefined}>
             <BagIcon />
           </Link>
           <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>

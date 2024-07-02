@@ -40,7 +40,7 @@ const Form: FC = () => {
         json: { username: data.email, password: data.password }
       }).json<IAuthResponse>();
 
-      dipatch(setUser({ ...response.user, isAuthorized: true }));
+      dipatch(setUser({ ...response.user, isAuthorized: true, isLoaded: true }));
       localStorage.setItem('token', response.token);
 
       setMessages([]);

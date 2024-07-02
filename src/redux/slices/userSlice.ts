@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type User = IUser & {
   isAuthorized: boolean;
+  isLoaded: boolean;
 };
 
 const initialState: User = {
@@ -12,7 +13,11 @@ const initialState: User = {
   gender: null,
   phonenumber: null,
   email: '',
-  isAuthorized: false
+  birthday: '',
+  cartAmount: 0,
+  favoritesAmount: 0,
+  isAuthorized: false,
+  isLoaded: false
 };
 
 const userSlice = createSlice({

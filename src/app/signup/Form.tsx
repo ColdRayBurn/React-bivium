@@ -48,7 +48,7 @@ const Form: FC = () => {
       delete preparedData.personalDataProcessingConsent;
       const response = await api.post('authorization/signup/', { json: preparedData }).json<IAuthResponse>();
 
-      dipatch(setUser({ ...response.user, isAuthorized: true }));
+      dipatch(setUser({ ...response.user, isAuthorized: true, isLoaded: true }));
       localStorage.setItem('token', response.token);
 
       setMessages([]);

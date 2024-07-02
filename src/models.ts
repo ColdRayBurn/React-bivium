@@ -7,4 +7,7 @@ export interface IUser {
   gender: Gender | null;
   phonenumber: string | null;
   email: string;
+  birthday: string;
+  cartAmount: number;
+  favoritesAmount: number;
 }

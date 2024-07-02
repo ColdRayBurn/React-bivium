@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 import api from '@/api';
-import { IAuthResponse } from '@/api/models';
+import { IUser } from '@/models';
 
 import { useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
@@ -17,8 +17,8 @@ const AuthComponent = () => {
 
     api.get('user/', {
       signal: abortController.signal
-    }).json<IAuthResponse['user']>().then(response => {
-      dispatch(setUser({ ...response, isAuthorized: true }));
+    }).json<IUser>().then(response => {
+      dispatch(setUser({ ...response, isAuthorized: true, isLoaded: true }));
     }).catch((e) => {
       if (e !== 'aborted') {
         localStorage.removeItem('token');
