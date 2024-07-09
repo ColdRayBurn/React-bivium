@@ -375,10 +375,12 @@ a:focus {
 }
 
 svg,
+picture,
 img {
   display: block;
 }
 
+picture,
 img {
   max-width: 100%;
 }
@@ -393,8 +395,16 @@ h6 {
 }
 
 .container {
-  padding-inline: 15px;
+  padding-inline: var(--container-padding);
   margin-inline: auto;
   max-width: 1336px;
   width: 100%;
 }
+
+:root {
+  --container-padding: 15px;
+}
+
+@custom-media --desktop-media (min-width: 1281px);
+@custom-media --tablet-media (max-width: 1280px);
+@custom-media --mobile-media (max-width: 767px);

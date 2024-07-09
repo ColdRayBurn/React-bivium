@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import { useFloating, autoUpdate, offset, useInteractions, useHover, useDismiss, useRole, FloatingFocusManager, safePolygon } from '@floating-ui/react';
 import Link from 'next/link';
@@ -25,6 +26,7 @@ interface Props {
 };
 
 const HeaderNavigationItem: FC<Props> = ({ title, categories }) => {
+  const router = useRouter();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const [isExpanded, setExpanded] = useState(false);
 
@@ -58,6 +60,7 @@ const HeaderNavigationItem: FC<Props> = ({ title, categories }) => {
           {...getReferenceProps()}
           className={classNames(styles.navigationItem, isExpanded && styles.navigationItem_expanded)}
           type='button'
+          onClick={() => router.push('/catalog')}
         >
           {title}
         </button>

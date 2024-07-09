@@ -18,15 +18,18 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
-    "react-redux": "^9.1.2"
+    "react-redux": "^9.1.2",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
+    "@csstools/postcss-global-data": "^2.1.1",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "postcss-custom-media": "^10.0.8",
     "typescript": "^5"
   }
 }

@@ -1,0 +1,86 @@
+.wrapper {
+  padding: 20px;
+  width: fit-content;
+  border-radius: 10px;
+  border: 1px solid #979797;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  color: #3D4143;
+}
+
+.header svg {
+  color: #000;
+}
+
+.description {
+  margin-top: 15px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #3D4143;
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.formCardInput {
+  width: 100%;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.formDate {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.formMonthInput,
+.formYearInput,
+.formCVCInput {
+  text-align: center;
+}
+
+.formDateSeparator {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #3D4143;
+}
+
+.formSubmitButton {
+  margin-top: 20px;
+
+  width: 100%;
+  justify-content: center;
+}
+
+.text {
+  margin-top: 15px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #979797;
+}
+
+.text span {
+  text-decoration: underline;
+}

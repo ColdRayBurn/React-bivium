@@ -79,7 +79,7 @@ const Footer: FC = async () => {
           <div className={styles.links}>
             <div className={styles.linksTitle}>Помощь</div>
             <div className={styles.linksWrapper}>
-              <Link className={styles.linksItem} href='#'>Контакты</Link>
+              <Link className={styles.linksItem} href='/contacts'>Контакты</Link>
               <Link className={styles.linksItem} href='#'>Размерная таблица</Link>
               <Link className={styles.linksItem} href='#'>Оплата товара</Link>
               <Link className={styles.linksItem} href='#'>Условия доставки</Link>
