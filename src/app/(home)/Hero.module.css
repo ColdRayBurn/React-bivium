@@ -1,20 +1,6 @@
 .wrapper {
   aspect-ratio: 3.2;
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url('/images/hero.png'); */
 }
-
-/* .container {
-  display: flex;
-  height: 100%; */
-/* } */
-
-/* .button {
-  margin-top: auto;
-  margin-bottom: 75px;
-} */
 
 .carousel,
 .carouselWrapper,
@@ -47,14 +33,24 @@
   object-fit: cover;
 }
 
-@media (--mobile-media) {
-  .carouselSlide {
-    background-image: var(--picture-mobile);
-  }
-}
-
 .button {
   position: absolute;
   bottom: 85px;
   background-color: rgba(0, 0, 0, .35);
+}
+
+@media (--tablet-media) {
+  .wrapper {
+    aspect-ratio: .625;
+  }
+
+  .carouselSlide {
+    background-image: var(--picture-mobile);
+  }
+
+  .button {
+    right: var(--container-padding);
+    bottom: 40px;
+    background-color: #FFF;
+  }
 }

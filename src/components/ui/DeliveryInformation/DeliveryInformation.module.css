@@ -1,8 +1,9 @@
 .wrapper {
   width: fit-content;
 
-  display: flex;
-  column-gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 
   padding-block: 20px;
   margin-inline: auto;
@@ -22,4 +23,10 @@
 
 .item svg {
   color: #000;
+}
+
+@media (--tablet-media) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
 }

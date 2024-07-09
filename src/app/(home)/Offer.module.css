@@ -8,7 +8,6 @@
 }
 
 .card {
-  --picture: none;
   padding: 20px;
 
   width: 100%;
@@ -54,4 +53,26 @@
   margin-top: 20px;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
+}
+
+@media (--tablet-media) {
+  .container {
+    padding-top: 30px;
+  }
+
+  .cards {
+    display: none;
+  }
+
+  .block {
+    margin-top: 0;
+  }
+
+  .deliveryInformation {
+    margin-top: 30px;
+  }
+
+  .blockDescription {
+    font-size: 20px;
+  }
 }

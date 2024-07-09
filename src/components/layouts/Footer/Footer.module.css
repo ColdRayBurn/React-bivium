@@ -108,3 +108,10 @@
   font-size: 30px;
   font-weight: 800;
 }
+
+@media (--tablet-media) {
+  .row:first-child {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+}

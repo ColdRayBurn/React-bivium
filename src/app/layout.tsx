@@ -4,7 +4,7 @@ import './globals.css';
 import StoreProvider from './StoreProvider';
 
 import AuthComponent from './AuthComponent';
-import DesktopHeader from '@/components/layouts/DesktopHeader/DesktopHeader';
+import Header from '@/components/layouts/Header/Header';
 import Footer from '@/components/layouts/Footer/Footer';
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <StoreProvider>
           <AuthComponent />
-          <DesktopHeader />
+          <Header />
           {children}
           <Footer />
         </StoreProvider>
