@@ -3,7 +3,7 @@
     font-family: 'DIN Condensed', sans-serif;
 }
 
-.HelpSection h1 {
+.HelpSection .title {
     font-size: 46px;
     margin-top: 51px;
     margin-bottom: 46px;
@@ -27,4 +27,5 @@
 
 .backwardLinkMargin {
     margin-left: 40px;
+    color: var(--black);
 }
