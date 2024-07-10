@@ -403,6 +403,7 @@ h6 {
 
 :root {
   --container-padding: 15px;
+  --black: #3D4143;
 }
 
 @custom-media --desktop-media (min-width: 1281px);
