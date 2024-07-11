@@ -1,4 +1,4 @@
-import { IUser } from '@/models';
+import { ICatalogProduct, IUser } from '@/models';
 
 export interface IErrorResponse {
   errorMessage: string;
@@ -64,4 +64,9 @@ export interface IMetaFooterResponse {
   paymentInformation: {
     text: string;
   }
+}
+
+export interface ICatalogResponse {
+  total: number;
+  products: ICatalogProduct[];
 }

@@ -2,7 +2,10 @@
 
 import { FC, MouseEvent } from 'react';
 import classNames from 'classnames';
+
 import Link from 'next/link';
+import Image from 'next/image';
+
 import styles from './ProductCard.module.css';
 
 import HeartIcon from '@/assets/icons/heart.svg';
@@ -13,15 +16,16 @@ interface Props {
   name: string;
   price: number | null;
   small?: boolean;
+  className?: string;
 }
 
-const ProductCard: FC<Props> = ({ id, image, name, price, small }) => {
+const ProductCard: FC<Props> = ({ id, image, name, price, small, className }) => {
   const favoriteButtonCallback = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
 
   return (
-    <Link className={classNames(styles.wrapper, small && styles.small)} href={`/catalog/${id}`}>
+    <Link className={classNames(styles.wrapper, small && styles.small, className)} href={`/products/${id}`}>
       {price === null && <div className={styles.badge}>нет в наличии</div>}
       <button className={styles.favoriteButton} type='button' onClick={favoriteButtonCallback}>
         <HeartIcon />

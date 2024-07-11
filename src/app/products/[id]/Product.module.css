@@ -1,0 +1,141 @@
+.wrapper {
+  margin-top: 50px;
+}
+
+.wrapper2 {
+  display: flex;
+  column-gap: 100px;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: calc(65% - 100px);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.body {
+  position: sticky;
+  top: 0;
+
+  width: calc(35% - 100px);
+  height: fit-content;
+
+  font-family: 'Montserrat', sans-serif;
+  color: #3D4143;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+
+.properties {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-top: 30px;
+}
+
+.propertiesItem {
+  display: flex;
+  column-gap: 5px;
+}
+
+.propertiesItemName {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.propertiesItemValue {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 10px;
+  margin-top: 30px;
+}
+
+.favoriteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+}
+
+.favoriteButton_active svg {
+  fill: currentColor;
+}
+
+.availability {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+
+  color: #3AB940;
+}
+
+.availability::before {
+  display: block;
+  content: '';
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 100%;
+  background-color: currentColor;
+}
+
+.modal {
+  display: flex;
+  column-gap: 20px;
+}
+
+.modalImage,
+.modalBody {
+  width: calc(50% - 10px);
+  flex-shrink: 0;
+}
+
+.modalImage {
+  object-fit: scale-down;
+}
+
+.modalBodyTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3D4143;
+}
+
+.modalBodyPrice {
+  margin-top: 5px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+
+  color: #3D4143;
+}

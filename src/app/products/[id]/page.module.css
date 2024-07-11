@@ -1,0 +1,21 @@
+.wrapper {
+  margin-top: 50px;
+}
+
+.relatedProducts {
+  margin-block: 70px 30px;
+}
+
+@media (--tablet-media) {
+  .breadcrumbs {
+    text-align: center;
+  }
+
+  .relatedProducts {
+    margin-block: 30px 60px !important;
+  }
+
+  .deliveryInformation {
+    display: none !important;
+  }
+}

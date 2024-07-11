@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerColumn,
+.footerColumn {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #3D4143;
+}
+
+.productsAmount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3D4143;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 20px;
+  margin-top: 50px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.showMoreButton {
+  margin-inline: auto;
+}
+
+@media (--tablet-media) {
+  .header {
+    align-items: initial;
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  .title {
+    font-size: 30px;
+    color: #000;
+  }
+
+  .headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+
+  .content {
+    margin-top: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px 10px;
+  }
+
+  .contentItem {
+    width: 100% !important;
+  }
+
+  .footerColumn {
+    display: none;
+  }
+}
