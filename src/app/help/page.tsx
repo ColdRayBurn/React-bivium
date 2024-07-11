@@ -2,14 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 import classes from './HelpSection.module.css';
-import styles from './HelpSection.module.css';
 import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
 import Link from 'next/link';
 
 const HelpSection: React.FC = () => {
     return (
         <main className={classNames(classes.container, 'container', classes.HelpSection)}>
-            <BackwardLink href='/' text='На главную' className={classes.backwardLinkMargin}/>
+            <BackwardLink href='/' text='Помощь' className={classes.backwardLinkMargin}/>
             <h1 className={classNames(classes.title)}>Помощь</h1>
             <div className={classNames(classes.HelpSection__links)}>
                 <Link href="/contacts" className={classNames(classes.HelpSection__link)}>Контакты</Link>
