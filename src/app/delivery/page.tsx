@@ -11,7 +11,7 @@ const DeliverySection: React.FC = () => {
             <h1 className={styles.title}>Условия доставки</h1>
             <div className={styles.description}>
                 <div className={styles.subtitle}>Доставка по России:</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     При оформлении заказа обязательно укажите адрес и свой номер телефона. До отправки вашего заказа вы
                     можете
                     в любое время изменить адрес доставки в вашем заказе, предварительно согласовав с представителем
@@ -24,11 +24,11 @@ const DeliverySection: React.FC = () => {
                 <div className={styles.listItem}>- Отслеживание отправлений EMS Почта России</div>
                 <div className={styles.listItem}>- Отслеживание отправлений КСЕ(курьер сервис экспресс)</div>
                 <div className={styles.listItem}>- Отслеживание отправлений Байкал Сервис</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     С адресами офисов и складов курьерских компаний можно ознакомиться на их сайтах.
                 </div>
                 <div className={styles.highlight}>- Бесплатная доставка</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     Если сумма вашего заказа превышает 20000 рублей, то доставка по территории РФ осуществляется
                     бесплатно.
                     Осуществляется через сервисы доставки: КСЕ, СДЭК, Почта России, Байкал Сервис или др. Срок доставки
@@ -38,7 +38,7 @@ const DeliverySection: React.FC = () => {
                     изменяющихся условий доставки транспортной компании.
                 </div>
                 <div className={styles.highlight}>Платная доставка</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     Срочная доставка или доставка заказа на сумму менее 20000 рублей, согласуется дополнительно с
                     менеджером
                     в момент оформления заказа. Или при оформлении заявки на сайте, пожалуйста, укажите комментарий, что
@@ -51,13 +51,13 @@ const DeliverySection: React.FC = () => {
                     компании.
                 </div>
                 <div className={styles.subtitle}>Доставка за рубеж (стоимость согласуется дополнительно):</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     Доставка заказов за рубеж осуществляется курьерской службой EMS. Срок доставки составляет от 15 до
                     30 дней
                     с момента передачи заказа курьерской службе, в зависимости от удаленности региона.
                 </div>
                 <div className={styles.highlight}>Стоимость доставки по России и за рубеж:</div>
-                <div className={styles.default__text}>
+                <div className={styles.paragraph}>
                     Платная доставка заказа оплачивается покупателем отдельно, стоимость доставки зависит от тарифов
                     транспортных компаний.
                     Примерная стоимость доставки одной куртки по России, можно посмотреть самостоятельно на сайте

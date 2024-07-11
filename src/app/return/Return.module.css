@@ -1,6 +1,7 @@
 .container {
     width: 1136px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .title {
@@ -18,15 +19,26 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.imageGenerator {
-    margin-top: 50px;
+.paragraph {
+    margin: 0;
 }
 
-.image {
-    width: 100%;
-    height: auto;
+.listItem {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+.listItem::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 24px;
+    color: var(--black);
 }
 
 .deliveryInformationContainer {
     margin: 79px 0 64px;
 }
+
