@@ -1,0 +1,27 @@
+.container {
+    width: 1136px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 46px;
+    font-family: "DIN Condensed", sans-serif;
+    margin-top: 53px;
+    color: var(--black);
+}
+
+.description {
+    font-size: 24px;
+    margin-top: 20px;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+}
+
+.description__subtitle, .description__element {
+    margin-top: 20px;
+
+}
+
+.deliveryInformationContainer {
+    margin: 79px 0 64px;
+}
