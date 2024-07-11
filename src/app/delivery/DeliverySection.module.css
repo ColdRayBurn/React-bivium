@@ -21,6 +21,14 @@
     margin-top: 20px;
 }
 
+.default__text, .listItem {
+    margin: 0;
+}
+
+.highlight {
+    margin: 20px 0;
+}
+
 .deliveryInformationContainer {
     margin: 79px 0 64px;
 }

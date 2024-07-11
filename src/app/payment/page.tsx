@@ -10,8 +10,8 @@ const PaymentSection: React.FC = () => {
             <BackwardLink href='/help' text='Помощь / Условия оплаты' className={classes.backwardLinkMargin}/>
             <h1 className={styles.title}>Условия оплаты</h1>
             <div className={styles.description}>
-                <div className={styles.description__subtitle}>1. Оплата банковской картой онлайн:</div>
-                <div className={styles.description__element}>
+                <div className={styles.subtitle}>1. Оплата банковской картой онлайн:</div>
+                <div className={styles.element}>
                     Наш сайт подключен к интернет-эквайрингу, и Вы можете оплатить Товар банковской картой. После
                     нажатия
                     кнопки «Оплатить картой» откроется защищенное окно с платежной страницей процессингового центра
@@ -24,7 +24,7 @@ const PaymentSection: React.FC = () => {
                     идентификации
                     уточняйте в Банке, выдавшем Вам банковскую карту.
                 </div>
-                <div className={styles.description__element}>
+                <div className={styles.element}>
                     Процессинговый центр ЮKassa защищает и обрабатывает данные Вашей банковской карты по стандарту
                     безопасности
                     PCI DSS 3.0. Передача информации в платежный шлюз происходит с применением технологии шифрования
@@ -35,20 +35,20 @@ const PaymentSection: React.FC = () => {
                     карты
                     используется протокол 3D Secure.
                 </div>
-                <div className={styles.description__element}>
+                <div className={styles.element}>
                     В случае отказа в оплате Вы можете обратиться в службу поддержки клиента банка или в наш контактный
                     центр.
                     Мы рекомендуем Вам заново попробовать произвести оплату через некоторое время. Если это не помогло,
                     стоит
                     обратиться в банк для выяснения причины отказа в оплате.
                 </div>
-                <div className={styles.description__element}>
+                <div className={styles.element}>
                     Все данные, введенные Вами, обрабатываются и защищаются процессинговым центром ЮKassa. Мы используем
                     для
                     этого современные методы защиты информации.
                 </div>
-                <div className={styles.description__subtitle}>2. Оплата в рассрочку:</div>
-                <div className={styles.description__element}>
+                <div className={styles.subtitle}>2. Оплата в рассрочку:</div>
+                <div className={styles.element}>
                     Забирайте свои покупки и платите в течение нескольких месяцев, БЕЗ ПЕРЕПЛАТЫ. Выбирайте удобный
                     способ
                     оплаты через ЮKassa (банковской картой), заполняете все пункты как при оплате банковской картой,
