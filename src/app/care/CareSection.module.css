@@ -14,33 +14,24 @@
 
 .description {
     font-size: 24px;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom: 80px;
     color: #000000;
     line-height: 29px;
     font-family: "Montserrat", sans-serif;
 }
 
 .paragraph {
+    font-family: "Montserrat", sans-serif;
     margin: 0;
+    font-size: 24px;
     color: #000000;
 }
 
-.listItem {
-    position: relative;
-    margin-left: 10px;
-    padding-left: 20px;
-}
-
-.listItem::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 24px;
-    color: var(--black);
+.imageContainer {
+    margin: 0;
 }
 
 .deliveryInformationContainer {
     margin: 79px 0 64px;
 }
-

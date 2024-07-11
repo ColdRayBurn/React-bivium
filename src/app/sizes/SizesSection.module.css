@@ -1,5 +1,6 @@
 .container {
-    width: 1136px;
+    max-width: 1136px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -7,6 +8,7 @@
     font-size: 46px;
     font-family: "DIN Condensed", sans-serif;
     margin-top: 53px;
+    margin-bottom: 20px;
     color: var(--black);
 }
 
