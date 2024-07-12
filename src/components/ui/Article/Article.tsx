@@ -9,9 +9,10 @@ interface ArticleProps {
     backLinkText: string;
     backLinkHref: string;
     content: React.ReactNode;
+    buttons?: React.ReactNode;
 }
 
-const Article: React.FC<ArticleProps> = ({ title, backLinkText, backLinkHref, content }) => {
+const Article: React.FC<ArticleProps> = ({ title, backLinkText, backLinkHref, content, buttons }) => {
     return (
         <div className={styles.container}>
             <BackwardLink href={backLinkHref} text={backLinkText} className={classes.backwardLinkMargin}/>
@@ -19,6 +20,8 @@ const Article: React.FC<ArticleProps> = ({ title, backLinkText, backLinkHref, co
             <div className={styles.description}>
                 {content}
             </div>
+
+            {buttons}
             <div className={styles.deliveryInformationContainer}>
                 <DeliveryInformation/>
             </div>

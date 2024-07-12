@@ -1,6 +1,8 @@
 import React from 'react';
 import Article from '@/components/ui/Article/Article';
 import styles from './SizesSection.module.css';
+import Button from "@/components/ui/Button/Button";
+import {autoUpdate, offset, useFloating} from "@floating-ui/react";
 
 const sizeCharts = [
     {
