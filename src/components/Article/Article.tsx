@@ -16,7 +16,7 @@ interface ArticleProps {
 
 const Article: React.FC<ArticleProps> = ({title, backLinkText, backLinkHref, content, buttons, images, useGrid = false}) => {
     return (
-        <div className={styles.container}>
+        <div className='container'>
             <BackwardLink href={backLinkHref} text={backLinkText} className={classes.backwardLinkMargin}/>
             <h1 className={styles.title}>{title}</h1>
             <div className={useGrid ? styles.gridWrapper : ''}>

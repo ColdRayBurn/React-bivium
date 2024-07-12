@@ -1,8 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    row-gap: 56px;
-    column-gap: 69px;
+    row-gap: 74px;
     margin-top: 80px;
 }
 
@@ -11,6 +10,7 @@
     align-items: center;
     gap: 30px;
     font-weight: 600;
+    width: 500px;
 }
 
 .item svg {
@@ -20,7 +20,7 @@
 }
 
 .item span {
-    font-size: 1em;
+    font-size: 24px;
     color: var(--black);
 }
 

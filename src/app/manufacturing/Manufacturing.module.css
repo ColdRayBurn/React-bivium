@@ -35,3 +35,7 @@
 .videoContainer {
     margin: 45px 0 53px;
 }
+
+.videoContainer iframe {
+    width: 100%;
+}

@@ -1,0 +1,41 @@
+.section {
+    margin-top: 64px;
+    padding: 10px 0;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 22px;
+    color: var(--black);
+}
+
+.vacancy {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+}
+
+.vacancyTitle {
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--black);
+}
+
+.vacancyDetails {
+    color: #979797;
+    font-size: 24px;
+}
+
+.vacancyDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vacancySalary {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+}
