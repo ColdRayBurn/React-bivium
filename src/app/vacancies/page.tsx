@@ -3,6 +3,8 @@ import styles from './Vacancies.module.css';
 import VacancySection from './VacancySection';
 import Button from '@/components/ui/Button/Button';
 import DeliveryInformation from "@/components/ui/DeliveryInformation/DeliveryInformation";
+import BackwardLink from "@/components/ui/BackwardLink/BackwardLink";
+import classes from "@/app/help/HelpSection.module.css";
 
 const Vacancies: React.FC = () => {
     const designVacancies = [
@@ -28,6 +30,11 @@ const Vacancies: React.FC = () => {
     return (
         <main className="container">
             <div className={styles.vacancies}>
+                <BackwardLink
+                    href={'/about-company'}
+                    text={'О компании / Вакансии'}
+                    className={classes.backwardLinkMargin}
+                />
                 <h1 className={styles.title}>Вакансии</h1>
                 <div className={styles.contactInfo}>
                     <div className={styles.contactDetail}>
