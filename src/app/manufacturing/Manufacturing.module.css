@@ -24,12 +24,13 @@
 
 .section__block {
     margin: 20px 0;
+    color: var(--black);
 }
 
 .heading {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--black);
 }
 
 .paragraph {
