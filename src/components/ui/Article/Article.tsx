@@ -11,20 +11,21 @@ interface ArticleProps {
     content: React.ReactNode;
     buttons?: React.ReactNode;
     images?: React.ReactNode;
+    useGrid?: boolean; // Новый пропс для применения сетки
 }
 
-const Article: React.FC<ArticleProps> = ({title, backLinkText, backLinkHref, content, buttons, images}) => {
+const Article: React.FC<ArticleProps> = ({title, backLinkText, backLinkHref, content, buttons, images, useGrid = false}) => {
     return (
         <div className={styles.container}>
             <BackwardLink href={backLinkHref} text={backLinkText} className={classes.backwardLinkMargin}/>
             <h1 className={styles.title}>{title}</h1>
-            <div className={styles.description}>
-                {content}
+            <div className={useGrid ? styles.gridWrapper : ''}>
+                <div className={styles.description}>
+                    {content}
+                    {buttons}
+                </div>
+                {images && <div className={styles.imageContainer}>{images}</div>}
             </div>
-
-            {buttons}
-            {images}
-
             <div className={styles.deliveryInformationContainer}>
                 <DeliveryInformation/>
             </div>

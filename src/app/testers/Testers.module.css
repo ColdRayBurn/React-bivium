@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+}
+
+.btns__container {
+    display: flex;
+    gap: 20px;
+    margin-top: 55px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+}
+
+.imageContainer img {
+    width: 100%;
+    max-width: 484px;
+    margin-top: 20px;
+}
