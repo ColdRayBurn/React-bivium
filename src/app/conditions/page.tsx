@@ -20,7 +20,7 @@ const Conditions: React.FC = () => {
                     адресу <u>zakaz@bivium.ru</u>
                 </div>
             </div>
-            <PartnershipInformation />
+            <PartnershipInformation/>
         </>
     );
 
