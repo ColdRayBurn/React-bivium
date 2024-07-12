@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import classNames from 'classnames';
 import styles from './PartnershipInformation.module.css';
 
-// Импортируйте иконки, которые вы будете использовать
 import RegistrationIcon from '@/assets/icons/registration.svg';
 import FormIcon from '@/assets/icons/form.svg';
 import AssessmentIcon from '@/assets/icons/assessment.svg';
