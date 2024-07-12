@@ -1,8 +1,8 @@
 import React from 'react';
-import BackwardLink from "@/components/ui/BackwardLink/BackwardLink";
-import DeliveryInformation from "@/components/ui/DeliveryInformation/DeliveryInformation";
+import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
+import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 import styles from './Article.module.css';
-import classes from "@/app/help/HelpSection.module.css";
+import classes from '@/app/help/HelpSection.module.css';
 
 interface ArticleProps {
     title: string;

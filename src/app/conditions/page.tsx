@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Conditions.module.css';
 import Article from '@/components/ui/Article/Article';
-import Button from "@/components/ui/Button/Button";
+import Button from '@/components/ui/Button/Button';
 import PartnershipInformation from '@/components/ui/PartnershipInformation/PartnershipInformation';
 
 const Conditions: React.FC = () => {
