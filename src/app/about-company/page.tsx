@@ -37,7 +37,7 @@ const AboutCompany: React.FC = () => {
     return (
         <Article
             title=''
-            backLinkText='Помощь / О компании'
+            backLinkText='О компании'
             backLinkHref='/help'
             content={content}
         />
