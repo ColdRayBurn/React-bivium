@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Ambassadors.module.css';
 import BackwardLink from "@/components/ui/BackwardLink/BackwardLink";
 import classes from "@/app/help/HelpSection.module.css";
-import Article from "@/components/ui/Article/Article";
+import Article from "@/components/Article/Article";
 import Button from "@/components/ui/Button/Button";
 
 const AmbassadorsSection: React.FC = () => {

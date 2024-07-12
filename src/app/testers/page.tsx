@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from '@/components/ui/Article/Article';
+import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
 import styles from './Testers.module.css';
 

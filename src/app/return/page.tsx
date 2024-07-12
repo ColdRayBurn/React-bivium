@@ -1,5 +1,5 @@
 import React from 'react';
-import Article from '@/components/ui/Article/Article';
+import Article from '@/components/Article/Article';
 import styles from './Return.module.css';
 
 const ReturnSection: React.FC = () => {

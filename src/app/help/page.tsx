@@ -12,11 +12,11 @@ const HelpSection: React.FC = () => {
             <h1 className={classNames(classes.title)}>Помощь</h1>
             <div className={classNames(classes.HelpSection__links)}>
                 <Link href="/contacts" className={classNames(classes.HelpSection__link)}>Контакты</Link>
-                <Link href="/#size-chart" className={classNames(classes.HelpSection__link)}>Размерная таблица</Link>
-                <Link href="/#payment" className={classNames(classes.HelpSection__link)}>Оплата товара</Link>
-                <Link href="/#delivery-terms" className={classNames(classes.HelpSection__link)}>Условия доставки</Link>
-                <Link href="/#returns" className={classNames(classes.HelpSection__link)}>Возврат товара</Link>
-                <Link href="/#care-symbols" className={classNames(classes.HelpSection__link)}>Знаки и уход за товарами</Link>
+                <Link href="/sizes" className={classNames(classes.HelpSection__link)}>Размерная таблица</Link>
+                <Link href="/payment" className={classNames(classes.HelpSection__link)}>Оплата товара</Link>
+                <Link href="/delivery" className={classNames(classes.HelpSection__link)}>Условия доставки</Link>
+                <Link href="/return" className={classNames(classes.HelpSection__link)}>Возврат товара</Link>
+                <Link href="/care" className={classNames(classes.HelpSection__link)}>Знаки и уход за товарами</Link>
                 <Link href="/#promotions" className={classNames(classes.HelpSection__link)}>Акции</Link>
             </div>
             <DeliveryInformation/>

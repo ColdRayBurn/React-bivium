@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Conditions.module.css';
-import Article from '@/components/ui/Article/Article';
+import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
 import PartnershipInformation from '@/components/ui/PartnershipInformation/PartnershipInformation';
 

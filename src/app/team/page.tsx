@@ -1,6 +1,6 @@
 import React from 'react';
-import Article from "@/components/ui/Article/Article";
-import styles from "@/app/sizes/SizesSection.module.css";
+import Article from '@/components/Article/Article';
+import styles from '@/app/sizes/SizesSection.module.css';
 
 const TeamSection: React.FC = () => {
 
