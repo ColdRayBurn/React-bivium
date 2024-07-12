@@ -1,0 +1,28 @@
+.paragraph h4 {
+    margin-top: 60px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.heading {
+    font-size: 46px;
+    margin-bottom: 20px;
+    color: var(--black);
+    font-family: "DIN Condensed", sans-serif;
+    margin-top: 54px;
+    &:first-child {
+        margin-top: 53px;
+    }
+}
+
+.paragraph {
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--black);
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
+}
