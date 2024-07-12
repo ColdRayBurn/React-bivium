@@ -11,7 +11,7 @@ interface ArticleProps {
     content: React.ReactNode;
     buttons?: React.ReactNode;
     images?: React.ReactNode;
-    useGrid?: boolean; // Новый пропс для применения сетки
+    useGrid?: boolean;
 }
 
 const Article: React.FC<ArticleProps> = ({title, backLinkText, backLinkHref, content, buttons, images, useGrid = false}) => {
