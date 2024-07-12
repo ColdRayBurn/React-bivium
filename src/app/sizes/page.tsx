@@ -1,9 +1,6 @@
 import React from 'react';
+import Article from '@/components/ui/Article/Article';
 import styles from './SizesSection.module.css';
-import classes from "@/app/help/HelpSection.module.css";
-import BackwardLink from "@/components/ui/BackwardLink/BackwardLink";
-import DeliveryInformation from "@/components/ui/DeliveryInformation/DeliveryInformation";
-
 
 const sizeCharts = [
     {
@@ -24,10 +21,8 @@ const sizeCharts = [
 ];
 
 const SizesSection: React.FC = () => {
-    return (
-        <div className={styles.container}>
-            <BackwardLink href='/help' text='Помощь / Размерная таблица' className={classes.backwardLinkMargin}/>
-            <h1 className={styles.title}>Размерная страница</h1>
+    const content = (
+        <>
             <div className={styles.description}>
                 Данный раздел создан, для того чтобы вы могли легко и безошибочно подобрать свой костюм BIVIUM.
                 Напоминаем вам, что стандартно в наших изделиях предусмотрена посадка Slim fit и если вы хотите
@@ -40,11 +35,16 @@ const SizesSection: React.FC = () => {
                     <img src={img.image} alt={img.alt} className={styles.image}/>
                 </div>
             ))}
-            <div className={styles.deliveryInformationContainer}>
-                <DeliveryInformation/>
-            </div>
-        </div>
+        </>
+    );
 
+    return (
+        <Article
+            title='Размерная страница'
+            backLinkText='Помощь / Размерная таблица'
+            backLinkHref='/help'
+            content={content}
+        />
     );
 };
 

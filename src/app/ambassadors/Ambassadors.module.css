@@ -1,3 +1,9 @@
+.container {
+    max-width: 1136px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 .title {
     font-size: 46px;
     font-family: "DIN Condensed", sans-serif;
@@ -12,20 +18,4 @@
     color: #000000;
     line-height: 29px;
     font-family: "Montserrat", sans-serif;
-}
-
-.subtitle, .element {
-    margin-top: 20px;
-}
-
-.paragraph, .listItem {
-    margin: 0;
-}
-
-.highlight {
-    margin: 20px 0;
-}
-
-.deliveryInformationContainer {
-    margin: 79px 0 64px;
 }
