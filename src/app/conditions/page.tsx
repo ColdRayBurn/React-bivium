@@ -32,16 +32,13 @@ const Conditions: React.FC = () => {
     );
 
     return (
-        <main className={styles.container}>
-            <Article
-                title='Условия сотрудничества для оптовых покупателей'
-                backLinkText='Помощь / Условия сотрудничества для оптовых покупателей'
-                backLinkHref='/help'
-                content={content}
-                buttons={buttons}
-            />
-        </main>
-
+        <Article
+            title='Условия сотрудничества для оптовых покупателей'
+            backLinkText='Помощь / Условия сотрудничества для оптовых покупателей'
+            backLinkHref='/help'
+            content={content}
+            buttons={buttons}
+        />
     );
 };
 
