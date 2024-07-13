@@ -45,3 +45,9 @@
 .content {
   flex-grow: 1;
 }
+
+@media (--tablet-media) {
+  .container {
+    margin-top: 10px;
+  }
+}

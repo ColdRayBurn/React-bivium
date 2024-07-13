@@ -2,6 +2,7 @@
 
 import { FC, useId } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import dynamic from 'next/dynamic';
 import styles from './UserData.module.css';
 
 import Input from '@/components/ui/Input/Input';
@@ -13,6 +14,8 @@ import api from '@/api';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
 import { IUser } from '@/models';
+
+const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 interface IForm {
   name: string;
@@ -54,6 +57,9 @@ const UserData: FC = () => {
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit)}>
+      <MediaQuery maxWidth={1280}>
+        <h1 className={styles.title}>Данные</h1>
+      </MediaQuery>
       <div className={styles.fullname}>
         <Input placeholder='Фамилия' type='text' {...register('surname')} />
         <Input placeholder='Имя' type='text' {...register('name', { required: true })} />

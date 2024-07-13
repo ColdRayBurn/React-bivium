@@ -15,6 +15,8 @@ import YandexPayIcon from '@/assets/icons/yandex-pay.svg';
 import LogotypeIcon from '@/assets/icons/logotype.svg';
 import Button from '@/components/ui/Button/Button';
 
+import FooterLinks from './FooterLinks';
+
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
 
@@ -75,42 +77,7 @@ const Footer: FC = async () => {
             </div>
           </div>
         </div>
-        <div className={styles.row}>
-          <div className={styles.links}>
-            <div className={styles.linksTitle}>Помощь</div>
-            <div className={styles.linksWrapper}>
-              <Link className={styles.linksItem} href='/contacts'>Контакты</Link>
-              <Link className={styles.linksItem} href='#'>Размерная таблица</Link>
-              <Link className={styles.linksItem} href='#'>Оплата товара</Link>
-              <Link className={styles.linksItem} href='#'>Условия доставки</Link>
-              <Link className={styles.linksItem} href='#'>Возврат товара</Link>
-              <Link className={styles.linksItem} href='#'>Знаки и уход за товарами</Link>
-              <Link className={styles.linksItem} href='#'>Акции</Link>
-            </div>
-          </div>
-          <div className={styles.links}>
-            <div className={styles.linksTitle}>О компании</div>
-            <div className={styles.linksWrapper}>
-              <Link className={styles.linksItem} href='#'>Новости</Link>
-              <Link className={styles.linksItem} href='#'>Команда</Link>
-              <Link className={styles.linksItem} href='#'>О производстве</Link>
-              <Link className={styles.linksItem} href='#'>Сертификаты</Link>
-              <Link className={styles.linksItem} href='#'>Вакансии</Link>
-              <Link className={styles.linksItem} href='#'>Магазины</Link>
-              <Link className={styles.linksItem} href='#'>Публичная оферта</Link>
-              <Link className={styles.linksItem} href='#'>Политика конфиденциальности</Link>
-            </div>
-          </div>
-          <div className={styles.links}>
-            <div className={styles.linksTitle}>Сотрудничество</div>
-            <div className={styles.linksWrapper}>
-              <Link className={styles.linksItem} href='#'>Условия сотрудничества для оптовых покупателей</Link>
-              <Link className={styles.linksItem} href='#'>Стать амбасадором или представителем бренда</Link>
-              <Link className={styles.linksItem} href='#'>Стать тестировщиком</Link>
-              <Link className={styles.linksItem} href='#'>Команда бренда</Link>
-            </div>
-          </div>
-        </div>
+        <FooterLinks />
         <div className={styles.bottom}>
           <div className={styles.copyright}>BIVIUM © 2024</div>
           <Link className={styles.logotype} href='/'>

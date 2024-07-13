@@ -1,0 +1,33 @@
+.wrapper {
+  padding-block: 60px;
+}
+
+.title {
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 48px;
+
+  color: #3D4143;
+}
+
+.text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: #3D4143;
+}
+
+@media (--tablet-media) {
+  .wrapper {
+    padding-block: 40px 60px;
+  }
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

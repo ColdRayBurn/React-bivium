@@ -9,7 +9,10 @@ type Props = IMetaHomepageResponse['banner'];
 
 const Partners: FC<Props> = ({ name, picture, pictureMobile }) => {
   return (
-    <section className={styles.wrapper} style={{ backgroundImage: `url(${formatUrl(picture)})` }}>
+    <section className={styles.wrapper} style={{
+      '--picture': `url(${formatUrl(picture)})`,
+      '--mobile-picture': `url(${formatUrl(pictureMobile ? pictureMobile : picture)})`
+    }}>
       <div className={classNames(styles.container, 'container')}>
         <div className={styles.subtitle}>Внимание нашим будущим</div>
         <h1 className={styles.title}>{name}</h1>

@@ -18,7 +18,10 @@ const Offer: FC<Props> = ({ blockUnderBanner, description }) => {
     <section className={classNames(styles.container, 'container')}>
       <div className={styles.cards}>
         {blockUnderBanner.map((card, cardIndex) =>
-          <div key={cardIndex} className={styles.card} style={{ '--picture': `url(${formatUrl(card.picture)})` } as CSSProperties}>
+          <div key={cardIndex} className={styles.card} style={{
+            '--picture': `url(${formatUrl(card.picture)})`,
+            '--mobile-picture': `url(${formatUrl(card.pictureMobile ? card.pictureMobile : card.picture)})`
+          }}>
             <div className={styles.cardOfferText}>{card.topText}</div>
             <div className={styles.cardTitle}>{card.bottomText}</div>
           </div>
@@ -30,7 +33,7 @@ const Offer: FC<Props> = ({ blockUnderBanner, description }) => {
           <ExpandableText>{description.text}</ExpandableText>
         </div>
       </div>
-      <DeliveryInformation />
+      <DeliveryInformation className={styles.deliveryInformation} />
     </section>
   );
 };

@@ -1,24 +1,37 @@
-import { FC } from 'react';
-import styles from './RelatedProducts.module.css';
+'use client';
 
-import ProductCard from '../ui/ProductCard/ProductCard';
+import { FC, useState, useEffect, useRef } from 'react';
+
+import ProductsList from '../ProductsList/ProductsList';
+
+import api from '@/api';
+import { IProductCard } from '@/models';
 
 interface Props {
+  relatedTo: number;
+  initialProducts?: IProductCard[];
   className?: string;
 }
 
-const RelatedProducts: FC<Props> = ({ className }) => {
-  return (
-    <section className={className}>
-      <h2 className={styles.title}>Похожие товары</h2>
-      <div className={styles.content}>
-        <ProductCard id={1} name='Шапка «Баланс»' price={1500} image='https://i.imgur.com/QkKpd0X.png' />
-        <ProductCard id={1} name='Шапка «Баланс»' price={null} image='https://i.imgur.com/QkKpd0X.png' />
-        <ProductCard id={1} name='Шапка «Баланс»' price={1500} image='https://i.imgur.com/QkKpd0X.png' />
-        <ProductCard id={1} name='Шапка «Баланс»' price={1500} image='https://i.imgur.com/QkKpd0X.png' />
-      </div>
-    </section>
-  );
+const RelatedProducts: FC<Props> = ({ className, relatedTo, initialProducts }) => {
+  const [products, setProducts] = useState(initialProducts);
+  const abortControllerRef = useRef(new AbortController());
+
+  useEffect(() => {
+    if (initialProducts !== undefined) {
+      return;
+    }
+
+    const abortController = abortControllerRef.current;
+
+    api.get(`products/${relatedTo}/?similar`, {
+      signal: abortController.signal
+    }).json<IProductCard[]>().then(products => setProducts(products));
+
+    return () => abortController.abort('aborted');
+  }, [relatedTo, initialProducts]);
+
+  return <ProductsList className={className} title='Похожие товары' products={products ?? []} />;
 };
 
 export default RelatedProducts;

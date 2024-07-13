@@ -12,6 +12,7 @@
     "comma-dangle": [
       "warn",
       "never"
-    ]
+    ],
+    "@next/next/no-img-element": "off"
   }
 }
