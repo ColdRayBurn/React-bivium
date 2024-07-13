@@ -1,7 +1,9 @@
 .wrapper {
+  position: relative;
   display: flex;
-  column-gap: 10px;
+  gap: 10px;
   margin-top: 50px;
+  flex-wrap: wrap;
 }
 
 .sizeButton {
@@ -17,7 +19,6 @@
   font-weight: 400;
 
   border: 2px solid #DADADA;
-  box-shadow: 0px 0px 6px 0px #00000059;
   border-radius: 7px;
 
   color: #3D4143;
@@ -30,9 +31,15 @@
 .sizeButton:has(input:checked) {
   color: #000;
   border: 2px solid #000000;
-  box-shadow: 0px 0px 6px 0px #00000059;
 }
 
 .sizeButton input {
   display: none;
+}
+
+@media (--tablet-media) {
+  .sizeButton {
+    width: 60px;
+    font-size: 23px;
+  }
 }

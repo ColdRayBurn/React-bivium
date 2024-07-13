@@ -63,7 +63,12 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
       </div>
       <div className={styles.content}>
         {products.map(product =>
-          <ProductCard className={styles.contentItem} key={product.id} id={product.id} image={formatUrl(product.image)} name={product.name} price={product.price} />
+          <ProductCard
+            className={styles.contentItem}
+            key={product.id} id={product.id}
+            image={formatUrl(product.image)} name={product.name}
+            price={product.price} inStock={product.inStock}
+          />
         )}
       </div>
       <div className={styles.footer}>

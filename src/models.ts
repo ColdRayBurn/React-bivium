@@ -40,3 +40,11 @@ export interface ICatalogProduct {
   views: number;
   uploadedAt: 1720006392;
 }
+
+export interface IProductCard {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  inStock: boolean;
+}

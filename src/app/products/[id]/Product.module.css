@@ -83,29 +83,8 @@
   fill: currentColor;
 }
 
-.availability {
+.inStockStatus {
   margin-top: 25px;
-
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-
-  color: #3AB940;
-}
-
-.availability::before {
-  display: block;
-  content: '';
-
-  width: 10px;
-  height: 10px;
-
-  border-radius: 100%;
-  background-color: currentColor;
 }
 
 .modal {
@@ -138,4 +117,70 @@
   font-weight: 400;
 
   color: #3D4143;
+}
+
+@media (--tablet-media) {
+  .wrapper {
+    margin-top: 20px;
+  }
+
+  .wrapper2 {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .body {
+    width: 100%;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .properties {
+    margin-top: 30px;
+    row-gap: 10px;
+  }
+
+  .propertiesItemName,
+  .propertiesItemValue {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .addToCartButton {
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .modal {
+    flex-direction: column;
+  }
+
+  .modalImage {
+    width: 100%;
+    aspect-ratio: .85;
+  }
+
+  .modalBody {
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .modalBodyTitle {
+    font-size: 16px;
+  }
+
+  .modalBodyPrice {
+    font-size: 20px;
+    margin-top: 15px;
+  }
 }

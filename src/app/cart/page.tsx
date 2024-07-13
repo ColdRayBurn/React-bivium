@@ -6,7 +6,7 @@ import Cart from './Cart';
 import Sidebar from './Sidebar';
 
 import EmptyCart from './EmptyCart';
-import RelatedProducts from '@/components/RelatedProducts/RelatedProducts';
+import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 
 import styles from './page.module.css';
@@ -23,7 +23,7 @@ const Page: FC = () => {
         {isCartEmpty && (
           <>
             <EmptyCart />
-            <RelatedProducts className={styles.products} />
+            <PopularProducts className={styles.products} />
             <DeliveryInformation className={styles.deliveryInformation} />
           </>
         )}
