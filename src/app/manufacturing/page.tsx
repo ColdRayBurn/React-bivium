@@ -27,13 +27,13 @@ const Manufacturing: React.FC = () => {
                 </div>
                 <div className={styles.videoContainer}>
                     <iframe width="1042" height="482" src="https://www.youtube.com/embed/Видео_ID"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen></iframe>
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen></iframe>
                 </div>
                 <div className={styles.section__block}>
                     <div className={styles.paragraph}>
-                        Именно поэтому мы создали понятие "разумного подхода", который наблюдается и проявляется во всех
+                        Именно поэтому мы создали понятие &quot;разумного подхода&quot;, который наблюдается и проявляется во всех
                         сферах жизни нашего бренда: Разумный подход к жизни, разумный подход к производству, разумный
                         подход
                         к продукту.

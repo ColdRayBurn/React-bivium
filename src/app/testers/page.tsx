@@ -4,7 +4,6 @@ import Button from '@/components/ui/Button/Button';
 import styles from './Testers.module.css';
 import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
-import description from "@/app/catalog/[id]/Description";
 
 const Testers: React.FC = () => {
     return (
@@ -32,10 +31,10 @@ const Testers: React.FC = () => {
                         </div>
                     </div>
                     <div className={styles.imageContainer}>
-                        <img src={'/images/testers.png'} className={styles.image}/>
+                        <img src={'/images/testers.png'} className={styles.image} alt='' />
                     </div>
                 </div>
-                <DeliveryInformation className={styles.deliveryInformationContainer}/>
+                <DeliveryInformation className={styles.deliveryInformationContainer} />
             </div>
         </main>
     );
