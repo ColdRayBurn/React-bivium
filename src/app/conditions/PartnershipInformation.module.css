@@ -1,0 +1,30 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    row-gap: 74px;
+    margin-top: 80px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 600;
+    width: 500px;
+}
+
+.item svg {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.item span {
+    font-size: 24px;
+    color: var(--black);
+}
+
+.item a {
+    text-decoration: underline;
+}
+

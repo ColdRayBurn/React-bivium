@@ -1,0 +1,31 @@
+.title {
+    font-size: 46px;
+    font-family: "DIN Condensed", sans-serif;
+    margin-top: 53px;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.description {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #000000;
+    line-height: 29px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.subtitle, .element {
+    margin-top: 20px;
+}
+
+.paragraph, .listItem {
+    margin: 0;
+}
+
+.highlight {
+    margin: 20px 0;
+}
+
+.deliveryInformationContainer {
+    margin: 79px 0 64px;
+}
