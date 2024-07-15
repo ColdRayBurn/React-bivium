@@ -4,7 +4,7 @@ import { FC, KeyboardEventHandler } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './CardForm.module.css';
 
-import CardIcon from '@/assets/icons/card.svg';
+import CardIcon from '@icons/card.svg';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
 

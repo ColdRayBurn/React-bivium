@@ -4,7 +4,7 @@ import { FC, useRef, useState } from 'react';
 import styles from './HeaderSearch.module.css';
 import classnames from 'classnames';
 
-import SearchIcon from '@/assets/icons/search.svg';
+import SearchIcon from '@icons/search.svg';
 
 interface Props {
   onSubmit: (query: string) => void;

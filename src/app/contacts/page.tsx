@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './page.module.css';
 
-import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import Contacts from './Contacts';
 import Partners from './Partners';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
@@ -14,7 +14,7 @@ const Page: FC = async () => {
 
   return (
     <main className='container'>
-      <BackwardLink href='/' text='На главную' />
+      <Breadcrumbs breadсrumbs={[{ name: 'На главную', path: '/' }]} />
       <Contacts contacts={meta.topBlock} />
       <Partners partners={meta.partners} />
       <DeliveryInformation className={styles.deliveryInformation} />

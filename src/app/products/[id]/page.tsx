@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import Breadcrumbs from './Breadcrumbs';
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import Product from './Product';
 import Description from './Description';
 import RelatedProducts from '@/components/RelatedProducts/RelatedProducts';
@@ -26,7 +26,7 @@ const ProductPage: FC<Props> = async ({ params: { id } }) => {
 
   return (
     <main className={classNames(styles.wrapper, 'container')}>
-      <Breadcrumbs className={styles.breadcrumbs} crumbs={[
+      <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={[
         { name: getCatalogCategoryNameByCode(getCatalogCategoryCodeById(product.categoryId)!), path: `/catalog/${getCatalogCategoryCodeById(product.categoryId)}` },
         { name: product.name, path: `/products/${product.id}` }
       ]} />

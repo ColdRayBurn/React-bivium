@@ -8,11 +8,11 @@ import Link from 'next/link';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
 import HeaderNavigationItem from './HeaderNavigtationItem/HeaderNavigationItem';
 
-import HamburgerIcon from '@/assets/icons/hamburger.svg';
-import BiviumIcon from '@/assets/icons/bivium.svg';
-import HeartIcon from '@/assets/icons/heart.svg';
-import BagIcon from '@/assets/icons/bag.svg';
-import UserIcon from '@/assets/icons/user.svg';
+import HamburgerIcon from '@icons/hamburger.svg';
+import BiviumIcon from '@icons/bivium.svg';
+import HeartIcon from '@icons/heart.svg';
+import BagIcon from '@icons/bag.svg';
+import UserIcon from '@icons/user.svg';
 
 import { useAppSelector } from '@/redux/hooks';
 

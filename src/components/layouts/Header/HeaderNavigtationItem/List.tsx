@@ -2,7 +2,7 @@ import { forwardRef, CSSProperties, useState, useEffect } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import ChevronRightIcon from '@/assets/icons/chevron-right.svg';
+import ChevronRightIcon from '@icons/chevron-right.svg';
 import styles from './List.module.css';
 
 interface Subcategory {

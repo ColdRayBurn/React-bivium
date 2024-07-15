@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import Button from '@/components/ui/Button/Button';
-import CrossIcon from '@/assets/icons/cross.svg';
+import CrossIcon from '@icons/cross.svg';
 
 import styles from './ConfirmDialogPopup.module.css';
 

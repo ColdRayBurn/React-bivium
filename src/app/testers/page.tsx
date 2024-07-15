@@ -1,43 +1,22 @@
-import React from 'react';
-import classes from '@/app/help/HelpSection.module.css';
-import Button from '@/components/ui/Button/Button';
-import styles from './Testers.module.css';
-import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
-import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import { FC } from 'react';
 
-const Testers: React.FC = () => {
-    return (
-        <main className="container">
-            <div className={styles.testers}>
-                <BackwardLink
-                    href={'/help'}
-                    text={'Помощь / Стать тестировщиком'}
-                    className={classes.backwardLinkMargin}
-                />
-                <h1 className={styles.title}>Стать тестировщиком</h1>
-                <div className={styles.gridWrapper}>
-                    <div className={styles.description__wrapper}>
-                        <div className={styles.description}>
-                            Нам очень важна обратная связь. Нам важен Ваш опыт использования нашей продукции, поэтому мы
-                            запускаем
-                            проект, в котором каждый, кто купил нашу вещь и готов дать честный отзыв, может стать
-                            тестировщиком.
-                            С Вас честный отзыв, с нас возможность участвовать в создании новой коллекции и шанс первым
-                            попробовать
-                            новую эксклюзивную экипировку раньше всех.
-                        </div>
-                        <div className={styles.btns__container}>
-                            <Button type='submit' variant='negative' icon={false}>Отправить заявку</Button>
-                        </div>
-                    </div>
-                    <div className={styles.imageContainer}>
-                        <img src={'/images/testers.png'} className={styles.image} alt='' />
-                    </div>
-                </div>
-                <DeliveryInformation className={styles.deliveryInformationContainer} />
-            </div>
-        </main>
-    );
+import Article from '@/components/Article/Article';
+import Button from '@/components/ui/Button/Button';
+
+import styles from './page.module.css';
+
+const Page: FC = () => {
+  return <Article breadсrumbs={[{ name: 'Помощь', path: '/help' }, { name: 'Стать тестировщиком', path: '/testers' }]} title='Стать тестировщиком' content={
+    <>
+      <div className={styles.wrapper}>
+        <div className={styles.body}>
+          Нам очень важна обратная связь. Нам важен Ваш опыт использования нашей продукции, поэтому мы запускаем проект, в котором каждый, кто купил нашу вещь и готов дать честный отзыв, может стать тестестировщиком. С Вас честный отзыв, с нас возможность участвовать в создании новой коллекции и шанс первым попробовать новую эксклюзивную экипировку раньше всех.
+          <Button className={styles.button} variant='negative' icon={false}>Отправить заявку</Button>
+        </div>
+        <img className={styles.image} src='/images/testers.png' alt='' />
+      </div>
+    </>
+  } />;
 };
 
-export default Testers;
+export default Page;

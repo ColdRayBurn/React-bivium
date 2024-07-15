@@ -4,7 +4,7 @@ import { FC, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import styles from './ExpandableText.module.css';
 
-import ChevronDownIcon from '@/assets/icons/chevron-down.svg';
+import ChevronDownIcon from '@icons/chevron-down.svg';
 
 interface Props extends PropsWithChildren {
   className?: string;

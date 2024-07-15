@@ -2,17 +2,17 @@ import { FC } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-import PhoneIcon from '@/assets/icons/phone.svg';
-import InstagramIcon from '@/assets/icons/instagram.svg';
-import TelegramIcon from '@/assets/icons/telegram.svg';
-import VKIcon from '@/assets/icons/vk.svg';
+import PhoneIcon from '@icons/phone.svg';
+import InstagramIcon from '@icons/instagram.svg';
+import TelegramIcon from '@icons/telegram.svg';
+import VKIcon from '@icons/vk.svg';
 
-import VisaIcon from '@/assets/icons/visa.svg';
-import MastercardIcon from '@/assets/icons/mastercard.svg';
-import MirIcon from '@/assets/icons/mir.svg';
-import YandexPayIcon from '@/assets/icons/yandex-pay.svg';
+import VisaIcon from '@icons/visa.svg';
+import MastercardIcon from '@icons/mastercard.svg';
+import MirIcon from '@icons/mir.svg';
+import YandexPayIcon from '@icons/yandex-pay.svg';
 
-import LogotypeIcon from '@/assets/icons/logotype.svg';
+import LogotypeIcon from '@icons/logotype.svg';
 import Button from '@/components/ui/Button/Button';
 
 import FooterLinks from './FooterLinks';

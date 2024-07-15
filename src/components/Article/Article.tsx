@@ -1,32 +1,27 @@
-import React from 'react';
-import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
-import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import { FC, ReactNode } from 'react';
+import classNames from 'classnames';
 import styles from './Article.module.css';
-import classes from '@/app/help/HelpSection.module.css';
 
-interface ArticleProps {
-    title: string;
-    backLinkText: string;
-    backLinkHref: string;
-    content: React.ReactNode;
-    buttons?: React.ReactNode;
-    images?: React.ReactNode;
-    useGrid?: boolean;
+import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
+
+import { Breadcrumb } from '../ui/Breadcrumbs/models/Breadcrumb';
+
+interface Props {
+  breadсrumbs: [Breadcrumb, ...Breadcrumb[]];
+  title?: string;
+  content: ReactNode;
 }
 
-const Article: React.FC<ArticleProps> = ({title, backLinkText, backLinkHref, content}) => {
-    return (
-        <div className='container'>
-            <BackwardLink href={backLinkHref} text={backLinkText} className={classes.backwardLinkMargin}/>
-            <h1 className={styles.title}>{title}</h1>
-            <div className={styles.description}>
-                {content}
-            </div>
-            <div className={styles.deliveryInformationContainer}>
-                <DeliveryInformation/>
-            </div>
-        </div>
-    );
+const Article: FC<Props> = ({ title, breadсrumbs, content }) => {
+  return (
+    <main className={classNames(styles.wrapper, 'container')}>
+      <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={breadсrumbs} withArrow />
+      {title && <h1 className={styles.title}>{title}</h1>}
+      <div className={styles.content}>{content}</div>
+      <DeliveryInformation className={styles.deliveryInformation} />
+    </main>
+  );
 };
 
 export default Article;

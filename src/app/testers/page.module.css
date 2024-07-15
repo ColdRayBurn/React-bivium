@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  column-gap: 50px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: auto;
+}
+
+.image {
+  width: 40%;
+}
+
+@media (--tablet-media) {
+  .button {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .image {
+    display: none;
+  }
+}

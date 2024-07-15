@@ -4,7 +4,7 @@ import { FC, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { FloatingFocusManager, autoUpdate, useFloating, useInteractions, useClick, useDismiss, useRole } from '@floating-ui/react';
 
-import ChevronDown from '@/assets/icons/chevron-down.svg';
+import ChevronDown from '@icons/chevron-down.svg';
 import styles from './Dropdown.module.css';
 
 interface Item {

@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './EmptyCart.module.css';
 
-import ManOnSkis from '@/assets/icons/a-man-on-skis.svg';
+import ManOnSkis from '@icons/a-man-on-skis.svg';
 import Button from '@/components/ui/Button/Button';
 
 const EmptyCart: FC = () => {

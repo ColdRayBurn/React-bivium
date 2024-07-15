@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 import classNames from 'classnames';
 import styles from './PromocodeInput.module.css';
 
-import CheckIcon from '@/assets/icons/checkmark.svg';
+import CheckIcon from '@icons/checkmark.svg';
 
 interface Props {
   className?: string;

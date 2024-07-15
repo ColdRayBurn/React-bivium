@@ -2,7 +2,7 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './InformationText.module.css';
 
-import InfoIcon from '@/assets/icons/info.svg';
+import InfoIcon from '@icons/info.svg';
 
 interface Props {
   text: string;

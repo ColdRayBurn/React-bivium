@@ -3,7 +3,7 @@
 import { FC, ComponentProps, forwardRef } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
-import ArrowsRightIcon from '@/assets/icons/arrows-right.svg';
+import ArrowsRightIcon from '@icons/arrows-right.svg';
 
 type Variants = 'default' | 'negative' | 'deselected' | 'inactive' | 'secondary';
 

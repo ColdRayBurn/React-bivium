@@ -6,8 +6,8 @@ import styles from './page.module.css';
 import Input from '@/components/ui/Input/Input';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 
-import MailIcon from '@/assets/icons/mail.svg';
-import CrossIcon from '@/assets/icons/cross.svg';
+import MailIcon from '@icons/mail.svg';
+import CrossIcon from '@icons/cross.svg';
 
 import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
 import ConfirmDialogPopup from '@/components/popups/OverlayingPopup/ConfirmDialogPopup/ConfirmDialogPopup';

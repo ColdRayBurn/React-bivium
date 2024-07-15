@@ -2,8 +2,8 @@ import { ComponentProps, forwardRef, useId } from 'react';
 import classNames from 'classnames';
 import styles from './Checkbox.module.css';
 
-import SquareIcon from '@/assets/icons/square.svg';
-import CheckSquareIcon from '@/assets/icons/check-square.svg';
+import SquareIcon from '@icons/square.svg';
+import CheckSquareIcon from '@icons/check-square.svg';
 
 interface Props extends ComponentProps<'input'> {
   text?: string;

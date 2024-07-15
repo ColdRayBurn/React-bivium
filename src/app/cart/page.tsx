@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import BackwardLink from '@/components/ui/BackwardLink/BackwardLink';
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import Cart from './Cart';
 import Sidebar from './Sidebar';
 
@@ -17,7 +17,7 @@ const Page: FC = () => {
 
   return (
     <main className='container'>
-      <BackwardLink text='Продолжить покупки' href='/catalog' />
+      <Breadcrumbs breadсrumbs={[{ name: 'Продолжить покупки', path: '/catalog' }]} />
       <h1 className={styles.title}>Корзина</h1>
       <div className={classNames(styles.wrapper, isCartEmpty && styles.wrapper_emptyCart)}>
         {isCartEmpty && (

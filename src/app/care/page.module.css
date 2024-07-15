@@ -1,0 +1,9 @@
+.image {
+  margin-bottom: 50px;
+}
+
+@media (--tablet-media) {
+  .image {
+    margin-bottom: 20px;
+  }
+}

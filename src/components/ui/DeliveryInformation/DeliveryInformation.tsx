@@ -1,36 +1,68 @@
-import { FC } from 'react';
-import classNames from 'classnames';
-import styles from './DeliveryInformation.module.css';
+'use client';
 
-import ReturnArrowIcon from '@/assets/icons/return-arrow.svg';
-import TruckIcon from '@/assets/icons/truck.svg';
-import Warranty from '@/assets/icons/warranty.svg';
-import MailOpen from '@/assets/icons/mail-open.svg';
+import { FC } from 'react';
+import dynamic from 'next/dynamic';
+
+import { useRouter } from 'next/navigation';
+import classNames from 'classnames';
+
+import Button from '../Button/Button';
+
+import ReturnArrowIcon from '@icons/return-arrow.svg';
+import TruckIcon from '@icons/truck.svg';
+import Warranty from '@icons/warranty.svg';
+import MailOpen from '@icons/mail-open.svg';
+
+import styles from './DeliveryInformation.module.css';
 
 interface Props {
   className?: string;
+  withButton?: boolean;
 }
 
-const DeliveryInformation: FC<Props> = ({ className }) => {
+const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
+
+const DeliveryInformation: FC<Props> = ({ className, withButton }) => {
+  const router = useRouter();
+
   return (
-      <div className={classNames(className, styles.wrapper)}>
-          <div className={styles.item}>
-              <ReturnArrowIcon/>
-              14 дней на возврат
+    <div className={classNames(className, styles.wrapper)}>
+      <div className={styles.grid}>
+        <div className={styles.gridItem}>
+          <div className={styles.gridItemIcon}>
+            <ReturnArrowIcon />
           </div>
-          <div className={styles.item}>
-              <Warranty/>
-              60 дней гарантии на каждый товар
+          14 дней на возврат
+        </div>
+        <div className={styles.gridItem}>
+          <div className={styles.gridItemIcon}>
+            <Warranty />
           </div>
-          <div className={styles.item}>
-              <TruckIcon/>
-              Быстрая доставка (от 5 дней)
+          <MediaQuery minWidth={1281}>60 дней гарантии на каждый товар</MediaQuery>
+          <MediaQuery maxWidth={1280}>60 дней гарантии</MediaQuery>
+        </div>
+        <div className={styles.gridItem}>
+          <div className={styles.gridItemIcon}>
+            <TruckIcon />
           </div>
-          <div className={styles.item}>
-              <MailOpen/>
-              Подписаться на рассылку
+          Быстрая доставка (от 5 дней)
+        </div>
+        <div className={styles.gridItem}>
+          <div className={styles.gridItemIcon}>
+            <MailOpen />
           </div>
+          Подписаться на рассылку
+        </div>
       </div>
+      {withButton &&
+        <Button
+          className={styles.button} variant='default' type='button'
+          onClick={() => router.push('/about-company')}
+        >
+          Узнать больше
+        </Button>
+      }
+    </div>
   );
 };
 

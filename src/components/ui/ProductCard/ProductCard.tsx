@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import HeartIcon from '@/assets/icons/heart.svg';
+import HeartIcon from '@icons/heart.svg';
 
 import styles from './ProductCard.module.css';
 

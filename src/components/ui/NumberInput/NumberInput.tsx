@@ -3,8 +3,8 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import styles from './NumberInput.module.css';
 
-import MinusIcon from '@/assets/icons/minus.svg';
-import PlusIcon from '@/assets/icons/plus.svg';
+import MinusIcon from '@icons/minus.svg';
+import PlusIcon from '@icons/plus.svg';
 
 interface Props {
   defaultValue?: number;

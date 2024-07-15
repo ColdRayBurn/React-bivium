@@ -5,7 +5,7 @@ import { useFloating, useInteractions, autoUpdate, offset, useClick, useDismiss,
 import classNames from 'classnames';
 
 import Button from '@/components/ui/Button/Button';
-import CheckmarkIcon from '@/assets/icons/checkmark.svg';
+import CheckmarkIcon from '@icons/checkmark.svg';
 
 import styles from './SortDropdown.module.css';
 

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './SSLInformation.module.css';
 
-import LockIcon from '@/assets/icons/lock.svg';
+import LockIcon from '@icons/lock.svg';
 
 interface Props {
   className?: string;

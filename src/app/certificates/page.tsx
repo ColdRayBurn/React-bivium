@@ -1,37 +1,23 @@
-import React from 'react';
-import styles from './Certificates.module.css';
+import { FC } from 'react';
 import Article from '@/components/Article/Article';
+import styles from './page.module.css';
 
-const Certificates: React.FC = () => {
-
-    const content = (
-        <>
-            <div className={styles.section}>
-                <div className={styles.paragraph}>
-                    Сертификаты соответствия - это документы, подтверждающие соответствие всем соответствующим требованиям в министерских законах текущего государства, установленным и обязательном порядке.
-                </div>
-                <div className={styles.certificates}>
-                    <div className={styles.certificate}>
-                        <h3 className={styles.certificateTitle}>Сертификат №1</h3>
-                        <img src="/images/certificate1.png" className={styles.certificateImage}/>
-                    </div>
-                    <div className={styles.certificate}>
-                        <h3 className={styles.certificateTitle}>Сертификат №2</h3>
-                        <img src="/images/certificate2.png" className={styles.certificateImage}/>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-
-    return (
-        <Article
-            title='Сертификаты'
-            backLinkText='О компании / Сертификаты'
-            backLinkHref='/about-company'
-            content={content}
-        />
-    );
+const Page: FC = () => {
+  return <Article breadсrumbs={[{ name: 'О компании', path: '/about-company' }, { name: 'Сертификаты', path: '/certificates' }]} title='Сертификаты' content={
+    <>
+      Сертификаты соответствия - это документы, подтверждающие соответствие всем соответствующим требованиям в министерских законах текущего государства, установленными в обязательном порядке.
+      <div className={styles.certificates}>
+        <div className={styles.certificatesItem}>
+          <div className={styles.certificatesItemTitle}>Сертификат №1</div>
+          <img className={styles.certificatesItemImage} src="/images/certificate1.png" alt='' />
+        </div>
+        <div className={styles.certificatesItem}>
+          <div className={styles.certificatesItemTitle}>Сертификат №2</div>
+          <img className={styles.certificatesItemImage} src="/images/certificate2.png" alt='' />
+        </div>
+      </div>
+    </>
+  } />;
 };
 
-export default Certificates;
+export default Page;

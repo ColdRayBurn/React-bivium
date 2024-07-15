@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './CartItem.module.css';
 
-import CrossIcon from '@/assets/icons/cross.svg';
+import CrossIcon from '@icons/cross.svg';
 import NumberInput from '@/components/ui/NumberInput/NumberInput';
 
 const CartItem: FC = () => {

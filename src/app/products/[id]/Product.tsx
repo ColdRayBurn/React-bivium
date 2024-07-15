@@ -18,7 +18,7 @@ import api from '@/api';
 import { IProduct } from '@/models';
 import { formatPrice } from '@/utils/formatPrice';
 
-import HeartIcon from '@/assets/icons/heart.svg';
+import HeartIcon from '@icons/heart.svg';
 import styles from './Product.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });

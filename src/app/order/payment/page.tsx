@@ -2,10 +2,10 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './page.module.css';
 
-import CardIcon from '@/assets/icons/card.svg';
-import YooMoneyIcon from '@/assets/icons/yoomoney.svg';
-import SberbankIcon from '@/assets/icons/sberbank.svg';
-import YooKassaIcon from '@/assets/icons/yookassa.svg';
+import CardIcon from '@icons/card.svg';
+import YooMoneyIcon from '@icons/yoomoney.svg';
+import SberbankIcon from '@icons/sberbank.svg';
+import YooKassaIcon from '@icons/yookassa.svg';
 
 import CardForm from './CardForm/CardForm';
 

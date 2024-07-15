@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './Sidebar.module.css';
 
 import Card from './Card';
-import CheckCircleIcon from '@/assets/icons/check-circle.svg';
+import CheckCircleIcon from '@icons/check-circle.svg';
 
 const Sidebar: FC = () => {
   return (
