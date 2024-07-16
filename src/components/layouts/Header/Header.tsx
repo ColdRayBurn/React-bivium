@@ -1,12 +1,11 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useRef, useEffect, useState, useCallback } from 'react';
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import HeaderSearch from './HeaderSearch/HeaderSearch';
-import HeaderNavigationItem from './HeaderNavigtationItem/HeaderNavigationItem';
 
 import HamburgerIcon from '@icons/hamburger.svg';
 import BiviumIcon from '@icons/bivium.svg';
@@ -20,150 +19,39 @@ import styles from './Header.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const navigation = [
-  {
-    id: 1,
-    name: 'Новинки'
-  },
-  {
-    id: 2,
-    name: 'Экипировка',
-    categories: [
-      {
-        id: 1,
-        name: 'Мужская экипировка',
-        subcategories: [
-          [
-            {
-              id: 1,
-              name: 'Бег'
-            },
-            {
-              id: 2,
-              name: 'Лыжи'
-            }
-          ],
-          [
-            {
-              id: 1,
-              name: 'Куртки'
-            },
-            {
-              id: 2,
-              name: 'Костюмы'
-            },
-            {
-              id: 3,
-              name: 'Жилеты'
-            },
-            {
-              id: 4,
-              name: 'Брюки'
-            },
-            {
-              id: 5,
-              name: 'Шорты'
-            }
-          ]
-        ]
-      },
-      {
-        id: 2,
-        name: 'Женская экипировка',
-        subcategories: [
-          [
-            {
-              id: 1,
-              name: 'Бег'
-            },
-            {
-              id: 2,
-              name: 'Лыжи'
-            }
-          ],
-          [
-            {
-              id: 1,
-              name: 'Куртки'
-            },
-            {
-              id: 2,
-              name: 'Костюмы'
-            },
-            {
-              id: 3,
-              name: 'Жилеты'
-            },
-            {
-              id: 4,
-              name: 'Брюки'
-            },
-            {
-              id: 5,
-              name: 'Шорты'
-            }
-          ]
-        ]
-      },
-      {
-        id: 3,
-        name: 'Аксессуары',
-        subcategories: [
-          [
-            {
-              id: 1,
-              name: 'Бег'
-            },
-            {
-              id: 2,
-              name: 'Лыжи'
-            }
-          ],
-          [
-            {
-              id: 1,
-              name: 'Куртки'
-            },
-            {
-              id: 2,
-              name: 'Костюмы'
-            },
-            {
-              id: 3,
-              name: 'Жилеты'
-            },
-            {
-              id: 4,
-              name: 'Брюки'
-            },
-            {
-              id: 5,
-              name: 'Шорты'
-            }
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: 'Одежда'
-  },
-  {
-    id: 4,
-    name: 'Аксессуары'
-  }
-];
-
 const Header: FC = () => {
   const { isAuthorized, cartAmount, favoritesAmount } = useAppSelector(selector => selector.user);
+  const [previousScrollY, setPreviousScrollY] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (header === null) {
+      return;
+    }
+
+    const windowScrollHandler = () => {
+      if (previousScrollY <= scrollY && scrollY > parseFloat(getComputedStyle(header).height)) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+
+      setPreviousScrollY(scrollY);
+    };
+
+    setPreviousScrollY(scrollY);
+    window.addEventListener('scroll', windowScrollHandler);
+
+    return () => window.removeEventListener('scroll', windowScrollHandler);
+  }, [previousScrollY]);
 
   const onSearchSubmit = (query: string) => {
     console.log(query);
   };
 
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={styles.header}>
       <div className={styles.top}>
         <button className={styles.hamburgerMenuButton} type='button'>
           <HamburgerIcon />
@@ -192,7 +80,10 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={styles.navigation}>
-        {navigation.map(item => <HeaderNavigationItem key={item.id} title={item.name} categories={item?.categories} />)}
+        <button className={styles.navigationItem} type='button'>Новинки</button>
+        <button className={styles.navigationItem} type='button'>Экипировка</button>
+        <button className={styles.navigationItem} type='button'>Одежда</button>
+        <button className={styles.navigationItem} type='button'>Аксессуары</button>
       </div>
     </header>
   );

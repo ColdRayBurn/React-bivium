@@ -18,6 +18,7 @@ export interface IProduct {
   gender: string;
   season: string;
   sportType: string;
+  color: string;
   inStock: boolean;
   sizes: {
     id: number;

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 import styles from './page.module.css';
 
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
@@ -13,11 +14,11 @@ const Page: FC = async () => {
   const meta = await api.get('meta/contactspage/').json<IMetaContactspageResponse>();
 
   return (
-    <main className='container'>
+    <main className={classNames(styles.wrapper, 'container')}>
       <Breadcrumbs breadсrumbs={[{ name: 'На главную', path: '/' }]} />
       <Contacts contacts={meta.topBlock} />
       <Partners partners={meta.partners} />
-      <DeliveryInformation className={styles.deliveryInformation} />
+      <DeliveryInformation className={styles.deliveryInformation} withButton />
     </main>
   );
 };

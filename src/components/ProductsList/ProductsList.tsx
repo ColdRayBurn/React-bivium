@@ -38,10 +38,10 @@ const ProductsList: FC<Props> = ({ title, products, className }) => {
           <Swiper
             className={styles.carousel}
             wrapperClass={styles.carouselWrapper}
-            slidesPerView={2}
+            slidesPerView={products.length > 1 ? 2 : 1}
             spaceBetween={30}
             pagination={{
-              enabled: true, type: 'bullets',
+              enabled: products.length > 1, type: 'bullets',
               horizontalClass: styles.carouselBullets,
               bulletClass: styles.carouselBulletsItem,
               bulletActiveClass: styles.carouselBulletsItem_active

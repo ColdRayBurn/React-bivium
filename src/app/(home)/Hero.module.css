@@ -17,26 +17,57 @@
 }
 
 .carouselSlide {
-  position: relative;
+  position: relative;  
   flex-shrink: 0;
 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: var(--picture);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .5) 25%, transparent 50%), var(--picture);
 }
 
-.carouselSlide picture,
-.carouselSlide picture > img {
-  width: 100%;
+.carouselSlideContainer {
+  padding-block: 70px 75px;
   height: 100%;
-  object-fit: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.button {
-  position: absolute;
-  bottom: 85px;
-  background-color: rgba(0, 0, 0, .35);
+.carouselSlideTitle {
+  max-width: 50%;
+
+  font-family: 'DIN Condensed', sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  color: #FFF;
+}
+
+.carouselSlideSubtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: #FFF;
+}
+
+.carouselSlideFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 65%;
+}
+
+.carouselSlideButton {
+  background-color: rgba(0, 0, 0, .35) !important;
+}
+
+.carouselSlideDescription {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  text-align: right;
+  color: #FFF;
 }
 
 @media (--tablet-media) {
@@ -45,12 +76,34 @@
   }
 
   .carouselSlide {
-    background-image: var(--picture-mobile);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, .5) 50%, transparent 100%), var(--picture-mobile);
   }
 
-  .button {
-    right: var(--container-padding);
-    bottom: 40px;
-    background-color: #FFF;
+  .carouselSlideContainer {
+    justify-content: unset;
+    padding-block: 30px;
+  }
+
+  .carouselSlideTitle {
+    font-size: 48px;
+    max-width: none;
+  }
+
+  .carouselSlideSubtitle {
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .carouselSlideFooter {
+    margin-top: auto;
+    align-items: unset;
+    flex-direction: column;
+    justify-content: unset;
+  }
+
+  .carouselSlideDescription {
+    margin-top: 30px;
+    text-align: left;
   }
 }
