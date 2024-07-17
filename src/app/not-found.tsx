@@ -2,7 +2,7 @@ import {FC} from 'react';
 import styles from '@/app/not-found.module.css';
 import Link from 'next/link';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
-import classNames from "classnames";
+import classNames from 'classnames';
 
 
 
