@@ -24,7 +24,7 @@ const Page: FC = () => {
           <>
             <EmptyCart />
             <PopularProducts className={styles.products} />
-            <DeliveryInformation className={styles.deliveryInformation} />
+            <DeliveryInformation className={styles.deliveryInformation} withButton />
           </>
         )}
         {!isCartEmpty && (

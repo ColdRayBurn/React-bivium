@@ -16,14 +16,16 @@ import ConfirmDialogPopup from '@/components/popups/OverlayingPopup/ConfirmDialo
 
 import api from '@/api';
 import { IProduct } from '@/models';
+
 import { formatPrice } from '@/utils/formatPrice';
+import { formatUrl } from '@/utils/formatUrl';
 
 import HeartIcon from '@icons/heart.svg';
 import styles from './Product.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, sizes, inStock }) => {
+const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, color, sizes, inStock }) => {
   const router = useRouter();
   const [selectedSize, setSelectedSize] = useState<typeof sizes[0]>(sizes[0]);
   const [isModalShown, setIsModalShown] = useState(false);
@@ -41,7 +43,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, si
         <MediaQuery minWidth={1281}>
           <div className={styles.images}>
             {images.map((image, imageIndex) =>
-              <Image key={imageIndex} className={styles.image} src={image} alt='' />)}
+              <img key={imageIndex} className={styles.image} src={formatUrl(image)} alt='' />)}
           </div>
         </MediaQuery>
         <MediaQuery maxWidth={1280}>
@@ -80,7 +82,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, si
                 Цвет:
               </div>
               <div className={styles.propertiesItemValue}>
-                Красный
+                {color}
               </div>
             </div>
             <div className={styles.propertiesItem}>
@@ -120,7 +122,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, si
           cancelButtonText='Продолжить покупки' cancelButtonHandler={() => setIsModalShown(false)}
         >
           <div className={styles.modal}>
-            <Image className={styles.modalImage} src={images[0]} alt='' />
+            <img className={styles.modalImage} src={formatUrl(images[0])} alt='' />
             <div className={styles.modalBody}>
               <div className={styles.modalBodyTitle}>{name}</div>
               <div className={styles.modalBodyPrice}>{formatPrice(selectedSize.price)}</div>

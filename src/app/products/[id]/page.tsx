@@ -33,7 +33,7 @@ const ProductPage: FC<Props> = async ({ params: { id } }) => {
       <Product {...product} />
       <Description text={product.description} />
       <RelatedProducts className={styles.relatedProducts} relatedTo={product.id} />
-      <DeliveryInformation className={styles.deliveryInformation} />
+      <DeliveryInformation className={styles.deliveryInformation} withButton />
     </main>
   );
 };

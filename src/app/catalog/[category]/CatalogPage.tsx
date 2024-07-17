@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 import styles from './CatalogPage.module.css';
 
 import Catalog from './Catalog';
@@ -14,7 +15,7 @@ interface Props {
 
 const CatalogPage: FC<Props> = async ({ data, categoryId }) => {
   return (
-    <main className='container'>
+    <main className={classNames(styles.wrapper, 'container')}>
       <Catalog data={data} categoryId={categoryId} />
       <div className={styles.description}>
         <h2 className={styles.descriptionTitle}>О производстве</h2>
@@ -27,7 +28,7 @@ const CatalogPage: FC<Props> = async ({ data, categoryId }) => {
           Четкий и методичный подход к созданию разумного производства, находит свое отражение не только в приобретении и применении высокотехничного оборудования, но и в точном расчете оптимального количества сотрудников, а также в нашем стремлении к безотходности.
         </ExpandableText>
       </div>
-      <DeliveryInformation className={styles.deliveryInformation} />
+      <DeliveryInformation className={styles.deliveryInformation} withButton />
     </main>
   );
 };

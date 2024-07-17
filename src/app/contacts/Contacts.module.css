@@ -46,3 +46,9 @@
 
   object-fit: cover;
 }
+
+@media (--tablet-media) {
+  .image {
+    display: none;
+  }
+}

@@ -3,7 +3,7 @@ import Article from '@/components/Article/Article';
 import styles from './page.module.css';
 
 const Page: FC = () => {
-  return <Article breadсrumbs={[{ name: 'О компании', path: '/help' }]} content={
+  return <Article breadсrumbs={[{ name: 'О компании', path: '/about-company' }]} content={
     <>
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Спортивная одежда BIVIUM</h2>

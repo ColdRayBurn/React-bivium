@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 import styles from './PartnerCard.module.css';
 
 interface Props {
@@ -7,11 +8,12 @@ interface Props {
   address: string;
   phonenumber: string;
   email: string;
+  className?: string;
 };
 
-const PartnerCard: FC<Props> = ({ image, name, address, phonenumber, email }) => {
+const PartnerCard: FC<Props> = ({ image, name, address, phonenumber, email, className }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, className)}>
       <img className={styles.image} src={image} alt='' />
       <div className={styles.boldText}>{name}</div>
       <div className={styles.thinText}>{address}</div>

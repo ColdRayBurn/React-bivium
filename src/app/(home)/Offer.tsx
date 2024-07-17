@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './Offer.module.css';
 
@@ -33,7 +33,7 @@ const Offer: FC<Props> = ({ blockUnderBanner, description }) => {
           <ExpandableText>{description.text}</ExpandableText>
         </div>
       </div>
-      <DeliveryInformation className={styles.deliveryInformation} />
+      <DeliveryInformation className={styles.deliveryInformation} withButton />
     </section>
   );
 };

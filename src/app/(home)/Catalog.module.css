@@ -64,12 +64,8 @@
     background-position: center;
     background-size: cover;
   }
-
   .card:nth-child(1),
-  .card:nth-child(2) {
-    display: none;
-  }
-
+  .card:nth-child(2),
   .card:nth-child(3),
   .card:nth-child(4) {
     aspect-ratio: .4;

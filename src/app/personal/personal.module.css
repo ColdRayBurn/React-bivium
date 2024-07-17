@@ -1,5 +1,6 @@
 .container {
   margin-top: 25px;
+  padding-bottom: 40px;
 }
 
 .title {
@@ -46,8 +47,13 @@
   flex-grow: 1;
 }
 
+.deliveryInformation {
+  margin-top: 100px;
+}
+
 @media (--tablet-media) {
   .container {
     margin-top: 10px;
+    padding-bottom: 0;
   }
 }

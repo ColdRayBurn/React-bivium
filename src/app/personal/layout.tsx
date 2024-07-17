@@ -28,7 +28,7 @@ const Layout: FC<Props> = ({ children }) => {
               {children}
             </div>
           </div>
-          <DeliveryInformation />
+          <DeliveryInformation className={styles.deliveryInformation} withButton />
         </main>
       </MediaQuery>
       <MediaQuery maxWidth={1280}>

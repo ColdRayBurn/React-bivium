@@ -20,7 +20,7 @@ const Partners: FC<Props> = ({ partners }) => {
             <div className={styles.cityTitle}>{city.cityName}</div>
             <div className={styles.cityContent}>
               {city.items.map((partner, partnerIndex) =>
-                <PartnerCard key={partnerIndex} image={formatUrl(partner.logo)} name={partner.title} address={partner.address} phonenumber={partner.phone} email={partner.email} />
+                <PartnerCard key={partnerIndex} className={styles.partnerCard} image={formatUrl(partner.logo)} name={partner.title} address={partner.address} phonenumber={partner.phone} email={partner.email} />
               )}
             </div>
           </div>
