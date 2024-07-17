@@ -30,9 +30,9 @@ const NotFound: FC = () => {
                     </ul>
                 </div>
             </div>
-            <section className='container'>
-                <DeliveryInformation className={styles.deliveryInformation} withButton/>
-            </section>
+
+            <DeliveryInformation className={styles.deliveryInformation} withButton/>
+
         </main>
     );
 };
