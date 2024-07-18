@@ -70,3 +70,20 @@ export interface ICatalogResponse {
   total: number;
   products: ICatalogProduct[];
 }
+
+export interface INewsItemList {
+  id: number;
+  name: string;
+  date: number;
+  description: string;
+  image: string;
+}
+
+export interface INewsItemDetail {
+  id: number;
+  name: string;
+  date: number;
+  description: string;
+  image: string;
+  titleDescription: string;
+}
