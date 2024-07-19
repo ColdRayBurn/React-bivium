@@ -15,19 +15,19 @@ const Navigation: FC = () => {
     <div className={styles.navigation}>
       <Link
         className={classNames(styles.navigationItem, pathname.endsWith('/favorites') && styles.navigationItem_active)}
-        href="/personal/favorites"
+        href='/personal/favorites'
       >
         Избранное (0)
       </Link>
       <Link
         className={classNames(styles.navigationItem, pathname.endsWith('/orders') && styles.navigationItem_active)}
-        href="/personal/orders"
+        href='/personal/orders'
       >
         Заказы
       </Link>
       <Link
         className={classNames(styles.navigationItem, pathname.endsWith('/personal') && styles.navigationItem_active)}
-        href="/personal"
+        href='/personal'
       >
         Данные
       </Link>
@@ -36,13 +36,13 @@ const Navigation: FC = () => {
           styles.navigationItem,
           pathname.endsWith('/subscriptions') && styles.navigationItem_active
         )}
-        href="/personal/subscriptions"
+        href='/personal/subscriptions'
       >
         Подписки
       </Link>
       <Link
         className={classNames(styles.navigationItem, pathname.endsWith('/bivium') && styles.navigationItem_active)}
-        href="/personal/bivium"
+        href='/personal/bivium'
       >
         Режим Bivium
       </Link>

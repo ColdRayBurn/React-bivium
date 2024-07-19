@@ -55,8 +55,8 @@ const CardForm: FC = () => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
           className={styles.formCardInput}
-          placeholder="XXXX XXXX XXXX XXXX"
-          type="text"
+          placeholder='XXXX XXXX XXXX XXXX'
+          type='text'
           maxLength={19}
           onKeyDown={onCardNumberKeyDown}
           onKeyUp={onCardNumberKeyUp}
@@ -68,10 +68,10 @@ const CardForm: FC = () => {
           <div className={styles.formDate}>
             <Input
               className={styles.formMonthInput}
-              placeholder="ММ"
+              placeholder='ММ'
               size={2}
               maxLength={2}
-              type="text"
+              type='text'
               onKeyUp={event => {
                 const element = event.target as HTMLInputElement;
 
@@ -88,7 +88,7 @@ const CardForm: FC = () => {
             <div className={styles.formDateSeparator}>/</div>
             <Input
               className={styles.formYearInput}
-              placeholder="ГГ"
+              placeholder='ГГ'
               size={2}
               maxLength={2}
               onKeyUp={event => {
@@ -105,9 +105,9 @@ const CardForm: FC = () => {
               })}
             />
           </div>
-          <Input className={styles.formCVCInput} placeholder="CVC" size={3} maxLength={3} />
+          <Input className={styles.formCVCInput} placeholder='CVC' size={3} maxLength={3} />
         </div>
-        <Button className={styles.formSubmitButton} variant="negative" icon={false} type="submit">
+        <Button className={styles.formSubmitButton} variant='negative' icon={false} type='submit'>
           Заплатить 11 300 ₽
         </Button>
       </form>

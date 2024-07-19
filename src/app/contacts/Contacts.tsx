@@ -32,7 +32,7 @@ const Contacts: FC<Props> = ({ contacts }) => {
           </div>
         </div>
       </div>
-      <img className={styles.image} src={formatUrl(contacts.picture)} alt="" />
+      <img className={styles.image} src={formatUrl(contacts.picture)} alt='' />
     </div>
   );
 };

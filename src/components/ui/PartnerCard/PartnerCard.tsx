@@ -14,7 +14,7 @@ interface Props {
 const PartnerCard: FC<Props> = ({ image, name, address, phonenumber, email, className }) => {
   return (
     <div className={classNames(styles.wrapper, className)}>
-      <img className={styles.image} src={image} alt="" />
+      <img className={styles.image} src={image} alt='' />
       <div className={styles.boldText}>{name}</div>
       <div className={styles.thinText}>{address}</div>
       <a className={styles.boldText} href={`tel:${phonenumber}`}>

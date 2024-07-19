@@ -26,7 +26,7 @@ const ConfirmDialogPopup: FC<Props> = ({
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.title}>{title}</div>
-        <button className={styles.closeButton} type="button" onClick={cancelButtonHandler}>
+        <button className={styles.closeButton} type='button' onClick={cancelButtonHandler}>
           <CrossIcon />
         </button>
       </div>
@@ -34,18 +34,18 @@ const ConfirmDialogPopup: FC<Props> = ({
       <div className={styles.footer}>
         <Button
           className={styles.footerButton}
-          variant="negative"
+          variant='negative'
           icon={false}
-          type="button"
+          type='button'
           onClick={submitButtonHandler}
         >
           {submitButtonText}
         </Button>
         <Button
           className={styles.footerButton}
-          variant="default"
+          variant='default'
           icon={false}
-          type="button"
+          type='button'
           onClick={cancelButtonHandler}
         >
           {cancelButtonText}

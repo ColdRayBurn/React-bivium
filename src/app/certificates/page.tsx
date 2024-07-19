@@ -9,7 +9,7 @@ const Page: FC = () => {
         { name: 'О компании', path: '/about-company' },
         { name: 'Сертификаты', path: '/certificates' }
       ]}
-      title="Сертификаты"
+      title='Сертификаты'
       content={
         <>
           Сертификаты соответствия - это документы, подтверждающие соответствие всем соответствующим требованиям в
@@ -17,11 +17,11 @@ const Page: FC = () => {
           <div className={styles.certificates}>
             <div className={styles.certificatesItem}>
               <div className={styles.certificatesItemTitle}>Сертификат №1</div>
-              <img className={styles.certificatesItemImage} src="/images/certificate1.png" alt="" />
+              <img className={styles.certificatesItemImage} src='/images/certificate1.png' alt='' />
             </div>
             <div className={styles.certificatesItem}>
               <div className={styles.certificatesItemTitle}>Сертификат №2</div>
-              <img className={styles.certificatesItemImage} src="/images/certificate2.png" alt="" />
+              <img className={styles.certificatesItemImage} src='/images/certificate2.png' alt='' />
             </div>
           </div>
         </>

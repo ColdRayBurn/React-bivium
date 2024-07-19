@@ -77,25 +77,25 @@ const Form: FC = () => {
       )}
       <div className={styles.body}>
         <Input
-          type="email"
-          placeholder="E-Mail"
+          type='email'
+          placeholder='E-Mail'
           {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
         />
         <Input
-          type="password"
-          placeholder="Пароль"
+          type='password'
+          placeholder='Пароль'
           {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
         />
       </div>
       <div className={styles.footer}>
-        <Button variant="negative" icon={false} type="submit">
+        <Button variant='negative' icon={false} type='submit'>
           Войти
         </Button>
-        <Button variant="default" icon={false} type="button" onClick={() => router.push('/signup')}>
+        <Button variant='default' icon={false} type='button' onClick={() => router.push('/signup')}>
           Зарегистрироваться
         </Button>
       </div>
-      <Link className={styles.link} href="" /* href='/password-recovery' */>
+      <Link className={styles.link} href='' /* href='/password-recovery' */>
         Забыли пароль?
       </Link>
     </form>

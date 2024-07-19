@@ -34,11 +34,11 @@ const NumberInput: FC<Props> = ({ defaultValue = 0, step = 1, min = -Infinity, m
 
   return (
     <div className={styles.wrapper}>
-      <button className={styles.button} type="button" onClick={minus}>
+      <button className={styles.button} type='button' onClick={minus}>
         <MinusIcon />
       </button>
-      <input ref={inputRef} className={styles.input} type="number" defaultValue={number} />
-      <button className={styles.button} type="button" onClick={plus}>
+      <input ref={inputRef} className={styles.input} type='number' defaultValue={number} />
+      <button className={styles.button} type='button' onClick={plus}>
         <PlusIcon />
       </button>
     </div>

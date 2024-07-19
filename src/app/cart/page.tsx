@@ -16,7 +16,7 @@ const Page: FC = () => {
   const isCartEmpty = true;
 
   return (
-    <main className="container">
+    <main className='container'>
       <Breadcrumbs breadсrumbs={[{ name: 'Продолжить покупки', path: '/catalog' }]} />
       <h1 className={styles.title}>Корзина</h1>
       <div className={classNames(styles.wrapper, isCartEmpty && styles.wrapper_emptyCart)}>

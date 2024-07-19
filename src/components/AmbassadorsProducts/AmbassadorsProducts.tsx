@@ -33,7 +33,7 @@ const AmbassadorsProducts: FC<Props> = ({ className, initialProducts }) => {
     return () => abortController.abort('aborted');
   }, [initialProducts]);
 
-  return <ProductsList className={className} title="Амбассадоры BIVIUM выбирают" products={products ?? []} />;
+  return <ProductsList className={className} title='Амбассадоры BIVIUM выбирают' products={products ?? []} />;
 };
 
 export default AmbassadorsProducts;

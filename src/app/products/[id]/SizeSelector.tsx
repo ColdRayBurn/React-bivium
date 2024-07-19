@@ -16,8 +16,8 @@ const SizeSelector: FC<Props> = ({ sizes, onChangeCallback }) => {
       {sizes.map((size, sizeIndex) => (
         <label key={sizeIndex} className={styles.sizeButton}>
           <input
-            type="radio"
-            name="size"
+            type='radio'
+            name='size'
             value={size.value}
             defaultChecked={size.checked}
             disabled={size.disabled}

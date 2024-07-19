@@ -16,7 +16,7 @@ const Empty: FC = () => {
         <br />
         пока пусто
       </div>
-      <Button className={styles.button} variant="default" icon={false} onClick={() => router.push('/catalog')}>
+      <Button className={styles.button} variant='default' icon={false} onClick={() => router.push('/catalog')}>
         Перейти к покупкам
       </Button>
     </div>

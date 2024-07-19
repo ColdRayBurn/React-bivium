@@ -9,7 +9,7 @@ const Page: FC = () => {
         { name: 'О компании', path: '/about-company' },
         { name: 'О производстве', path: '/manufacturing' }
       ]}
-      title="О производстве"
+      title='О производстве'
       content={
         <>
           В наш продукт, уже не стадии разработки закладывается определенный разумный код. Его цель создание продукта
@@ -30,11 +30,11 @@ const Page: FC = () => {
           </ul>
           <iframe
             className={styles.video}
-            src="https://www.youtube.com/embed/M7T0_xWKmTo"
-            title="Геморрой. Лечение живым огурцом"
+            src='https://www.youtube.com/embed/M7T0_xWKmTo'
+            title='Геморрой. Лечение живым огурцом'
             frameBorder={0}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerPolicy='strict-origin-when-cross-origin'
             allowFullScreen
           ></iframe>
           Именно поэтому мы создали понятие &quot;разумного подхода&quot;, который наблюдается и проявляется во всех

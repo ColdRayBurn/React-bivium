@@ -80,8 +80,8 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
       <div className={styles.footer}>
         <Button
           className={styles.showMoreButton}
-          variant="negative"
-          type="button"
+          variant='negative'
+          type='button'
           icon={false}
           onClick={showMore}
           style={{ visibility: offset <= data.total - limit ? 'visible' : 'hidden' }}

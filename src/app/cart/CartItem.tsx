@@ -7,11 +7,11 @@ import NumberInput from '@/components/ui/NumberInput/NumberInput';
 const CartItem: FC = () => {
   return (
     <div className={styles.wrapper}>
-      <button className={styles.removeButton} type="button">
+      <button className={styles.removeButton} type='button'>
         <CrossIcon />
       </button>
       <div className={styles.inner}>
-        <img className={styles.image} src="https://placehold.co/600x400/EEE/31343C" alt="" />
+        <img className={styles.image} src='https://placehold.co/600x400/EEE/31343C' alt='' />
         <div className={styles.body}>
           <div className={styles.name}>Жилет «Пик»</div>
           <div className={styles.properties}>

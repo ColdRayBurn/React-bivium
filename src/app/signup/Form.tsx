@@ -89,27 +89,27 @@ const Form: FC = () => {
       <div className={styles.body}>
         <div className={styles.row}>
           <Input
-            type="text"
-            placeholder="Имя"
+            type='text'
+            placeholder='Имя'
             {...register('name', { required: "Поле 'Имя' обязательно к заполнению." })}
           />
-          <Input type="text" placeholder="Фамилия" {...register('surname')} />
-          <Input type="text" placeholder="Отчество" {...register('patronymic')} />
+          <Input type='text' placeholder='Фамилия' {...register('surname')} />
+          <Input type='text' placeholder='Отчество' {...register('patronymic')} />
         </div>
         <Input
-          type="email"
-          placeholder="E-Mail"
+          type='email'
+          placeholder='E-Mail'
           {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
         />
         <div className={styles.row}>
           <Input
-            type="password"
-            placeholder="Пароль"
+            type='password'
+            placeholder='Пароль'
             {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
           />
           <Input
-            type="password"
-            placeholder="Подтверждение пароля"
+            type='password'
+            placeholder='Подтверждение пароля'
             {...register('password_confirmation', {
               required: "Поле 'Подтверждение пароля' обязательно к заполнению.",
               validate: value => value === watch('password') || "Поле 'Подтверждение пароля' заполнено неправильно."
@@ -118,15 +118,15 @@ const Form: FC = () => {
         </div>
       </div>
       <div className={styles.footer}>
-        <Button className={styles.button} variant="negative" icon={false} type="submit">
+        <Button className={styles.button} variant='negative' icon={false} type='submit'>
           Зарегистрироваться
         </Button>
         <Checkbox
           className={styles.checkbox}
-          text="Согласен(а) на обработку персональных данных"
+          text='Согласен(а) на обработку персональных данных'
           {...register('personalDataProcessingConsent', { required: 'Согласитесь с обработкой персональных данных.' })}
         />
-        <Link className={styles.link} href="/signin">
+        <Link className={styles.link} href='/signin'>
           Уже есть аккаунт?
         </Link>
       </div>

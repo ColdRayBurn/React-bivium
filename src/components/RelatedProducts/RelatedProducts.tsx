@@ -34,7 +34,7 @@ const RelatedProducts: FC<Props> = ({ className, relatedTo, initialProducts }) =
     return () => abortController.abort('aborted');
   }, [relatedTo, initialProducts]);
 
-  return <ProductsList className={className} title="Похожие товары" products={products ?? []} />;
+  return <ProductsList className={className} title='Похожие товары' products={products ?? []} />;
 };
 
 export default RelatedProducts;

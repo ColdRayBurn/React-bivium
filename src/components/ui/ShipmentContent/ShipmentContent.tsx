@@ -25,11 +25,11 @@ const ShipmentContent: FC<Props> = ({ products, discount }) => {
     .reduce((previousValue, currentValue) => previousValue + currentValue);
 
   return (
-    <Card title="Содержимое отправления">
+    <Card title='Содержимое отправления'>
       <div className={styles.products}>
         {products.map((product, productIndex) => (
           <div key={productIndex} className={styles.product}>
-            <img className={styles.productImage} src={formatUrl(product.image)} alt="" />
+            <img className={styles.productImage} src={formatUrl(product.image)} alt='' />
             <div className={styles.productBody}>
               <div className={styles.productTitle}>{product.name}</div>
               <div className={styles.productProperties}>

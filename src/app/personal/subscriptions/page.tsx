@@ -22,7 +22,7 @@ const Page: FC = () => {
       {isSubscribed && <Input className={styles.emailInput} defaultValue={'example@example.com'} disabled />}
       <button
         className={styles.button}
-        type="button"
+        type='button'
         onClick={() => {
           if (isSubscribed) {
             setIsModalShown(true);
@@ -38,14 +38,14 @@ const Page: FC = () => {
         <div className={styles.productsTitle}>Поступление товаров</div>
         <div className={styles.productsBody}>
           <div className={styles.productsItem}>
-            <ProductCard id={1} image="https://placehold.co/600x400/EEE/31343C" name="123" price={123} small inStock />
-            <button className={styles.unsubscribeButton} type="button">
+            <ProductCard id={1} image='https://placehold.co/600x400/EEE/31343C' name='123' price={123} small inStock />
+            <button className={styles.unsubscribeButton} type='button'>
               Больше не интересует
             </button>
           </div>
           <div className={styles.productsItem}>
-            <ProductCard id={1} image="https://placehold.co/600x400/EEE/31343C" name="321" price={123} small inStock />
-            <button className={styles.unsubscribeButton} type="button">
+            <ProductCard id={1} image='https://placehold.co/600x400/EEE/31343C' name='321' price={123} small inStock />
+            <button className={styles.unsubscribeButton} type='button'>
               Больше не интересует
             </button>
           </div>
@@ -53,13 +53,13 @@ const Page: FC = () => {
       </div>
       <OverlayingPopup isOpened={isModalShown}>
         <ConfirmDialogPopup
-          title="Отписаться от рассылки?"
-          submitButtonText="Подтвердить"
+          title='Отписаться от рассылки?'
+          submitButtonText='Подтвердить'
           submitButtonHandler={() => {
             setIsSubscribed(false);
             setIsModalShown(false);
           }}
-          cancelButtonText="Отмена"
+          cancelButtonText='Отмена'
           cancelButtonHandler={() => setIsModalShown(false)}
         />
       </OverlayingPopup>

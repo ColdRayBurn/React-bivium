@@ -12,7 +12,7 @@ const Page: FC = () => {
         { name: 'Помощь', path: '/help' },
         { name: 'Стать амбасадором или представителем бренда', path: '/ambassadors' }
       ]}
-      title="Собираем команду BIVIUM"
+      title='Собираем команду BIVIUM'
       content={
         <>
           <div className={styles.text}>
@@ -24,12 +24,12 @@ const Page: FC = () => {
             Будет много интересных проектов, много крутых стартов, наград и призов!
             <br />
             <br />
-            Расскажи о себе по адресу - <a href="mailto:ambassador@bivium.ru">ambassador@bivium.ru</a>
+            Расскажи о себе по адресу - <a href='mailto:ambassador@bivium.ru'>ambassador@bivium.ru</a>
           </div>
-          <Button className={styles.button} variant="negative" icon={false} type="button">
-            <a href="mailto:ambassador@bivium.ru">Отправить заявку</a>
+          <Button className={styles.button} variant='negative' icon={false} type='button'>
+            <a href='mailto:ambassador@bivium.ru'>Отправить заявку</a>
           </Button>
-          <img className={styles.image} src="/images/logo-article.png" alt="" />
+          <img className={styles.image} src='/images/logo-article.png' alt='' />
         </>
       }
     />

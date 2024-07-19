@@ -52,7 +52,7 @@ const Hero: FC<Props> = ({ slides }) => {
               <div className={styles.carouselSlideFooter}>
                 <Button
                   className={styles.carouselSlideButton}
-                  variant="negative"
+                  variant='negative'
                   onClick={() => router.push('/about-company')}
                 >
                   Узнать больше

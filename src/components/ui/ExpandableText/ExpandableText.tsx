@@ -35,7 +35,7 @@ const ExpandableText: FC<Props> = ({ children, className }) => {
         {children}
       </div>
       {!isExpanded && isExpandButtonShow && (
-        <button className={styles.button} type="button" onClick={() => setExpanded(true)}>
+        <button className={styles.button} type='button' onClick={() => setExpanded(true)}>
           <ChevronDownIcon />
           Читать далее
         </button>

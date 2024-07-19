@@ -9,7 +9,7 @@ const Page: FC = () => {
         { name: 'Помощь', path: '/help' },
         { name: 'Размерная таблица', path: '/sizes' }
       ]}
-      title="Размерная таблица"
+      title='Размерная таблица'
       content={
         <>
           Данный раздел создан, для того чтобы вы могли легко и безошибочно подобрать свой костюм BIVIUM. Напоминаем
@@ -17,9 +17,9 @@ const Page: FC = () => {
           облегания или наоборот добавить свободы, то вам следует выбрать соответственно размер меньше или больше от
           желаемого. Также, на странице каждого товара есть кнопка «таблица размеров», нажав на которую, Вы сможете
           увидеть таблицу замеров для всех размеров данного товара.
-          <img className={styles.image} src="/images/sizes.png" alt="" />
-          <img className={styles.image} src="/images/sizes-female.png" alt="" />
-          <img className={styles.image} src="/images/sizes-kids.png" alt="" />
+          <img className={styles.image} src='/images/sizes.png' alt='' />
+          <img className={styles.image} src='/images/sizes-female.png' alt='' />
+          <img className={styles.image} src='/images/sizes-kids.png' alt='' />
         </>
       }
     />

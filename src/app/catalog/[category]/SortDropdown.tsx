@@ -66,8 +66,8 @@ const SortDropdown: FC<Props> = ({ sortType, setSortType }) => {
         ref={refs.setReference}
         {...getReferenceProps()}
         className={styles.button}
-        variant="secondary"
-        type="button"
+        variant='secondary'
+        type='button'
       >
         {sortMap[sortType]}
       </Button>
@@ -79,7 +79,7 @@ const SortDropdown: FC<Props> = ({ sortType, setSortType }) => {
                 key={keyIndex}
                 className={classNames(styles.button, styles.buttonDropdownItem)}
                 disabled={sortType === key}
-                variant="secondary"
+                variant='secondary'
                 icon={false}
                 onClick={() => onSelect(key as SortType)}
               >

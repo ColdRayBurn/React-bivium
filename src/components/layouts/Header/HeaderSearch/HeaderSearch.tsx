@@ -31,11 +31,11 @@ const HeaderSearch: FC<Props> = ({ onSubmit }) => {
       <input
         ref={inputRef}
         className={classnames(styles.control, isExpanded && styles.control_expanded)}
-        type="search"
-        placeholder="Поиск по товарам"
+        type='search'
+        placeholder='Поиск по товарам'
         onKeyUp={event => event.key === 'Enter' && onSubmitHandler()}
       />
-      <button className={styles.button} type="button" onClick={onSubmitHandler}>
+      <button className={styles.button} type='button' onClick={onSubmitHandler}>
         <SearchIcon />
       </button>
     </div>

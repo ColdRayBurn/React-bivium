@@ -53,10 +53,10 @@ const Header: FC = () => {
   return (
     <header ref={headerRef} className={styles.header}>
       <div className={styles.top}>
-        <button className={styles.hamburgerMenuButton} type="button">
+        <button className={styles.hamburgerMenuButton} type='button'>
           <HamburgerIcon />
         </button>
-        <Link className={styles.logotype} href="/">
+        <Link className={styles.logotype} href='/'>
           <MediaQuery minWidth={1281}>Bivium</MediaQuery>
           <MediaQuery maxWidth={1280}>
             <BiviumIcon />
@@ -73,7 +73,7 @@ const Header: FC = () => {
               <HeartIcon />
             </Link>
           </MediaQuery>
-          <Link className={styles.control} href="/cart" data-amount={cartAmount ? cartAmount : undefined}>
+          <Link className={styles.control} href='/cart' data-amount={cartAmount ? cartAmount : undefined}>
             <BagIcon />
           </Link>
           <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
@@ -82,16 +82,16 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={styles.navigation}>
-        <button className={styles.navigationItem} type="button">
+        <button className={styles.navigationItem} type='button'>
           Новинки
         </button>
-        <button className={styles.navigationItem} type="button">
+        <button className={styles.navigationItem} type='button'>
           Экипировка
         </button>
-        <button className={styles.navigationItem} type="button">
+        <button className={styles.navigationItem} type='button'>
           Одежда
         </button>
-        <button className={styles.navigationItem} type="button">
+        <button className={styles.navigationItem} type='button'>
           Аксессуары
         </button>
       </div>

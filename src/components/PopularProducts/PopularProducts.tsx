@@ -33,7 +33,7 @@ const PopularProducts: FC<Props> = ({ className, initialProducts }) => {
     return () => abortController.abort('aborted');
   }, [initialProducts]);
 
-  return <ProductsList className={className} title="Популярные товары" products={products ?? []} />;
+  return <ProductsList className={className} title='Популярные товары' products={products ?? []} />;
 };
 
 export default PopularProducts;

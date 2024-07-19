@@ -15,7 +15,7 @@ const Checkbox = forwardRef<HTMLInputElement, Props>((props, forwardedRef) => {
 
   return (
     <label className={classNames(className, styles.wrapper)} htmlFor={checkboxId}>
-      <input id={checkboxId} ref={forwardedRef} className={styles.control} type="checkbox" {...rest} />
+      <input id={checkboxId} ref={forwardedRef} className={styles.control} type='checkbox' {...rest} />
       <SquareIcon />
       <CheckSquareIcon />
       {text && <div className={styles.text}>{text}</div>}

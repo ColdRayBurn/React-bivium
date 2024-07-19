@@ -55,7 +55,7 @@ const DeliveryInformation: FC<Props> = ({ className, withButton }) => {
         </div>
       </div>
       {withButton && (
-        <Button className={styles.button} variant="default" type="button" onClick={() => router.push('/about-company')}>
+        <Button className={styles.button} variant='default' type='button' onClick={() => router.push('/about-company')}>
           Узнать больше
         </Button>
       )}

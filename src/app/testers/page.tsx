@@ -12,7 +12,7 @@ const Page: FC = () => {
         { name: 'Помощь', path: '/help' },
         { name: 'Стать тестировщиком', path: '/testers' }
       ]}
-      title="Стать тестировщиком"
+      title='Стать тестировщиком'
       content={
         <>
           <div className={styles.wrapper}>
@@ -21,11 +21,11 @@ const Page: FC = () => {
               проект, в котором каждый, кто купил нашу вещь и готов дать честный отзыв, может стать тестестировщиком. С
               Вас честный отзыв, с нас возможность участвовать в создании новой коллекции и шанс первым попробовать
               новую эксклюзивную экипировку раньше всех.
-              <Button className={styles.button} variant="negative" icon={false}>
+              <Button className={styles.button} variant='negative' icon={false}>
                 Отправить заявку
               </Button>
             </div>
-            <img className={styles.image} src="/images/testers.png" alt="" />
+            <img className={styles.image} src='/images/testers.png' alt='' />
           </div>
         </>
       }

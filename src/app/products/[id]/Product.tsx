@@ -43,7 +43,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
         <MediaQuery minWidth={1281}>
           <div className={styles.images}>
             {images.map((image, imageIndex) => (
-              <img key={imageIndex} className={styles.image} src={formatUrl(image)} alt="" />
+              <img key={imageIndex} className={styles.image} src={formatUrl(image)} alt='' />
             ))}
           </div>
         </MediaQuery>
@@ -87,14 +87,14 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
           <div className={styles.buttons}>
             <Button
               className={styles.addToCartButton}
-              variant="negative"
+              variant='negative'
               icon={false}
-              type="button"
+              type='button'
               onClick={() => (inStock ? setIsModalShown(true) : null)}
             >
               {inStock ? 'Добавить в корзину' : 'Сообщить о поступлении'}
             </Button>
-            <Button className={styles.favoriteButton} variant="default" icon={false} type="button">
+            <Button className={styles.favoriteButton} variant='default' icon={false} type='button'>
               <HeartIcon />
             </Button>
           </div>
@@ -103,14 +103,14 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
       </div>
       <OverlayingPopup isOpened={isModalShown}>
         <ConfirmDialogPopup
-          title="Товар добавлен в корзину"
-          submitButtonText="Перейти в корзину"
+          title='Товар добавлен в корзину'
+          submitButtonText='Перейти в корзину'
           submitButtonHandler={() => router.push('/cart')}
-          cancelButtonText="Продолжить покупки"
+          cancelButtonText='Продолжить покупки'
           cancelButtonHandler={() => setIsModalShown(false)}
         >
           <div className={styles.modal}>
-            <img className={styles.modalImage} src={formatUrl(images[0])} alt="" />
+            <img className={styles.modalImage} src={formatUrl(images[0])} alt='' />
             <div className={styles.modalBody}>
               <div className={styles.modalBodyTitle}>{name}</div>
               <div className={styles.modalBodyPrice}>{formatPrice(selectedSize.price)}</div>

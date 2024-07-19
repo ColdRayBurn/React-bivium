@@ -66,7 +66,7 @@ const Dropdown: FC<Props> = ({ className, items, onSelectCallback }) => {
       <button
         ref={refs.setReference}
         className={classNames(className, styles.button, isExpanded && styles.expanded, selectedItem && styles.selected)}
-        type="button"
+        type='button'
         {...getReferenceProps()}
       >
         {selectedItem ? selectedItem.name : 'Пожалуйста выберите'}
@@ -79,7 +79,7 @@ const Dropdown: FC<Props> = ({ className, items, onSelectCallback }) => {
               <button
                 key={itemIndex}
                 className={styles.menuItem}
-                type="button"
+                type='button'
                 onClick={() => {
                   setSelectedItem(item);
                   setIsExpanded(false);

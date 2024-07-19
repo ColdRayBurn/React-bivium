@@ -18,15 +18,15 @@ const PromocodeInput: FC<Props> = ({ className }) => {
     <div className={classNames(className, styles.wrapper)}>
       <input
         className={styles.input}
-        type="text"
-        placeholder="Промокод"
+        type='text'
+        placeholder='Промокод'
         disabled={isSubmited}
         onChange={event => setValue(event.target.value)}
       />
       {!isSubmited && (
         <button
           className={styles.submitButton}
-          type="button"
+          type='button'
           disabled={!value.length}
           onClick={() => setIsSubmited(true)}
         >

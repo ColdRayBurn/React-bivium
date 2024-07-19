@@ -22,8 +22,8 @@ const Page: FC = async () => {
       <Hero slides={meta.heroCarousel} />
       <Catalog />
       <Banner
-        title="Партнёрам"
-        subtitle="Внимание нашим будущим"
+        title='Партнёрам'
+        subtitle='Внимание нашим будущим'
         picture={meta.banner.picture}
         mobilePicture={meta.banner.pictureMobile}
       />
@@ -51,8 +51,8 @@ const Page: FC = async () => {
       />
       <Banner
         className={styles.bannerAmbassadors}
-        title="Наши амбассадоры"
-        subtitle="Знакомьтесь,"
+        title='Наши амбассадоры'
+        subtitle='Знакомьтесь,'
         picture={meta.banner.picture}
         mobilePicture={meta.banner.pictureMobile}
       />
@@ -60,7 +60,7 @@ const Page: FC = async () => {
         <AmbassadorsProducts />
       </div>
       <Description title={meta.description.title} text={meta.description.text} />
-      <section className="container">
+      <section className='container'>
         <DeliveryInformation className={styles.deliveryInformation} withButton />
       </section>
     </main>

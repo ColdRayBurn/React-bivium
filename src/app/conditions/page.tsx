@@ -19,7 +19,7 @@ const Page: FC = () => {
         { name: 'Помощь', path: '/help' },
         { name: 'Условия сотрудничества для оптовых покупателей', path: '/conditions' }
       ]}
-      title="Условия сотрудничества для оптовых покупателей"
+      title='Условия сотрудничества для оптовых покупателей'
       content={
         <>
           <div className={styles.text}>
@@ -31,7 +31,7 @@ const Page: FC = () => {
             <br />
             <br />
             Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу 
-            <a href="zakaz@bivium.ru">zakaz@bivium.ru</a>
+            <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
           </div>
           <div className={styles.items}>
             <div className={styles.item}>
@@ -41,7 +41,7 @@ const Page: FC = () => {
             <div className={styles.item}>
               <FormIcon />
               <span>
-                Заполнить Анкету и выслать её по адресу <a href="zakaz@bivium.ru">zakaz@bivium.ru</a>
+                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
               </span>
             </div>
             <div className={styles.item}>
@@ -61,10 +61,10 @@ const Page: FC = () => {
             </div>
           </div>
           <div className={styles.buttons}>
-            <Button className={styles.button} variant="negative" icon={false}>
+            <Button className={styles.button} variant='negative' icon={false}>
               Отправить заявку
             </Button>
-            <Button className={styles.button} variant="default" icon={false}>
+            <Button className={styles.button} variant='default' icon={false}>
               Скачать каталог новой коллекции
             </Button>
           </div>
