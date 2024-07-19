@@ -3,9 +3,7 @@
     [
       "@csstools/postcss-global-data",
       {
-        "files": [
-          "src/app/globals.css"
-        ]
+        "files": ["src/app/globals.css"]
       }
     ],
     "postcss-custom-media"

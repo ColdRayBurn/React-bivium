@@ -2,7 +2,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   font-weight: 800;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .content {
@@ -37,14 +37,14 @@
   width: 8px;
   height: 8px;
 
-  border: 1px solid #3D4143;
-  background-color: #FFF;
+  border: 1px solid #3d4143;
+  background-color: #fff;
 
   border-radius: 100%;
 }
 
 .carouselBulletsItem_active {
-  background-color: #3D4143;
+  background-color: #3d4143;
 }
 
 .product {

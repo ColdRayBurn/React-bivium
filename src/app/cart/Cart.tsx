@@ -10,8 +10,8 @@ const Cart: FC = () => {
       <CartItem />
       <CartItem />
       <div className={styles.informationText}>
-        <InformationText text='Продукты, помещённые в корзину не резервируются' />
-        <InformationText text='Промокоды не суммируются' />
+        <InformationText text="Продукты, помещённые в корзину не резервируются" />
+        <InformationText text="Промокоды не суммируются" />
       </div>
     </div>
   );

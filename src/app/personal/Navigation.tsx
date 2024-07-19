@@ -13,11 +13,39 @@ const Navigation: FC = () => {
 
   return (
     <div className={styles.navigation}>
-      <Link className={classNames(styles.navigationItem, pathname.endsWith('/favorites') && styles.navigationItem_active)} href='/personal/favorites'>Избранное (0)</Link>
-      <Link className={classNames(styles.navigationItem, pathname.endsWith('/orders') && styles.navigationItem_active)} href='/personal/orders'>Заказы</Link>
-      <Link className={classNames(styles.navigationItem, pathname.endsWith('/personal') && styles.navigationItem_active)} href='/personal'>Данные</Link>
-      <Link className={classNames(styles.navigationItem, pathname.endsWith('/subscriptions') && styles.navigationItem_active)} href='/personal/subscriptions'>Подписки</Link>
-      <Link className={classNames(styles.navigationItem, pathname.endsWith('/bivium') && styles.navigationItem_active)} href='/personal/bivium'>Режим Bivium</Link>
+      <Link
+        className={classNames(styles.navigationItem, pathname.endsWith('/favorites') && styles.navigationItem_active)}
+        href="/personal/favorites"
+      >
+        Избранное (0)
+      </Link>
+      <Link
+        className={classNames(styles.navigationItem, pathname.endsWith('/orders') && styles.navigationItem_active)}
+        href="/personal/orders"
+      >
+        Заказы
+      </Link>
+      <Link
+        className={classNames(styles.navigationItem, pathname.endsWith('/personal') && styles.navigationItem_active)}
+        href="/personal"
+      >
+        Данные
+      </Link>
+      <Link
+        className={classNames(
+          styles.navigationItem,
+          pathname.endsWith('/subscriptions') && styles.navigationItem_active
+        )}
+        href="/personal/subscriptions"
+      >
+        Подписки
+      </Link>
+      <Link
+        className={classNames(styles.navigationItem, pathname.endsWith('/bivium') && styles.navigationItem_active)}
+        href="/personal/bivium"
+      >
+        Режим Bivium
+      </Link>
     </div>
   );
 };

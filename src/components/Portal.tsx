@@ -10,7 +10,9 @@ const Portal = ({ children }: Props) => {
 
   useEffect(() => {
     document.body.appendChild(container);
-    return () => { document.body.removeChild(container); };
+    return () => {
+      document.body.removeChild(container);
+    };
   }, [container]);
 
   return createPortal(children, container);

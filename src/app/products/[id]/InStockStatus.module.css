@@ -22,11 +22,11 @@
 }
 
 .inStock {
-  color: #3AB940;
+  color: #3ab940;
 }
 
 .outOfStock {
-  color: #ED0006;
+  color: #ed0006;
 }
 
 @media (--tablet-media) {

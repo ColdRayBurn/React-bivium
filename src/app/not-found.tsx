@@ -1,9 +1,7 @@
 import { FC } from 'react';
 
 const NotFound: FC = () => {
-  return (
-    null
-  );
+  return null;
 };
 
 export default NotFound;

@@ -1,7 +1,7 @@
 .wrapper {
   padding: 20px;
   border-radius: 12px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .header {
@@ -14,7 +14,7 @@
   font-size: 24px;
   font-weight: 600;
   max-width: 220px;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .closeButton {

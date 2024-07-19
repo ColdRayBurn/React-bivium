@@ -7,7 +7,7 @@
   border-radius: 10px;
   border: 1px solid #979797;
 
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .removeButton {
@@ -29,7 +29,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .properties {
@@ -50,14 +50,14 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 800;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .propertiesItemValue {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .footer {
@@ -71,5 +71,5 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-weight: 300;
-  color: #3D4143;
+  color: #3d4143;
 }

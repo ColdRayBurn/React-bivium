@@ -66,8 +66,10 @@ const Form: FC = () => {
       errors?.name?.message && messages.push({ text: errors!.name!.message!, color: 'red' });
       errors?.email?.message && messages.push({ text: errors!.email!.message!, color: 'red' });
       errors?.password?.message && messages.push({ text: errors!.password!.message!, color: 'red' });
-      errors?.password_confirmation?.message && messages.push({ text: errors!.password_confirmation!.message!, color: 'red' });
-      errors?.personalDataProcessingConsent?.message && messages.push({ text: errors!.personalDataProcessingConsent!.message!, color: 'red' });
+      errors?.password_confirmation?.message &&
+        messages.push({ text: errors!.password_confirmation!.message!, color: 'red' });
+      errors?.personalDataProcessingConsent?.message &&
+        messages.push({ text: errors!.personalDataProcessingConsent!.message!, color: 'red' });
 
       return messages;
     });
@@ -75,34 +77,58 @@ const Form: FC = () => {
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit, onInvalid)}>
-      {!!messages.length &&
+      {!!messages.length && (
         <div className={styles.messages}>
-          {messages.map((message, messageIndex) =>
-            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>{message.text}</div>)}
+          {messages.map((message, messageIndex) => (
+            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>
+              {message.text}
+            </div>
+          ))}
         </div>
-      }
+      )}
       <div className={styles.body}>
         <div className={styles.row}>
-          <Input type='text' placeholder='Имя' {...register('name', { required: 'Поле \'Имя\' обязательно к заполнению.' })} />
-          <Input type='text' placeholder='Фамилия' {...register('surname')} />
-          <Input type='text' placeholder='Отчество' {...register('patronymic')} />
+          <Input
+            type="text"
+            placeholder="Имя"
+            {...register('name', { required: "Поле 'Имя' обязательно к заполнению." })}
+          />
+          <Input type="text" placeholder="Фамилия" {...register('surname')} />
+          <Input type="text" placeholder="Отчество" {...register('patronymic')} />
         </div>
-        <Input type='email' placeholder='E-Mail' {...register('email', { required: 'Поле \'E-Mail\' обязательно к заполнению.' })} />
+        <Input
+          type="email"
+          placeholder="E-Mail"
+          {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
+        />
         <div className={styles.row}>
-          <Input type='password' placeholder='Пароль' {...register('password', { required: 'Поле \'Пароль\' обязательно к заполнению.' })} />
-          <Input type='password' placeholder='Подтверждение пароля' {...register('password_confirmation', {
-            required: 'Поле \'Подтверждение пароля\' обязательно к заполнению.',
-            validate: value => value === watch('password') || 'Поле \'Подтверждение пароля\' заполнено неправильно.'
-          })} />
+          <Input
+            type="password"
+            placeholder="Пароль"
+            {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
+          />
+          <Input
+            type="password"
+            placeholder="Подтверждение пароля"
+            {...register('password_confirmation', {
+              required: "Поле 'Подтверждение пароля' обязательно к заполнению.",
+              validate: value => value === watch('password') || "Поле 'Подтверждение пароля' заполнено неправильно."
+            })}
+          />
         </div>
       </div>
       <div className={styles.footer}>
-        <Button className={styles.button} variant='negative' icon={false} type='submit'>Зарегистрироваться</Button>
+        <Button className={styles.button} variant="negative" icon={false} type="submit">
+          Зарегистрироваться
+        </Button>
         <Checkbox
-          className={styles.checkbox} text='Согласен(а) на обработку персональных данных'
+          className={styles.checkbox}
+          text="Согласен(а) на обработку персональных данных"
           {...register('personalDataProcessingConsent', { required: 'Согласитесь с обработкой персональных данных.' })}
         />
-        <Link className={styles.link} href='/signin'>Уже есть аккаунт?</Link>
+        <Link className={styles.link} href="/signin">
+          Уже есть аккаунт?
+        </Link>
       </div>
     </form>
   );

@@ -20,15 +20,16 @@ interface Props {
 }
 
 const ShipmentContent: FC<Props> = ({ products, discount }) => {
-  const productsPrice = products.map(product => product.price * product.amount)
+  const productsPrice = products
+    .map(product => product.price * product.amount)
     .reduce((previousValue, currentValue) => previousValue + currentValue);
 
   return (
-    <Card title='Содержимое отправления'>
+    <Card title="Содержимое отправления">
       <div className={styles.products}>
-        {products.map((product, productIndex) =>
+        {products.map((product, productIndex) => (
           <div key={productIndex} className={styles.product}>
-            <img className={styles.productImage} src={formatUrl(product.image)} alt='' />
+            <img className={styles.productImage} src={formatUrl(product.image)} alt="" />
             <div className={styles.productBody}>
               <div className={styles.productTitle}>{product.name}</div>
               <div className={styles.productProperties}>
@@ -48,23 +49,23 @@ const ShipmentContent: FC<Props> = ({ products, discount }) => {
               <div className={styles.productPrice}>{formatPrice(product.price * product.amount)}</div>
             </div>
           </div>
-        )}
+        ))}
       </div>
       <div className={styles.summary}>
         <div className={styles.summaryRow}>
           <div className={styles.summaryText}>{products.length} товара</div>
           <div className={styles.summaryPrice}>{formatPrice(productsPrice)}</div>
         </div>
-        {discount &&
+        {discount && (
           <div className={styles.summaryRow}>
             <div className={styles.summaryText}>Скидка -{discount}%</div>
-            <div className={styles.summaryPrice}>-{formatPrice(productsPrice / 100 * discount)}</div>
+            <div className={styles.summaryPrice}>-{formatPrice((productsPrice / 100) * discount)}</div>
           </div>
-        }
+        )}
       </div>
       <div className={styles.result}>
         <div className={styles.resultText}>Итог:</div>
-        <div className={styles.resultPrice}>{formatPrice(productsPrice - productsPrice / 100 * (discount ?? 0))}</div>
+        <div className={styles.resultPrice}>{formatPrice(productsPrice - (productsPrice / 100) * (discount ?? 0))}</div>
       </div>
     </Card>
   );

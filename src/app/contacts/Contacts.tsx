@@ -16,11 +16,15 @@ const Contacts: FC<Props> = ({ contacts }) => {
         <div className={styles.items}>
           <div className={styles.item}>
             <div className={styles.itemTitle}>E-mail</div>
-            <a className={styles.itemText} href={`mailto:${contacts.email}}`}>{contacts.email}</a>
+            <a className={styles.itemText} href={`mailto:${contacts.email}}`}>
+              {contacts.email}
+            </a>
           </div>
           <div className={styles.item}>
             <div className={styles.itemTitle}>Телефон</div>
-            <a className={styles.itemText} href={`tel:${contacts.phone}`}>{contacts.phone}</a>
+            <a className={styles.itemText} href={`tel:${contacts.phone}`}>
+              {contacts.phone}
+            </a>
           </div>
           <div className={styles.item}>
             <div className={styles.itemTitle}>{contacts.addressCity}</div>
@@ -28,7 +32,7 @@ const Contacts: FC<Props> = ({ contacts }) => {
           </div>
         </div>
       </div>
-      <img className={styles.image} src={formatUrl(contacts.picture)} alt='' />
+      <img className={styles.image} src={formatUrl(contacts.picture)} alt="" />
     </div>
   );
 };

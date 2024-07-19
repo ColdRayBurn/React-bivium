@@ -14,8 +14,8 @@ import { getCatalogCategoryCodeById, getCatalogCategoryNameByCode } from '@/util
 import styles from './page.module.css';
 
 interface Props {
-  params: { id: string }
-};
+  params: { id: string };
+}
 
 const ProductPage: FC<Props> = async ({ params: { id } }) => {
   if (id === '0') {
@@ -26,10 +26,16 @@ const ProductPage: FC<Props> = async ({ params: { id } }) => {
 
   return (
     <main className={classNames(styles.wrapper, 'container')}>
-      <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={[
-        { name: getCatalogCategoryNameByCode(getCatalogCategoryCodeById(product.categoryId)!), path: `/catalog/${getCatalogCategoryCodeById(product.categoryId)}` },
-        { name: product.name, path: `/products/${product.id}` }
-      ]} />
+      <Breadcrumbs
+        className={styles.breadcrumbs}
+        breadсrumbs={[
+          {
+            name: getCatalogCategoryNameByCode(getCatalogCategoryCodeById(product.categoryId)!),
+            path: `/catalog/${getCatalogCategoryCodeById(product.categoryId)}`
+          },
+          { name: product.name, path: `/products/${product.id}` }
+        ]}
+      />
       <Product {...product} />
       <Description text={product.description} />
       <RelatedProducts className={styles.relatedProducts} relatedTo={product.id} />

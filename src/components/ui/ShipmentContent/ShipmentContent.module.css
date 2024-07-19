@@ -23,7 +23,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .productProperties {
@@ -40,7 +40,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .productPropertiesItemName {
@@ -56,7 +56,7 @@
   font-size: 20px;
   font-weight: 300;
   text-align: right;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .summary {
@@ -65,7 +65,7 @@
 
   display: flex;
   flex-direction: column;
-  row-gap: 10px;  
+  row-gap: 10px;
 
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -74,7 +74,7 @@
   border-top: 1px solid #979797;
   border-bottom: 1px solid #979797;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .summaryRow {
@@ -97,7 +97,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .resultText {

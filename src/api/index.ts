@@ -2,7 +2,7 @@ import ky from 'ky';
 
 const api = ky.extend({
   retry: 0,
-  prefixUrl: process.env.NEXT_PUBLIC_API_URL,
+  prefixUrl: new URL('api', process.env.NEXT_PUBLIC_URL),
   hooks: {
     beforeRequest: [
       request => {

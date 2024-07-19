@@ -25,7 +25,7 @@ const Footer: FC = async () => {
 
   return (
     <footer className={styles.wrapper}>
-      <div className='container'>
+      <div className="container">
         <div className={styles.row}>
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Обратная связь</h2>
@@ -36,7 +36,9 @@ const Footer: FC = async () => {
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <Button type='submit' variant='negative'>{meta.feedback.buttonText}</Button>
+              <Button type="submit" variant="negative">
+                {meta.feedback.buttonText}
+              </Button>
             </div>
           </div>
           <div className={styles.block}>
@@ -44,13 +46,13 @@ const Footer: FC = async () => {
             <h4 className={styles.blockSubtitle}>{meta.socialNetworks.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.socialIcons}>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href="#" target="_blank" rel="noopener noreferrer">
                   <InstagramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href="#" target="_blank" rel="noopener noreferrer">
                   <TelegramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href="#" target="_blank" rel="noopener noreferrer">
                   <VKIcon />
                 </a>
               </div>
@@ -80,7 +82,7 @@ const Footer: FC = async () => {
         <FooterLinks />
         <div className={styles.bottom}>
           <div className={styles.copyright}>BIVIUM © 2024</div>
-          <Link className={styles.logotype} href='/'>
+          <Link className={styles.logotype} href="/">
             <LogotypeIcon />
           </Link>
         </div>

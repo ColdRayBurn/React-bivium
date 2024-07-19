@@ -28,7 +28,7 @@
   height: fit-content;
 
   font-family: 'Montserrat', sans-serif;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .name {
@@ -107,7 +107,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .modalBodyPrice {
@@ -117,7 +117,7 @@
   font-size: 24px;
   font-weight: 400;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 @media (--tablet-media) {
@@ -168,7 +168,7 @@
 
   .modalImage {
     width: 100%;
-    aspect-ratio: .85;
+    aspect-ratio: 0.85;
   }
 
   .modalBody {

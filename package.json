@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@cdek-it/widget": "^3.10.2",
@@ -31,7 +32,12 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "postcss-custom-media": "^10.0.8",
+    "prettier": "^3.3.3",
     "typescript": "^5"
   }
 }

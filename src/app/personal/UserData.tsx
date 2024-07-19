@@ -48,11 +48,14 @@ const UserData: FC = () => {
   const emailInputId = useId();
 
   const onSubmit: SubmitHandler<IForm> = data => {
-    api.patch('user/', { json: data }).then(() => {
-      dispatch(setUser({ ...user, ...data, isAuthorized: true, isLoaded: true }));
-    }).catch(() => {
-      reset();
-    });
+    api
+      .patch('user/', { json: data })
+      .then(() => {
+        dispatch(setUser({ ...user, ...data, isAuthorized: true, isLoaded: true }));
+      })
+      .catch(() => {
+        reset();
+      });
   };
 
   return (
@@ -61,26 +64,33 @@ const UserData: FC = () => {
         <h1 className={styles.title}>Данные</h1>
       </MediaQuery>
       <div className={styles.fullname}>
-        <Input placeholder='Фамилия' type='text' {...register('surname')} />
-        <Input placeholder='Имя' type='text' {...register('name', { required: true })} />
-        <Input placeholder='Отчество' type='text' {...register('patronymic')} />
+        <Input placeholder="Фамилия" type="text" {...register('surname')} />
+        <Input placeholder="Имя" type="text" {...register('name', { required: true })} />
+        <Input placeholder="Отчество" type="text" {...register('patronymic')} />
       </div>
-      <ControlLabel className={styles.birthday} title='Дата рождения' htmlFor={birthdayInputId}>
-        <Input id={birthdayInputId} type='text' placeholder='ДД. ММ. ГГГГ' {...register('birthday')} />
+      <ControlLabel className={styles.birthday} title="Дата рождения" htmlFor={birthdayInputId}>
+        <Input id={birthdayInputId} type="text" placeholder="ДД. ММ. ГГГГ" {...register('birthday')} />
       </ControlLabel>
-      <ControlLabel className={styles.gender} title='Пол' >
+      <ControlLabel className={styles.gender} title="Пол">
         <div className={styles.genderWrapper}>
-          <RadioButton text='Мужской' value='male' {...register('gender')} />
-          <RadioButton text='Женский' value='female' {...register('gender')} />
+          <RadioButton text="Мужской" value="male" {...register('gender')} />
+          <RadioButton text="Женский" value="female" {...register('gender')} />
         </div>
       </ControlLabel>
-      <ControlLabel className={styles.phonenumber} title='Телефон' htmlFor={phonenumberInputId}>
-        <Input id={phonenumberInputId} type='text' placeholder='+7 ___ ___ __ __' {...register('phonenumber')} />
+      <ControlLabel className={styles.phonenumber} title="Телефон" htmlFor={phonenumberInputId}>
+        <Input id={phonenumberInputId} type="text" placeholder="+7 ___ ___ __ __" {...register('phonenumber')} />
       </ControlLabel>
-      <ControlLabel className={styles.email} title='E-Mail' htmlFor={emailInputId}>
-        <Input id={emailInputId} type='email' placeholder='email@example.com' {...register('email', { required: true })} />
+      <ControlLabel className={styles.email} title="E-Mail" htmlFor={emailInputId}>
+        <Input
+          id={emailInputId}
+          type="email"
+          placeholder="email@example.com"
+          {...register('email', { required: true })}
+        />
       </ControlLabel>
-      <Button className={styles.submitButton} variant='negative' type='submit' icon={false}>Сохранить</Button>
+      <Button className={styles.submitButton} variant="negative" type="submit" icon={false}>
+        Сохранить
+      </Button>
     </form>
   );
 };

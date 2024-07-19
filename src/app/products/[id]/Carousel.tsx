@@ -24,8 +24,13 @@ const Carousel: FC<Props> = ({ images }) => {
         wrapperClass={styles.carouselWrapper}
         modules={[Thumbs]}
       >
-        {images.map((image, imageIndex) =>
-          <SwiperSlide key={imageIndex} className={styles.carouselSlide} style={{ backgroundImage: `url(${formatUrl(image)})` }} />)}
+        {images.map((image, imageIndex) => (
+          <SwiperSlide
+            key={imageIndex}
+            className={styles.carouselSlide}
+            style={{ backgroundImage: `url(${formatUrl(image)})` }}
+          />
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -35,8 +40,13 @@ const Carousel: FC<Props> = ({ images }) => {
         wrapperClass={styles.thumbsCarouselWrapper}
         watchSlidesProgress
       >
-        {images.map((image, imageIndex) =>
-          <SwiperSlide key={imageIndex} className={styles.thumbsCarouselSlide} style={{ backgroundImage: `url(${formatUrl(image)})` }} />)}
+        {images.map((image, imageIndex) => (
+          <SwiperSlide
+            key={imageIndex}
+            className={styles.thumbsCarouselSlide}
+            style={{ backgroundImage: `url(${formatUrl(image)})` }}
+          />
+        ))}
       </Swiper>
     </div>
   );

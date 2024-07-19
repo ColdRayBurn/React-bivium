@@ -53,13 +53,11 @@ const Header: FC = () => {
   return (
     <header ref={headerRef} className={styles.header}>
       <div className={styles.top}>
-        <button className={styles.hamburgerMenuButton} type='button'>
+        <button className={styles.hamburgerMenuButton} type="button">
           <HamburgerIcon />
         </button>
-        <Link className={styles.logotype} href='/'>
-          <MediaQuery minWidth={1281} >
-            Bivium
-          </MediaQuery>
+        <Link className={styles.logotype} href="/">
+          <MediaQuery minWidth={1281}>Bivium</MediaQuery>
           <MediaQuery maxWidth={1280}>
             <BiviumIcon />
           </MediaQuery>
@@ -67,11 +65,15 @@ const Header: FC = () => {
         <div className={styles.controls}>
           <MediaQuery minWidth={1281}>
             <HeaderSearch onSubmit={onSearchSubmit} />
-            <Link className={styles.control} href={isAuthorized ? '/personal/favorites' : '/signin'} data-amount={favoritesAmount ? favoritesAmount : undefined}>
+            <Link
+              className={styles.control}
+              href={isAuthorized ? '/personal/favorites' : '/signin'}
+              data-amount={favoritesAmount ? favoritesAmount : undefined}
+            >
               <HeartIcon />
             </Link>
           </MediaQuery>
-          <Link className={styles.control} href='/cart' data-amount={cartAmount ? cartAmount : undefined}>
+          <Link className={styles.control} href="/cart" data-amount={cartAmount ? cartAmount : undefined}>
             <BagIcon />
           </Link>
           <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
@@ -80,10 +82,18 @@ const Header: FC = () => {
         </div>
       </div>
       <div className={styles.navigation}>
-        <button className={styles.navigationItem} type='button'>Новинки</button>
-        <button className={styles.navigationItem} type='button'>Экипировка</button>
-        <button className={styles.navigationItem} type='button'>Одежда</button>
-        <button className={styles.navigationItem} type='button'>Аксессуары</button>
+        <button className={styles.navigationItem} type="button">
+          Новинки
+        </button>
+        <button className={styles.navigationItem} type="button">
+          Экипировка
+        </button>
+        <button className={styles.navigationItem} type="button">
+          Одежда
+        </button>
+        <button className={styles.navigationItem} type="button">
+          Аксессуары
+        </button>
       </div>
     </header>
   );

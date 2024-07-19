@@ -1,8 +1,6 @@
 {
   "..": {
     "prefix": "..",
-    "body": [
-      "<div className={styles.$1}>$2</div>"
-    ]
+    "body": ["<div className={styles.$1}>$2</div>"]
   }
 }

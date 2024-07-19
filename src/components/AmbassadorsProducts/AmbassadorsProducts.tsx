@@ -23,14 +23,17 @@ const AmbassadorsProducts: FC<Props> = ({ className, initialProducts }) => {
 
     const abortController = abortControllerRef.current;
 
-    api.get('products/?ambassadors', {
-      signal: abortController.signal
-    }).json<IProductCard[]>().then(products => setProducts(products));
+    api
+      .get('products/?ambassadors', {
+        signal: abortController.signal
+      })
+      .json<IProductCard[]>()
+      .then(products => setProducts(products));
 
     return () => abortController.abort('aborted');
   }, [initialProducts]);
 
-  return <ProductsList className={className} title='Амбассадоры BIVIUM выбирают' products={products ?? []} />;
+  return <ProductsList className={className} title="Амбассадоры BIVIUM выбирают" products={products ?? []} />;
 };
 
 export default AmbassadorsProducts;

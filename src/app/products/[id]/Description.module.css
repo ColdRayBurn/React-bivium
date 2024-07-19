@@ -6,13 +6,13 @@
   font-family: 'DIN Condensed', sans-serif;
   font-size: 48px;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .text {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 @media (--tablet-media) {

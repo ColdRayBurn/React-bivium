@@ -1,7 +1,16 @@
 'use client';
 
 import { FC, Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { useFloating, useInteractions, autoUpdate, offset, useClick, useDismiss, useRole, FloatingFocusManager } from '@floating-ui/react';
+import {
+  useFloating,
+  useInteractions,
+  autoUpdate,
+  offset,
+  useClick,
+  useDismiss,
+  useRole,
+  FloatingFocusManager
+} from '@floating-ui/react';
 import classNames from 'classnames';
 
 import Button from '@/components/ui/Button/Button';
@@ -12,7 +21,7 @@ import styles from './SortDropdown.module.css';
 interface Props {
   sortType: SortType;
   setSortType: Dispatch<SetStateAction<SortType>>;
-};
+}
 
 const sortMap = {
   popular: 'Популярные',
@@ -54,19 +63,30 @@ const SortDropdown: FC<Props> = ({ sortType, setSortType }) => {
   return (
     <>
       <Button
-        ref={refs.setReference} {...getReferenceProps()} className={styles.button}
-        variant='secondary' type='button'
+        ref={refs.setReference}
+        {...getReferenceProps()}
+        className={styles.button}
+        variant="secondary"
+        type="button"
       >
         {sortMap[sortType]}
       </Button>
       {isOpen && (
         <FloatingFocusManager context={context} modal={false}>
           <div className={styles.dropdown} ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
-            {Object.keys(sortMap).map((key, keyIndex) =>
-              <Button key={keyIndex} className={classNames(styles.button, styles.buttonDropdownItem)} disabled={sortType === key} variant='secondary' icon={false} onClick={() => onSelect(key as SortType)}>
+            {Object.keys(sortMap).map((key, keyIndex) => (
+              <Button
+                key={keyIndex}
+                className={classNames(styles.button, styles.buttonDropdownItem)}
+                disabled={sortType === key}
+                variant="secondary"
+                icon={false}
+                onClick={() => onSelect(key as SortType)}
+              >
                 {sortType === key && <CheckmarkIcon />}
                 {sortMap[key as SortType]}
-              </Button>)}
+              </Button>
+            ))}
           </div>
         </FloatingFocusManager>
       )}

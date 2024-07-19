@@ -18,7 +18,9 @@ const EmptyCart: FC = () => {
         <br />
         пока пуста
       </h2>
-      <Button className={styles.button} variant='negative' icon={false} onClick={() => router.push('/catalog')}>Перейти к покупкам</Button>
+      <Button className={styles.button} variant="negative" icon={false} onClick={() => router.push('/catalog')}>
+        Перейти к покупкам
+      </Button>
     </div>
   );
 };

@@ -26,10 +26,10 @@ const ProductCard: FC<Props> = ({ id, image, name, price, inStock, small, classN
   return (
     <Link className={classNames(styles.wrapper, small && styles.small, className)} href={`/products/${id}`}>
       {!inStock && <div className={styles.badge}>нет в наличии</div>}
-      <button className={styles.favoriteButton} type='button' onClick={favoriteButtonCallback}>
+      <button className={styles.favoriteButton} type="button" onClick={favoriteButtonCallback}>
         <HeartIcon />
       </button>
-      <img className={styles.image} src={image} alt='' />
+      <img className={styles.image} src={image} alt="" />
       <div className={styles.name}>{name}</div>
       <div className={styles.price}>{inStock ? formatPrice(price) : 'нет в наличии'}</div>
     </Link>

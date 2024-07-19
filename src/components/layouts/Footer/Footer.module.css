@@ -1,6 +1,6 @@
 .wrapper {
   padding-block: 50px;
-  color: #FFF;
+  color: #fff;
   background-color: #000;
 }
 
@@ -60,7 +60,7 @@
   justify-content: center;
 
   border-radius: 6px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .links {
@@ -89,7 +89,7 @@
   font-size: 20px;
   font-weight: 600;
 
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .bottom {
@@ -100,7 +100,7 @@
   align-items: center;
   justify-content: space-between;
 
-  border-top: 1px solid #FFF;
+  border-top: 1px solid #fff;
 }
 
 .copyright {

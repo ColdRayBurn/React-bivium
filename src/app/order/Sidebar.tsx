@@ -9,24 +9,27 @@ import CheckCircleIcon from '@icons/check-circle.svg';
 const Sidebar: FC = () => {
   return (
     <div className={styles.wrapper}>
-      <ShipmentContent products={[
-        {
-          name: 'Шапка - «Баланс»',
-          amount: 2,
-          color: 'Красный',
-          image: 'https://placehold.co/600x400/EEE/31343C',
-          price: 1500,
-          size: 'S (54)'
-        },
-        {
-          name: 'Жилет «Пик»',
-          amount: 1,
-          color: 'Бежевый',
-          image: 'https://placehold.co/600x400/EEE/31343C',
-          price: 9800,
-          size: 'M (182)'
-        }
-      ]} discount={15} />
+      <ShipmentContent
+        products={[
+          {
+            name: 'Шапка - «Баланс»',
+            amount: 2,
+            color: 'Красный',
+            image: 'https://placehold.co/600x400/EEE/31343C',
+            price: 1500,
+            size: 'S (54)'
+          },
+          {
+            name: 'Жилет «Пик»',
+            amount: 1,
+            color: 'Бежевый',
+            image: 'https://placehold.co/600x400/EEE/31343C',
+            price: 9800,
+            size: 'M (182)'
+          }
+        ]}
+        discount={15}
+      />
       <Card>
         <div className={styles.email}>
           <div className={styles.emailHeader}>
