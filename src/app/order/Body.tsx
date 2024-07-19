@@ -1,10 +1,9 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import classNames from 'classnames';
 
-import Card from './Card';
-
+import Card from '@/components/ui/Card/Card';
 import Input from '@/components/ui/Input/Input';
 import TextArea from '@/components/ui/TextArea/TextArea';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';

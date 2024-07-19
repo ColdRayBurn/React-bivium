@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import styles from './page.module.css';
 
 import Body from './Body';
 import Sidebar from './Sidebar';
+
+import styles from './page.module.css';
 
 const Page: FC = () => {
   return (
