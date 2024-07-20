@@ -38,9 +38,19 @@
 .wrapper {
     display: flex;
     gap: 40px;
+    width: 100%;
 }
 
-@media (--mobile-media) {
+@media (--tablet-media) {
+    .newsItem {
+        display: block;
+        align-items: center;
+        background: white;
+        overflow: hidden;
+        margin-bottom: 64px;
+        width: 100%;
+    }
+
     .wrapper {
         flex-direction: column;
     }
@@ -50,6 +60,6 @@
         min-width: 100%;
         max-width: 100%;
         object-fit: cover;
-        object-position: center 30%;
+        object-position: center 20%;
     }
 }
