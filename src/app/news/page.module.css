@@ -26,6 +26,12 @@
     margin-left: 40px;
 }
 
+@media (--tablet-media) {
+    .breadcrumbs {
+        margin-left: 0;
+    }
+}
+
 
 
 
