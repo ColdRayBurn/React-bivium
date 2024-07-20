@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import api from '@/api';
 import Button from '@/components/ui/Button/Button';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import Breadcrumbs from "@/components/ui/Breadcrumbs/Breadcrumbs";
 
 
 interface Props {
@@ -76,6 +77,7 @@ const NewsList: FC<Props> = ({ initialData = [] }) => {
 
     return (
         <main className={classNames(styles.container, 'container')}>
+            <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={[{name: 'На главную', path: '/'}]} />
             <div className={styles.header}>
                 <h1 className={styles.title}>Новости СМИ</h1>
             </div>
