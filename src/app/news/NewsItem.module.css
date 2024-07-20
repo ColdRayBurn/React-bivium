@@ -39,3 +39,17 @@
     display: flex;
     gap: 40px;
 }
+
+@media (--mobile-media) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .newsItem img {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+    }
+}
