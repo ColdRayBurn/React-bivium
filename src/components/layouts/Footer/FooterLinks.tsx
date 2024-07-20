@@ -58,7 +58,7 @@ const FooterLinks: FC = () => {
               <Link className={footerStyles.linksItem} href='/certificates'>
                 Сертификаты
               </Link>
-              <Link className={footerStyles.linksItem} href='#'>
+              <Link className={footerStyles.linksItem} href=''>
                 Вакансии
               </Link>
               <Link className={footerStyles.linksItem} href='/contacts'>
@@ -84,7 +84,7 @@ const FooterLinks: FC = () => {
               <Link className={footerStyles.linksItem} href='/testers'>
                 Стать тестировщиком
               </Link>
-              <Link className={footerStyles.linksItem} href='#'>
+              <Link className={footerStyles.linksItem} href=''>
                 Команда бренда
               </Link>
             </div>
