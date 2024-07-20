@@ -1,0 +1,27 @@
+.title {
+    font-family: 'DIN Condensed', sans-serif;
+    font-size: 46px;
+    color: #3D4143;
+    padding: 20px 0;
+}
+
+.content {
+    margin-bottom: 40px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.deliveryInfo {
+    margin-top: 69px;
+}
+
+.container {
+    margin-bottom: 40px;
+}
+
+
+
+
