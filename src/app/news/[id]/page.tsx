@@ -32,7 +32,6 @@ const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
 
             <Breadcrumbs className={styles.breadcrumbs}
                          breadсrumbs={[
-                             {name: 'О компании', path: '/about-company'},
                              {name: 'Новости', path: '/news'},
                              {name: newsItem.name, path: `/news/${newsItem.id}`}
                          ]} withArrow />
@@ -47,7 +46,6 @@ const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
                     {newsItem.image && <img src={formatUrl(newsItem.image)} alt={newsItem.name} className={styles.image} />}
                     <p className={styles.description}>{newsItem.description}</p>
                 </div>
-
             </div>
 
             <Breadcrumbs className={styles.breadcrumb} breadсrumbs={[{name: 'Главная', path: '/'}]} withArrow />

@@ -13,7 +13,7 @@ import classNames from 'classnames';
 import api from '@/api';
 import Button from '@/components/ui/Button/Button';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
-import Breadcrumbs from "@/components/ui/Breadcrumbs/Breadcrumbs";
+import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 
 
 interface Props {
