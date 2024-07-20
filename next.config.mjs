@@ -18,6 +18,14 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/next-api/:path*',
+        destination: '/api/:path*'
+      }
+    ];
   }
 };
 

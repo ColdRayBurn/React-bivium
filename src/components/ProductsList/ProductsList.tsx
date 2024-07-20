@@ -14,7 +14,7 @@ import { formatUrl } from '@/utils/formatUrl';
 import styles from './ProductsList.module.css';
 
 interface Props {
-  title: string;
+  title?: string;
   products: IProductCard[];
   className?: string;
 }
@@ -24,7 +24,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 const ProductsList: FC<Props> = ({ title, products, className }) => {
   return (
     <section className={className}>
-      <h2 className={styles.title}>{title}</h2>
+      {title && <h2 className={styles.title}>{title}</h2>}
       <div className={styles.content}>
         <MediaQuery minWidth={1281}>
           {!!products &&

@@ -12,22 +12,21 @@ import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInf
 import styles from './page.module.css';
 
 const Page: FC = () => {
-  // const isCartEmpty = Math.floor(Math.random());
-  const isCartEmpty = true;
+  const isEmpty = Math.random() < 0.5;
 
   return (
-    <main className='container'>
+    <main className={classNames(styles.container, 'container')}>
       <Breadcrumbs breadсrumbs={[{ name: 'Продолжить покупки', path: '/catalog' }]} />
       <h1 className={styles.title}>Корзина</h1>
-      <div className={classNames(styles.wrapper, isCartEmpty && styles.wrapper_emptyCart)}>
-        {isCartEmpty && (
+      <div className={classNames(styles.wrapper, isEmpty && styles.wrapper_emptyCart)}>
+        {isEmpty && (
           <>
             <EmptyCart />
             <PopularProducts className={styles.products} />
             <DeliveryInformation className={styles.deliveryInformation} withButton />
           </>
         )}
-        {!isCartEmpty && (
+        {!isEmpty && (
           <>
             <Cart />
             <Sidebar />

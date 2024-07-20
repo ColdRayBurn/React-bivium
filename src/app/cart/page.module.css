@@ -20,3 +20,36 @@
 .deliveryInformation {
   margin-top: 90px;
 }
+
+@media (--tablet-media) {
+  .container {
+    padding-top: 20px;
+  }
+
+  .title {
+    margin-top: 15px;
+
+    font-family: 'DIN Condensed', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+
+    color: #000;
+  }
+
+  .wrapper_emptyCart {
+    padding-bottom: 35px;
+  }
+
+  .wrapper:not(.wrapper_emptyCart) {
+    flex-direction: column-reverse;
+    padding-bottom: 30px;
+  }
+
+  .products {
+    margin-top: 50px;
+  }
+
+  .deliveryInformation {
+    display: none;
+  }
+}

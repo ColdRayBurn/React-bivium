@@ -12,3 +12,21 @@
 .button {
   margin-top: 50px;
 }
+
+@media (--tablet-media) {
+  .wrapper {
+    margin-top: 75px;
+    padding-bottom: 0;
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .button {
+    width: 100%;
+    margin-top: 70px;
+    justify-content: center;
+  }
+}

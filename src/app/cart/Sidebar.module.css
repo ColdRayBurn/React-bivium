@@ -58,3 +58,10 @@
 .sslInformation {
   margin-top: 20px;
 }
+
+@media (--tablet-media) {
+  .wrapper {
+    flex-basis: 100%;
+    margin-top: 25px;
+  }
+}
