@@ -44,6 +44,10 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
     });
   }, [menu]);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpened ? 'hidden' : '';
+  }, [isOpened]);
+
   if (!isOpened) {
     return null;
   }

@@ -38,7 +38,7 @@
 .carouselSlideTitle {
   max-width: 50%;
 
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 96px;
   font-weight: 700;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
 }
 
 .carouselSlideSubtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   color: #fff;
 }
@@ -64,7 +64,7 @@
 }
 
 .carouselSlideDescription {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-style: italic;
   text-align: right;
   color: #fff;

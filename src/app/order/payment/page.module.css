@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 48px;
   font-weight: 400;
 
@@ -35,7 +35,7 @@
   align-items: center;
   column-gap: 10px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
 
@@ -49,7 +49,7 @@
 .buttonText {
   margin-top: 15px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
   font-weight: 500;
 

@@ -5,7 +5,7 @@
   align-items: center;
   column-gap: 10px;
 
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 26px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -43,7 +43,7 @@
 .secondary {
   flex-direction: row-reverse;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-weight: 300;
   text-transform: capitalize;
   letter-spacing: normal;

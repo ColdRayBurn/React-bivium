@@ -6,7 +6,7 @@
   display: flex;
   column-gap: 10px;
 
-  font-family: Montserrat;
+  font-family: var(--font-montserrat);
   font-size: 24px;
 
   color: #3d4143;

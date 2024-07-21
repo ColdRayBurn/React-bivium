@@ -6,7 +6,7 @@
 }
 
 .buttonText {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 26px;
 
   text-transform: uppercase;

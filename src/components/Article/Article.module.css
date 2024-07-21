@@ -9,7 +9,7 @@
 .title {
   margin-top: 50px;
 
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 46px;
   font-weight: 700;
 
@@ -19,7 +19,7 @@
 .content {
   margin-top: 50px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 
   color: #000000;

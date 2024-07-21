@@ -21,7 +21,7 @@
 .boldText,
 .thinText {
   width: fit-content;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 }
 

@@ -29,7 +29,7 @@
   .title {
     margin-top: 15px;
 
-    font-family: 'DIN Condensed', sans-serif;
+    font-family: var(--font-fira-sans-extra-condensed), sans-serif;
     font-size: 30px;
     font-weight: 600;
 

@@ -8,7 +8,7 @@
 .navigationItem {
   position: relative;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
 
