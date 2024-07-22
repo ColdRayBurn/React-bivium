@@ -3,14 +3,14 @@
 }
 
 .title {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 48px;
   color: #3d4143;
 }
 
 .text {
   margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 }
 

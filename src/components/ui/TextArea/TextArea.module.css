@@ -1,7 +1,7 @@
 .control {
   padding: 10px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 300;
 

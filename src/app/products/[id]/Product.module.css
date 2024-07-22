@@ -27,7 +27,7 @@
   width: calc(35% - 100px);
   height: fit-content;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   color: #3d4143;
 }
 
@@ -38,7 +38,7 @@
 
 .price {
   margin-top: 5px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 }
 
@@ -55,13 +55,13 @@
 }
 
 .propertiesItemName {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
 }
 
 .propertiesItemValue {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 500;
 }
@@ -104,7 +104,7 @@
 }
 
 .modalBodyTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: #3d4143;
@@ -113,7 +113,7 @@
 .modalBodyPrice {
   margin-top: 5px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 400;
 

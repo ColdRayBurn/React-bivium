@@ -23,30 +23,7 @@ const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 const Header: FC = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const { isAuthorized, cartAmount, favoritesAmount } = useAppSelector(selector => selector.user);
-  const [previousScrollY, setPreviousScrollY] = useState(0);
   const headerRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const header = headerRef.current;
-    if (header === null) {
-      return;
-    }
-
-    const windowScrollHandler = () => {
-      if (previousScrollY <= scrollY && scrollY > parseFloat(getComputedStyle(header).height)) {
-        header.style.transform = 'translateY(-100%)';
-      } else {
-        header.style.transform = 'translateY(0)';
-      }
-
-      setPreviousScrollY(scrollY);
-    };
-
-    setPreviousScrollY(scrollY);
-    window.addEventListener('scroll', windowScrollHandler);
-
-    return () => window.removeEventListener('scroll', windowScrollHandler);
-  }, [previousScrollY]);
 
   const onSearchSubmit = (query: string) => {
     console.log(query);

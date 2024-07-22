@@ -42,7 +42,7 @@
 }
 
 .phonenumberFormTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: #3d4143;
@@ -62,7 +62,7 @@
 .phonenumberFormDescription {
   margin-top: 10px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
   font-weight: 500;
 

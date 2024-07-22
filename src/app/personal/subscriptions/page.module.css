@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   color: #3d4143;
 }
@@ -20,7 +20,7 @@
   align-items: center;
   column-gap: 10px;
 
-  font-family: 'Montserrat';
+  font-family: var(--font-montserrat);
   font-size: 20px;
   font-weight: 300;
   color: #000;
@@ -34,7 +34,7 @@
 }
 
 .productsTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   color: #3d4143;
 }
@@ -42,7 +42,7 @@
 .productsBody {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 30px;
+  gap: 30px;
   margin-top: 20px;
 }
 
@@ -53,9 +53,30 @@
 }
 
 .unsubscribeButton {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-decoration: underline;
   color: #3d4143;
+}
+
+@media (--tablet-media) {
+  .pageTitle {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .title {
+    margin-top: 40px;
+  }
+
+  .emailInput {
+    width: 100%;
+  }
+
+  .products {
+    margin-top: 45px;
+  }
 }

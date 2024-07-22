@@ -17,3 +17,13 @@
   row-gap: 10px;
   flex-basis: 100%;
 }
+
+@media (--tablet-media) {
+  .wrapper {
+    margin-top: 45px;
+  }
+
+  .wrapper > * {
+    flex-basis: 100%;
+  }
+}

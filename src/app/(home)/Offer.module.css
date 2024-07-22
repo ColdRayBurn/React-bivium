@@ -30,12 +30,12 @@
 }
 
 .cardOfferText {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 32px;
 }
 
 .cardTitle {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 80px;
   text-align: right;
 }
@@ -45,14 +45,14 @@
 }
 
 .blockTitle {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 48px;
   color: #3d4143;
 }
 
 .blockDescription {
   margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 }
 

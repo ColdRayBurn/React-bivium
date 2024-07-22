@@ -5,7 +5,7 @@
 .title {
   margin: 50px 0;
 
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 46px;
   font-weight: 700;
 
@@ -22,7 +22,7 @@
 
   margin-bottom: 63px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
 }
 
@@ -44,17 +44,17 @@
   color: #3d4143;
 }
 
-.description li {
+.description ul {
   list-style: none;
   padding-left: 10px;
 }
 
-.description li {
+.description ul li {
   position: relative;
   padding-left: 1em;
 }
 
-.description li::before {
+.description ul li::before {
   content: '\2022';
   position: absolute;
   left: 0;

@@ -17,7 +17,7 @@
 .block {
   display: flex;
   flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .blockTitle {
@@ -70,7 +70,7 @@
 }
 
 .linksTitle {
-  font-family: 'DIN Condensed', sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 26px;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -85,7 +85,7 @@
 .linksItem {
   width: fit-content;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 600;
 
@@ -104,7 +104,7 @@
 }
 
 .copyright {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 30px;
   font-weight: 800;
 }

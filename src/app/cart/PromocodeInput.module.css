@@ -14,7 +14,7 @@
 .input {
   flex-grow: 1;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 300;
 
@@ -27,7 +27,7 @@
 }
 
 .submitButton {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #3ab940;
@@ -38,7 +38,7 @@
 }
 
 .discount {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 300;
   color: #000;

@@ -27,7 +27,7 @@
 }
 
 .productTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #3d4143;
@@ -44,7 +44,7 @@
   display: flex;
   column-gap: 5px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
 
   color: #3d4143;
@@ -59,7 +59,7 @@
 }
 
 .productPrice {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
   font-weight: 300;
   text-align: right;
@@ -74,7 +74,7 @@
   align-items: center;
   justify-content: space-between;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
   font-weight: 500;
 
@@ -89,7 +89,7 @@
   align-items: center;
   justify-content: space-between;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
 }
 
@@ -106,7 +106,7 @@
   align-items: center;
   column-gap: 10px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 16px;
   font-weight: 600;
 
@@ -120,7 +120,7 @@
 .emailText {
   margin-top: 15px;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 14px;
   font-weight: 500;
 

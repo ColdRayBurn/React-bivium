@@ -4,15 +4,13 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import styles from './loading.module.css';
 
-const transition = { duration: 4, yoyo: Infinity, ease: 'easeInOut' };
-
 const Loading: FC = () => {
   return (
     <main className={styles.wrapper}>
       <motion.svg
         initial={{ scale: 1, opacity: 0.75 }}
         animate={{ scale: 1.1, opacity: 1 }}
-        transition={{ repeat: Infinity, duration: 1, ease: 'easeInOut', repeatType: 'reverse' }}
+        transition={{ repeat: Infinity, duration: 0.5, ease: 'easeInOut', repeatType: 'reverse' }}
         width='256'
         height='256'
         viewBox='0 0 24 30'

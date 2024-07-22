@@ -52,7 +52,7 @@
 }
 
 .menuItemsTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
 }
@@ -65,7 +65,7 @@
 
 .menuItem {
   width: fit-content;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
@@ -81,11 +81,13 @@
     padding: 30px 35px;
 
     width: 100%;
-    min-height: 400px;
+    height: 100%;
 
     border: none;
     border-radius: 0;
     box-shadow: 0px 4px 6px 0px #00000059;
+
+    overflow-y: auto;
   }
 
   .menu.menu_submenu .menuItems {
