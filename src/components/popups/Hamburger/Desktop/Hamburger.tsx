@@ -232,7 +232,7 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
             )}
             {menu === 'cooperation' && (
               <>
-                <Link className={styles.menuItem} href='' onClick={onCloseHandler}>
+                <Link className={styles.menuItem} href='/conditions' onClick={onCloseHandler}>
                   Условия сотрудничества для оптовых покупателей
                 </Link>
                 <Link className={styles.menuItem} href='/ambassadors' onClick={onCloseHandler}>
