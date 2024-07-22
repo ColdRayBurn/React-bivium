@@ -14,7 +14,14 @@ interface Props {
   children?: ReactNode;
 }
 
-const ConfirmDialogPopup: FC<Props> = ({ title, cancelButtonText, cancelButtonHandler, submitButtonText, submitButtonHandler, children }) => {
+const ConfirmDialogPopup: FC<Props> = ({
+  title,
+  cancelButtonText,
+  cancelButtonHandler,
+  submitButtonText,
+  submitButtonHandler,
+  children
+}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
@@ -25,8 +32,24 @@ const ConfirmDialogPopup: FC<Props> = ({ title, cancelButtonText, cancelButtonHa
       </div>
       <div className={styles.body}>{children}</div>
       <div className={styles.footer}>
-        <Button className={styles.footerButton} variant='negative' icon={false} type='button' onClick={submitButtonHandler}>{submitButtonText}</Button>
-        <Button className={styles.footerButton} variant='default' icon={false} type='button' onClick={cancelButtonHandler}>{cancelButtonText}</Button>
+        <Button
+          className={styles.footerButton}
+          variant='negative'
+          icon={false}
+          type='button'
+          onClick={submitButtonHandler}
+        >
+          {submitButtonText}
+        </Button>
+        <Button
+          className={styles.footerButton}
+          variant='default'
+          icon={false}
+          type='button'
+          onClick={cancelButtonHandler}
+        >
+          {cancelButtonText}
+        </Button>
       </div>
     </div>
   );

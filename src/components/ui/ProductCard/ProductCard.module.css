@@ -7,7 +7,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .badge {
@@ -21,7 +21,7 @@
   font-size: 14px;
   font-weight: 500;
 
-  color: #FFF;
+  color: #fff;
   background-color: #000;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .image {
-  aspect-ratio: .8;
+  aspect-ratio: 0.8;
   object-fit: scale-down;
 }
 

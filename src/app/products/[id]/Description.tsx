@@ -3,7 +3,7 @@ import styles from './Description.module.css';
 
 interface Props {
   text: string;
-};
+}
 
 const Description: FC<Props> = ({ text }) => {
   return (

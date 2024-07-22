@@ -14,12 +14,17 @@ const Order: FC<Props> = ({ id, products }) => {
     <div className={styles.wrapper}>
       <div className={styles.title}>Заказ №{id}</div>
       <div className={styles.products}>
-        {products.map(product =>
+        {products.map(product => (
           <ProductCard
-            key={product.id} id={product.id}
-            image={product.image} name={product.name}
-            price={product.price} inStock={product.inStock} small
-          />)}
+            key={product.id}
+            id={product.id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            inStock={product.inStock}
+            small
+          />
+        ))}
       </div>
     </div>
   );

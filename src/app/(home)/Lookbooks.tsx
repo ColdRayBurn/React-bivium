@@ -20,15 +20,19 @@ const Lookbooks: FC<Props> = ({ items }) => {
     <section className={classNames(styles.wrapper, 'container')}>
       <h2 className={styles.title}>Лукбуки BIVIUM</h2>
       <div className={styles.items}>
-        {items.map((item, itemIndex) =>
-          <div key={itemIndex} className={styles.item} style={{
-            '--picture': `url(${formatUrl(item.picture)})`,
-            '--mobile-picture': `url(${formatUrl(item.mobilePicture ?? item.picture)})`
-          }}>
+        {items.map((item, itemIndex) => (
+          <div
+            key={itemIndex}
+            className={styles.item}
+            style={{
+              '--picture': `url(${formatUrl(item.picture)})`,
+              '--mobile-picture': `url(${formatUrl(item.mobilePicture ?? item.picture)})`
+            }}
+          >
             <div className={styles.itemTopText}>{item.topText}</div>
             <div className={styles.itemBottomText}>{item.bottomText}</div>
           </div>
-        )}
+        ))}
       </div>
     </section>
   );

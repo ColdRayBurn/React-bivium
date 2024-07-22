@@ -16,9 +16,9 @@
   font-weight: 600;
 
   border-radius: 10px;
-  border: 1px solid #DADADA;
+  border: 1px solid #dadada;
 
-  color: #3D4143;
+  color: #3d4143;
 
   background-size: auto 100%;
   background-repeat: no-repeat;
@@ -31,19 +31,22 @@
 }
 
 .card:nth-child(1) {
-  background-image: url('/images/mens-equipment.jpg'), linear-gradient(180deg, #E3E3E1 0%, #E3E3E1 0.01%, #EFEFED 57.69%, #ECECEA 100%);
+  background-image: url('/images/mens-equipment.jpg'),
+    linear-gradient(180deg, #e3e3e1 0%, #e3e3e1 0.01%, #efefed 57.69%, #ececea 100%);
 }
 
 .card:nth-child(2) {
-  background-image: url('/images/womens-equipment.jpg'), linear-gradient(180deg, #F3F3F1 0%, #E8E8E6 0.01%, #EEEEEC 50.77%, #E8E8E6 99.01%);
+  background-image: url('/images/womens-equipment.jpg'),
+    linear-gradient(180deg, #f3f3f1 0%, #e8e8e6 0.01%, #eeeeec 50.77%, #e8e8e6 99.01%);
 }
 
 .card:nth-child(3) {
-  background-image: url('/images/mens-clothing.jpg'), linear-gradient(90deg, #F3F3F1 0%, #EEEEED 0.01%, #F7F7F7 100%);
+  background-image: url('/images/mens-clothing.jpg'), linear-gradient(90deg, #f3f3f1 0%, #eeeeed 0.01%, #f7f7f7 100%);
 }
 
 .card:nth-child(4) {
-  background-image: url('/images/womens-clothing.jpg'), linear-gradient(112.33deg, #DEDEDC 15.51%, #DEDEDC 15.52%, #DADBD6 44.86%, #D3D4CF 89.48%);
+  background-image: url('/images/womens-clothing.jpg'),
+    linear-gradient(112.33deg, #dededc 15.51%, #dededc 15.52%, #dadbd6 44.86%, #d3d4cf 89.48%);
 }
 
 .card:nth-child(5) {
@@ -68,11 +71,11 @@
   .card:nth-child(2),
   .card:nth-child(3),
   .card:nth-child(4) {
-    aspect-ratio: .4;
+    aspect-ratio: 0.4;
   }
 
   .card:nth-child(5) {
     grid-column: 1 / 3;
     aspect-ratio: 1;
-  } 
+  }
 }

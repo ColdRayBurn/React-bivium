@@ -19,12 +19,12 @@ const NumberInput: FC<Props> = ({ defaultValue = 0, step = 1, min = -Infinity, m
   let inputRef = useRef<HTMLInputElement | null>(null);
 
   const minus = () => {
-    setNumber(number => number - step >= min ? number - step : number);
+    setNumber(number => (number - step >= min ? number - step : number));
     inputRef.current && (inputRef.current.valueAsNumber = number);
   };
 
   const plus = () => {
-    setNumber(number => number + step <= max ? number + step : number);
+    setNumber(number => (number + step <= max ? number + step : number));
     inputRef.current && (inputRef.current.valueAsNumber = number);
   };
 

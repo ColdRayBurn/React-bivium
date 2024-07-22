@@ -21,20 +21,18 @@ const Layout: FC<Props> = ({ children }) => {
       <AuthRedirect />
       <MediaQuery minWidth={1281}>
         <main className={classNames(styles.container, 'container')}>
-          <h1 className={styles.title} data-discount='-15 %'>Ваш профиль</h1>
+          <h1 className={styles.title} data-discount='-15 %'>
+            Ваш профиль
+          </h1>
           <div className={styles.wrapper}>
             <Navigation />
-            <div className={styles.content}>
-              {children}
-            </div>
+            <div className={styles.content}>{children}</div>
           </div>
           <DeliveryInformation className={styles.deliveryInformation} withButton />
         </main>
       </MediaQuery>
       <MediaQuery maxWidth={1280}>
-        <main className={classNames(styles.container, 'container')}>
-          {children}
-        </main>
+        <main className={classNames(styles.container, 'container')}>{children}</main>
       </MediaQuery>
     </>
   );

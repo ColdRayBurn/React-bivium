@@ -11,7 +11,7 @@
   font-size: 48px;
   font-weight: 400;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .title[data-discount]::after {
@@ -30,7 +30,7 @@
   font-size: 12px;
   font-weight: 500;
 
-  color: #FFF;
+  color: #fff;
   background-color: #000;
 
   border-radius: 10px;

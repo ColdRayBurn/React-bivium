@@ -40,7 +40,7 @@ export interface IMetaContactspageResponse {
     phone: string;
     addressCity: string;
     addressMain: string;
-  },
+  };
   partners: {
     cityName: string;
     items: {
@@ -49,21 +49,21 @@ export interface IMetaContactspageResponse {
       address: string;
       phone: string;
       email: string;
-    }[]
-  }[]
+    }[];
+  }[];
 }
 
 export interface IMetaFooterResponse {
   feedback: {
     buttonText: string;
     phone: string;
-  },
+  };
   socialNetworks: {
     text: string;
-  },
+  };
   paymentInformation: {
     text: string;
-  }
+  };
 }
 
 export interface ICatalogResponse {

@@ -12,12 +12,11 @@ const RadioButton = forwardRef<HTMLInputElement, Props>((props, forwardedRef) =>
 
   return (
     <label className={classNames(className, styles.wrapper)} htmlFor={controlId}>
-      <input id={controlId} ref={forwardedRef} className={styles.control} type='radio'  {...rest} />
+      <input id={controlId} ref={forwardedRef} className={styles.control} type='radio' {...rest} />
       <div className={styles.text}>{text}</div>
     </label>
   );
 });
-
 
 RadioButton.displayName = 'RadioButton';
 export default RadioButton;

@@ -7,7 +7,7 @@ import CheckSquareIcon from '@icons/check-square.svg';
 
 interface Props extends ComponentProps<'input'> {
   text?: string;
-};
+}
 
 const Checkbox = forwardRef<HTMLInputElement, Props>((props, forwardedRef) => {
   const checkboxId = useId();
@@ -22,7 +22,6 @@ const Checkbox = forwardRef<HTMLInputElement, Props>((props, forwardedRef) => {
     </label>
   );
 });
-
 
 Checkbox.displayName = 'Checkbox';
 export default Checkbox;

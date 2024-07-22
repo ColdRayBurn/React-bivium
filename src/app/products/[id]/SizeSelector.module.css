@@ -18,11 +18,11 @@
   font-size: 26px;
   font-weight: 400;
 
-  border: 2px solid #DADADA;
+  border: 2px solid #dadada;
   border-radius: 7px;
 
-  color: #3D4143;
-  background-color: #FFF;
+  color: #3d4143;
+  background-color: #fff;
 
   cursor: pointer;
   user-select: none;
@@ -34,8 +34,8 @@
 }
 
 .sizeButton:has(input:disabled) {
-  color: #DADADA;
-  border-color: #DADADA;
+  color: #dadada;
+  border-color: #dadada;
   background-color: #979797;
 }
 

@@ -1,12 +1,12 @@
 .header {
   position: sticky;
   z-index: 1;
-  
+
   top: 0;
   right: 0;
 
   width: 100%;
-  background-color: #FFF;
+  background-color: #fff;
 
   transition: transform 200ms ease;
 }
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid #3D4143;
+  border-bottom: 1px solid #3d4143;
 }
 
 .logotype {
@@ -55,7 +55,7 @@
   font-weight: 500;
   line-height: 1;
 
-  color: #FFF;
+  color: #fff;
   background-color: #000;
 
   border-radius: 100%;
@@ -72,7 +72,7 @@
   padding-block: 15px;
   font-size: 24px;
   font-weight: 600;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 @media (--tablet-media) {

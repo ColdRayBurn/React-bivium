@@ -6,13 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@cdek-it/widget": "^3.10.2",
     "@floating-ui/dom": "^1.6.5",
     "@floating-ui/react": "^0.26.16",
     "@reduxjs/toolkit": "^2.2.5",
     "classnames": "^2.5.1",
+    "framer-motion": "^11.3.8",
     "ky": "^1.4.0",
     "next": "14.2.3",
     "react": "^18",
@@ -33,7 +36,12 @@
     "@types/react-slick": "^0.23.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "postcss-custom-media": "^10.0.8",
+    "prettier": "^3.3.3",
     "typescript": "^5"
   }
 }

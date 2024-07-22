@@ -15,15 +15,19 @@ const AuthComponent = () => {
   useEffect(() => {
     const abortController = abortControllerRef.current;
 
-    api.get('user/', {
-      signal: abortController.signal
-    }).json<IUser>().then(response => {
-      dispatch(setUser({ ...response, isAuthorized: true, isLoaded: true }));
-    }).catch((e) => {
-      if (e !== 'aborted') {
-        localStorage.removeItem('token');
-      }
-    });
+    api
+      .get('user/', {
+        signal: abortController.signal
+      })
+      .json<IUser>()
+      .then(response => {
+        dispatch(setUser({ ...response, isAuthorized: true, isLoaded: true }));
+      })
+      .catch(e => {
+        if (e !== 'aborted') {
+          localStorage.removeItem('token');
+        }
+      });
 
     return () => abortController.abort('aborted');
   }, [dispatch]);

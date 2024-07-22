@@ -17,9 +17,7 @@ const OverlayingPopup = ({ children, isOpened }: OverlayingPopupProps) => {
 
   return (
     <Portal>
-      <div className={styles.wrapper}>
-        {children}
-      </div>
+      <div className={styles.wrapper}>{children}</div>
     </Portal>
   );
 };

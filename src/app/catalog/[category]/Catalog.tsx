@@ -28,16 +28,19 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
   const [limit, setLimit] = useState(8);
 
   const showMore = useCallback(() => {
-    api.get('catalog/', {
-      searchParams: new URLSearchParams({
-        limit: limit.toString(),
-        offset: (offset + limit).toString(),
-        category: categoryId.toString()
+    api
+      .get('catalog/', {
+        searchParams: new URLSearchParams({
+          limit: limit.toString(),
+          offset: (offset + limit).toString(),
+          category: categoryId.toString()
+        })
       })
-    }).json<ICatalogResponse>().then(response => {
-      setProducts(products => products.concat(response.products ?? []));
-      setOffset(offset => offset + limit);
-    });
+      .json<ICatalogResponse>()
+      .then(response => {
+        setProducts(products => products.concat(response.products ?? []));
+        setOffset(offset => offset + limit);
+      });
   }, [limit, categoryId, offset]);
 
   return (
@@ -62,17 +65,29 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
         </MediaQuery>
       </div>
       <div className={styles.content}>
-        {products.map(product =>
+        {products.map(product => (
           <ProductCard
             className={styles.contentItem}
-            key={product.id} id={product.id}
-            image={formatUrl(product.image)} name={product.name}
-            price={product.price} inStock={product.inStock}
+            key={product.id}
+            id={product.id}
+            image={formatUrl(product.image)}
+            name={product.name}
+            price={product.price}
+            inStock={product.inStock}
           />
-        )}
+        ))}
       </div>
       <div className={styles.footer}>
-        <Button className={styles.showMoreButton} variant='negative' type='button' icon={false} onClick={showMore} style={{ visibility: offset <= (data.total - limit) ? 'visible' : 'hidden' }}>Показать ещё</Button>
+        <Button
+          className={styles.showMoreButton}
+          variant='negative'
+          type='button'
+          icon={false}
+          onClick={showMore}
+          style={{ visibility: offset <= data.total - limit ? 'visible' : 'hidden' }}
+        >
+          Показать ещё
+        </Button>
         <div className={styles.footerColumn}>
           <div className={styles.productsAmount}>{data.total} товаров</div>
           <SortDropdown sortType={sortType} setSortType={setSortType} />

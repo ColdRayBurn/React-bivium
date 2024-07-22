@@ -27,12 +27,17 @@ const ProductsList: FC<Props> = ({ title, products, className }) => {
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.content}>
         <MediaQuery minWidth={1281}>
-          {!!products && products.map(product =>
-            <ProductCard
-              key={product.id} id={product.id}
-              name={product.name} price={product.price}
-              image={formatUrl(product.image)} inStock={product.inStock} />
-          )}
+          {!!products &&
+            products.map(product => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                image={formatUrl(product.image)}
+                inStock={product.inStock}
+              />
+            ))}
         </MediaQuery>
         <MediaQuery maxWidth={1280}>
           <Swiper
@@ -41,22 +46,26 @@ const ProductsList: FC<Props> = ({ title, products, className }) => {
             slidesPerView={products.length > 1 ? 2 : 1}
             spaceBetween={30}
             pagination={{
-              enabled: products.length > 1, type: 'bullets',
+              enabled: products.length > 1,
+              type: 'bullets',
               horizontalClass: styles.carouselBullets,
               bulletClass: styles.carouselBulletsItem,
               bulletActiveClass: styles.carouselBulletsItem_active
             }}
             modules={[Pagination]}
           >
-            {products.map(product =>
+            {products.map(product => (
               <SwiperSlide key={product.id} className={styles.carouselSlide}>
                 <ProductCard
                   className={styles.product}
                   id={product.id}
-                  name={product.name} price={product.price}
-                  image={formatUrl(product.image)} inStock={product.inStock} />
+                  name={product.name}
+                  price={product.price}
+                  image={formatUrl(product.image)}
+                  inStock={product.inStock}
+                />
               </SwiperSlide>
-            )}
+            ))}
           </Swiper>
         </MediaQuery>
       </div>

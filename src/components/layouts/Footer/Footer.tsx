@@ -36,7 +36,9 @@ const Footer: FC = async () => {
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <Button type='submit' variant='negative'>{meta.feedback.buttonText}</Button>
+              <Button type='submit' variant='negative'>
+                {meta.feedback.buttonText}
+              </Button>
             </div>
           </div>
           <div className={styles.block}>

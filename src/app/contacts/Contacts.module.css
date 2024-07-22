@@ -41,7 +41,7 @@
   flex-grow: 1;
   height: 300px;
 
-  opacity: .75;
+  opacity: 0.75;
   border-radius: 10px;
 
   object-fit: cover;

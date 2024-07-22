@@ -16,7 +16,7 @@ const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const { children, variant, icon, className, ...rest } = props;
 
   const variantMap: {
-    [K in Variants]: string
+    [K in Variants]: string;
   } = {
     default: styles.default,
     negative: styles.defaultNegative,

@@ -30,7 +30,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .productProperties {
@@ -47,7 +47,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .productPropertiesItemName {
@@ -63,7 +63,7 @@
   font-size: 20px;
   font-weight: 300;
   text-align: right;
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .summary {
@@ -110,11 +110,11 @@
   font-size: 16px;
   font-weight: 600;
 
-  color: #3D4143;
+  color: #3d4143;
 }
 
 .emailHeader svg {
-  color: #3AB940;
+  color: #3ab940;
 }
 
 .emailText {
@@ -124,5 +124,5 @@
   font-size: 14px;
   font-weight: 500;
 
-  color: #3D4143;
+  color: #3d4143;
 }

@@ -29,7 +29,7 @@ const CardForm: FC = () => {
 
     const element = event.target as HTMLInputElement;
     if ([4, 9, 14, 19].includes(element.value.length) && element.value.length <= 18) {
-      setValue('card', (element.value + ' '));
+      setValue('card', element.value + ' ');
     }
   };
 
@@ -56,19 +56,24 @@ const CardForm: FC = () => {
         <Input
           className={styles.formCardInput}
           placeholder='XXXX XXXX XXXX XXXX'
-          type='text' maxLength={19}
+          type='text'
+          maxLength={19}
           onKeyDown={onCardNumberKeyDown}
           onKeyUp={onCardNumberKeyUp}
           {...register('card', {
             maxLength: 19
-          })} />
+          })}
+        />
         <div className={styles.formRow}>
           <div className={styles.formDate}>
             <Input
               className={styles.formMonthInput}
-              placeholder='ММ' size={2} maxLength={2} type='text'
+              placeholder='ММ'
+              size={2}
+              maxLength={2}
+              type='text'
               onKeyUp={event => {
-                const element = (event.target as HTMLInputElement);
+                const element = event.target as HTMLInputElement;
 
                 if (element.value.length >= 2) {
                   setFocus('year', { shouldSelect: false });
@@ -83,9 +88,11 @@ const CardForm: FC = () => {
             <div className={styles.formDateSeparator}>/</div>
             <Input
               className={styles.formYearInput}
-              placeholder='ГГ' size={2} maxLength={2}
+              placeholder='ГГ'
+              size={2}
+              maxLength={2}
               onKeyUp={event => {
-                const element = (event.target as HTMLInputElement);
+                const element = event.target as HTMLInputElement;
 
                 if (element.value.length >= 2) {
                   setFocus('cvc', { shouldSelect: false });
@@ -100,7 +107,9 @@ const CardForm: FC = () => {
           </div>
           <Input className={styles.formCVCInput} placeholder='CVC' size={3} maxLength={3} />
         </div>
-        <Button className={styles.formSubmitButton} variant='negative' icon={false} type='submit'>Заплатить 11 300 ₽</Button>
+        <Button className={styles.formSubmitButton} variant='negative' icon={false} type='submit'>
+          Заплатить 11 300 ₽
+        </Button>
       </form>
       <div className={styles.text}>
         Нажимая на кнопку Вы принимаете

@@ -15,16 +15,26 @@ const Partners: FC<Props> = ({ partners }) => {
     <div className={styles.wrapper}>
       <div className={styles.title}>Магазины-партнёры</div>
       <div className={styles.cities}>
-        {partners.map((city, cityIndex) => city.items.length ? (
-          <div key={cityIndex} className={styles.city}>
-            <div className={styles.cityTitle}>{city.cityName}</div>
-            <div className={styles.cityContent}>
-              {city.items.map((partner, partnerIndex) =>
-                <PartnerCard key={partnerIndex} className={styles.partnerCard} image={formatUrl(partner.logo)} name={partner.title} address={partner.address} phonenumber={partner.phone} email={partner.email} />
-              )}
+        {partners.map((city, cityIndex) =>
+          city.items.length ? (
+            <div key={cityIndex} className={styles.city}>
+              <div className={styles.cityTitle}>{city.cityName}</div>
+              <div className={styles.cityContent}>
+                {city.items.map((partner, partnerIndex) => (
+                  <PartnerCard
+                    key={partnerIndex}
+                    className={styles.partnerCard}
+                    image={formatUrl(partner.logo)}
+                    name={partner.title}
+                    address={partner.address}
+                    phonenumber={partner.phone}
+                    email={partner.email}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ) : null)}
+          ) : null
+        )}
       </div>
     </div>
   );

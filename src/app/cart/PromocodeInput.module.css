@@ -8,7 +8,7 @@
   border: 1px solid #979797;
   border-radius: 4px;
 
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .input {
@@ -30,7 +30,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  color: #3AB940;
+  color: #3ab940;
 }
 
 .submitButton:disabled {
@@ -45,5 +45,5 @@
 }
 
 .wrapper svg {
-  color: #3AB940;
+  color: #3ab940;
 }

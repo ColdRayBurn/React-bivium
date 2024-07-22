@@ -7,6 +7,5 @@ const TextArea = forwardRef<HTMLTextAreaElement, ComponentProps<'textarea'>>((pr
   return <textarea ref={forwardedRef} className={classNames(className, styles.control)} {...rest}></textarea>;
 });
 
-
 TextArea.displayName = 'Textarea';
 export default TextArea;

@@ -2,19 +2,16 @@ stages:
   - pull
   - compile
 
-
 variables:
-  OKMSG: "Стенд bivium_front успешно обновлен"
-  FAILMSG: "Вниманией!Произошла ошибка при обновление стенда bivium_front"
-
-
+  OKMSG: 'Стенд bivium_front успешно обновлен'
+  FAILMSG: 'Вниманией!Произошла ошибка при обновление стенда bivium_front'
 
 pull master:
   stage: pull
-  variables: 
+  variables:
     GIT_STRATEGY: none
   tags:
-     - bivium_front
+    - bivium_front
   script:
     - cd /var/www/nextjs
     - sudo git stash
@@ -40,5 +37,3 @@ compile:
     - echo "Compile OK"
   only:
     - main
-
-

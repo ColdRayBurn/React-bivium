@@ -54,14 +54,11 @@ const DeliveryInformation: FC<Props> = ({ className, withButton }) => {
           Подписаться на рассылку
         </div>
       </div>
-      {withButton &&
-        <Button
-          className={styles.button} variant='default' type='button'
-          onClick={() => router.push('/about-company')}
-        >
+      {withButton && (
+        <Button className={styles.button} variant='default' type='button' onClick={() => router.push('/about-company')}>
           Узнать больше
         </Button>
-      }
+      )}
     </div>
   );
 };

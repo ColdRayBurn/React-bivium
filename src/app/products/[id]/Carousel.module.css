@@ -27,7 +27,7 @@
 
 .thumbsCarouselSlide {
   position: relative;
-  
+
   width: 100px;
   aspect-ratio: 1;
 
@@ -36,7 +36,7 @@
 
 .thumbsCarouselSlide_active::after {
   position: absolute;
-  
+
   right: 0;
   bottom: 0;
 

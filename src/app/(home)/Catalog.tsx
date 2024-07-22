@@ -13,25 +13,35 @@ const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 const Catalog: FC = () => {
   return (
     <section className={classNames(styles.container, 'container')}>
-      <Link className={styles.card} href='/catalog/mens-running'>Мужская<br />экипировка</Link>
-      <Link className={styles.card} href='/catalog/wonmens-running'>Женская<br />экипировка</Link>
-      <Link className={styles.card} href='/catalog/wonmens-clothing'>
-        <MediaQuery minWidth={1281}>
-          Мужская<br />одежда
-        </MediaQuery>
-        <MediaQuery maxWidth={1280}>
-          Мужская одежда
-        </MediaQuery>
+      <Link className={styles.card} href='/catalog/mens-running'>
+        Мужская
+        <br />
+        экипировка
+      </Link>
+      <Link className={styles.card} href='/catalog/wonmens-running'>
+        Женская
+        <br />
+        экипировка
       </Link>
       <Link className={styles.card} href='/catalog/wonmens-clothing'>
         <MediaQuery minWidth={1281}>
-          Женская<br />одежда
+          Мужская
+          <br />
+          одежда
         </MediaQuery>
-        <MediaQuery maxWidth={1280}>
-          Женская одежда
-        </MediaQuery>
+        <MediaQuery maxWidth={1280}>Мужская одежда</MediaQuery>
       </Link>
-      <Link className={styles.card} href='/catalog/accessories'>Аксессуары</Link>
+      <Link className={styles.card} href='/catalog/wonmens-clothing'>
+        <MediaQuery minWidth={1281}>
+          Женская
+          <br />
+          одежда
+        </MediaQuery>
+        <MediaQuery maxWidth={1280}>Женская одежда</MediaQuery>
+      </Link>
+      <Link className={styles.card} href='/catalog/accessories'>
+        Аксессуары
+      </Link>
     </section>
   );
 };

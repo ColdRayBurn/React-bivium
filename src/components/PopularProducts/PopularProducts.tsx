@@ -23,9 +23,12 @@ const PopularProducts: FC<Props> = ({ className, initialProducts }) => {
 
     const abortController = abortControllerRef.current;
 
-    api.get('products/?popular', {
-      signal: abortController.signal
-    }).json<IProductCard[]>().then(products => setProducts(products));
+    api
+      .get('products/?popular', {
+        signal: abortController.signal
+      })
+      .json<IProductCard[]>()
+      .then(products => setProducts(products));
 
     return () => abortController.abort('aborted');
   }, [initialProducts]);

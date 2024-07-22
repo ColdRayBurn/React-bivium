@@ -36,9 +36,11 @@ const Form: FC = () => {
 
   const onSubmit: SubmitHandler<IForm> = async data => {
     try {
-      const response = await api.post('authorization/signin/', {
-        json: { username: data.email, password: data.password }
-      }).json<IAuthResponse>();
+      const response = await api
+        .post('authorization/signin/', {
+          json: { username: data.email, password: data.password }
+        })
+        .json<IAuthResponse>();
 
       dipatch(setUser({ ...response.user, isAuthorized: true, isLoaded: true }));
       localStorage.setItem('token', response.token);
@@ -64,21 +66,38 @@ const Form: FC = () => {
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit, onInvalid)}>
-      {!!messages.length &&
+      {!!messages.length && (
         <div className={styles.messages}>
-          {messages.map((message, messageIndex) =>
-            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>{message.text}</div>)}
+          {messages.map((message, messageIndex) => (
+            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>
+              {message.text}
+            </div>
+          ))}
         </div>
-      }
+      )}
       <div className={styles.body}>
-        <Input type='email' placeholder='E-Mail' {...register('email', { required: 'Поле \'E-Mail\' обязательно к заполнению.' })} />
-        <Input type='password' placeholder='Пароль' {...register('password', { required: 'Поле \'Пароль\' обязательно к заполнению.' })} />
+        <Input
+          type='email'
+          placeholder='E-Mail'
+          {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
+        />
+        <Input
+          type='password'
+          placeholder='Пароль'
+          {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
+        />
       </div>
       <div className={styles.footer}>
-        <Button variant='negative' icon={false} type='submit'>Войти</Button>
-        <Button variant='default' icon={false} type='button' onClick={() => router.push('/signup')}>Зарегистрироваться</Button>
+        <Button variant='negative' icon={false} type='submit'>
+          Войти
+        </Button>
+        <Button variant='default' icon={false} type='button' onClick={() => router.push('/signup')}>
+          Зарегистрироваться
+        </Button>
       </div>
-      <Link className={styles.link} href='' /* href='/password-recovery' */ >Забыли пароль?</Link>
+      <Link className={styles.link} href='' /* href='/password-recovery' */>
+        Забыли пароль?
+      </Link>
     </form>
   );
 };

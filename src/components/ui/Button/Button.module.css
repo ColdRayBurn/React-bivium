@@ -19,24 +19,24 @@
 .default {
   color: #000;
   border-color: #000;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .defaultNegative {
-  color: #FFF;
-  border-color: #FFF;
+  color: #fff;
+  border-color: #fff;
   background-color: #000;
 }
 
 .deselected {
-  color: #3D4143;
-  border-color: #DADADA;
-  background-color: #FFF;
+  color: #3d4143;
+  border-color: #dadada;
+  background-color: #fff;
 }
 
 .inactive {
-  color: #DADADA;
-  border-color: #DADADA;
+  color: #dadada;
+  border-color: #dadada;
   background-color: #979797;
 }
 
@@ -50,5 +50,5 @@
 
   color: #000;
   border-color: #000;
-  background-color: #FFF;
+  background-color: #fff;
 }

@@ -15,10 +15,13 @@ interface Props {
 
 const Banner: FC<Props> = ({ picture, mobilePicture, title, subtitle, className }) => {
   return (
-    <section className={classNames(styles.wrapper, className)} style={{
-      '--picture': `url(${formatUrl(picture)})`,
-      '--mobile-picture': `url(${formatUrl(mobilePicture ? mobilePicture : picture)})`
-    }}>
+    <section
+      className={classNames(styles.wrapper, className)}
+      style={{
+        '--picture': `url(${formatUrl(picture)})`,
+        '--mobile-picture': `url(${formatUrl(mobilePicture ? mobilePicture : picture)})`
+      }}
+    >
       <div className={classNames(styles.container, 'container')}>
         <div className={styles.subtitle}>{subtitle}</div>
         <h2 className={styles.title}>{title}</h2>

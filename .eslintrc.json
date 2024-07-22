@@ -1,18 +1,7 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
-    "semi": [
-      "warn",
-      "always"
-    ],
-    "quotes": [
-      "warn",
-      "single"
-    ],
-    "comma-dangle": [
-      "warn",
-      "never"
-    ],
     "@next/next/no-img-element": "off"
-  }
+  },
+  "plugins": ["eslint-plugin-prettier/recommended"]
 }

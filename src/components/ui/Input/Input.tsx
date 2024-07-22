@@ -7,6 +7,5 @@ const Input = forwardRef<HTMLInputElement, ComponentProps<'input'>>((props, forw
   return <input ref={forwardedRef} className={classNames(className, styles.control)} {...rest} />;
 });
 
-
 Input.displayName = 'Input';
 export default Input;

@@ -2,10 +2,14 @@ import { FC } from 'react';
 import Article from '@/components/Article/Article';
 
 const Page: FC = () => {
-  return <Article
-    breadсrumbs={[{ name: 'О компании', path: '/about-company' }, { name: 'Публичная оферта', path: '/privacy-policy' }]}
-    title='Публичная оферта'
-    content={`
+  return (
+    <Article
+      breadсrumbs={[
+        { name: 'О компании', path: '/about-company' },
+        { name: 'Публичная оферта', path: '/privacy-policy' }
+      ]}
+      title='Публичная оферта'
+      content={`
       ООО «ОЛКИДС», в лице интернет-магазина https://bivium.ru (далее Продавец), публикует настоящий договор, являющийся публичным договором-офертой в адрес как физических, так и юридических лиц (далее Покупатель) о нижеследующем:
 
       1. ПРЕДМЕТ ДОГОВОРА-ОФЕРТЫ.
@@ -62,7 +66,12 @@ const Page: FC = () => {
       БИК: 044525593
       Банк ОАО "АЛЬФА-БАНК" г. Москва
       к/счет банка 30101810200000000593
-    `.trim().split(/\n/).map((value, index) => index === 0 ? value : [<br key={index} />, value])} />;
+    `
+        .trim()
+        .split(/\n/)
+        .map((value, index) => (index === 0 ? value : [<br key={index} />, value]))}
+    />
+  );
 };
 
-export default Page; 
+export default Page;
