@@ -1,7 +1,8 @@
 'use client';
 
 import { FC, useCallback, useState, useEffect, useMemo, useRef } from 'react';
-import { INewsItemList } from '@/api/models';
+import { INewsItemListResponse } from '@/api/models';
+import { INewsItemList } from '@/models';
 import { formatDate } from '@/utils/formatDate';
 import { formatUrl } from '@/utils/formatUrl';
 
@@ -15,73 +16,63 @@ import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInf
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 
 interface Props {
-  initialData: INewsItemList[];
+  initialData: INewsItemListResponse;
 }
 
-const NewsList: FC<Props> = ({ initialData = [] }) => {
-  const [news, setNews] = useState<INewsItemList[]>(initialData);
-  const [offset, setOffset] = useState(initialData.length);
+const NewsList: FC<Props> = ({ initialData = { items: [], total: 0 } }) => {
+  const [news, setNews] = useState<INewsItemList[]>(initialData.items || []);
+  const [offset, setOffset] = useState(initialData.items.length);
   const [limit] = useState(3);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(initialData.total > initialData.items.length);
   const [isLoading, setIsLoading] = useState(false);
-  const buttonRef = useRef<HTMLDivElement | null>(null);
+  const loadRef = useRef<HTMLDivElement | null>(null);
 
-  const showMore = useCallback(() => {
-    if (isLoading) return;
-
-    setIsLoading(true);
-    api
-      .get('news/', {
-        searchParams: new URLSearchParams({
-          limit: limit.toString(),
-          offset: offset.toString()
-        })
-      })
-      .json<INewsItemList[]>()
-      .then(response => {
-        if (response && response.length > 0) {
-          setNews(prevNews => [...prevNews, ...response]);
-          setOffset(prevOffset => prevOffset + limit);
-        } else {
-          setHasMore(false);
-        }
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
-      });
-  }, [limit, offset, isLoading]);
-
-  useEffect(() => {
-    if (initialData.length === 0) {
+  const fetchNews = useCallback(
+    (newOffset: number) => {
       setIsLoading(true);
+
       api
         .get('news/', {
           searchParams: new URLSearchParams({
             limit: limit.toString(),
-            offset: '0'
+            offset: newOffset.toString()
           })
         })
-        .json<INewsItemList[]>()
+        .json<INewsItemListResponse>()
         .then(response => {
-          if (response && response.length > 0) {
-            setNews(response);
-            setOffset(response.length);
+          if (response && response.items.length > 0) {
+            setNews(prevNews => {
+              const existingIds = new Set(prevNews.map(item => item.id));
+              const newItems = response.items.filter(item => !existingIds.has(item.id));
+              return [...prevNews, ...newItems];
+            });
+            setOffset(newOffset + limit);
+            setHasMore(response.total > newOffset + limit);
           } else {
             setHasMore(false);
           }
           setIsLoading(false);
-        })
-        .catch(() => {
-          setIsLoading(false);
         });
+    },
+    [limit]
+  );
+
+  const showMore = useCallback(() => {
+    if (!isLoading && hasMore) {
+      fetchNews(offset);
     }
-  }, [initialData.length, limit]);
+  }, [isLoading, hasMore, offset, fetchNews]);
+
+  useEffect(() => {
+    if (initialData.items.length === 0) {
+      fetchNews(0);
+    }
+  }, [initialData.items.length, fetchNews]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting && hasMore && !isLoading) {
+        if (entries[0].isIntersecting) {
           showMore();
         }
       },
@@ -90,16 +81,16 @@ const NewsList: FC<Props> = ({ initialData = [] }) => {
       }
     );
 
-    if (buttonRef.current) {
-      observer.observe(buttonRef.current);
+    if (loadRef.current) {
+      observer.observe(loadRef.current);
     }
 
     return () => {
-      if (buttonRef.current) {
-        observer.unobserve(buttonRef.current);
+      if (loadRef.current) {
+        observer.unobserve(loadRef.current);
       }
     };
-  }, [showMore, hasMore, isLoading]);
+  }, [showMore]);
 
   const newsItems = useMemo(() => {
     return news.map(newsItem => (
@@ -128,7 +119,7 @@ const NewsList: FC<Props> = ({ initialData = [] }) => {
         <h1 className={styles.title}>Новости СМИ</h1>
       </div>
       <div className={styles.content}>{newsItems}</div>
-      {hasMore && <div className={styles.footer} ref={buttonRef}></div>}
+      {hasMore && <div className={styles.footer} ref={loadRef}></div>}
       <DeliveryInformation className={styles.deliveryInfo} withButton />
     </main>
   );

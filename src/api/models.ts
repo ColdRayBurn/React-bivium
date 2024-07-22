@@ -1,4 +1,4 @@
-import { ICatalogProduct, IUser } from '@/models';
+import { ICatalogProduct, IUser, INewsItemList } from '@/models';
 
 export interface IErrorResponse {
   errorMessage: string;
@@ -71,12 +71,9 @@ export interface ICatalogResponse {
   products: ICatalogProduct[];
 }
 
-export interface INewsItemList {
-  id: number;
-  name: string;
-  date: number;
-  description: string;
-  image: string;
+export interface INewsItemListResponse {
+  total: number;
+  items: INewsItemList[];
 }
 
 export interface INewsItemDetail {

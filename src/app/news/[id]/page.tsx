@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { INewsItemDetail, INewsItemList } from '@/api/models';
+import { INewsItemDetail, INewsItemListResponse } from '@/api/models';
 import { formatDate } from '@/utils/formatDate';
 import { formatUrl } from '@/utils/formatUrl';
 import { notFound } from 'next/navigation';
@@ -17,7 +17,9 @@ interface Props {
 }
 
 const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
-  const newsList = await api.get('news/').json<INewsItemList[]>();
+  const newsListResponse = await api.get('news/').json<INewsItemListResponse>();
+  const newsList = newsListResponse.items;
+
   const newsItemExists = newsList.some(news => news.id.toString() === id);
 
   if (!newsItemExists) {
@@ -40,7 +42,7 @@ const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
 
       <div className={styles.newsItem}>
         <h1 className={styles.title}>{newsItem.name}</h1>
-        <p className={styles.date}>{formatDate(newsItem.date)}</p>
+        <p className={styles.date}>{formatDate(newsItem.date, true, 'short')}</p>
 
         {newsItem.titleDescription && <p className={styles.title_description}>{newsItem.titleDescription}</p>}
 

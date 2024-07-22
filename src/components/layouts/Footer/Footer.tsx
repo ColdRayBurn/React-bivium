@@ -46,13 +46,17 @@ const Footer: FC = async () => {
             <h4 className={styles.blockSubtitle}>{meta.socialNetworks.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.socialIcons}>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a
+                  href='https://www.instagram.com/bivium_sportwear?igsh=MXcyNWMxbGxvbGJicw=='
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <InstagramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href='https://t.me/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <TelegramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href='https://vk.com/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <VKIcon />
                 </a>
               </div>

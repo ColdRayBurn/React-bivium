@@ -49,3 +49,11 @@ export interface IProductCard {
   price: number;
   inStock: boolean;
 }
+
+export interface INewsItemList {
+  id: number;
+  name: string;
+  date: number;
+  description: string;
+  image: string;
+}

@@ -30,8 +30,8 @@ const Page: FC = () => {
           </ul>
           <iframe
             className={styles.video}
-            src='https://www.youtube.com/embed/M7T0_xWKmTo'
-            title='Геморрой. Лечение живым огурцом'
+            src='https://www.youtube.com/embed/3UhkQ8197Wk?feature=oembed'
+            title=''
             frameBorder={0}
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
             referrerPolicy='strict-origin-when-cross-origin'
