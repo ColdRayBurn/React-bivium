@@ -10,9 +10,8 @@ import Description from './Description';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 import News from './NewsSection';
 
-
 import api from '@/api';
-import {IMetaHomepageResponse, INewsItemList} from '@/api/models';
+import { IMetaHomepageResponse, INewsItemList } from '@/api/models';
 
 import styles from './page.module.css';
 

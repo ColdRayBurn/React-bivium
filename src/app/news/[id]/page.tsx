@@ -13,46 +13,48 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 import api from '@/api';
 
 interface Props {
-    params: { id: string }
+  params: { id: string };
 }
 
 const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
-    const newsList = await api.get('news/').json<INewsItemList[]>();
-    const newsItemExists = newsList.some(news => news.id.toString() === id);
+  const newsList = await api.get('news/').json<INewsItemList[]>();
+  const newsItemExists = newsList.some(news => news.id.toString() === id);
 
-    if (!newsItemExists) {
-        notFound();
-    }
+  if (!newsItemExists) {
+    notFound();
+  }
 
-    const newsItems = await api.get(`news/${id}/`).json<INewsItemDetail>();
-    const newsItem = Array.isArray(newsItems) ? newsItems[0] : newsItems;
+  const newsItems = await api.get(`news/${id}/`).json<INewsItemDetail>();
+  const newsItem = Array.isArray(newsItems) ? newsItems[0] : newsItems;
 
-    return (
-        <main className={classNames(styles.wrapper, 'container')}>
+  return (
+    <main className={classNames(styles.wrapper, 'container')}>
+      <Breadcrumbs
+        className={styles.breadcrumbs}
+        breadсrumbs={[
+          { name: 'Новости', path: '/news' },
+          { name: newsItem.name, path: `/news/${newsItem.id}` }
+        ]}
+        withArrow
+      />
 
-            <Breadcrumbs className={styles.breadcrumbs}
-                         breadсrumbs={[
-                             {name: 'Новости', path: '/news'},
-                             {name: newsItem.name, path: `/news/${newsItem.id}`}
-                         ]} withArrow />
+      <div className={styles.newsItem}>
+        <h1 className={styles.title}>{newsItem.name}</h1>
+        <p className={styles.date}>{formatDate(newsItem.date)}</p>
 
-            <div className={styles.newsItem}>
-                <h1 className={styles.title}>{newsItem.name}</h1>
-                <p className={styles.date}>{formatDate(newsItem.date)}</p>
+        {newsItem.titleDescription && <p className={styles.title_description}>{newsItem.titleDescription}</p>}
 
-                {newsItem.titleDescription && <p className={styles.title_description}>{newsItem.titleDescription}</p>}
+        <div className={styles.content}>
+          {newsItem.image && <img src={formatUrl(newsItem.image)} alt={newsItem.name} className={styles.image} />}
+          <p className={styles.description}>{newsItem.description}</p>
+        </div>
+      </div>
 
-                <div className={styles.content}>
-                    {newsItem.image && <img src={formatUrl(newsItem.image)} alt={newsItem.name} className={styles.image} />}
-                    <p className={styles.description}>{newsItem.description}</p>
-                </div>
-            </div>
+      <Breadcrumbs className={styles.breadcrumb} breadсrumbs={[{ name: 'Главная', path: '/' }]} withArrow />
 
-            <Breadcrumbs className={styles.breadcrumb} breadсrumbs={[{name: 'Главная', path: '/'}]} withArrow />
-
-            <DeliveryInformation className={styles.deliveryInformation} withButton />
-        </main>
-    );
+      <DeliveryInformation className={styles.deliveryInformation} withButton />
+    </main>
+  );
 };
 
 export default NewsDetailPage;
