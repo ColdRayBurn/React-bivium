@@ -9,7 +9,7 @@
 }
 
 .button {
-  margin-top: auto;
+  margin-top: 40px;
 }
 
 .image {
@@ -18,9 +18,12 @@
 
 @media (--tablet-media) {
   .button {
-    width: 100%;
     justify-content: center;
     margin-top: 20px;
+  }
+
+  .body {
+    align-items: center;
   }
 
   .image {

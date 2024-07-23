@@ -13,7 +13,8 @@ import MirIcon from '@icons/mir.svg';
 import YandexPayIcon from '@icons/yandex-pay.svg';
 
 import LogotypeIcon from '@icons/logotype.svg';
-// import Button from '@/components/ui/Button/Button';
+
+import { formatPhoneNumber } from '@/utils/formatPhone';
 
 import FooterLinks from './FooterLinks';
 
@@ -33,7 +34,7 @@ const Footer: FC = async () => {
             <h4 className={styles.blockSubtitle}>
               <a className={styles.phonenumberLink} href={`tel:${meta.feedback.phone}`}>
                 <PhoneIcon />
-                {meta.feedback.phone}
+                {formatPhoneNumber(meta.feedback.phone)}
               </a>
             </h4>
             <div className={styles.blockBody}>
