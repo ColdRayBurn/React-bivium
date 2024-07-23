@@ -30,8 +30,8 @@ const Page: FC = () => {
           </ul>
           <iframe
             className={styles.video}
-            src='https://www.youtube.com/embed/3UhkQ8197Wk?feature=oembed'
-            title=''
+            src='https://www.youtube.com/embed/3UhkQ8197Wk'
+            title='BIVIUM производство'
             frameBorder={0}
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
             referrerPolicy='strict-origin-when-cross-origin'
@@ -53,7 +53,7 @@ const Page: FC = () => {
           -герметизация швов.
           <br />
           Четкий и методичный подход к созданию разумного производства, находит свое отражение не только в приобретении
-          и применении высокотехничного оборудования, но и в точном расчете оптимального количества сотрудников, а также
+          и применении высокотехничного оборудования, но и в точном расчете оптимального количества сотрудников, а также
           в нашем стремлении к безотходности.
           <br />
           При необходимости, мы не стесняемся обращаться к профессиональным производствам, расположенным за границей,

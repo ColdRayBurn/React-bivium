@@ -22,11 +22,11 @@ export type CategoryName =
 
 export const categoryMap: Record<CategoryCode, number> = {
   'wonmens-clothing': 24,
-  'wonmens-ski': 26,
-  'wonmens-running': 25,
+  'wonmens-ski': 23,
+  'wonmens-running': 22,
   'mens-clothing': 21,
-  'mens-ski': 23,
-  'mens-running': 22,
+  'mens-ski': 26,
+  'mens-running': 25,
   'childrens-clothing': 19,
   'childrens-ski': 20,
   accessories: 18

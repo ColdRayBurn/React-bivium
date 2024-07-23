@@ -34,19 +34,19 @@ const Page: FC = async () => {
           {
             topText: 'Трейл',
             bottomText: 'Экипировка',
-            picture: 'https://i.imgur.com/aEY9Vmp.jpeg',
+            picture: '/images/lookbook-1.png',
             mobilePicture: null
           },
           {
             topText: 'Трейл',
             bottomText: 'Экипировка',
-            picture: 'https://i.imgur.com/aEY9Vmp.jpeg',
+            picture: '/images/lookbook-2.png',
             mobilePicture: null
           },
           {
             topText: 'Трейл',
             bottomText: 'Экипировка',
-            picture: 'https://i.imgur.com/aEY9Vmp.jpeg',
+            picture: '/images/lookbook-3.jpg',
             mobilePicture: null
           }
         ]}

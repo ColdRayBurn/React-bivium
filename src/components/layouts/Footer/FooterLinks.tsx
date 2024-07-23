@@ -75,7 +75,7 @@ const FooterLinks: FC = () => {
           <div className={footerStyles.links}>
             <div className={footerStyles.linksTitle}>Сотрудничество</div>
             <div className={footerStyles.linksWrapper}>
-              <Link className={footerStyles.linksItem} href=''>
+              <Link className={footerStyles.linksItem} href='/conditions'>
                 Условия сотрудничества для оптовых покупателей
               </Link>
               <Link className={footerStyles.linksItem} href='/ambassadors'>
@@ -103,7 +103,7 @@ const FooterLinks: FC = () => {
             <Link className={footerStyles.linksItem} href='/certificates'>
               Сертификаты
             </Link>
-            <Link className={footerStyles.linksItem} href='#'>
+            <Link className={footerStyles.linksItem} href=''>
               Вакансии
             </Link>
             <Link className={footerStyles.linksItem} href='/contacts'>
@@ -137,7 +137,7 @@ const FooterLinks: FC = () => {
             </Link>
           </Accordion>
           <Accordion buttonText='Сотрудничество'>
-            <Link className={footerStyles.linksItem} href=''>
+            <Link className={footerStyles.linksItem} href='/conditions'>
               Условия сотрудничества для оптовых покупателей
             </Link>
             <Link className={footerStyles.linksItem} href='/ambassadors'>
@@ -146,7 +146,7 @@ const FooterLinks: FC = () => {
             <Link className={footerStyles.linksItem} href='/testers'>
               Стать тестировщиком
             </Link>
-            <Link className={footerStyles.linksItem} href='#'>
+            <Link className={footerStyles.linksItem} href=''>
               Команда бренда
             </Link>
           </Accordion>
