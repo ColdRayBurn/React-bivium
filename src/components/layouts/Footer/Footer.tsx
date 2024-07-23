@@ -13,12 +13,13 @@ import MirIcon from '@icons/mir.svg';
 import YandexPayIcon from '@icons/yandex-pay.svg';
 
 import LogotypeIcon from '@icons/logotype.svg';
-import Button from '@/components/ui/Button/Button';
+// import Button from '@/components/ui/Button/Button';
 
 import FooterLinks from './FooterLinks';
 
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
+import ClientPopupButton from '@/components/layouts/Footer/ClientPopupButton';
 
 const Footer: FC = async () => {
   const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();
@@ -36,9 +37,7 @@ const Footer: FC = async () => {
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <Button type='submit' variant='negative'>
-                {meta.feedback.buttonText}
-              </Button>
+              <ClientPopupButton buttonText={meta.feedback.buttonText} />
             </div>
           </div>
           <div className={styles.block}>
