@@ -25,6 +25,19 @@ const Header: FC = () => {
   const { isAuthorized, cartAmount, favoritesAmount } = useAppSelector(selector => selector.user);
   const headerRef = useRef<HTMLElement>(null);
 
+  useEffect(() => {
+    const onLoad = () => {
+      document.styleSheets[0].insertRule(`
+        :root {
+          --header-height: ${getComputedStyle(headerRef.current!).height}
+        }
+      `);
+    };
+
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
+
   const onSearchSubmit = (query: string) => {
     console.log(query);
   };

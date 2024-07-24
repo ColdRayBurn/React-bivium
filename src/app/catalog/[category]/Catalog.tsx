@@ -3,7 +3,9 @@
 import { FC, useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 
+import Filter from './Filter/Filter';
 import SortDropdown from './SortDropdown';
+
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Button from '@/components/ui/Button/Button';
 
@@ -49,7 +51,7 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
         <MediaQuery minWidth={1281}>
           <div className={styles.headerColumn}>
             <h1 className={styles.title}>Экипировка</h1>
-            <div>Фильтр</div>
+            <Filter />
           </div>
           <div className={styles.headerColumn}>
             <div className={styles.productsAmount}>{data.total} товаров</div>
@@ -59,7 +61,7 @@ const Catalog: FC<Props> = ({ data, categoryId }) => {
         <MediaQuery maxWidth={1280}>
           <h1 className={styles.title}>Экипировка</h1>
           <div className={styles.headerRow}>
-            <div>Фильтр</div>
+            <Filter />
             <SortDropdown sortType={sortType} setSortType={setSortType} />
           </div>
         </MediaQuery>

@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 
 const Input = forwardRef<HTMLInputElement, ComponentProps<'input'>>((props, forwardedRef) => {
   const { className, ...rest } = props;
-  return <input ref={forwardedRef} className={classNames(className, styles.control)} {...rest} />;
+  return <input ref={forwardedRef} className={classNames(styles.control, className)} {...rest} />;
 });
 
 Input.displayName = 'Input';

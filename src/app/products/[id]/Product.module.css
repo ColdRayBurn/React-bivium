@@ -22,7 +22,7 @@
 
 .body {
   position: sticky;
-  top: 0;
+  top: var(--header-height, 0);
 
   width: calc(35% - 100px);
   height: fit-content;

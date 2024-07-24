@@ -1,0 +1,21 @@
+.button {
+  padding: 15px;
+
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  font-family: var(--font-montserrat);
+  font-size: 20px;
+  font-weight: 300;
+
+  color: #3d4143;
+  background-color: #fff;
+
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+
+.button svg {
+  color: #3d4143;
+}
