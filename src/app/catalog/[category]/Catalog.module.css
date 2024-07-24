@@ -11,10 +11,15 @@
   column-gap: 20px;
 }
 
+.footerColumn {
+  position: absolute;
+  right: 0;
+}
+
 .title {
   font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 600;
   color: #3d4143;
 }
 
@@ -36,6 +41,7 @@
   display: flex;
   align-items: center;
   margin-top: 60px;
+  position: relative;
 }
 
 .showMoreButton {

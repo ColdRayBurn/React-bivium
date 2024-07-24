@@ -5,7 +5,7 @@ import styles from './page.module.css';
 const Page: FC = () => {
   return (
     <Article
-      breadсrumbs={[{ name: 'О компании', path: '/about-company' }]}
+      breadсrumbs={[{ name: 'На главную', path: '/' }]}
       content={
         <>
           <div className={styles.section}>

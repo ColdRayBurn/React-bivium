@@ -13,12 +13,14 @@ import MirIcon from '@icons/mir.svg';
 import YandexPayIcon from '@icons/yandex-pay.svg';
 
 import LogotypeIcon from '@icons/logotype.svg';
-import Button from '@/components/ui/Button/Button';
+
+import { formatPhoneNumber } from '@/utils/formatPhone';
 
 import FooterLinks from './FooterLinks';
 
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
+import ClientPopupButton from '@/components/layouts/Footer/ClientPopupButton';
 
 const Footer: FC = async () => {
   const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();
@@ -32,13 +34,11 @@ const Footer: FC = async () => {
             <h4 className={styles.blockSubtitle}>
               <a className={styles.phonenumberLink} href={`tel:${meta.feedback.phone}`}>
                 <PhoneIcon />
-                {meta.feedback.phone}
+                {formatPhoneNumber(meta.feedback.phone)}
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <Button type='submit' variant='negative'>
-                {meta.feedback.buttonText}
-              </Button>
+              <ClientPopupButton buttonText={meta.feedback.buttonText} />
             </div>
           </div>
           <div className={styles.block}>
@@ -46,13 +46,17 @@ const Footer: FC = async () => {
             <h4 className={styles.blockSubtitle}>{meta.socialNetworks.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.socialIcons}>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a
+                  href='https://www.instagram.com/bivium_sportwear?igsh=MXcyNWMxbGxvbGJicw=='
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
                   <InstagramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href='https://t.me/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <TelegramIcon />
                 </a>
-                <a href='#' target='_blank' rel='noopener noreferrer'>
+                <a href='https://vk.com/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <VKIcon />
                 </a>
               </div>

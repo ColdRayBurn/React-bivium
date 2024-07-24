@@ -8,14 +8,16 @@ import Lookbooks from './Lookbooks';
 import AmbassadorsProducts from '@/components/AmbassadorsProducts/AmbassadorsProducts';
 import Description from './Description';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
+import NewsSection from './NewsSection';
 
 import api from '@/api';
-import { IMetaHomepageResponse } from '@/api/models';
+import { IMetaHomepageResponse, INewsItemListResponse } from '@/api/models';
 
 import styles from './page.module.css';
 
 const Page: FC = async () => {
   const meta = await api.get('meta/homepage/').json<IMetaHomepageResponse>();
+  const initialNewsResponse = await api.get('news/').json<INewsItemListResponse>();
 
   return (
     <main className={styles.wrapper}>
@@ -59,6 +61,7 @@ const Page: FC = async () => {
       <div className={classNames(styles.ambassadorsProducts, 'container')}>
         <AmbassadorsProducts />
       </div>
+      <NewsSection items={initialNewsResponse.items} />
       <Description title={meta.description.title} text={meta.description.text} />
       <section className='container'>
         <DeliveryInformation className={styles.deliveryInformation} withButton />
