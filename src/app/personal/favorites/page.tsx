@@ -19,7 +19,7 @@ const Page: FC = () => {
   return (
     <div className={styles.wrapper}>
       <MediaQuery maxWidth={1280}>
-        <h1 className={styles.title}>Избранное (4)</h1>
+        <h1 className={styles.title}>Избранное ({favorites.length})</h1>
       </MediaQuery>
       {favorites.length ? (
         <>

@@ -3,11 +3,12 @@
 import { FC, ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
-import styles from './personal.module.css';
 
 import Navigation from './Navigation';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 import AuthRedirect from './AuthRedirect';
+
+import styles from './personal.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 

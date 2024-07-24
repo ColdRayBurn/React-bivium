@@ -1,15 +1,17 @@
 'use client';
 
 import { FC } from 'react';
+import classNames from 'classnames';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import classNames from 'classnames';
+import { useAppSelector } from '@/redux/hooks';
 import styles from './Navigation.module.css';
 
 const Navigation: FC = () => {
   const pathname = usePathname();
+  const favorites = useAppSelector(selector => selector.favorites);
 
   return (
     <div className={styles.navigation}>
@@ -17,7 +19,7 @@ const Navigation: FC = () => {
         className={classNames(styles.navigationItem, pathname.endsWith('/favorites') && styles.navigationItem_active)}
         href='/personal/favorites'
       >
-        Избранное (0)
+        Избранное ({favorites.length})
       </Link>
       <Link
         className={classNames(styles.navigationItem, pathname.endsWith('/orders') && styles.navigationItem_active)}
