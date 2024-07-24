@@ -21,8 +21,10 @@ import styles from './Header.module.css';
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Header: FC = () => {
+  const { isAuthorized, cartAmount } = useAppSelector(selector => selector.user);
+  const favorites = useAppSelector(selector => selector.favorites);
+
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-  const { isAuthorized, cartAmount, favoritesAmount } = useAppSelector(selector => selector.user);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Header: FC = () => {
               <Link
                 className={styles.control}
                 href={isAuthorized ? '/personal/favorites' : '/signin'}
-                data-amount={favoritesAmount ? favoritesAmount : undefined}
+                data-amount={favorites.length ? favorites.length : undefined}
               >
                 <HeartIcon />
               </Link>

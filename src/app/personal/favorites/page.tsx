@@ -2,62 +2,45 @@
 
 import { FC } from 'react';
 import dynamic from 'next/dynamic';
-import styles from './page.module.css';
+
+import { useAppSelector } from '@/redux/hooks';
 
 import Empty from './Empty';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import ProductsList from '@/components/ProductsList/ProductsList';
 
+import styles from './page.module.css';
+
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Page: FC = () => {
-  const isEmpty = Math.random() < 0.5;
+  const favorites = useAppSelector(selector => selector.favorites);
 
   return (
     <div className={styles.wrapper}>
       <MediaQuery maxWidth={1280}>
         <h1 className={styles.title}>Избранное (4)</h1>
       </MediaQuery>
-      {isEmpty ? (
-        <Empty />
-      ) : (
+      {favorites.length ? (
         <>
           <MediaQuery minWidth={1281}>
-            <ProductCard id={1} image='https://placehold.co/600x400/EEE/31343C' name='asd' price={200} inStock={true} />
-            <ProductCard
-              id={1}
-              image='https://placehold.co/600x400/EEE/31343C'
-              name='asd'
-              price={200}
-              inStock={false}
-            />
-            <ProductCard
-              id={1}
-              image='https://placehold.co/600x400/EEE/31343C'
-              name='asd'
-              price={200}
-              inStock={false}
-            />
-            <ProductCard
-              id={1}
-              image='https://placehold.co/600x400/EEE/31343C'
-              name='asd'
-              price={200}
-              inStock={false}
-            />
+            {favorites.map(product => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                image={product.image}
+                name={product.name}
+                price={product.price}
+                inStock={product.inStock}
+              />
+            ))}
           </MediaQuery>
           <MediaQuery maxWidth={1280}>
-            <ProductsList
-              className={styles.productsList}
-              products={[
-                { id: 1, name: 'asd', image: 'https://placehold.co/600x400/EEE/31343C', price: 200, inStock: true },
-                { id: 1, name: 'asd', image: 'https://placehold.co/600x400/EEE/31343C', price: 200, inStock: true },
-                { id: 1, name: 'asd', image: 'https://placehold.co/600x400/EEE/31343C', price: 200, inStock: true },
-                { id: 1, name: 'asd', image: 'https://placehold.co/600x400/EEE/31343C', price: 200, inStock: true }
-              ]}
-            />
+            <ProductsList className={styles.productsList} products={favorites} />
           </MediaQuery>
         </>
+      ) : (
+        <Empty />
       )}
     </div>
   );

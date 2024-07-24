@@ -7,6 +7,7 @@ import { IUser } from '@/models';
 
 import { useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
+import { fetchFavorites } from '@/redux/slices/favoritesSlice';
 
 const AuthComponent = () => {
   const dispatch = useAppDispatch();
@@ -31,6 +32,8 @@ const AuthComponent = () => {
 
     return () => abortController.abort('aborted');
   }, [dispatch]);
+
+  dispatch(fetchFavorites());
 
   return null;
 };
