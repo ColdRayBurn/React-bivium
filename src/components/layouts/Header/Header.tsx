@@ -77,18 +77,18 @@ const Header: FC = () => {
           </div>
         </div>
         <div className={styles.navigation}>
-          <button className={styles.navigationItem} type='button'>
+          <Link className={styles.navigationItem} href='/catalog'>
             Новинки
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog'>
             Экипировка
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog'>
             Одежда
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog/accessories'>
             Аксессуары
-          </button>
+          </Link>
         </div>
       </header>
       <Hamburger isOpened={isHamburgerOpen} onClose={() => setIsHamburgerOpen(false)} />

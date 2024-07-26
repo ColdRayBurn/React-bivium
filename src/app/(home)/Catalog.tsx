@@ -18,12 +18,12 @@ const Catalog: FC = () => {
         <br />
         экипировка
       </Link>
-      <Link className={styles.card} href='/catalog/wonmens-running'>
+      <Link className={styles.card} href='/catalog/womens-running'>
         Женская
         <br />
         экипировка
       </Link>
-      <Link className={styles.card} href='/catalog/wonmens-clothing'>
+      <Link className={styles.card} href='/catalog/mens-clothing'>
         <MediaQuery minWidth={1281}>
           Мужская
           <br />
@@ -31,7 +31,7 @@ const Catalog: FC = () => {
         </MediaQuery>
         <MediaQuery maxWidth={1280}>Мужская одежда</MediaQuery>
       </Link>
-      <Link className={styles.card} href='/catalog/wonmens-clothing'>
+      <Link className={styles.card} href='/catalog/womens-clothing'>
         <MediaQuery minWidth={1281}>
           Женская
           <br />

@@ -33,7 +33,7 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({ buttonText }) => {
         {buttonText}
       </Button>
       {isModalShown && (
-        <OverlayingPopup isOpened={isPopupVisible}>
+        <OverlayingPopup isOpen={isPopupVisible}>
           <ConfirmDialogPopup
             title='Отписаться от рассылки?'
             submitButtonText='Подтвердить'

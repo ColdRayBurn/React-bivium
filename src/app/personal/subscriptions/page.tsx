@@ -63,7 +63,7 @@ const Page: FC = () => {
           </div>
         </div>
       </div>
-      <OverlayingPopup isOpened={isModalShown}>
+      <OverlayingPopup isOpen={isModalShown}>
         <ConfirmDialogPopup
           title='Отписаться от рассылки?'
           submitButtonText='Подтвердить'

@@ -1,23 +1,36 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 import styles from './OverlayingPopup.module.css';
 
 import Portal from '@/components/Portal';
 
 type OverlayingPopupProps = {
-  isOpened: boolean;
+  isOpen: boolean;
+  onClose?: () => void;
   children: ReactNode;
 };
 
-const OverlayingPopup = ({ children, isOpened }: OverlayingPopupProps) => {
-  if (!isOpened) {
+const OverlayingPopup = ({ children, isOpen, onClose }: OverlayingPopupProps) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  if (!isOpen) {
     return null;
   }
 
   return (
     <Portal>
-      <div className={styles.wrapper}>{children}</div>
+      <div
+        ref={wrapperRef}
+        className={styles.wrapper}
+        onClick={event => {
+          if (event.target === wrapperRef.current) {
+            onClose && onClose();
+          }
+        }}
+      >
+        {children}
+      </div>
     </Portal>
   );
 };

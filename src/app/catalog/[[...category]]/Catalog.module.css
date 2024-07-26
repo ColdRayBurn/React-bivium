@@ -77,6 +77,12 @@
     width: 100% !important;
   }
 
+  .footer {
+    margin-top: 20px;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
   .footerColumn {
     display: none;
   }

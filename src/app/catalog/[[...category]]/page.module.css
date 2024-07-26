@@ -1,5 +1,5 @@
 .wrapper {
-  padding-bottom: 40px;
+  padding-block: 30px 40px;
 }
 
 .description {
@@ -29,6 +29,7 @@
 
 @media (--tablet-media) {
   .wrapper {
+    padding-top: 20px;
     padding-bottom: 30px;
   }
 

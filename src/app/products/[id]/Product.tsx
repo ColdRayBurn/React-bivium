@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, useEffect, useState, useRef } from 'react';
+import classNames from 'classnames';
 
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 
@@ -13,6 +13,11 @@ import InStockStatus from './InStockStatus';
 
 import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
 import ConfirmDialogPopup from '@/components/popups/ConfirmDialogPopup/ConfirmDialogPopup';
+
+import { useAppSelector } from '@/redux/hooks';
+import { useAppDispatch } from '@/redux/hooks';
+
+import { putFavorites, removeFavorites } from '@/redux/slices/favoritesSlice';
 
 import api from '@/api';
 import { IProduct } from '@/models';
@@ -27,6 +32,11 @@ const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, color, sizes, inStock }) => {
   const router = useRouter();
+
+  const { isAuthorized } = useAppSelector(selector => selector.user);
+  const favorites = useAppSelector(selector => selector.favorites);
+  const dispatch = useAppDispatch();
+
   const [selectedSize, setSelectedSize] = useState<(typeof sizes)[0]>(sizes[0]);
   const [isModalShown, setIsModalShown] = useState(false);
   const abortControllerRef = useRef(new AbortController());
@@ -94,14 +104,34 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
             >
               {inStock ? 'Добавить в корзину' : 'Сообщить о поступлении'}
             </Button>
-            <Button className={styles.favoriteButton} variant='default' icon={false} type='button'>
+            <Button
+              className={classNames(
+                styles.favoriteButton,
+                favorites.findIndex(item => item.id === id) !== -1 && styles.favoriteButton_active
+              )}
+              variant='default'
+              icon={false}
+              type='button'
+              onClick={() => {
+                if (!isAuthorized) {
+                  router.push('/signin');
+                  return;
+                }
+
+                dispatch(
+                  favorites.findIndex(item => item.id === id) !== -1
+                    ? removeFavorites({ id, image: images[0], name, inStock, price: selectedSize.price })
+                    : putFavorites({ id, image: images[0], name, inStock, price: selectedSize.price })
+                );
+              }}
+            >
               <HeartIcon />
             </Button>
           </div>
           <InStockStatus className={styles.inStockStatus} value={inStock} />
         </div>
       </div>
-      <OverlayingPopup isOpened={isModalShown}>
+      <OverlayingPopup isOpen={isModalShown}>
         <ConfirmDialogPopup
           title='Товар добавлен в корзину'
           submitButtonText='Перейти в корзину'
