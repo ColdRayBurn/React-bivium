@@ -1,14 +1,14 @@
 .wrapper {
   background: white;
   padding: 40px;
+  padding-bottom: 0;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin: auto;
   width: 100%;
   max-width: 410px;
-  max-height: 700px;
   position: absolute;
-  top: 20%;
+  top: 19.5%;
 }
 
 .header {
@@ -118,4 +118,22 @@
   width: 100%;
   margin-top: 14px;
   margin-bottom: 18px;
+}
+
+.form .formAttachFile {
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+@media (--tablet-media) {
+  .wrapper {
+    top: 20%;
+  }
+}
+
+@media (--mobile-media) {
+  .wrapper {
+    top: 15%;
+  }
 }

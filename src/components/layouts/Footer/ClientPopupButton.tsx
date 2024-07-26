@@ -27,13 +27,13 @@ const ClientPopupButton: FC = () => {
   return (
     <>
       <Button type='button' variant='negative' onClick={handleButtonClick}>
-        Отправить
+        Связаться с нами
       </Button>
       {isModalShown && (
         <OverlayingPopup isOpened={isPopupVisible}>
           <FeedbackFormPopup
             title='Форма обратной связи'
-            submitButtonText='ОТПРАВИТЬ'
+            submitButtonText='Отправить'
             submitButtonHandler={handleSubmit}
             cancelButtonText=''
             cancelButtonHandler={handleCancel}

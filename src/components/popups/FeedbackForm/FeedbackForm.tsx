@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useRef } from 'react';
 import Button from '@/components/ui/Button/Button';
 import CrossIcon from '@icons/cross.svg';
 import styles from './FeedbackForm.module.css';
@@ -28,8 +28,11 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     phone: '',
     email: '',
     about: '',
-    consent: false
+    consent: false,
+    file: null
   });
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -46,36 +49,90 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFormData({
+        ...formData,
+        file: e.target.files[0]
+      });
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     submitButtonHandler(formData);
   };
 
+  const handleFileClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <div className={styles.title}></div>
+        <div className={styles.title}>{title}</div>
         <button className={styles.closeButton} type='button' onClick={cancelButtonHandler}>
           <CrossIcon />
         </button>
       </div>
       <div className={styles.body}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <Input className={styles.addressFormControl} placeholder='Имя*' required={true} />
+          <Input
+            className={styles.addressFormControl}
+            name='firstName'
+            placeholder='Имя*'
+            required={true}
+            onChange={handleInputChange}
+          />
 
-          <Input className={styles.addressFormControl} placeholder='Фамилия*' required={true} />
+          <Input
+            className={styles.addressFormControl}
+            name='lastName'
+            placeholder='Фамилия*'
+            required={true}
+            onChange={handleInputChange}
+          />
 
-          <Input className={styles.addressFormControl} placeholder='Ссылки на соцсети*' required={true} />
+          <Input
+            className={styles.addressFormControl}
+            name='socialLinks'
+            placeholder='Ссылки на соцсети*'
+            required={true}
+            onChange={handleInputChange}
+          />
 
-          <Input className={styles.addressFormControl} type='tel' placeholder='Телефон*' required={true} />
+          <Input
+            className={styles.addressFormControl}
+            name='phone'
+            type='tel'
+            placeholder='Телефон*'
+            required={true}
+            onChange={handleInputChange}
+          />
 
           <label>
             <div className={styles.email_title}>Email*</div>
-            <input type='email' name='email' value={formData.email} onChange={handleInputChange} required />
+            <Input
+              className={styles.addressFormControl}
+              name='email'
+              type='email'
+              placeholder='example@email.com'
+              required={true}
+              onChange={handleInputChange}
+            />
           </label>
-          <TextArea className={styles.addressFormControl} placeholder={'Немного о себе'} />
+          <TextArea
+            className={styles.addressFormControl}
+            name='about'
+            placeholder='Немного о себе'
+            onChange={handleInputChange}
+          />
           <div className={styles.required_text}>* поля обязательны для заполнения</div>
-          <Button variant={'negative'} icon={false}>
+          <a href='#' className={styles.formAttachFile} onClick={handleFileClick}>
+            Прикрепить файл
+          </a>
+          <input type='file' ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
+          <Button variant='negative' icon={false}>
             Отправить
           </Button>
 
