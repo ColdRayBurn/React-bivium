@@ -3,13 +3,9 @@
 import { FC, useState } from 'react';
 import Button from '@/components/ui/Button/Button';
 import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
-import ConfirmDialogPopup from '@/components/popups/ConfirmDialogPopup/ConfirmDialogPopup';
+import FeedbackFormPopup from '@/components/popups/FeedbackForm/FeedbackForm';
 
-interface ClientPopupButtonProps {
-  buttonText: string;
-}
-
-const ClientPopupButton: FC<ClientPopupButtonProps> = ({ buttonText }) => {
+const ClientPopupButton: FC = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [isModalShown, setIsModalShown] = useState(false);
 
@@ -23,22 +19,23 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({ buttonText }) => {
     setIsModalShown(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (formData: any) => {
+    console.log(formData);
     setIsModalShown(false);
   };
 
   return (
     <>
       <Button type='button' variant='negative' onClick={handleButtonClick}>
-        {buttonText}
+        Отправить
       </Button>
       {isModalShown && (
         <OverlayingPopup isOpened={isPopupVisible}>
-          <ConfirmDialogPopup
-            title='Отписаться от рассылки?'
-            submitButtonText='Подтвердить'
+          <FeedbackFormPopup
+            title='Форма обратной связи'
+            submitButtonText='ОТПРАВИТЬ'
             submitButtonHandler={handleSubmit}
-            cancelButtonText='Отмена'
+            cancelButtonText=''
             cancelButtonHandler={handleCancel}
           />
         </OverlayingPopup>
