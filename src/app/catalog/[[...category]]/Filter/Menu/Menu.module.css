@@ -1,12 +1,16 @@
 .wrapper {
+  padding: 20px;
   z-index: 1;
 
-  padding: 20px;
   width: 340px;
+  max-height: 680px;
 
   border-radius: 10px;
   background-color: #fff;
   border: 1px solid #979797;
+
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .header {

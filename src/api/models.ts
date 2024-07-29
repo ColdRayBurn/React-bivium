@@ -79,6 +79,10 @@ export interface ICatalogResponse {
         name: string;
       }[];
     }[];
+    sizes: {
+      id: number;
+      name: string;
+    }[];
   };
   products: ICatalogProduct[];
 }

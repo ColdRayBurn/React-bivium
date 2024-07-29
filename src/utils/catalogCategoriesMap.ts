@@ -1,4 +1,6 @@
 export type CategoryCode =
+  | 'equipment'
+  | 'clothing'
   | 'womens-clothing'
   | 'womens-ski'
   | 'womens-running'
@@ -10,6 +12,8 @@ export type CategoryCode =
   | 'accessories';
 
 export type CategoryName =
+  | 'Экипировка'
+  | 'Одежда'
   | 'Женская одежда'
   | 'Женские лыжи'
   | 'Женский бег'
@@ -21,6 +25,8 @@ export type CategoryName =
   | 'Акссесуары';
 
 export const categoryMap: Record<CategoryCode, number> = {
+  equipment: 27,
+  clothing: 28,
   'womens-clothing': 21,
   'womens-ski': 23,
   'womens-running': 22,
@@ -33,6 +39,8 @@ export const categoryMap: Record<CategoryCode, number> = {
 };
 
 export const categoriesNames: Record<CategoryCode, CategoryName> = {
+  equipment: 'Экипировка',
+  clothing: 'Одежда',
   'womens-clothing': 'Женская одежда',
   'womens-ski': 'Женские лыжи',
   'womens-running': 'Женский бег',

@@ -53,7 +53,7 @@ const Menu = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 key={category.id}
                 className={styles.filtersButton}
                 type='button'
-                onClick={() => dispatch(applyCategoryFilter({ ...category, state: false }))}
+                onClick={() => dispatch(applyCategoryFilter({ id: category.id, state: false }))}
               >
                 <CrossIcon />
                 {category.name}
@@ -66,7 +66,7 @@ const Menu = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 key={color.code}
                 className={styles.filtersButton}
                 type='button'
-                onClick={() => dispatch(applyColorFilter({ ...color, state: false }))}
+                onClick={() => dispatch(applyColorFilter({ id: color.id, state: false }))}
               >
                 <CrossIcon />
                 <div className={styles.colorFiltersButton} style={{ backgroundColor: color.hex }}></div>
@@ -79,7 +79,7 @@ const Menu = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 key={size.name}
                 className={styles.filtersButton}
                 type='button'
-                onClick={() => dispatch(applySizeFilter({ ...size, state: false }))}
+                onClick={() => dispatch(applySizeFilter({ id: size.id, state: false }))}
               >
                 <CrossIcon />
                 {size.name}
@@ -95,35 +95,35 @@ const Menu = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 key={category.id}
                 className={styles.textFiltersButton}
                 type='button'
-                onClick={() => dispatch(applyCategoryFilter({ ...category, state: true }))}
+                onClick={() => dispatch(applyCategoryFilter({ id: category.id, state: true }))}
               >
                 {category.name}
               </button>
             ))}
           </div>
         </Accordion>
-        {/* <Accordion title='Цвет'>
+        <Accordion title='Цвет'>
           <div className={styles.colorFilters}>
             {filters.colors.map(color => (
-              <div key={color.code} className={classNames(styles.textFilters, styles.textFilters_column)}>
+              <div key={color.id} className={classNames(styles.textFilters, styles.textFilters_column)}>
                 <button
                   className={styles.colorFiltersButton}
                   type='button'
                   style={{ backgroundColor: color.hex }}
-                  onClick={() => dispatch(applyColorFilter({ ...color, state: true }))}
+                  onClick={() => dispatch(applyColorFilter({ id: color.id, state: true }))}
                 ></button>
               </div>
             ))}
           </div>
-        </Accordion> */}
+        </Accordion>
         <Accordion title='Размер'>
           <div className={classNames(styles.textFilters, styles.textFilters_row)}>
             {filters.sizes.map(size => (
               <button
-                key={size.name}
+                key={size.id}
                 className={styles.textFiltersButton}
                 type='button'
-                onClick={() => dispatch(applySizeFilter({ ...size, state: true }))}
+                onClick={() => dispatch(applySizeFilter({ id: size.id, state: true }))}
               >
                 {size.name}
               </button>

@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useAppSelector } from '@/redux/hooks';
 
+import { getUnixTime, subMonths } from 'date-fns';
 import api from '@/api';
 import { ICatalogResponse } from '@/api/models';
 
@@ -24,15 +25,16 @@ const useCatalog = (initialProducts: ICatalogResponse['products']) => {
 
     const colors = filtersState.colors
       .filter(color => color.isApplied)
-      .map(color => color.code)
+      .map(color => color.id)
       .join(',');
 
     const sizes = filtersState.sizes
       .filter(size => size.isApplied)
-      .map(size => size.name)
+      .map(size => size.id)
       .join(',');
 
     return {
+      ...(!!!categories && { dateCreate: `${getUnixTime(subMonths(new Date(), 1))},${getUnixTime(new Date())}` }),
       ...(categories && { category: categories }),
       ...(colors && { colors }),
       ...(sizes && { sizes })

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 
 import Card from '@/components/ui/Card/Card';
@@ -13,23 +13,9 @@ import Dropdown from '@/components/ui/Dropdown/Dropdown';
 import Button from '@/components/ui/Button/Button';
 
 import styles from './Body.module.css';
-
-// import CDEKWidget from '@cdek-it/widget';
-
 const Body: FC = () => {
-  // useEffect(() => {
-  //   const d = new CDEKWidget({
-  //     from: 'Новосибирск',
-  //     root: 'cdek-map',
-  //     apiKey: '42aea6ea-aa3f-465b-8d38-e1b35b3a1ed4',
-  //     servicePath: 'https://bivium.all4it.org/service.php',
-  //     defaultLocation: 'Новосибирск'
-  //   });
-  // }, []);
-
   return (
     <div className={styles.wrapper}>
-      <div id='cdek-map' style={{ height: '500px' }}></div>
       <Card title='Адрес доставки'>
         <div className={styles.addressForm}>
           <Input

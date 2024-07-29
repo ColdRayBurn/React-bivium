@@ -80,10 +80,10 @@ const Header: FC = () => {
           <Link className={styles.navigationItem} href='/catalog'>
             Новинки
           </Link>
-          <Link className={styles.navigationItem} href='/catalog'>
+          <Link className={styles.navigationItem} href='/catalog/equipment'>
             Экипировка
           </Link>
-          <Link className={styles.navigationItem} href='/catalog'>
+          <Link className={styles.navigationItem} href='/catalog/clothing'>
             Одежда
           </Link>
           <Link className={styles.navigationItem} href='/catalog/accessories'>

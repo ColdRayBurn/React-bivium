@@ -15,15 +15,11 @@ import api from '@/api';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
 
-interface Props {
-  initialData: INewsItemListResponse;
-}
-
-const NewsList: FC<Props> = ({ initialData = { items: [], total: 0 } }) => {
-  const [news, setNews] = useState<INewsItemList[]>(initialData.items || []);
-  const [offset, setOffset] = useState(initialData.items.length);
+const NewsList: FC = () => {
+  const [news, setNews] = useState<INewsItemList[]>([]);
+  const [offset, setOffset] = useState(0);
   const [limit] = useState(3);
-  const [hasMore, setHasMore] = useState(initialData.total > initialData.items.length);
+  const [hasMore, setHasMore] = useState(0 > 0);
   const [isLoading, setIsLoading] = useState(false);
   const loadRef = useRef<HTMLDivElement | null>(null);
 
@@ -64,12 +60,14 @@ const NewsList: FC<Props> = ({ initialData = { items: [], total: 0 } }) => {
   }, [isLoading, hasMore, offset, fetchNews]);
 
   useEffect(() => {
-    if (initialData.items.length === 0) {
+    if (0 === 0) {
       fetchNews(0);
     }
-  }, [initialData.items.length, fetchNews]);
+  }, [fetchNews]);
 
   useEffect(() => {
+    const dddd = loadRef.current;
+
     const observer = new IntersectionObserver(
       entries => {
         if (entries[0].isIntersecting) {
@@ -81,13 +79,13 @@ const NewsList: FC<Props> = ({ initialData = { items: [], total: 0 } }) => {
       }
     );
 
-    if (loadRef.current) {
-      observer.observe(loadRef.current);
+    if (dddd) {
+      observer.observe(dddd);
     }
 
     return () => {
-      if (loadRef.current) {
-        observer.unobserve(loadRef.current);
+      if (dddd) {
+        observer.unobserve(dddd);
       }
     };
   }, [showMore]);

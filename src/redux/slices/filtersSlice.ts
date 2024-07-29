@@ -10,11 +10,13 @@ interface CategoryFilter extends Filter {
 }
 
 interface ColorFilter extends Filter {
+  id: number;
   code: string;
   hex: string;
 }
 
 interface SizeFilter extends Filter {
+  id: number;
   name: string;
 }
 
@@ -34,28 +36,28 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    addCategory: (state, action: PayloadAction<CategoryFilter>) => {
+    addCategory: (state, action: PayloadAction<Omit<CategoryFilter, 'isApplied'>>) => {
       const categoryIndex = state.categories.findIndex(category => category.id === action.payload.id);
-      categoryIndex === -1 && state.categories.push(action.payload);
+      categoryIndex === -1 && state.categories.push({ ...action.payload, isApplied: false });
     },
-    addColor: (state, action: PayloadAction<ColorFilter>) => {
-      const colorIndex = state.colors.findIndex(color => color.code === action.payload.code);
-      colorIndex === -1 && state.colors.push(action.payload);
+    addColor: (state, action: PayloadAction<Omit<ColorFilter, 'isApplied'>>) => {
+      const colorIndex = state.colors.findIndex(color => color.id === action.payload.id);
+      colorIndex === -1 && state.colors.push({ ...action.payload, isApplied: false });
     },
-    addSize: (state, action: PayloadAction<SizeFilter>) => {
-      const sizeIndex = state.sizes.findIndex(size => size.name === action.payload.name);
-      sizeIndex === -1 && state.sizes.push(action.payload);
+    addSize: (state, action: PayloadAction<Omit<SizeFilter, 'isApplied'>>) => {
+      const sizeIndex = state.sizes.findIndex(size => size.id === action.payload.id);
+      sizeIndex === -1 && state.sizes.push({ ...action.payload, isApplied: false });
     },
-    applyCategoryFilter: (state, action: PayloadAction<CategoryFilter & { state: boolean }>) => {
+    applyCategoryFilter: (state, action: PayloadAction<Pick<CategoryFilter, 'id'> & { state: boolean }>) => {
       const categoryIndex = state.categories.findIndex(category => category.id === action.payload.id);
       categoryIndex !== -1 && (state.categories[categoryIndex].isApplied = action.payload.state);
     },
-    applyColorFilter: (state, action: PayloadAction<ColorFilter & { state: boolean }>) => {
-      const colorIndex = state.colors.findIndex(color => color.code === action.payload.code);
+    applyColorFilter: (state, action: PayloadAction<Pick<ColorFilter, 'id'> & { state: boolean }>) => {
+      const colorIndex = state.colors.findIndex(color => color.id === action.payload.id);
       colorIndex !== -1 && (state.colors[colorIndex].isApplied = action.payload.state);
     },
-    applySizeFilter: (state, action: PayloadAction<SizeFilter & { state: boolean }>) => {
-      const sizeIndex = state.sizes.findIndex(size => size.name === action.payload.name);
+    applySizeFilter: (state, action: PayloadAction<Pick<SizeFilter, 'id'> & { state: boolean }>) => {
+      const sizeIndex = state.sizes.findIndex(size => size.id === action.payload.id);
       sizeIndex !== -1 && (state.sizes[sizeIndex].isApplied = action.payload.state);
     }
   }

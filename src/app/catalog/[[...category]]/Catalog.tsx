@@ -41,20 +41,14 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
 
   useEffect(() => {
     availableFilters.categories[0].childitems.forEach(category => {
-      dispatch(
-        addCategory({ id: Number(category.id), name: category.name, isApplied: Number(category.id) === categoryId })
-      );
+      dispatch(addCategory({ id: Number(category.id), name: category.name }));
     });
 
-    // availableFilters.colors.forEach(color => dispatch(addColor({ code: color.name, hex: 'red', isApplied: false })));
+    availableFilters.colors.forEach(color =>
+      dispatch(addColor({ id: Number(color.id), code: color.name, hex: 'red' }))
+    );
 
-    initialProducts.forEach(product => {
-      product.sizes.forEach(size => {
-        if (size.inStock) {
-          dispatch(addSize({ name: size.size, isApplied: false }));
-        }
-      });
-    });
+    availableFilters.sizes.forEach(size => dispatch(addSize({ id: Number(size.id), name: size.name })));
 
     const activeCategory = filters.categories.find(category => category.id === categoryId);
     activeCategory !== undefined && dispatch(applyCategoryFilter({ ...activeCategory, state: true }));
