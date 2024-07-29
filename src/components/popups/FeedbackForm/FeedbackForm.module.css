@@ -171,6 +171,7 @@
 }
 
 .popupContent h3 {
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   text-align: center;
   font-size: 24px;
   font-weight: 600;
