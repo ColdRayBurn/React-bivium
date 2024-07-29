@@ -1,4 +1,5 @@
-import { FC, useState, useRef } from 'react';
+import React, { FC, useState, useRef } from 'react';
+import api from '@/api';
 import Button from '@/components/ui/Button/Button';
 import CrossIcon from '@icons/cross.svg';
 import styles from './FeedbackForm.module.css';
@@ -14,13 +15,7 @@ interface FeedbackFormPopupProps {
   submitButtonHandler: (formData: any) => void;
 }
 
-const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
-  title,
-  cancelButtonText,
-  cancelButtonHandler,
-  submitButtonText,
-  submitButtonHandler
-}) => {
+const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHandler }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -32,7 +27,15 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     file: null
   });
 
+  const [errors, setErrors] = useState({
+    phone: '',
+    email: ''
+  });
+
+  const [fileName, setFileName] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -40,6 +43,12 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
       ...formData,
       [name]: value
     });
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,21 +59,99 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
+    if (e.target.files && e.target.files[0]) {
       setFormData({
-        ...formData,
-        file: e.target.files[0]
+        ...formData
       });
+      setFileName(e.target.files[0].name);
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileRemove = () => {
+    setFormData({
+      ...formData,
+      file: null
+    });
+    setFileName(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    submitButtonHandler(formData);
+    if (validateForm()) {
+      const jsonData = {
+        name: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        socialNetworks: formData.socialLinks,
+        message: formData.about,
+        page: window.location.pathname,
+        file: formData.file ? formData.file : undefined
+      };
+
+      try {
+        const response = await api.post('feedback/', {
+          body: JSON.stringify(jsonData),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          setIsSubmitted(true);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            socialLinks: '',
+            phone: '',
+            email: '',
+            about: '',
+            consent: false,
+            file: null
+          });
+          setFileName(null);
+        } else {
+          const errorData = await response.json();
+          console.error('Failed to submit form:', errorData);
+        }
+      } catch (error) {
+        console.error('Error submitting form', error);
+      }
+    }
   };
 
   const handleFileClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const handlePhoneInputClick = () => {
+    if (!formData.phone.startsWith('+7')) {
+      setFormData({
+        ...formData,
+        phone: '+7'
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const phoneRegex = /^\+7\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let valid = true;
+
+    if (!phoneRegex.test(formData.phone)) {
+      setErrors(prev => ({ ...prev, phone: 'Введите корректный номер телефона в формате +71234567890' }));
+      valid = false;
+    }
+
+    if (!emailRegex.test(formData.email)) {
+      setErrors(prev => ({ ...prev, email: 'Введите корректный адрес электронной почты' }));
+      valid = false;
+    }
+
+    return valid;
   };
 
   return (
@@ -78,59 +165,83 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
       <div className={styles.body}>
         <form onSubmit={handleSubmit} className={styles.form}>
           <Input
-            className={styles.addressFormControl}
+            className={`${styles.addressFormControl}`}
             name='firstName'
             placeholder='Имя*'
             required={true}
+            value={formData.firstName}
             onChange={handleInputChange}
           />
 
           <Input
-            className={styles.addressFormControl}
+            className={`${styles.addressFormControl}`}
             name='lastName'
             placeholder='Фамилия*'
             required={true}
+            value={formData.lastName}
             onChange={handleInputChange}
           />
 
           <Input
-            className={styles.addressFormControl}
+            className={`${styles.addressFormControl}`}
             name='socialLinks'
             placeholder='Ссылки на соцсети*'
             required={true}
+            value={formData.socialLinks}
             onChange={handleInputChange}
           />
 
-          <Input
-            className={styles.addressFormControl}
-            name='phone'
-            type='tel'
-            placeholder='Телефон*'
-            required={true}
-            onChange={handleInputChange}
-          />
-
-          <label>
-            <div className={styles.email_title}>Email*</div>
+          <div className={styles.fieldWrapper}>
+            {errors.phone && <div className={styles.errorText}>{errors.phone}</div>}
             <Input
-              className={styles.addressFormControl}
-              name='email'
-              type='email'
-              placeholder='example@email.com'
+              className={`${styles.addressFormControl} ${errors.phone ? styles.error : ''}`}
+              name='phone'
+              type='tel'
+              placeholder='Телефон*'
               required={true}
+              value={formData.phone}
+              onClick={handlePhoneInputClick}
               onChange={handleInputChange}
             />
-          </label>
+          </div>
+
+          <div className={styles.fieldWrapper}>
+            {errors.email && <div className={styles.errorText}>{errors.email}</div>}
+            <label>
+              <div className={styles.email_title}>Email*</div>
+              <Input
+                className={`${styles.addressFormControl} ${errors.email ? styles.error : ''}`}
+                name='email'
+                type='email'
+                placeholder='example@email.com'
+                required={true}
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
           <TextArea
             className={styles.addressFormControl}
             name='about'
             placeholder='Немного о себе'
+            value={formData.about}
             onChange={handleInputChange}
           />
           <div className={styles.required_text}>* поля обязательны для заполнения</div>
-          <a href='#' className={styles.formAttachFile} onClick={handleFileClick}>
-            Прикрепить файл
-          </a>
+          {fileName ? (
+            <div className={styles.fileWrapper}>
+              <div className={styles.fileName} onClick={handleFileClick}>
+                {fileName}
+              </div>
+              <button className={styles.removeButton} type='button' onClick={handleFileRemove}>
+                <CrossIcon />
+              </button>
+            </div>
+          ) : (
+            <a href='#' className={styles.formAttachFile} onClick={handleFileClick}>
+              Прикрепить файл
+            </a>
+          )}
           <input type='file' ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
           <Button variant='negative' icon={false}>
             Отправить
@@ -145,6 +256,17 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
           />
         </form>
       </div>
+      {isSubmitted && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <h3>Форма успешно отправлена!</h3>
+            <p>Мы свяжемся с Вами в ближайшее время</p>
+            <Button variant='negative' icon={false} onClick={cancelButtonHandler}>
+              Закрыть
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

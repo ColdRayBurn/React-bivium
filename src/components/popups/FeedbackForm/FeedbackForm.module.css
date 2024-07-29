@@ -38,13 +38,8 @@
   flex-direction: column;
 }
 
-.form label {
-  margin-bottom: 10px;
-  font-size: 1em;
-}
-
 .form label input {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .form label input[type='checkbox'] {
@@ -55,7 +50,6 @@
 .form textarea {
   width: 100%;
   padding: 8px;
-  margin-top: 5px;
   border: 1px solid #979797;
   border-radius: 4px;
   font-size: 1.2em;
@@ -120,19 +114,81 @@
   margin-bottom: 18px;
 }
 
-.form .formAttachFile {
+.form .formAttachFile,
+.fileName {
   font-size: 20px;
   font-weight: 300;
   text-decoration: underline;
 }
 
-@media (--tablet-media) {
-  .wrapper {
-    top: 20%;
-  }
+.form .required_text {
+  margin-bottom: 14px;
 }
 
-@media (--mobile-media) {
+.fileWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.fileWrapper button {
+  margin: 0;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.fieldWrapper {
+  position: relative;
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupContent {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.popupContent h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.popupContent p {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.popupContent button {
+  margin-top: 10px;
+}
+
+@media (--tablet-media) {
   .wrapper {
     top: 15%;
   }
