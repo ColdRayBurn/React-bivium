@@ -165,7 +165,6 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
       <div className={styles.body}>
         <form onSubmit={handleSubmit} className={styles.form}>
           <Input
-            className={`${styles.addressFormControl}`}
             name='firstName'
             placeholder='Имя*'
             required={true}
@@ -174,7 +173,6 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
           />
 
           <Input
-            className={`${styles.addressFormControl}`}
             name='lastName'
             placeholder='Фамилия*'
             required={true}
@@ -183,7 +181,6 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
           />
 
           <Input
-            className={`${styles.addressFormControl}`}
             name='socialLinks'
             placeholder='Ссылки на соцсети*'
             required={true}
@@ -194,7 +191,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
           <div className={styles.fieldWrapper}>
             {errors.phone && <div className={styles.errorText}>{errors.phone}</div>}
             <Input
-              className={`${styles.addressFormControl} ${errors.phone ? styles.error : ''}`}
+              className={`${errors.phone ? styles.error : ''}`}
               name='phone'
               type='tel'
               placeholder='Телефон*'
@@ -210,7 +207,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
             <label>
               <div className={styles.email_title}>Email*</div>
               <Input
-                className={`${styles.addressFormControl} ${errors.email ? styles.error : ''}`}
+                className={`${errors.email ? styles.error : ''}`}
                 name='email'
                 type='email'
                 placeholder='example@email.com'
@@ -220,13 +217,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({ title, cancelButtonHand
               />
             </label>
           </div>
-          <TextArea
-            className={styles.addressFormControl}
-            name='about'
-            placeholder='Немного о себе'
-            value={formData.about}
-            onChange={handleInputChange}
-          />
+          <TextArea name='about' placeholder='Немного о себе' value={formData.about} onChange={handleInputChange} />
           <div className={styles.required_text}>* поля обязательны для заполнения</div>
           {fileName ? (
             <div className={styles.fileWrapper}>
