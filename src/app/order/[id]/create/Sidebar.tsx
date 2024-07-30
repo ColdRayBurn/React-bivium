@@ -9,23 +9,22 @@ import CheckCircleIcon from '@icons/check-circle.svg';
 
 import { formatUrl } from '@/utils/formatUrl';
 import { useAppSelector } from '@/redux/hooks';
-import { IOrder } from './models';
+import { IOrder } from '@/models';
 
 import styles from './Sidebar.module.css';
 
 interface Props {
-  orderId: string;
   orderData: IOrder | null;
 }
 
-const Sidebar: FC<Props> = ({ orderId, orderData }) => {
+const Sidebar: FC<Props> = ({ orderData }) => {
   const { email } = useAppSelector(selector => selector.user);
 
   return (
     <div className={styles.wrapper}>
       {orderData && (
         <ShipmentContent
-          products={orderData[orderId].items.map(item => ({
+          products={orderData.items.map(item => ({
             image: formatUrl(item.image),
             amount: item.quantity,
             color: item.color,

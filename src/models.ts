@@ -60,3 +60,18 @@ export interface INewsItemList {
   description: string;
   image: string;
 }
+
+export interface IOrder {
+  items: {
+    image: string;
+    color: string;
+    size: string;
+    name: string;
+    quantity: number;
+    price: string;
+    productId: number;
+    inStock: boolean;
+  }[];
+  totalPrice: string;
+  orderId: string;
+}
