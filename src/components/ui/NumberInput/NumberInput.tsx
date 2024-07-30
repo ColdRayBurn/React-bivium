@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useState, useRef } from 'react';
 import styles from './NumberInput.module.css';
 
 import MinusIcon from '@icons/minus.svg';
@@ -11,33 +11,55 @@ interface Props {
   step?: number;
   min?: number;
   max?: number;
-  onChangeCallback?: (value: number) => void;
+  onChangeCallback: (previousValue: number, value: number) => void;
 }
 
 const NumberInput: FC<Props> = ({ defaultValue = 0, step = 1, min = -Infinity, max = Infinity, onChangeCallback }) => {
   const [number, setNumber] = useState(defaultValue);
-  let inputRef = useRef<HTMLInputElement | null>(null);
+  const previousValueRef = useRef<number>(defaultValue);
+  let inputRef = useRef<HTMLInputElement>(null);
 
   const minus = () => {
-    setNumber(number => (number - step >= min ? number - step : number));
-    inputRef.current && (inputRef.current.valueAsNumber = number);
+    previousValueRef.current = number;
+    onChangeCallback && onChangeCallback(previousValueRef.current, number - step >= min ? number - step : number);
+
+    setNumber(number => {
+      const result = number - step >= min ? number - step : number;
+      inputRef.current!.valueAsNumber = result;
+      return result;
+    });
   };
 
   const plus = () => {
-    setNumber(number => (number + step <= max ? number + step : number));
-    inputRef.current && (inputRef.current.valueAsNumber = number);
+    previousValueRef.current = number;
+    onChangeCallback && onChangeCallback(previousValueRef.current, number + step <= max ? number + step : number);
+
+    setNumber(number => {
+      const result = number + step <= max ? number + step : number;
+      inputRef.current!.valueAsNumber = result;
+      return result;
+    });
   };
 
-  useEffect(() => {
-    onChangeCallback && onChangeCallback(number);
-  }, [number, onChangeCallback]);
+  const onBlurHandler = () => {
+    const input = inputRef.current!;
+    const value = parseInt(input.value);
+
+    if (isNaN(value)) {
+      input.valueAsNumber = number;
+    } else {
+      previousValueRef.current = number;
+      setNumber(value);
+      onChangeCallback && onChangeCallback(previousValueRef.current, number);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
       <button className={styles.button} type='button' onClick={minus}>
         <MinusIcon />
       </button>
-      <input ref={inputRef} className={styles.input} type='number' defaultValue={number} />
+      <input ref={inputRef} className={styles.input} type='number' defaultValue={number} onBlur={onBlurHandler} />
       <button className={styles.button} type='button' onClick={plus}>
         <PlusIcon />
       </button>

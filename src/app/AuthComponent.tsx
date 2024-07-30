@@ -8,6 +8,7 @@ import { IUser } from '@/models';
 import { useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
 import { fetchFavorites } from '@/redux/slices/favoritesSlice';
+import { cartFetch } from '@/redux/slices/cartSlice';
 
 const AuthComponent = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,8 @@ const AuthComponent = () => {
       })
       .json<IUser>()
       .then(response => {
+        dispatch(cartFetch());
+        dispatch(fetchFavorites());
         dispatch(setUser({ ...response, isAuthorized: true, isLoaded: true }));
       })
       .catch(e => {
@@ -32,8 +35,6 @@ const AuthComponent = () => {
 
     return () => abortController.abort('aborted');
   }, [dispatch]);
-
-  dispatch(fetchFavorites());
 
   return null;
 };

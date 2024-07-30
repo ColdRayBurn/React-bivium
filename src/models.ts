@@ -8,8 +8,6 @@ export interface IUser {
   phonenumber: string | null;
   email: string;
   birthday: string;
-  cartAmount: number;
-  favoritesAmount: number;
 }
 
 export interface IProduct {

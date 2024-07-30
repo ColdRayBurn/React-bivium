@@ -100,3 +100,16 @@ export interface INewsItemDetail {
   image: string;
   titleDescription: string;
 }
+
+export interface ICartResponse {
+  items?: {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    amount: number;
+    color: string;
+    size: string;
+  }[];
+  totalPrice: number;
+}

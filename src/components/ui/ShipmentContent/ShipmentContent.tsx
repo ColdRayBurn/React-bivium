@@ -16,10 +16,11 @@ interface IProduct {
 
 interface Props {
   products: IProduct[];
-  discount?: number;
 }
 
-const ShipmentContent: FC<Props> = ({ products, discount }) => {
+const ShipmentContent: FC<Props> = ({ products }) => {
+  const discount = 0;
+
   const productsPrice = products
     .map(product => product.price * product.amount)
     .reduce((previousValue, currentValue) => previousValue + currentValue);
@@ -56,7 +57,7 @@ const ShipmentContent: FC<Props> = ({ products, discount }) => {
           <div className={styles.summaryText}>{products.length} товара</div>
           <div className={styles.summaryPrice}>{formatPrice(productsPrice)}</div>
         </div>
-        {discount && (
+        {!!discount && (
           <div className={styles.summaryRow}>
             <div className={styles.summaryText}>Скидка -{discount}%</div>
             <div className={styles.summaryPrice}>-{formatPrice((productsPrice / 100) * discount)}</div>

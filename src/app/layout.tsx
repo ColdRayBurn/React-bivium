@@ -4,11 +4,11 @@ import { FC, ReactNode } from 'react';
 import { Montserrat, Fira_Sans_Extra_Condensed } from 'next/font/google';
 import type { Metadata } from 'next';
 
-import StoreProvider from './StoreProvider';
-
 import AuthComponent from './AuthComponent';
 import Header from '@/components/layouts/Header/Header';
 import Footer from '@/components/layouts/Footer/Footer';
+
+import StoreProvider from '@/redux/StoreProvider';
 
 interface Props {
   children: ReactNode;

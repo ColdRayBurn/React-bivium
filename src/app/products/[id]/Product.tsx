@@ -17,6 +17,7 @@ import ConfirmDialogPopup from '@/components/popups/ConfirmDialogPopup/ConfirmDi
 import { useAppSelector } from '@/redux/hooks';
 import { useAppDispatch } from '@/redux/hooks';
 
+import { cartPut } from '@/redux/slices/cartSlice';
 import { putFavorites, removeFavorites } from '@/redux/slices/favoritesSlice';
 
 import api from '@/api';
@@ -46,6 +47,26 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
     api.patch(`products/${id}/view/`, { signal: abortController.signal });
     return () => abortController.abort('aborted');
   }, [id]);
+
+  const addToCart = () => {
+    if (!inStock) {
+      return;
+    }
+
+    dispatch(
+      cartPut({
+        id: selectedSize.id,
+        name,
+        amount: 1,
+        color,
+        image: images[0],
+        price: selectedSize.price,
+        size: selectedSize.size
+      })
+    );
+
+    setIsModalShown(true);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -100,7 +121,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
               variant='negative'
               icon={false}
               type='button'
-              onClick={() => (inStock ? setIsModalShown(true) : null)}
+              onClick={addToCart}
             >
               {inStock ? 'Добавить в корзину' : 'Сообщить о поступлении'}
             </Button>
