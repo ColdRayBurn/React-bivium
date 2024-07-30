@@ -21,7 +21,8 @@ import styles from './Header.module.css';
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Header: FC = () => {
-  const { isAuthorized, cartAmount } = useAppSelector(selector => selector.user);
+  const { isAuthorized } = useAppSelector(selector => selector.user);
+  const cart = useAppSelector(selector => selector.cart);
   const favorites = useAppSelector(selector => selector.favorites);
 
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -68,7 +69,11 @@ const Header: FC = () => {
                 <HeartIcon />
               </Link>
             </MediaQuery>
-            <Link className={styles.control} href='/cart' data-amount={cartAmount ? cartAmount : undefined}>
+            <Link
+              className={styles.control}
+              href='/cart'
+              data-amount={!!cart.products.length ? cart.products.length : undefined}
+            >
               <BagIcon />
             </Link>
             <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
@@ -77,18 +82,18 @@ const Header: FC = () => {
           </div>
         </div>
         <div className={styles.navigation}>
-          <button className={styles.navigationItem} type='button'>
+          <Link className={styles.navigationItem} href='/catalog'>
             Новинки
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog/equipment'>
             Экипировка
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog/clothing'>
             Одежда
-          </button>
-          <button className={styles.navigationItem} type='button'>
+          </Link>
+          <Link className={styles.navigationItem} href='/catalog/accessories'>
             Аксессуары
-          </button>
+          </Link>
         </div>
       </header>
       <Hamburger isOpened={isHamburgerOpen} onClose={() => setIsHamburgerOpen(false)} />

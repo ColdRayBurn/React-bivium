@@ -1,10 +1,10 @@
 import type { IUser } from '@/models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type User = IUser & {
+interface User extends IUser {
   isAuthorized: boolean;
   isLoaded: boolean;
-};
+}
 
 const initialState: User = {
   name: null,
@@ -14,8 +14,6 @@ const initialState: User = {
   phonenumber: null,
   email: '',
   birthday: '',
-  cartAmount: 0,
-  favoritesAmount: 0,
   isAuthorized: false,
   isLoaded: false
 };

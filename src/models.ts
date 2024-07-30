@@ -8,8 +8,6 @@ export interface IUser {
   phonenumber: string | null;
   email: string;
   birthday: string;
-  cartAmount: number;
-  favoritesAmount: number;
 }
 
 export interface IProduct {
@@ -40,6 +38,11 @@ export interface ICatalogProduct {
   inStock: boolean;
   views: number;
   uploadedAt: 1720006392;
+  sizes: {
+    id: number;
+    size: string;
+    inStock: true;
+  }[];
 }
 
 export interface IProductCard {

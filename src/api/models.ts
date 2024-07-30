@@ -68,6 +68,22 @@ export interface IMetaFooterResponse {
 
 export interface ICatalogResponse {
   total: number;
+  filters: {
+    colors: {
+      id: number;
+      name: string;
+    }[];
+    categories: {
+      childitems: {
+        id: number;
+        name: string;
+      }[];
+    }[];
+    sizes: {
+      id: number;
+      name: string;
+    }[];
+  };
   products: ICatalogProduct[];
 }
 
@@ -83,4 +99,17 @@ export interface INewsItemDetail {
   description: string;
   image: string;
   titleDescription: string;
+}
+
+export interface ICartResponse {
+  items?: {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    amount: number;
+    color: string;
+    size: string;
+  }[];
+  totalPrice: number;
 }

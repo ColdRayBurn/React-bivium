@@ -11,6 +11,8 @@ import ArrowLeftIcon from '@icons/arrow-left.svg';
 import CrossIcon from '@icons/cross.svg';
 import ChevronRight from '@icons/chevron-right.svg';
 
+import { useAppSelector } from '@/redux/hooks';
+
 import styles from './Hamburger.module.css';
 
 type Menu = 'equipment' | 'mens-equipment' | 'womens-equipment' | 'help' | 'about-company' | 'cooperation';
@@ -21,6 +23,8 @@ interface Props {
 }
 
 const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
+  const favorites = useAppSelector(selector => selector.favorites);
+
   const [previousMenus, setPreviousMenus] = useState<Menu[]>([]);
   const [menu, setMenu] = useState<Menu | null>(null);
 
@@ -122,7 +126,7 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                 </button>
                 <div className={styles.menuItemsSeparator}></div>
                 <Link className={styles.menuItem} href='/personal/favorites' onClick={onCloseHandler}>
-                  Избранное (0)
+                  Избранное ({favorites.length})
                 </Link>
                 <Link className={styles.menuItem} href='/personal/orders' onClick={onCloseHandler}>
                   Заказы

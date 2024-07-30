@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import classNames from 'classnames';
 
@@ -9,27 +11,29 @@ import EmptyCart from './EmptyCart';
 import PopularProducts from '@/components/PopularProducts/PopularProducts';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 
+import { useAppSelector } from '@/redux/hooks';
+
 import styles from './page.module.css';
 
 const Page: FC = () => {
-  const isEmpty = Math.random() < 0.5;
+  const cart = useAppSelector(selector => selector.cart);
 
   return (
     <main className={classNames(styles.container, 'container')}>
       <Breadcrumbs breadсrumbs={[{ name: 'Продолжить покупки', path: '/catalog' }]} />
       <h1 className={styles.title}>Корзина</h1>
-      <div className={classNames(styles.wrapper, isEmpty && styles.wrapper_emptyCart)}>
-        {isEmpty && (
+      <div className={classNames(styles.wrapper, !!!cart.products.length && styles.wrapper_emptyCart)}>
+        {!!!cart.products.length && (
           <>
             <EmptyCart />
             <PopularProducts className={styles.products} />
             <DeliveryInformation className={styles.deliveryInformation} withButton />
           </>
         )}
-        {!isEmpty && (
+        {!!cart.products.length && (
           <>
             <Cart />
-            <Sidebar />
+            <Sidebar productsAmount={2} totalPice={400} />
           </>
         )}
       </div>

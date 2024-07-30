@@ -19,3 +19,16 @@
 .button svg {
   color: #3d4143;
 }
+
+.modalMenu {
+  z-index: auto;
+  max-height: calc(100dvh - var(--container-padding));
+  overflow-y: auto;
+}
+
+@media (--tablet-media) {
+  .button {
+    padding: 0;
+    border: none;
+  }
+}

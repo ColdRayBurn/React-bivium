@@ -1,22 +1,38 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import styles from './CatalogPage.module.css';
+import { notFound } from 'next/navigation';
 
 import Catalog from './Catalog';
 import ExpandableText from '@/components/ui/ExpandableText/ExpandableText';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 
+import api from '@/api';
 import { ICatalogResponse } from '@/api/models';
+import { categoryMap, CategoryCode } from '@/utils/catalogCategoriesMap';
+
+import styles from './page.module.css';
 
 interface Props {
-  data: ICatalogResponse;
-  categoryId: number;
+  params: { category: [CategoryCode] | undefined };
 }
 
-const CatalogPage: FC<Props> = async ({ data, categoryId }) => {
+const Page: FC<Props> = async ({ params }) => {
+  const category =
+    params.category !== undefined && params.category[0] in categoryMap ? categoryMap[params.category[0]] : null;
+
+  const { filters, products } = await api
+    .get('catalog/', {
+      searchParams: {
+        limit: 8,
+        offset: 0,
+        ...(category !== null && { category })
+      }
+    })
+    .json<ICatalogResponse>();
+
   return (
     <main className={classNames(styles.wrapper, 'container')}>
-      <Catalog data={data} categoryId={categoryId} />
+      <Catalog availableFilters={filters} initialProducts={products} categoryId={category} />
       <div className={styles.description}>
         <h2 className={styles.descriptionTitle}>О производстве</h2>
         <ExpandableText className={styles.descriptionText}>
@@ -33,4 +49,4 @@ const CatalogPage: FC<Props> = async ({ data, categoryId }) => {
   );
 };
 
-export default CatalogPage;
+export default Page;

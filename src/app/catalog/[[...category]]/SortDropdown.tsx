@@ -16,6 +16,8 @@ import classNames from 'classnames';
 import Button from '@/components/ui/Button/Button';
 import CheckmarkIcon from '@icons/checkmark.svg';
 
+import { useMediaQuery } from 'react-responsive';
+
 import styles from './SortDropdown.module.css';
 
 interface Props {
@@ -33,11 +35,12 @@ const sortMap = {
 const SortDropdown: FC<Props> = ({ sortType, setSortType }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [offsetY, setOffsetY] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: 1280 });
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    middleware: [offset({ mainAxis: offsetY })],
+    middleware: [offset(isMobile ? { crossAxis: -70, mainAxis: offsetY } : { mainAxis: offsetY })],
     placement: 'bottom',
     whileElementsMounted: autoUpdate
   });
@@ -56,7 +59,7 @@ const SortDropdown: FC<Props> = ({ sortType, setSortType }) => {
   useEffect(() => {
     const buttonRef = refs.reference;
     if (buttonRef !== null) {
-      setOffsetY(parseFloat(`-${getComputedStyle(buttonRef.current as HTMLButtonElement).height}`) - 6);
+      setOffsetY(parseFloat(`-${getComputedStyle(buttonRef.current as HTMLButtonElement).height}`) - 3);
     }
   }, [refs.reference]);
 

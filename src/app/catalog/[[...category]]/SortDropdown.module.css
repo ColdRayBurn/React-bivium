@@ -23,3 +23,11 @@
 .buttonDropdownItem:disabled {
   background-color: #dadada;
 }
+
+@media (--tablet-media) {
+  .button:not(.buttonDropdownItem) {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+}

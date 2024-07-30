@@ -1,7 +1,9 @@
 export type CategoryCode =
-  | 'wonmens-clothing'
-  | 'wonmens-ski'
-  | 'wonmens-running'
+  | 'equipment'
+  | 'clothing'
+  | 'womens-clothing'
+  | 'womens-ski'
+  | 'womens-running'
   | 'mens-clothing'
   | 'mens-ski'
   | 'mens-running'
@@ -10,6 +12,8 @@ export type CategoryCode =
   | 'accessories';
 
 export type CategoryName =
+  | 'Экипировка'
+  | 'Одежда'
   | 'Женская одежда'
   | 'Женские лыжи'
   | 'Женский бег'
@@ -21,10 +25,12 @@ export type CategoryName =
   | 'Акссесуары';
 
 export const categoryMap: Record<CategoryCode, number> = {
-  'wonmens-clothing': 24,
-  'wonmens-ski': 23,
-  'wonmens-running': 22,
-  'mens-clothing': 21,
+  equipment: 27,
+  clothing: 28,
+  'womens-clothing': 21,
+  'womens-ski': 23,
+  'womens-running': 22,
+  'mens-clothing': 24,
   'mens-ski': 26,
   'mens-running': 25,
   'childrens-clothing': 19,
@@ -33,9 +39,11 @@ export const categoryMap: Record<CategoryCode, number> = {
 };
 
 export const categoriesNames: Record<CategoryCode, CategoryName> = {
-  'wonmens-clothing': 'Женская одежда',
-  'wonmens-ski': 'Женские лыжи',
-  'wonmens-running': 'Женский бег',
+  equipment: 'Экипировка',
+  clothing: 'Одежда',
+  'womens-clothing': 'Женская одежда',
+  'womens-ski': 'Женские лыжи',
+  'womens-running': 'Женский бег',
   'mens-clothing': 'Мужская одежда',
   'mens-ski': 'Мужские лыжи',
   'mens-running': 'Мужской бег',
