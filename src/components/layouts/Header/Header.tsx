@@ -60,7 +60,7 @@ const Header: FC = () => {
           </Link>
           <div className={styles.controls}>
             <MediaQuery minWidth={1281}>
-              <HeaderSearch onSubmit={onSearchSubmit} />
+              {/* <HeaderSearch onSubmit={onSearchSubmit} /> */}
               <Link
                 className={styles.control}
                 href={isAuthorized ? '/personal/favorites' : '/signin'}

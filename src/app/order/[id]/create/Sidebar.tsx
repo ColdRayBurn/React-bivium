@@ -7,6 +7,7 @@ import ShipmentContent from '@/components/ui/ShipmentContent/ShipmentContent';
 
 import CheckCircleIcon from '@icons/check-circle.svg';
 
+import { formatUrl } from '@/utils/formatUrl';
 import { useAppSelector } from '@/redux/hooks';
 import { IOrder } from './models';
 
@@ -25,12 +26,12 @@ const Sidebar: FC<Props> = ({ orderId, orderData }) => {
       {orderData && (
         <ShipmentContent
           products={orderData[orderId].items.map(item => ({
-            image: 'image',
+            image: formatUrl(item.image),
             amount: item.quantity,
-            color: 'color',
+            color: item.color,
             name: item.name,
             price: parseInt(item.price),
-            size: 'size'
+            size: item.size
           }))}
         />
       )}

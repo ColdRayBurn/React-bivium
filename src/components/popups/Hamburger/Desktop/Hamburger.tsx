@@ -137,9 +137,6 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                 <Link className={styles.menuItem} href='/personal/subscriptions' onClick={onCloseHandler}>
                   Подписки
                 </Link>
-                <Link className={styles.menuItem} href='' onClick={onCloseHandler}>
-                  Режим Bivium
-                </Link>
               </>
             )}
             {menu === 'equipment' && (

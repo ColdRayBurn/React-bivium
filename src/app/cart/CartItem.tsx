@@ -6,6 +6,7 @@ import styles from './CartItem.module.css';
 import CrossIcon from '@icons/cross.svg';
 import NumberInput from '@/components/ui/NumberInput/NumberInput';
 
+import { formatUrl } from '@/utils/formatUrl';
 import { formatPrice } from '@/utils/formatPrice';
 
 import { useAppDispatch } from '@/redux/hooks';
@@ -34,7 +35,7 @@ const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) =>
         <CrossIcon />
       </button>
       <div className={styles.inner}>
-        <img className={styles.image} src={image} alt='' />
+        <img className={styles.image} src={formatUrl(image)} alt='' />
         <div className={styles.body}>
           <div className={styles.name}>{name}</div>
           <div className={styles.properties}>
@@ -50,7 +51,7 @@ const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) =>
         </div>
       </div>
       <div className={styles.footer}>
-        <NumberInput defaultValue={amount} onChangeCallback={onQuantityChange} />
+        <NumberInput defaultValue={amount} min={1} onChangeCallback={onQuantityChange} />
         <div className={styles.price}>{formatPrice(price)}</div>
       </div>
     </div>
