@@ -25,7 +25,7 @@ const Sidebar: FC<Props> = ({ productsAmount, totalPice }) => {
   const router = useRouter();
 
   const createOrder = async () => {
-    dispatch(cartClear());
+    //dispatch(cartClear());
     const orderId = (await api.post('order/').json<{ orderId: number }>()).orderId;
     router.push(`/order/${orderId}/create`);
   };
