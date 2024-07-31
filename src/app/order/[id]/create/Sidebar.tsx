@@ -29,7 +29,7 @@ const Sidebar: FC<Props> = ({ orderData }) => {
             amount: item.quantity,
             color: item.color,
             name: item.name,
-            price: parseInt(item.price),
+            price: item.price,
             size: item.size
           }))}
         />

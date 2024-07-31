@@ -26,7 +26,11 @@ const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) =>
   const dispatch = useAppDispatch();
 
   const onQuantityChange = (previousValue: number, value: number) => {
-    dispatch(previousValue > value ? cartRemove({ id }) : cartPut({ id, image, name, color, size, price, amount }));
+    if (previousValue > value) {
+      dispatch(cartRemove({ id }));
+    } else {
+      dispatch(cartPut({ id, image, name, color, size, price, amount }));
+    }
   };
 
   return (

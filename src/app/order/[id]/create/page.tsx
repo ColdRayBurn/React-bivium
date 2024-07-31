@@ -20,6 +20,8 @@ const Page: FC = () => {
     return () => abortController.abort('aborted');
   }, []);
 
+  console.log(orderData);
+
   return (
     <main className={classNames(styles.wrapper, 'container')}>
       <h1 className={styles.title}>Ваш заказ</h1>

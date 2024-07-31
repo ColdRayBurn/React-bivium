@@ -6,6 +6,7 @@ import Order from './Order';
 
 import api from '@/api';
 import { IOrder } from '@/models';
+import { formatUrl } from '@/utils/formatUrl';
 
 import styles from './page.module.css';
 
@@ -22,7 +23,7 @@ const Page: FC = () => {
     <div className={styles.wrapper}>
       <div className={styles.amount}>
         <div className={styles.amountText}>Всего заказов:</div>
-        <div className={styles.amountValue}>1</div>
+        <div className={styles.amountValue}>{orders.length}</div>
       </div>
       <div className={styles.orders}>
         {orders.map(order => (
@@ -31,9 +32,9 @@ const Page: FC = () => {
             id={parseInt(order.orderId)}
             products={order.items.map(item => ({
               id: item.productId,
-              image: item.image,
+              image: formatUrl(item.image),
               name: item.name,
-              price: parseInt(item.price),
+              price: item.price,
               inStock: item.inStock
             }))}
           />

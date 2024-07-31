@@ -68,7 +68,7 @@ export interface IOrder {
     size: string;
     name: string;
     quantity: number;
-    price: string;
+    price: number;
     productId: number;
     inStock: boolean;
   }[];
