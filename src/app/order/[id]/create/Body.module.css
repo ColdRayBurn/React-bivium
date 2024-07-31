@@ -100,3 +100,14 @@
   width: 100%;
   justify-content: center;
 }
+
+@media (--tablet-media) {
+  .phonenumberForm {
+    grid-template-columns: 1fr;
+  }
+
+  .phonenumberFormButton {
+    text-align: center;
+    justify-content: center;
+  }
+}

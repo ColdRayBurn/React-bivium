@@ -7,15 +7,11 @@ import Body from './Body';
 import Sidebar from './Sidebar';
 
 import api from '@/api';
-import { IOrder } from './models';
+import { IOrder } from '@/models';
 
 import styles from './page.module.css';
 
-interface Props {
-  params: { id: string };
-}
-
-const Page: FC<Props> = ({ params: { id } }) => {
+const Page: FC = () => {
   const [orderData, setOrderData] = useState<IOrder | null>(null);
 
   useEffect(() => {
@@ -24,12 +20,14 @@ const Page: FC<Props> = ({ params: { id } }) => {
     return () => abortController.abort('aborted');
   }, []);
 
+  console.log(orderData);
+
   return (
     <main className={classNames(styles.wrapper, 'container')}>
       <h1 className={styles.title}>Ваш заказ</h1>
       <div className={styles.content}>
-        <Body orderId={id} orderData={orderData} />
-        <Sidebar orderId={id} orderData={orderData} />
+        <Body orderData={orderData} />
+        <Sidebar orderData={orderData} />
       </div>
     </main>
   );

@@ -42,12 +42,6 @@ const Navigation: FC = () => {
       >
         Подписки
       </Link>
-      <Link
-        className={classNames(styles.navigationItem, pathname.endsWith('/bivium') && styles.navigationItem_active)}
-        href='/personal/bivium'
-      >
-        Режим Bivium
-      </Link>
     </div>
   );
 };

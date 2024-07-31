@@ -1,46 +1,44 @@
-import { FC } from 'react';
-import styles from './page.module.css';
+'use client';
+
+import { FC, useState, useEffect } from 'react';
 
 import Order from './Order';
 
+import api from '@/api';
+import { IOrder } from '@/models';
+import { formatUrl } from '@/utils/formatUrl';
+
+import styles from './page.module.css';
+
 const Page: FC = () => {
+  const [orders, setOrders] = useState<IOrder[]>([]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    api.get('order/?history').json<IOrder[]>().then(setOrders);
+    return () => abortController.abort('aborted');
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.amount}>
         <div className={styles.amountText}>Всего заказов:</div>
-        <div className={styles.amountValue}>1</div>
+        <div className={styles.amountValue}>{orders.length}</div>
       </div>
       <div className={styles.orders}>
-        <Order
-          id={1}
-          products={[
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123, inStock: true }
-          ]}
-        />
-        <Order
-          id={2}
-          products={[
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123, inStock: true }
-          ]}
-        />
-        <Order
-          id={3}
-          products={[
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123, inStock: true }
-          ]}
-        />
-        <Order
-          id={4}
-          products={[
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123123, inStock: true },
-            { id: 1, image: 'https://placehold.co/600x400/EEE/31343C', name: 'test', price: 123, inStock: true }
-          ]}
-        />
+        {orders.map(order => (
+          <Order
+            key={order.orderId}
+            id={parseInt(order.orderId)}
+            products={order.items.map(item => ({
+              id: item.productId,
+              image: formatUrl(item.image),
+              name: item.name,
+              price: item.price,
+              inStock: item.inStock
+            }))}
+          />
+        ))}
       </div>
     </div>
   );

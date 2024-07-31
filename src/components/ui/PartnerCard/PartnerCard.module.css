@@ -15,7 +15,7 @@
   width: fit-content;
   max-width: 100%;
   aspect-ratio: 1.35;
-  object-fit: cover;
+  object-fit: scale-down;
 }
 
 .boldText,

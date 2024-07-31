@@ -49,23 +49,23 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
   }, [id]);
 
   const addToCart = () => {
-    if (!inStock) {
-      return;
+    if (selectedSize.inStock) {
+      dispatch(
+        cartPut({
+          id: selectedSize.id,
+          name,
+          amount: 1,
+          color,
+          image: images[0],
+          price: selectedSize.price,
+          size: selectedSize.size
+        })
+      );
+
+      setIsModalShown(true);
+    } else {
+      api.patch(`products/${selectedSize.id}/setSubscribe/`);
     }
-
-    dispatch(
-      cartPut({
-        id: selectedSize.id,
-        name,
-        amount: 1,
-        color,
-        image: images[0],
-        price: selectedSize.price,
-        size: selectedSize.size
-      })
-    );
-
-    setIsModalShown(true);
   };
 
   return (
@@ -123,7 +123,7 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
               type='button'
               onClick={addToCart}
             >
-              {inStock ? 'Добавить в корзину' : 'Сообщить о поступлении'}
+              {selectedSize.inStock ? 'Добавить в корзину' : 'Сообщить о поступлении'}
             </Button>
             <Button
               className={classNames(

@@ -20,16 +20,15 @@ import Button from '@/components/ui/Button/Button';
 import { useAppSelector } from '@/redux/hooks';
 
 import api from '@/api';
-import { IOrder } from './models';
+import { IOrder } from '@/models';
 
 import styles from './Body.module.css';
 
 interface Props {
-  orderId: string;
   orderData: IOrder | null;
 }
 
-const Body: FC<Props> = ({ orderId, orderData }) => {
+const Body: FC<Props> = ({ orderData }) => {
   const { phonenumber } = useAppSelector(selector => selector.user);
   const [deliveryType, setDeliveryType] = useState<'CDEK' | 'pickup'>('pickup');
 
@@ -41,8 +40,8 @@ const Body: FC<Props> = ({ orderId, orderData }) => {
     api
       .post('payment/', {
         json: {
-          orderId,
-          orderPrice: parseInt(orderData[orderId].totalPrice)
+          orderId: parseInt(orderData.orderId),
+          orderPrice: parseInt(orderData.totalPrice)
         }
       })
       .json<{ response: { confirmation: { confirmation_url: string } } }>()

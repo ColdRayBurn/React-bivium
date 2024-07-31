@@ -20,25 +20,23 @@ const NumberInput: FC<Props> = ({ defaultValue = 0, step = 1, min = -Infinity, m
   let inputRef = useRef<HTMLInputElement>(null);
 
   const minus = () => {
-    previousValueRef.current = number;
-    onChangeCallback && onChangeCallback(previousValueRef.current, number - step >= min ? number - step : number);
+    if (number - step >= min) {
+      previousValueRef.current = number;
+      inputRef.current!.valueAsNumber = number - step;
 
-    setNumber(number => {
-      const result = number - step >= min ? number - step : number;
-      inputRef.current!.valueAsNumber = result;
-      return result;
-    });
+      onChangeCallback && onChangeCallback(previousValueRef.current, number - step);
+      setNumber(number - step);
+    }
   };
 
   const plus = () => {
-    previousValueRef.current = number;
-    onChangeCallback && onChangeCallback(previousValueRef.current, number + step <= max ? number + step : number);
+    if (number + step <= max) {
+      previousValueRef.current = number;
+      inputRef.current!.valueAsNumber = number + step;
 
-    setNumber(number => {
-      const result = number + step <= max ? number + step : number;
-      inputRef.current!.valueAsNumber = result;
-      return result;
-    });
+      onChangeCallback && onChangeCallback(previousValueRef.current, number + step);
+      setNumber(number + step);
+    }
   };
 
   const onBlurHandler = () => {

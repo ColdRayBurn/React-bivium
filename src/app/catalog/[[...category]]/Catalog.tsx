@@ -50,8 +50,9 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
 
     availableFilters.sizes.forEach(size => dispatch(addSize({ id: Number(size.id), name: size.name })));
 
-    const activeCategory = filters.categories.find(category => category.id === categoryId);
-    activeCategory !== undefined && dispatch(applyCategoryFilter({ ...activeCategory, state: true }));
+    for (const category of filters.categories) {
+      dispatch(applyCategoryFilter({ ...category, state: category.id === categoryId }));
+    }
   }, [filters, initialProducts, availableFilters, dispatch, categoryId]);
 
   return (

@@ -126,3 +126,9 @@
 
   color: #3d4143;
 }
+
+@media (--tablet-media) {
+  .wrapper {
+    width: 100%;
+  }
+}
