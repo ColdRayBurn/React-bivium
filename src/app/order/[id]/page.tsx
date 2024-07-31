@@ -91,8 +91,8 @@ const Page: FC = () => {
       </div>
       <div className={styles.contactInfo}>
         <p>
-          Если у вас возникли вопросы, свяжитесь с нами по телефону 8 800 555 65 64 или отправьте письмо на{' '}
-          <a href='mailto:info@bivium.ru'>info@bivium.ru</a>
+          Если у вас возникли вопросы, свяжитесь с нами по телефону <a href='tel:8 800 555 65 64'>8 800 555 65 64</a>{' '}
+          или отправьте письмо на <a href='mailto:info@bivium.ru'>info@bivium.ru</a>
         </p>
       </div>
       <div className={styles.buttons}>

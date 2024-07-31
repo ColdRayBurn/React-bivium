@@ -1,5 +1,7 @@
 .title {
   margin-top: 25px;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-size: 46px;
 }
 
 .wrapper {
@@ -21,7 +23,7 @@
   margin-top: 90px;
 }
 
-@media (--tablet-media) {
+@media (--mobile-media) {
   .container {
     padding-top: 20px;
   }
@@ -29,7 +31,6 @@
   .title {
     margin-top: 15px;
 
-    font-family: var(--font-fira-sans-extra-condensed), sans-serif;
     font-size: 30px;
     font-weight: 600;
 

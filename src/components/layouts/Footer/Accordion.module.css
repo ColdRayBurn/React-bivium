@@ -52,6 +52,8 @@
 
 .content {
   padding-top: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .expanded .button .buttonIcon::after {
