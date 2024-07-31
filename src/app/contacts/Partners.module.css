@@ -5,7 +5,7 @@
 .title {
   font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .cities {
@@ -17,9 +17,9 @@
 }
 
 .cityTitle {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .cityContent {

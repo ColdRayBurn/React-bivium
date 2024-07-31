@@ -94,7 +94,7 @@ const FooterLinks: FC = () => {
       <MediaQuery maxWidth={1280}>
         <div className={footerLinksStyles.wrapper}>
           <Accordion buttonText='О компании'>
-            <Link className={footerLinksStyles.item} href='/about-company'>
+            <Link className={footerStyles.linksItem} href='/about-company'>
               О бренде
             </Link>
             <Link className={footerStyles.linksItem} href='/manufacturing'>

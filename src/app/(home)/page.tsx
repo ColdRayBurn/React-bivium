@@ -38,13 +38,13 @@ const Page: FC = async () => {
             mobilePicture: null
           },
           {
-            topText: 'Трейл',
+            topText: 'Асфальт',
             bottomText: 'Экипировка',
             picture: '/images/lookbook-2.png',
             mobilePicture: null
           },
           {
-            topText: 'Трейл',
+            topText: 'Зима',
             bottomText: 'Экипировка',
             picture: '/images/lookbook-3.jpg',
             mobilePicture: null

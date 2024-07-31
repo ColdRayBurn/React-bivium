@@ -33,10 +33,7 @@ const Page: FC = () => {
         {!!cart.products.length && (
           <>
             <Cart />
-            <Sidebar
-              productsAmount={cart.products.length}
-              totalPice={cart.products.map(product => product.price * product.amount).reduce((a, b) => a + b)}
-            />
+            <Sidebar productsAmount={2} totalPice={400} />
           </>
         )}
       </div>

@@ -21,8 +21,9 @@
 }
 
 .blockTitle {
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .blockSubtitle {
@@ -104,9 +105,9 @@
 }
 
 .copyright {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 30px;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 @media (--tablet-media) {

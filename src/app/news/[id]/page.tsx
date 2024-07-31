@@ -48,7 +48,7 @@ const NewsDetailPage: FC<Props> = async ({ params: { id } }) => {
 
         <div className={styles.content}>
           {newsItem.image && <img src={formatUrl(newsItem.image)} alt={newsItem.name} className={styles.image} />}
-          <p className={styles.description}>{newsItem.description}</p>
+          <p className={styles.description} dangerouslySetInnerHTML={{ __html: newsItem.description }} />
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 .title {
   margin-top: 25px;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-size: 46px;
 }
 
 .wrapper {
