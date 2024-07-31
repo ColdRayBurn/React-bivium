@@ -38,7 +38,7 @@ const Footer: FC = async () => {
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <ClientPopupButton buttonText={meta.feedback.buttonText} />
+              <ClientPopupButton />
             </div>
           </div>
           <div className={styles.block}>

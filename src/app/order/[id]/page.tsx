@@ -20,7 +20,7 @@ const Page: FC = () => {
             <img src='https://via.placeholder.com/80' alt='Шапка - Баланс' />
             <div className={styles.orderItemInfo}>
               <div className={styles.orderItemDetail}>
-                <div className={styles.orderItemName}>Шапка - "Баланс"</div>
+                <div className={styles.orderItemName}>Шапка - Баланс</div>
                 <div className={styles.orderItemDesc}>
                   <p>
                     <strong>Цвет:</strong> Красный
@@ -40,7 +40,7 @@ const Page: FC = () => {
             <img src='https://via.placeholder.com/80' alt='Жилет Пик' />
             <div className={styles.orderItemInfo}>
               <div className={styles.orderItemDetail}>
-                <div className={styles.orderItemName}>Жилет "Пик"</div>
+                <div className={styles.orderItemName}>Жилет Пик</div>
                 <div className={styles.orderItemDesc}>
                   <p>
                     <strong>Цвет:</strong> Бежевый
