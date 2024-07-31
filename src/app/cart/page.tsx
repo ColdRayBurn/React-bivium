@@ -22,8 +22,8 @@ const Page: FC = () => {
     <main className={classNames(styles.container, 'container')}>
       <Breadcrumbs breadсrumbs={[{ name: 'Продолжить покупки', path: '/catalog' }]} />
       <h1 className={styles.title}>Корзина</h1>
-      <div className={classNames(styles.wrapper, !cart.products.length && styles.wrapper_emptyCart)}>
-        {!cart.products.length && (
+      <div className={classNames(styles.wrapper, !!!cart.products.length && styles.wrapper_emptyCart)}>
+        {!!!cart.products.length && (
           <>
             <EmptyCart />
             <PopularProducts className={styles.products} />
