@@ -51,10 +51,7 @@ const cartSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(fetch.fulfilled, (state, action) => {
-      for (const product of action.payload) {
-        const productIndex = state.products.findIndex(item => item.id === product.id);
-        productIndex === -1 ? state.products.push(product) : (state.products[productIndex].amount = product.amount);
-      }
+      state.products = action.payload;
     });
 
     builder.addCase(put.pending, (state, action) => {
