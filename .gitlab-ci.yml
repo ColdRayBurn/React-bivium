@@ -30,7 +30,7 @@ compile:
     - echo "Start Compile"
     - sudo /root/.nvm/versions/node/v20.14.0/bin/pm2 stop nextjs
     - cd /var/www/nextjs/
-    - rm .next -d -r
+    - rm .next -r -f
     - sudo npm install
     - sudo npm run build
     - sudo /root/.nvm/versions/node/v20.14.0/bin/pm2 start nextjs
