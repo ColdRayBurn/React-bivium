@@ -28,12 +28,12 @@ compile:
     - bivium_front
   script:
     - echo "Start Compile"
+    - sudo pm2 stop nextjs
     - cd /var/www/nextjs/
-    - node -v
-    - npm -v
+    - rm .next -d -r
     - sudo npm install
-    - sleep 10
     - sudo npm run build
+    - sudo npm run start nextjs
     - echo "Compile OK"
   only:
     - main
