@@ -10,6 +10,8 @@ import {
   YMapDefaultMarker
 } from 'ymap3-components';
 
+import CDEKWidget from '@cdek-it/widget';
+
 import Card from '@/components/ui/Card/Card';
 import Input from '@/components/ui/Input/Input';
 import RadioButton from '@/components/ui/RadioButton/RadioButton';
@@ -30,7 +32,24 @@ interface Props {
 
 const Body: FC<Props> = ({ orderData }) => {
   const { phonenumber } = useAppSelector(selector => selector.user);
-  const [deliveryType, setDeliveryType] = useState<'CDEK' | 'pickup'>('pickup');
+  const [deliveryType, setDeliveryType] = useState<'CDEK' | 'pickup'>('CDEK');
+  const [isCDEKWidgetInitialied, setIsCDEKWidgetInitialied] = useState(false);
+
+  useEffect(() => {
+    if (isCDEKWidgetInitialied) {
+      return;
+    }
+
+    new CDEKWidget({
+      from: 'Москва',
+      root: 'cdek-map',
+      apiKey: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY!,
+      servicePath: new URL('service.php', process.env.NEXT_PUBLIC_URL!).toString(),
+      defaultLocation: 'Москва'
+    });
+
+    setIsCDEKWidgetInitialied(true);
+  }, [isCDEKWidgetInitialied]);
 
   const gotoPaymentHandler = () => {
     if (orderData === null) {
@@ -53,8 +72,9 @@ const Body: FC<Props> = ({ orderData }) => {
   return (
     <div className={styles.wrapper}>
       <Card title={`Адрес ${deliveryType === 'CDEK' ? 'доставки' : 'офиса'}`}>
+        <div id='cdek-map' className={styles.map} style={{ display: deliveryType === 'CDEK' ? '' : 'none' }}></div>
         {deliveryType === 'pickup' && (
-          <div className={styles.pickupMap}>
+          <div className={styles.map}>
             <YMapComponentsProvider apiKey={process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY!}>
               <YMap location={{ center: [37.840732, 55.684138], zoom: 16 }}>
                 <YMapDefaultSchemeLayer />
@@ -82,14 +102,13 @@ const Body: FC<Props> = ({ orderData }) => {
               text='Доставка СДЕК'
               name='deliveryType'
               value='CDEK'
+              defaultChecked
               onChange={event => event.target.checked && setDeliveryType('CDEK')}
-              disabled
             />
             <RadioButton
               text='Самовывоз'
               name='deliveryType'
               value='pickup'
-              defaultChecked
               onChange={event => event.target.checked && setDeliveryType('pickup')}
             />
             {deliveryType === 'CDEK' && (
