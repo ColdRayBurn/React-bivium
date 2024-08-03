@@ -58,7 +58,7 @@ const Body: FC<Props> = ({ orderData }) => {
       return;
     }
 
-    api.patch(`orders/${orderData.id}`, {
+    api.patch(`orders/${orderData.id}/delivery/`, {
       json: deliveryData
     });
   }, [deliveryData, orderData.id]);
