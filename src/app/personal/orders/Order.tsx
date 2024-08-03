@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
 import ProductsList from '@/components/ProductsList/ProductsList';
@@ -17,8 +18,10 @@ interface Props {
 }
 
 const Order: FC<Props> = ({ id, products }) => {
+  const router = useRouter();
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={() => router.push(`/order/${id}`)}>
       <div className={styles.title}>Заказ №{id}</div>
       <div className={styles.products}>
         <MediaQuery minWidth={1281}>

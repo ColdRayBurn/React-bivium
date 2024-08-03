@@ -63,15 +63,18 @@ export interface INewsItemList {
 
 export interface IOrder {
   items: {
-    image: string;
     color: string;
-    size: string;
+    image: string;
+    inStock: boolean;
     name: string;
-    quantity: number;
     price: number;
     productId: number;
-    inStock: boolean;
+    quantity: number;
+    size: string;
   }[];
   totalPrice: string;
   orderId: string;
+  date: number;
+  receiptUrl: string | null;
+  trackUrl: string | null;
 }

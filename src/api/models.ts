@@ -113,3 +113,26 @@ export interface ICartResponse {
   }[];
   totalPrice: number;
 }
+
+export interface IOrderResponse {
+  date: number;
+  receiptUrl: string | null;
+  trackUrl: string | null;
+  id: number;
+  totalPrice: number;
+  delivery: {
+    type: 'courier' | 'postomat';
+    price: number;
+    address: string;
+  } | null;
+  items: {
+    productId: number;
+    name: string;
+    price: number;
+    image: string;
+    quantity: number;
+    color: string;
+    size: string;
+    inStock: boolean;
+  }[];
+}

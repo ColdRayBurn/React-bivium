@@ -22,51 +22,56 @@ import Button from '@/components/ui/Button/Button';
 import { useAppSelector } from '@/redux/hooks';
 
 import api from '@/api';
-import { IOrder } from '@/models';
+import { IOrderResponse } from '@/api/models';
 
 import styles from './Body.module.css';
 
 interface Props {
-  orderData: IOrder | null;
+  orderData: IOrderResponse;
 }
 
 const Body: FC<Props> = ({ orderData }) => {
   const { phonenumber } = useAppSelector(selector => selector.user);
   const [deliveryType, setDeliveryType] = useState<'CDEK' | 'pickup'>('CDEK');
-  const [isCDEKWidgetInitialied, setIsCDEKWidgetInitialied] = useState(false);
+  const [deliveryData, setDeliveryData] = useState<IOrderResponse['delivery']>(null);
 
   useEffect(() => {
-    if (isCDEKWidgetInitialied) {
-      return;
-    }
-
-    new CDEKWidget({
+    const cdekWidget = new CDEKWidget({
       from: 'Москва',
       root: 'cdek-map',
       apiKey: process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY!,
       servicePath: new URL('service.php', process.env.NEXT_PUBLIC_URL!).toString(),
-      defaultLocation: 'Москва'
+      defaultLocation: 'Москва',
+      onChoose: (type, tarrif, target) => {
+        setDeliveryData({
+          type: type === 'door' ? 'courier' : 'postomat',
+          address: target.name,
+          price: tarrif?.delivery_sum || 0
+        });
+      }
     });
+    return () => cdekWidget.destroy();
+  }, []);
 
-    setIsCDEKWidgetInitialied(true);
-  }, [isCDEKWidgetInitialied]);
+  useEffect(() => {
+    if (!deliveryData) {
+      return;
+    }
+
+    api.patch(`orders/${orderData.id}`, {
+      json: deliveryData
+    });
+  }, [deliveryData, orderData.id]);
 
   const gotoPaymentHandler = () => {
-    if (orderData === null) {
+    if (!deliveryData) {
       return;
     }
 
     api
-      .post('payment/', {
-        json: {
-          orderId: parseInt(orderData.orderId),
-          orderPrice: parseInt(orderData.totalPrice)
-        }
-      })
-      .json<{ response: { confirmation: { confirmation_url: string } } }>()
-      .then(response => {
-        location.replace(response.response.confirmation.confirmation_url);
-      });
+      .post(`orders/${orderData.id}/pay/`)
+      .json<{ url: string }>()
+      .then(({ url }) => location.replace(url));
   };
 
   return (
@@ -121,7 +126,13 @@ const Body: FC<Props> = ({ orderData }) => {
               </>
             )}
           </div>
-          <Button className={styles.paymentButton} variant='negative' icon={false} onClick={gotoPaymentHandler}>
+          <Button
+            className={styles.paymentButton}
+            variant={deliveryType === 'CDEK' && deliveryData === null ? 'inactive' : 'negative'}
+            icon={false}
+            onClick={gotoPaymentHandler}
+            disabled={deliveryType === 'CDEK' && deliveryData === null}
+          >
             Перейти к оплате
           </Button>
         </div>

@@ -10,9 +10,6 @@ import SSLInformation from '@/components/ui/SSLInformation/SSLInformation';
 import api from '@/api';
 import { formatPrice } from '@/utils/formatPrice';
 
-import { useAppDispatch } from '@/redux/hooks';
-import { cartClear } from '@/redux/slices/cartSlice';
-
 import styles from './Sidebar.module.css';
 
 interface Props {
@@ -21,14 +18,7 @@ interface Props {
 }
 
 const Sidebar: FC<Props> = ({ productsAmount, totalPice }) => {
-  const dispatch = useAppDispatch();
   const router = useRouter();
-
-  const createOrder = async () => {
-    dispatch(cartClear());
-    const orderId = (await api.post('order/').json<{ orderId: number }>()).orderId;
-    router.push(`/order/${orderId}/create`);
-  };
 
   return (
     <div className={styles.wrapper}>
@@ -42,7 +32,12 @@ const Sidebar: FC<Props> = ({ productsAmount, totalPice }) => {
         <div className={styles.summaryText}>Итог:</div>
         <div className={styles.summaryPrice}>{formatPrice(totalPice)}</div>
       </div>
-      <Button className={styles.orderButton} variant='negative' icon={false} onClick={createOrder}>
+      <Button
+        className={styles.orderButton}
+        variant='negative'
+        icon={false}
+        onClick={() => router.push('/order/create')}
+      >
         Перейти к заказу
       </Button>
       <SSLInformation className={styles.sslInformation} />

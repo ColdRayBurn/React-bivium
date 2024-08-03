@@ -1,184 +1,94 @@
+.wrapper {
+  padding-block: 25px 50px;
+}
+
 .title {
   font-family: var(--font-fira-sans-extra-condensed);
   font-size: 46px;
   font-weight: 700;
-  margin-bottom: 26px;
 }
 
-.orderStatus {
+.subtitle {
+  margin-top: 25px;
+
+  font-family: var(--font-montserrat);
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 25px;
 }
+
 .date {
+  margin-top: 25px;
+
+  font-family: var(--font-montserrat);
   font-size: 20px;
   font-weight: 300;
-  margin-bottom: 16px;
 }
 
 .orderDetails {
   display: flex;
-  width: 100%;
-  margin-bottom: 20px;
   gap: 20px;
-}
-
-.orderItems,
-.deliveryAddress {
-  border: 1px solid #ccc;
-  padding: 13px 21px 22px 14px;
-  border-radius: 10px;
-  width: 335px;
-  height: fit-content;
-}
-
-.deliveryAddress {
-  min-width: 362px;
-  padding: 13px 21px 13px 14px;
-}
-
-.orderItems h2 {
-  font-size: 20px;
-  color: #3d4143;
-  margin-bottom: 26px;
-}
-
-.orderItem {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  align-items: flex-start;
-  gap: 10px;
-  width: 100%;
-  max-width: 300px;
-  position: relative;
-  color: #3d4143;
-}
-
-.orderItem img {
-  width: 100%;
-  max-width: 80px;
-  height: auto;
-  object-fit: contain;
-}
-
-.orderItem p {
-  margin: 0;
-}
-
-.orderItemInfo {
-  display: flex;
-  width: 300px;
-  height: 112px;
-}
-
-.orderItemDetail {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.orderItemName {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.orderItemDesc {
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.orderItemDesc strong {
-  font-weight: 800;
-  font-size: 14px;
-}
-
-.orderItemInfo .orderItemPrice {
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.orderTotal hr {
-  margin: 10px 0;
-  color: #979797;
-}
-
-.orderTotal .orderTotalCount,
-.orderTotal .orderTotalPrice {
-  display: flex;
-  justify-content: space-between;
-  color: #3d4143;
-}
-
-.orderTotalCount {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.orderTotalPrice {
-  font-size: 20px;
-  font-weight: 600;
-  & p:nth-child(2) {
-    font-weight: 700;
-  }
-}
-
-.deliveryAddress h2 {
-  margin-bottom: 16px;
-  font-size: 20px;
-  color: #3d4143;
-}
-
-.deliveryAddress p {
-  margin-bottom: 16px;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.deliveryAddress textarea {
-  max-width: 304px;
-  min-width: 304px;
-  min-height: 120px;
-  max-height: 120px;
-  border-radius: 4px;
-  padding: 12px;
-  font-size: 20px;
-  margin-bottom: 18px;
-  border: 1px solid #ccc;
-}
-
-.deliveryAddressDate {
-  display: flex;
-  font-size: 14px;
-  font-weight: 500;
-  gap: 8px;
-  align-items: center;
-}
-
-.contactInfo {
-  font-size: 14px;
   margin-top: 20px;
-  max-width: 335px;
-  font-size: 20px;
-  margin-bottom: 29px;
-  font-weight: 300;
 }
 
-.contactInfo p a:last-child {
-  text-decoration: underline;
+.shipmentContent {
+  width: 335px;
+}
+
+.addressCard {
+  height: fit-content;
+
+  font-family: var(--font-montserrat);
+  font-size: 20px;
+  font-weight: 300;
+
+  color: #000;
+}
+
+.contacts {
+  width: 335px;
+  margin-top: 20px;
+
+  font-family: var(--font-montserrat);
+  font-size: 20px;
+  font-weight: 300;
+
+  color: #000;
+}
+
+.contacts u {
   text-decoration-thickness: 1px;
 }
 
 .buttons {
+  margin-top: 30px;
   display: flex;
   gap: 20px;
 }
 
+.buttonsItem {
+  font-weight: 500;
+}
+
 .deliveryInformation {
   margin-top: 60px;
-  margin-bottom: 50px;
+}
+
+@media (--tablet-media) {
+  .orderDetails {
+    flex-direction: column;
+  }
+
+  .shipmentContent,
+  .addressCard {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+  }
+
+  .buttons * {
+    flex-grow: 1;
+    justify-content: center;
+  }
 }

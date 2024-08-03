@@ -1,3 +1,9 @@
+.wrapper {
+  width: 100%;
+  min-width: 335px;
+  height: fit-content;
+}
+
 .products {
   display: flex;
   flex-direction: column;
@@ -106,4 +112,8 @@
 
 .resultPrice {
   font-weight: 700;
+}
+
+.promocodeInput {
+  margin-top: 20px;
 }
