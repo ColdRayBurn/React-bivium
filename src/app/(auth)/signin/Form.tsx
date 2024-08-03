@@ -6,11 +6,10 @@ import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import styles from './Form.module.css';
 
-import api from '@/api';
-import { HTTPError } from 'ky';
-import { IAuthResponse, IErrorResponse } from '@/api/models';
+import ky, { HTTPError } from 'ky';
+import { IUser } from '@/models';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
 
 import Link from 'next/link';
@@ -36,20 +35,21 @@ const Form: FC = () => {
 
   const onSubmit: SubmitHandler<IForm> = async data => {
     try {
-      const response = await api
-        .post('authorization/signin/', {
-          json: { username: data.email, password: data.password }
+      const user = await ky
+        .post('/next-api/auth/signin', {
+          json: {
+            username: data.email,
+            password: data.password
+          }
         })
-        .json<IAuthResponse>();
-
-      dipatch(setUser({ ...response.user, isAuthorized: true, isLoaded: true }));
-      localStorage.setItem('token', response.token);
+        .json<IUser>();
 
       setMessages([]);
+      dipatch(setUser(user));
+
       router.push('/personal');
     } catch (error: unknown) {
-      const response: IErrorResponse = await (error as HTTPError).response.json();
-      setMessages([{ text: response.errorMessage, color: 'red' }]);
+      setMessages([{ text: await (error as HTTPError).response.json(), color: 'red' }]);
     }
   };
 

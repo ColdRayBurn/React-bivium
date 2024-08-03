@@ -8,6 +8,8 @@ export interface IUser {
   phonenumber: string | null;
   email: string;
   birthday: string;
+  isAuthorized: boolean;
+  token: string;
 }
 
 export interface IProduct {

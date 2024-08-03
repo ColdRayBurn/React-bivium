@@ -64,7 +64,7 @@ const Body: FC<Props> = ({ orderData }) => {
   }, [deliveryData, orderData.id]);
 
   const gotoPaymentHandler = () => {
-    if (!deliveryData) {
+    if (deliveryType === 'CDEK' && deliveryData === null) {
       return;
     }
 

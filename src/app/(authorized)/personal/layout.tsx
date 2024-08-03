@@ -6,7 +6,6 @@ import classNames from 'classnames';
 
 import Navigation from './Navigation';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
-import AuthRedirect from './AuthRedirect';
 
 import styles from './personal.module.css';
 
@@ -19,7 +18,6 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <>
-      <AuthRedirect />
       <MediaQuery minWidth={1281}>
         <main className={classNames(styles.container, 'container')}>
           <h1 className={styles.title}>Ваш профиль</h1>

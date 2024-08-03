@@ -4,6 +4,7 @@ import { FC } from 'react';
 import dynamic from 'next/dynamic';
 
 import { useAppSelector } from '@/redux/hooks';
+import { formatUrl } from '@/utils/formatUrl';
 
 import Empty from './Empty';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
@@ -28,7 +29,7 @@ const Page: FC = () => {
               <ProductCard
                 key={product.id}
                 id={product.id}
-                image={product.image}
+                image={formatUrl(product.image)}
                 name={product.name}
                 price={product.price}
                 inStock={product.inStock}

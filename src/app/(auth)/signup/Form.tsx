@@ -7,12 +7,11 @@ import classNames from 'classnames';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-import api from '@/api';
-import { HTTPError } from 'ky';
-import { IAuthResponse, IErrorResponse } from '@/api/models';
+import ky, { HTTPError } from 'ky';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
+import { IUser } from '@/models';
 
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
@@ -46,16 +45,19 @@ const Form: FC = () => {
     try {
       const preparedData = { ...data } as Partial<IForm>;
       delete preparedData.personalDataProcessingConsent;
-      const response = await api.post('authorization/signup/', { json: preparedData }).json<IAuthResponse>();
 
-      dipatch(setUser({ ...response.user, isAuthorized: true, isLoaded: true }));
-      localStorage.setItem('token', response.token);
+      const user = await ky
+        .post('/next-api/auth/signup', {
+          json: preparedData
+        })
+        .json<IUser>();
 
       setMessages([]);
+      dipatch(setUser(user));
+
       router.push('/personal');
     } catch (error: unknown) {
-      const response: IErrorResponse = await (error as HTTPError).response.json();
-      setMessages([{ text: response.errorMessage, color: 'red' }]);
+      setMessages([{ text: await (error as HTTPError).response.json(), color: 'red' }]);
     }
   };
 

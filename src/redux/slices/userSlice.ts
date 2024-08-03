@@ -1,12 +1,7 @@
-import type { IUser } from '@/models';
+import { IUser } from '@/models';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface User extends IUser {
-  isAuthorized: boolean;
-  isLoaded: boolean;
-}
-
-const initialState: User = {
+const initialState: IUser = {
   name: null,
   surname: null,
   patronymic: null,
@@ -14,16 +9,22 @@ const initialState: User = {
   phonenumber: null,
   email: '',
   birthday: '',
-  isAuthorized: false,
-  isLoaded: false
+  token: '',
+  isAuthorized: false
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    set: (state, action: PayloadAction<User>) => ({ ...state, ...action.payload }),
-    logout: state => ({ ...state, isAuthorized: false })
+    set: (state, action: PayloadAction<IUser>) => {
+      localStorage.setItem('token', action.payload.token);
+      return { ...state, ...action.payload };
+    },
+    logout: () => {
+      localStorage.removeItem('token');
+      return initialState;
+    }
   }
 });
 

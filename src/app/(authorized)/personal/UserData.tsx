@@ -51,7 +51,7 @@ const UserData: FC = () => {
     api
       .patch('user/', { json: data })
       .then(() => {
-        dispatch(setUser({ ...user, ...data, isAuthorized: true, isLoaded: true }));
+        dispatch(setUser({ ...user, ...data }));
       })
       .catch(() => {
         reset();

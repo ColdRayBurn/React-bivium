@@ -1,14 +1,16 @@
-import './globals.css';
-
 import { FC, ReactNode } from 'react';
-import { Montserrat, Fira_Sans_Extra_Condensed } from 'next/font/google';
-import type { Metadata } from 'next';
 
-import AuthComponent from './AuthComponent';
+import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import { Montserrat, Fira_Sans_Extra_Condensed } from 'next/font/google';
+
 import Header from '@/components/layouts/Header/Header';
 import Footer from '@/components/layouts/Footer/Footer';
 
 import StoreProvider from '@/redux/StoreProvider';
+import { IUser } from '@/models';
+
+import './globals.css';
 
 interface Props {
   children: ReactNode;
@@ -27,6 +29,14 @@ export const metadata: Metadata = {
     'Бренд одежды Bivium был создан командой профессиональных спортсменов, экспертов текстильного рынка и производителей, объединившихся с целью создания одежды нового уровня, для людей, которые не могут жить без движения и прогресса. Благодаря этому были разработаны уникальные изделия продуманные,как с точки зрения эргономики анатомичности кроя, так и с применением новейших технологий и материалов.'
 };
 
+const getSession = () => {
+  try {
+    return JSON.parse(cookies().get('user')?.value!) as IUser;
+  } catch (error) {
+    return null;
+  }
+};
+
 const RootLayout: FC<Props> = ({ children }) => {
   return (
     <html lang='ru'>
@@ -36,8 +46,7 @@ const RootLayout: FC<Props> = ({ children }) => {
           '--font-fira-sans-extra-condensed': firaSansExtraCondensed.style.fontFamily
         }}
       >
-        <StoreProvider>
-          <AuthComponent />
+        <StoreProvider user={getSession()}>
           <Header />
           {children}
           <Footer />
