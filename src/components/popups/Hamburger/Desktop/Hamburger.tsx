@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -11,7 +12,9 @@ import ArrowLeftIcon from '@icons/arrow-left.svg';
 import CrossIcon from '@icons/cross.svg';
 import ChevronRight from '@icons/chevron-right.svg';
 
-import { useAppSelector } from '@/redux/hooks';
+import ky from 'ky';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { logoutUser } from '@/redux/slices/userSlice';
 
 import styles from './Hamburger.module.css';
 
@@ -23,6 +26,10 @@ interface Props {
 }
 
 const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
+  const router = useRouter();
+
+  const dispatch = useAppDispatch();
+  const { isAuthorized } = useAppSelector(selector => selector.user);
   const favorites = useAppSelector(selector => selector.favorites);
 
   const [previousMenus, setPreviousMenus] = useState<Menu[]>([]);
@@ -32,6 +39,12 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
     setPreviousMenus([]);
     setMenu(null);
     onClose();
+  };
+
+  const signout = () => {
+    ky.post('/next-api/auth/signout');
+    router.push('/');
+    dispatch(logoutUser());
   };
 
   useEffect(() => {
@@ -137,6 +150,11 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                 <Link className={styles.menuItem} href='/personal/subscriptions' onClick={onCloseHandler}>
                   Подписки
                 </Link>
+                {isAuthorized && (
+                  <button className={styles.menuItem} type='button' onClick={signout}>
+                    Выйти
+                  </button>
+                )}
               </>
             )}
             {menu === 'equipment' && (
@@ -217,7 +235,7 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                 <Link className={styles.menuItem} href='/certificates' onClick={onCloseHandler}>
                   Сертификаты
                 </Link>
-                <Link className={styles.menuItem} href='' onClick={onCloseHandler}>
+                <Link className={styles.menuItem} href='/vacancies' onClick={onCloseHandler}>
                   Вакансии
                 </Link>
                 <Link className={styles.menuItem} href='/contacts' onClick={onCloseHandler}>

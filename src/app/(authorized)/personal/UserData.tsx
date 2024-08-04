@@ -10,7 +10,7 @@ import ControlLabel from '@/components/ui/ControlLabel/ControlLabel';
 import RadioButton from '@/components/ui/RadioButton/RadioButton';
 import Button from '@/components/ui/Button/Button';
 
-import api from '@/api';
+import ky from 'ky';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setUser } from '@/redux/slices/userSlice';
 import { IUser } from '@/models';
@@ -48,8 +48,7 @@ const UserData: FC = () => {
   const emailInputId = useId();
 
   const onSubmit: SubmitHandler<IForm> = data => {
-    api
-      .patch('user/', { json: data })
+    ky.patch('/next-api/me', { json: data })
       .then(() => {
         dispatch(setUser({ ...user, ...data }));
       })

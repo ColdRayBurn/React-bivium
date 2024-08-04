@@ -58,7 +58,7 @@ const FooterLinks: FC = () => {
               <Link className={footerStyles.linksItem} href='/certificates'>
                 Сертификаты
               </Link>
-              <Link className={footerStyles.linksItem} href=''>
+              <Link className={footerStyles.linksItem} href='/vacancies'>
                 Вакансии
               </Link>
               <Link className={footerStyles.linksItem} href='/contacts'>
@@ -103,7 +103,7 @@ const FooterLinks: FC = () => {
             <Link className={footerStyles.linksItem} href='/certificates'>
               Сертификаты
             </Link>
-            <Link className={footerStyles.linksItem} href=''>
+            <Link className={footerStyles.linksItem} href='/vacancies'>
               Вакансии
             </Link>
             <Link className={footerStyles.linksItem} href='/contacts'>
