@@ -54,13 +54,13 @@ const Page: FC<Props> = ({ params: { id } }) => {
         Заказ <u>№{orderData.id}</u> успешно оформлен
       </h2>
       <div className={styles.date}>
-        Дата заказа: {format(fromUnixTime(orderData.date || 1722679049), 'ee MMMM yyyy', { locale: ru })}
+        Дата заказа: {format(fromUnixTime(orderData.dateInsert), 'ee MMMM yyyy', { locale: ru })}
       </div>
       <div className={styles.orderDetails}>
         <ShipmentContent
           className={styles.shipmentContent}
           deliveryPrice={orderData?.delivery?.price || 0}
-          withPromocode={{ discount: 500 }}
+          withPromocode={{ discount: orderData.discountPercent || undefined }}
           products={orderData.items}
         />
         <Card className={styles.addressCard} title={`Адрес ${orderData.delivery ? 'доставки' : 'офиса'}`}>

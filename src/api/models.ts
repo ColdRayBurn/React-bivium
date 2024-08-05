@@ -115,11 +115,12 @@ export interface ICartResponse {
 }
 
 export interface IOrderResponse {
-  date: number;
-  receiptUrl: string | null;
-  trackUrl: string | null;
+  dateInsert: number;
+  receiptUrl: string;
+  trackUrl: string;
   id: number;
   totalPrice: number;
+  discountPercent: number;
   delivery: {
     type: 'courier' | 'postomat';
     price: number;
