@@ -75,6 +75,11 @@
   color: #3d4143;
 }
 
+.navigationItem.active {
+  color: #000000;
+  border-bottom: 4px solid #000;
+}
+
 @media (--tablet-media) {
   .top {
     padding: 20px 30px;

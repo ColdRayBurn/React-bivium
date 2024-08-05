@@ -1,9 +1,9 @@
 'use client';
 
 import { FC, useRef, useEffect, useState } from 'react';
-
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import Hamburger from '@/components/popups/Hamburger/Desktop/Hamburger';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
@@ -25,8 +25,20 @@ const Header: FC = () => {
   const cart = useAppSelector(selector => selector.cart);
   const favorites = useAppSelector(selector => selector.favorites);
 
+  const pathname = usePathname();
+
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const getCategoryFromPath = (path: string): string | null => {
+    if (path.startsWith('/catalog/equipment')) return 'Экипировка';
+    if (path.startsWith('/catalog/clothing')) return 'Одежда';
+    if (path.startsWith('/catalog/accessories')) return 'Аксессуары';
+    if (path.startsWith('/catalog')) return 'Новинки';
+    return null;
+  };
 
   useEffect(() => {
     const onLoad = () => {
@@ -40,6 +52,10 @@ const Header: FC = () => {
     window.addEventListener('load', onLoad);
     return () => window.removeEventListener('load', onLoad);
   }, []);
+
+  useEffect(() => {
+    setActiveCategory(getCategoryFromPath(pathname));
+  }, [pathname]);
 
   const onSearchSubmit = (query: string) => {
     console.log(query);
@@ -60,7 +76,6 @@ const Header: FC = () => {
           </Link>
           <div className={styles.controls}>
             <MediaQuery minWidth={1281}>
-              {/* <HeaderSearch onSubmit={onSearchSubmit} /> */}
               <Link
                 className={styles.control}
                 href={isAuthorized ? '/personal/favorites' : '/signin'}
@@ -82,16 +97,32 @@ const Header: FC = () => {
           </div>
         </div>
         <div className={styles.navigation}>
-          <Link className={styles.navigationItem} href='/catalog'>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Новинки' ? styles.active : ''}`}
+            href='/catalog'
+            onClick={() => setActiveCategory('Новинки')}
+          >
             Новинки
           </Link>
-          <Link className={styles.navigationItem} href='/catalog/equipment'>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Экипировка' ? styles.active : ''}`}
+            href='/catalog/equipment'
+            onClick={() => setActiveCategory('Экипировка')}
+          >
             Экипировка
           </Link>
-          <Link className={styles.navigationItem} href='/catalog/clothing'>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Одежда' ? styles.active : ''}`}
+            href='/catalog/clothing'
+            onClick={() => setActiveCategory('Одежда')}
+          >
             Одежда
           </Link>
-          <Link className={styles.navigationItem} href='/catalog/accessories'>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Аксессуары' ? styles.active : ''}`}
+            href='/catalog/accessories'
+            onClick={() => setActiveCategory('Аксессуары')}
+          >
             Аксессуары
           </Link>
         </div>
