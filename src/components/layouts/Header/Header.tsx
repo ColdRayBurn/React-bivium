@@ -75,15 +75,13 @@ const Header: FC = () => {
             </MediaQuery>
           </Link>
           <div className={styles.controls}>
-            <MediaQuery minWidth={1281}>
-              <Link
-                className={styles.control}
-                href={isAuthorized ? '/personal/favorites' : '/signin'}
-                data-amount={favorites.length ? favorites.length : undefined}
-              >
-                <HeartIcon />
-              </Link>
-            </MediaQuery>
+            <Link
+              className={styles.control}
+              href={isAuthorized ? '/personal/favorites' : '/signin'}
+              data-amount={favorites.length ? favorites.length : undefined}
+            >
+              <HeartIcon />
+            </Link>
             <Link
               className={styles.control}
               href='/cart'
