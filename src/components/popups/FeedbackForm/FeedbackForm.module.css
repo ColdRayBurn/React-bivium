@@ -118,6 +118,15 @@
   text-decoration: underline;
 }
 
+.form .fileName {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
 .form .required_text {
   margin-bottom: 14px;
 }

@@ -10,7 +10,7 @@ import styles from './page.module.css';
 const Page: FC = () => {
   return (
     <main className={classNames(styles.wrapper, 'container')}>
-      <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={[{ name: 'Помощь', path: '/help' }]} withArrow />
+      <Breadcrumbs className={styles.breadcrumbs} breadсrumbs={[{ name: 'На главную', path: '/' }]} withArrow />
       <h1 className={styles.title}>Помощь</h1>
       <div className={styles.links}>
         <Link href='/contacts' className={styles.linksItem}>
