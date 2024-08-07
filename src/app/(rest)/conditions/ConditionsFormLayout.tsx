@@ -3,9 +3,9 @@
 import { FC, useState } from 'react';
 import Button from '@/components/ui/Button/Button';
 import OverlayingPopup from '@/components/popups/OverlayingPopup/OverlayingPopup';
-import FeedbackFormPopup from '@/components/popups/FeedbackForm/FeedbackForm';
+import ConditionsFormPopup from '@/components/popups/ConditionsFormPopup/ConditionsFormPopup';
 
-interface ClientPopupButtonProps {
+interface ConditionsFormLayoutProps {
   buttonText: string;
   formTitle?: string;
   submitButtonText: string;
@@ -14,7 +14,7 @@ interface ClientPopupButtonProps {
   onFormSubmit?: (formData: any) => void;
 }
 
-const ClientPopupButton: FC<ClientPopupButtonProps> = ({
+const ConditionsFormLayout: FC<ConditionsFormLayoutProps> = ({
   buttonText,
   formTitle,
   submitButtonText,
@@ -49,7 +49,7 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({
       </Button>
       {isModalShown && (
         <OverlayingPopup isOpen={isPopupVisible}>
-          <FeedbackFormPopup
+          <ConditionsFormPopup
             title={formTitle}
             submitButtonText={submitButtonText}
             submitButtonHandler={handleSubmit}
@@ -63,4 +63,4 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({
   );
 };
 
-export default ClientPopupButton;
+export default ConditionsFormLayout;

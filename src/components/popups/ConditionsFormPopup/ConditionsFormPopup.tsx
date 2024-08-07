@@ -1,13 +1,12 @@
-import React, { FC, useState, useRef } from 'react';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import api from '@/api';
 import Button from '@/components/ui/Button/Button';
 import CrossIcon from '@icons/cross.svg';
-import styles from './FeedbackForm.module.css';
+import styles from './ConditionsFormPopup.module.css';
 import Checkbox from '@/components/ui/Checkbox/Checkbox';
 import Input from '@/components/ui/Input/Input';
-import TextArea from '@/components/ui/TextArea/TextArea';
 
-interface FeedbackFormPopupProps {
+interface ConditionsFormProps {
   title?: string;
   cancelButtonText: string;
   cancelButtonHandler: () => void;
@@ -19,13 +18,11 @@ interface FeedbackFormPopupProps {
 interface Errors {
   firstName: string;
   lastName: string;
-  socialLinks: string;
   phone: string;
   email: string;
-  about: string;
 }
 
-const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
+const ConditionsFormPopup: FC<ConditionsFormProps> = ({
   title,
   cancelButtonHandler,
   submitButtonText,
@@ -35,29 +32,21 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    socialLinks: '',
     phone: '',
     email: '',
-    about: '',
-    consent: false,
-    file: null
+    consent: false
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [errors, setErrors] = useState<Errors>({
     firstName: '',
     lastName: '',
-    socialLinks: '',
     phone: '',
-    email: '',
-    about: ''
+    email: ''
   });
 
-  const [fileName, setFileName] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -71,34 +60,14 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     }
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       consent: e.target.checked
     });
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData({
-        ...formData
-      });
-      setFileName(e.target.files[0].name);
-    }
-  };
-
-  const handleFileRemove = () => {
-    setFormData({
-      ...formData,
-      file: null
-    });
-    setFileName(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (validateForm()) {
@@ -107,10 +76,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
         lastName: formData.lastName,
         email: formData.email,
         phone: formData.phone,
-        socialNetworks: formData.socialLinks,
-        message: formData.about,
-        page: window.location.pathname,
-        file: formData.file ? formData.file : undefined
+        page: window.location.pathname
       };
 
       try {
@@ -126,14 +92,10 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
           setFormData({
             firstName: '',
             lastName: '',
-            socialLinks: '',
             phone: '',
             email: '',
-            about: '',
-            consent: false,
-            file: null
+            consent: false
           });
-          setFileName(null);
         } else {
           const errorData = await response.json();
           console.error('Failed to submit form:', errorData);
@@ -142,10 +104,6 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
         console.error('Error submitting form', error);
       }
     }
-  };
-
-  const handleFileClick = () => {
-    fileInputRef.current?.click();
   };
 
   const handlePhoneInputClick = () => {
@@ -165,43 +123,43 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     const newErrors: Errors = {
       firstName: '',
       lastName: '',
-      socialLinks: '',
       phone: '',
-      email: '',
-      about: ''
+      email: ''
     };
+
+    // Очищаем предыдущие ошибки
+    document.querySelectorAll('input, textarea').forEach(element => {
+      element.classList.remove('error');
+    });
 
     if (!formData.firstName.trim()) {
       newErrors.firstName = 'Введите ваше имя';
-      document.querySelector('input[name="firstName"]')?.classList.add('error');
       valid = false;
     }
 
     if (!formData.lastName.trim()) {
       newErrors.lastName = 'Введите вашу фамилию';
-      document.querySelector('input[name="lastName"]')?.classList.add('error');
-      valid = false;
-    }
-
-    if (!formData.socialLinks.trim()) {
-      newErrors.socialLinks = 'Введите ссылку на соцсети';
-      document.querySelector('input[name="socialLinks"]')?.classList.add('error');
       valid = false;
     }
 
     if (!phoneRegex.test(formData.phone)) {
       newErrors.phone = 'Введите корректный номер телефона в формате +71234567890';
-      document.querySelector('input[name="phone"]')?.classList.add('error');
       valid = false;
     }
 
     if (!emailRegex.test(formData.email)) {
       newErrors.email = 'Введите корректный адрес электронной почты';
-      document.querySelector('input[name="email"]')?.classList.add('error');
       valid = false;
     }
 
     setErrors(newErrors);
+
+    Object.keys(newErrors).forEach(key => {
+      if (newErrors[key as keyof Errors]) {
+        document.querySelector(`input[name="${key}"]`)?.classList.add('error');
+      }
+    });
+
     return valid;
   };
 
@@ -215,25 +173,11 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
       </div>
       <div className={styles.body}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.fieldWrapper}>
-            {errors.firstName && <div className={styles.errorText}>{errors.firstName}</div>}
-            <Input name='firstName' placeholder='Имя*' value={formData.firstName} onChange={handleInputChange} />
-          </div>
+          {errors.firstName && <div className={styles.errorText}>{errors.firstName}</div>}
+          <Input name='firstName' placeholder='Имя*' value={formData.firstName} onChange={handleInputChange} />
 
-          <div className={styles.fieldWrapper}>
-            {errors.lastName && <div className={styles.errorText}>{errors.lastName}</div>}
-            <Input name='lastName' placeholder='Фамилия*' value={formData.lastName} onChange={handleInputChange} />
-          </div>
-
-          <div className={styles.fieldWrapper}>
-            {errors.socialLinks && <div className={styles.errorText}>{errors.socialLinks}</div>}
-            <Input
-              name='socialLinks'
-              placeholder='Ссылки на соцсети*'
-              value={formData.socialLinks}
-              onChange={handleInputChange}
-            />
-          </div>
+          {errors.lastName && <div className={styles.errorText}>{errors.lastName}</div>}
+          <Input name='lastName' placeholder='Фамилия*' value={formData.lastName} onChange={handleInputChange} />
 
           <div className={styles.fieldWrapper}>
             {errors.phone && <div className={styles.errorText}>{errors.phone}</div>}
@@ -262,28 +206,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
               />
             </label>
           </div>
-
-          <TextArea name='about' placeholder='Немного о себе' value={formData.about} onChange={handleInputChange} />
-          {errors.about && <div className={styles.errorText}>{errors.about}</div>}
-
           <div className={styles.required_text}>* поля обязательны для заполнения</div>
-
-          {fileName ? (
-            <div className={styles.fileWrapper}>
-              <div className={styles.fileName} onClick={handleFileClick}>
-                {fileName}
-              </div>
-              <button className={styles.removeButton} type='button' onClick={handleFileRemove}>
-                <CrossIcon />
-              </button>
-            </div>
-          ) : (
-            <a href='#' className={styles.formAttachFile} onClick={handleFileClick}>
-              Прикрепить файл
-            </a>
-          )}
-          <input type='file' ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
-
           <Button variant='negative' icon={false} type='submit'>
             {submitButtonText}
           </Button>
@@ -312,4 +235,4 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
   );
 };
 
-export default FeedbackFormPopup;
+export default ConditionsFormPopup;
