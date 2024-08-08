@@ -4,6 +4,7 @@ import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
 
 import styles from './page.module.css';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 interface Props {
   params: { id: string };
@@ -78,9 +79,16 @@ const Page: FC<Props> = ({ params: { id } }) => {
             quaerat fuga vitae, id ipsa, ducimus molestiae culpa voluptatibus unde dolor est? Modi repellendus
             repudiandae atque animi, aliquam maxime eum?
           </div>
-          <Button className={styles.button} variant='negative' icon={false}>
-            Отправить резюме
-          </Button>
+          <div className={styles.button}>
+            <ClientPopupButton
+              buttonText='Отправить резюме'
+              formTitle='Отправить резюме'
+              submitButtonText='Отправить'
+              cancelButtonText='Отменить'
+              icon={false}
+              apiEndpoint='feedback/'
+            />
+          </div>
         </div>
       }
     />

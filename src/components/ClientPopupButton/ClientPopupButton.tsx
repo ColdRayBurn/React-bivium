@@ -12,6 +12,7 @@ interface ClientPopupButtonProps {
   cancelButtonText: string;
   apiEndpoint: string;
   onFormSubmit?: (formData: any) => void;
+  icon?: boolean;
 }
 
 const ClientPopupButton: FC<ClientPopupButtonProps> = ({
@@ -20,7 +21,8 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({
   submitButtonText,
   cancelButtonText,
   apiEndpoint,
-  onFormSubmit
+  onFormSubmit,
+  icon
 }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [isModalShown, setIsModalShown] = useState(false);
@@ -44,7 +46,7 @@ const ClientPopupButton: FC<ClientPopupButtonProps> = ({
 
   return (
     <>
-      <Button type='button' variant='negative' onClick={handleButtonClick}>
+      <Button type='button' variant='negative' icon={icon} onClick={handleButtonClick}>
         {buttonText}
       </Button>
       {isModalShown && (
