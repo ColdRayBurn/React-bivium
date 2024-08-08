@@ -14,7 +14,7 @@ interface ConditionsFormLayoutProps {
   onFormSubmit?: (formData: any) => void;
 }
 
-const ConditionsFormLayout: FC<ConditionsFormLayoutProps> = ({
+const ConditionsPopupButton: FC<ConditionsFormLayoutProps> = ({
   buttonText,
   formTitle,
   submitButtonText,
@@ -63,4 +63,4 @@ const ConditionsFormLayout: FC<ConditionsFormLayoutProps> = ({
   );
 };
 
-export default ConditionsFormLayout;
+export default ConditionsPopupButton;

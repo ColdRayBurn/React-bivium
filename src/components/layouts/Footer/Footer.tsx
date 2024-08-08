@@ -20,7 +20,7 @@ import FooterLinks from './FooterLinks';
 
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
-import ClientPopupButton from '@/components/layouts/Footer/ClientPopupButton';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Footer: FC = async () => {
   const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();

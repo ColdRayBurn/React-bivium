@@ -4,7 +4,7 @@ import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
 
 import styles from './page.module.css';
-import ClientPopupButton from '@/components/layouts/Footer/ClientPopupButton';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Page: FC = () => {
   return (

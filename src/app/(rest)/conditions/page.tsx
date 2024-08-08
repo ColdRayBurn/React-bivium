@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
-import ConditionsFormLayout from '@/app/(rest)/conditions/ConditionsFormLayout';
+import ConditionsPopupButton from '@/components/ClientPopupButton/ConditionsPopupButton';
 
 import RegistrationIcon from '@icons/registration.svg';
 import FormIcon from '@icons/form.svg';
@@ -31,7 +31,7 @@ const Page: FC = () => {
             Предлагаем долгосрочные и взаимовыгодные отношения.
             <br />
             <br />
-            Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу
+            Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу{' '}
             <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
           </div>
           <div className={styles.items}>
@@ -42,7 +42,7 @@ const Page: FC = () => {
             <div className={styles.item}>
               <FormIcon />
               <span>
-                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
+                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
               </span>
             </div>
             <div className={styles.item}>
@@ -62,7 +62,7 @@ const Page: FC = () => {
             </div>
           </div>
           <div className={styles.buttons}>
-            <ConditionsFormLayout
+            <ConditionsPopupButton
               buttonText='Отправить заявку'
               formTitle='Заказать звонок'
               submitButtonText='Отправить'
