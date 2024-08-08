@@ -11,20 +11,21 @@ export interface IAuthResponse {
 
 export interface IMetaHomepageResponse {
   heroCarousel: {
-    slide: string;
-    slidesMobile: string | null;
-  }[];
+    picture: string;
+    pictureMobile: string | null;
+  };
   banner: {
     name: string;
     picture: string;
     pictureMobile: string;
   };
-  blockUnderBanner: {
+  lookBooks: {
     name: string;
     picture: string;
     pictureMobile: string;
     topText: string;
     bottomText: string;
+    link: string;
   }[];
   description: {
     name: string;

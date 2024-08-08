@@ -70,6 +70,7 @@ const Page: FC = () => {
               icon={false}
               apiEndpoint='feedback/'
             />
+
             <Button className={styles.button} variant='default' icon={false}>
               Скачать каталог новой коллекции
             </Button>
