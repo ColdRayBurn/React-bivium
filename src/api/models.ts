@@ -74,7 +74,7 @@ export interface ICatalogResponse {
       id: number;
       name: string;
     }[];
-    categories: {
+    sections: {
       childitems: {
         id: number;
         name: string;

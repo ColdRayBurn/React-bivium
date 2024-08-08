@@ -8,6 +8,7 @@ import SortDropdown from './SortDropdown';
 
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Button from '@/components/ui/Button/Button';
+import { usePathname } from 'next/navigation';
 
 import styles from './Catalog.module.css';
 
@@ -27,7 +28,18 @@ interface Props {
   categoryId: number | null;
 }
 
+const getCategoryFromPath = (path: string): string | null => {
+  if (path.startsWith('/catalog/equipment')) return 'Экипировка';
+  if (path.startsWith('/catalog/clothing')) return 'Одежда';
+  if (path.startsWith('/catalog/accessories')) return 'Аксессуары';
+  if (path.startsWith('/catalog')) return 'Новинки';
+  return null;
+};
+
 const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) => {
+  const pathname = usePathname();
+  const sectionName = getCategoryFromPath(pathname) || 'Каталог';
+
   const filters = useAppSelector(selector => selector.filters);
   const dispatch = useAppDispatch();
 
@@ -40,7 +52,7 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
   } = useCatalog(initialProducts);
 
   useEffect(() => {
-    availableFilters.categories[0].childitems.forEach(category => {
+    availableFilters.sections[0].childitems.forEach(category => {
       dispatch(addCategory({ id: Number(category.id), name: category.name }));
     });
 
@@ -60,7 +72,7 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
       <div className={styles.header}>
         <MediaQuery minWidth={1281}>
           <div className={styles.headerColumn}>
-            <h1 className={styles.title}>Каталог</h1>
+            <h1 className={styles.title}>{sectionName}</h1>
             <Filter />
           </div>
           <div className={styles.headerColumn}>
@@ -69,7 +81,7 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
           </div>
         </MediaQuery>
         <MediaQuery maxWidth={1280}>
-          <h1 className={styles.title}>Каталог</h1>
+          <h1 className={styles.title}>{sectionName}</h1>
           <div className={styles.headerRow}>
             <Filter />
             <SortDropdown sortType={sortType} setSortType={setSortType} />

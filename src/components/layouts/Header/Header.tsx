@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import Hamburger from '@/components/popups/Hamburger/Desktop/Hamburger';
-import HeaderSearch from './HeaderSearch/HeaderSearch';
 
 import HamburgerIcon from '@icons/hamburger.svg';
 import BiviumIcon from '@icons/bivium.svg';
