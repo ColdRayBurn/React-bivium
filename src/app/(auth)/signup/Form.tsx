@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useForm, SubmitHandler, SubmitErrorHandler } from 'react-hook-form';
 import classNames from 'classnames';
 
@@ -79,53 +79,54 @@ const Form: FC = () => {
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit, onInvalid)}>
-      {!!messages.length && (
-        <div className={styles.messages}>
-          {messages.map((message, messageIndex) => (
-            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>
-              {message.text}
-            </div>
-          ))}
-        </div>
-      )}
       <div className={styles.body}>
-        <div className={styles.row}>
-          <Input
-            type='text'
-            placeholder='Имя'
-            {...register('name', { required: "Поле 'Имя' обязательно к заполнению." })}
-          />
-          <Input type='text' placeholder='Фамилия' {...register('surname')} />
-          <Input type='text' placeholder='Отчество' {...register('patronymic')} />
-        </div>
+        {!!messages.length && (
+          <div className={styles.messages}>
+            {messages.map((message, messageIndex) => (
+              <div
+                key={messageIndex}
+                className={classNames(styles.messagesItem, message.color && styles[message.color])}
+              >
+                {message.text}
+              </div>
+            ))}
+          </div>
+        )}
+        <Input
+          type='text'
+          placeholder='Имя*'
+          {...register('name', { required: "Поле 'Имя' обязательно к заполнению." })}
+        />
+        <Input type='text' placeholder='Фамилия' {...register('surname')} />
+        <Input type='text' placeholder='Отчество' {...register('patronymic')} />
+
         <Input
           type='email'
-          placeholder='E-Mail'
+          placeholder='E-Mail*'
           {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
         />
-        <div className={styles.row}>
-          <Input
-            type='password'
-            placeholder='Пароль'
-            {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
-          />
-          <Input
-            type='password'
-            placeholder='Подтверждение пароля'
-            {...register('password_confirmation', {
-              required: "Поле 'Подтверждение пароля' обязательно к заполнению.",
-              validate: value => value === watch('password') || "Поле 'Подтверждение пароля' заполнено неправильно."
-            })}
-          />
-        </div>
-      </div>
-      <div className={styles.footer}>
+
+        <Input
+          type='password'
+          placeholder='Пароль*'
+          {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
+        />
+        <Input
+          type='password'
+          placeholder='Подтверждение пароля*'
+          {...register('password_confirmation', {
+            required: "Поле 'Подтверждение пароля' обязательно к заполнению.",
+            validate: value => value === watch('password') || "Поле 'Подтверждение пароля' заполнено неправильно."
+          })}
+        />
+        <div className={styles.required_text}>*поля обязательны для заполнения</div>
+
         <Button className={styles.button} variant='negative' icon={false} type='submit'>
           Зарегистрироваться
         </Button>
         <Checkbox
           className={styles.checkbox}
-          text='Согласен(а) на обработку персональных данных'
+          text='Я даю согласие на обработку персональных данных'
           {...register('personalDataProcessingConsent', { required: 'Согласитесь с обработкой персональных данных.' })}
         />
         <Link className={styles.link} href='/signin'>

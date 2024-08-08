@@ -2,8 +2,6 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './Lookbooks.module.css';
 
-import { formatUrl } from '@/utils/formatUrl';
-
 interface ILookbook {
   picture: string;
   mobilePicture: string | null;

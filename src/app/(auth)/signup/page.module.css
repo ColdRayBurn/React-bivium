@@ -1,17 +1,20 @@
 .wrapper {
   flex-grow: 1;
-  padding-block: 75px 100px;
+  padding-block: 28px 100px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  max-width: 1024px;
 }
 
 .title {
   font-family: var(--font-fira-sans-extra-condensed), sans-serif;
-  font-size: 48px;
-  font-weight: 400;
-  text-align: center;
+  font-size: 46px;
+  font-weight: 700;
+  color: #3d4143;
+  margin-bottom: 41px;
+}
+
+.deliveryInfo {
+  margin-top: 94px;
 }

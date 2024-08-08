@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useState, useRef, FormEvent, ChangeEvent } from 'react';
 import api from '@/api';
 import Button from '@/components/ui/Button/Button';
 import CrossIcon from '@icons/cross.svg';
@@ -40,7 +40,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     email: '',
     about: '',
     consent: false,
-    file: null
+    file: null as { name: string; value: string } | null
   });
 
   const [errors, setErrors] = useState<Errors>({
@@ -57,7 +57,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -71,19 +71,26 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     }
   };
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       consent: e.target.checked
     });
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData({
-        ...formData
-      });
-      setFileName(e.target.files[0].name);
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result?.toString().split(',')[1];
+        setFormData({
+          ...formData,
+          file: { name: file.name, value: base64String || '' }
+        });
+        setFileName(file.name);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -98,7 +105,7 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (validateForm()) {
@@ -110,8 +117,10 @@ const FeedbackFormPopup: FC<FeedbackFormPopupProps> = ({
         socialNetworks: formData.socialLinks,
         message: formData.about,
         page: window.location.pathname,
-        file: formData.file ? formData.file : undefined
+        file: formData.file
       };
+
+      console.log('Отправка данных:', jsonData);
 
       try {
         const response = await api.post(apiEndpoint, {

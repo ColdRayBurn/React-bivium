@@ -86,18 +86,25 @@ const Form: FC = () => {
           placeholder='Пароль'
           {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
         />
+        <Link className={styles.link} href='/password-recovery'>
+          Забыли пароль?
+        </Link>
       </div>
       <div className={styles.footer}>
-        <Button variant='negative' icon={false} type='submit'>
+        <Button variant='negative' icon={false} type='submit' className={styles.button}>
           Войти
         </Button>
-        <Button variant='default' icon={false} type='button' onClick={() => router.push('/signup')}>
+        <p className={styles.signupText}>У Вас ещё нет профиля? Зарегистрируйтесь сейчас!</p>
+        <Button
+          variant='default'
+          icon={false}
+          type='button'
+          className={styles.button}
+          onClick={() => router.push('/signup')}
+        >
           Зарегистрироваться
         </Button>
       </div>
-      <Link className={styles.link} href='' /* href='/password-recovery' */>
-        Забыли пароль?
-      </Link>
     </form>
   );
 };

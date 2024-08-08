@@ -1,5 +1,10 @@
 .wrapper {
-  margin-top: 15px;
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #979797;
+  border-radius: 10px;
 }
 
 .messages {
@@ -23,39 +28,33 @@
 .body {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: 24px;
+  margin-bottom: 24px;
 }
 
-.messages + .body {
-  margin-top: 15px;
-}
-
-.row {
-  display: flex;
-  column-gap: 10px;
-}
-
-.row > * {
-  flex-grow: 1;
-  flex-shrink: 0;
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #3d4143;
+  margin-top: 5px;
 }
 
 .footer {
   display: flex;
-  justify-content: center;
-  column-gap: 10px;
-  margin-top: 15px;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
 }
 
-.link {
-  display: block;
-  width: fit-content;
-
-  font-size: 14px;
+.button {
+  width: 100%;
+  justify-content: center;
   font-weight: 500;
+}
 
-  text-decoration: underline;
-  text-align: center;
-
-  margin: 15px auto 0 auto;
+.signupText {
+  margin: 24px 0;
+  font-size: 20px;
+  color: #3d4143;
 }

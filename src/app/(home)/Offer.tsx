@@ -9,15 +9,15 @@ import { IMetaHomepageResponse } from '@/api/models';
 import { formatUrl } from '@/utils/formatUrl';
 
 interface Props {
-  blockUnderBanner: IMetaHomepageResponse['blockUnderBanner'];
+  lookBooks: IMetaHomepageResponse['lookBooks'];
   description: IMetaHomepageResponse['description'];
 }
 
-const Offer: FC<Props> = ({ blockUnderBanner, description }) => {
+const Offer: FC<Props> = ({ lookBooks, description }) => {
   return (
     <section className={classNames(styles.container, 'container')}>
       <div className={styles.cards}>
-        {blockUnderBanner.map((card, cardIndex) => (
+        {lookBooks.map((card, cardIndex) => (
           <div
             key={cardIndex}
             className={styles.card}

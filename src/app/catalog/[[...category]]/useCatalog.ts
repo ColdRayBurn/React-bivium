@@ -34,7 +34,7 @@ const useCatalog = (initialProducts: ICatalogResponse['products']) => {
       .join(',');
 
     return {
-      ...(!!!categories && { dateCreate: `${getUnixTime(subMonths(new Date(), 1))},${getUnixTime(new Date())}` }),
+      ...(!!!categories && { dateCreate: `${getUnixTime(subMonths(new Date(), 2))},${getUnixTime(new Date())}` }),
       ...(categories && { category: categories }),
       ...(colors && { colors }),
       ...(sizes && { sizes })
