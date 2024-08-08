@@ -13,6 +13,7 @@ import BiviumIcon from '@icons/bivium.svg';
 import HeartIcon from '@icons/heart.svg';
 import BagIcon from '@icons/bag.svg';
 import UserIcon from '@icons/user.svg';
+import HeaderIcon from '@icons/header-logo.svg';
 
 import { useAppSelector } from '@/redux/hooks';
 
@@ -69,7 +70,9 @@ const Header: FC = () => {
             <HamburgerIcon />
           </button>
           <Link className={styles.logotype} href='/'>
-            <MediaQuery minWidth={1281}>Bivium</MediaQuery>
+            <MediaQuery minWidth={1281}>
+              <HeaderIcon />
+            </MediaQuery>
             <MediaQuery maxWidth={1280}>
               <BiviumIcon />
             </MediaQuery>

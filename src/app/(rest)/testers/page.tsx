@@ -4,6 +4,7 @@ import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
 
 import styles from './page.module.css';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Page: FC = () => {
   return (
@@ -21,9 +22,15 @@ const Page: FC = () => {
               проект, в котором каждый, кто купил нашу вещь и готов дать честный отзыв, может стать тестестировщиком. С
               Вас честный отзыв, с нас возможность участвовать в создании новой коллекции и шанс первым попробовать
               новую эксклюзивную экипировку раньше всех.
-              <Button className={styles.button} variant='negative' icon={false}>
-                Отправить заявку
-              </Button>
+              <div className={styles.button}>
+                <ClientPopupButton
+                  buttonText='Отправить заявку'
+                  formTitle='Стать тестировщиком'
+                  submitButtonText='Отправить'
+                  cancelButtonText='Отменить'
+                  apiEndpoint='feedback/'
+                />
+              </div>
             </div>
             <img className={styles.image} src='/images/testers.png' alt='' />
           </div>

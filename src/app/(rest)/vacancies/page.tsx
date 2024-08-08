@@ -2,9 +2,9 @@ import { FC } from 'react';
 import Link from 'next/link';
 
 import Article from '@/components/Article/Article';
-import Button from '@/components/ui/Button/Button';
 
 import styles from './page.module.css';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Page: FC = () => {
   return (
@@ -35,9 +35,16 @@ const Page: FC = () => {
                 </div>
               </div>
             </div>
-            <Button className={styles.contactsButton} variant='negative' icon={false} type='button'>
-              Отправить резюме
-            </Button>
+            <div className={styles.contactsButton}>
+              <ClientPopupButton
+                buttonText='Отправить резюме'
+                formTitle='Отправить резюме'
+                submitButtonText='Отправить'
+                cancelButtonText='Отменить'
+                icon={false}
+                apiEndpoint='feedback/'
+              />
+            </div>
           </div>
           <div className={styles.vacancies}>
             <div className={styles.vacanciesSection}>

@@ -20,7 +20,7 @@ import FooterLinks from './FooterLinks';
 
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
-import ClientPopupButton from '@/components/layouts/Footer/ClientPopupButton';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Footer: FC = async () => {
   const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();
@@ -38,7 +38,13 @@ const Footer: FC = async () => {
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <ClientPopupButton />
+              <ClientPopupButton
+                buttonText='Связаться с нами'
+                formTitle='Связаться с нами'
+                submitButtonText='Отправить'
+                cancelButtonText='Отменить'
+                apiEndpoint='feedback/'
+              />
             </div>
           </div>
           <div className={styles.block}>

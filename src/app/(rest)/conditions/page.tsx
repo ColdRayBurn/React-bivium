@@ -1,7 +1,9 @@
-import { FC } from 'react';
+'use client';
 
+import { FC } from 'react';
 import Article from '@/components/Article/Article';
 import Button from '@/components/ui/Button/Button';
+import ConditionsPopupButton from '@/components/ClientPopupButton/ConditionsPopupButton';
 
 import RegistrationIcon from '@icons/registration.svg';
 import FormIcon from '@icons/form.svg';
@@ -9,7 +11,6 @@ import AssessmentIcon from '@icons/assessment.svg';
 import AgreementIcon from '@icons/agreement.svg';
 import ManagerIcon from '@icons/manager.svg';
 import LoginIcon from '@icons/login.svg';
-
 import styles from './page.module.css';
 
 const Page: FC = () => {
@@ -23,14 +24,14 @@ const Page: FC = () => {
       content={
         <>
           <div className={styles.text}>
-            Уважаемые будущие партнеры.  Если у вас розничный или оптовый магазин спортивного направления, спортивная
-            школа, команда или медиа ресурс, мы будем рады сотрудничеству с Вами.
+            Уважаемые будущие партнеры. Если у вас розничный или оптовый магазин спортивного направления, спортивная
+            школа, команда или медиа ресурс, мы будем рады сотрудничеству с Вами.
             <br />
             <br />
-            Предлагаем долгосрочные и  взаимовыгодные отношения.
+            Предлагаем долгосрочные и взаимовыгодные отношения.
             <br />
             <br />
-            Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу 
+            Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу{' '}
             <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
           </div>
           <div className={styles.items}>
@@ -41,7 +42,7 @@ const Page: FC = () => {
             <div className={styles.item}>
               <FormIcon />
               <span>
-                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
+                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
               </span>
             </div>
             <div className={styles.item}>
@@ -49,7 +50,7 @@ const Page: FC = () => {
               Ваша информация пройдет оценку
             </div>
             <div className={styles.item}>
-              <ManagerIcon />С вами свяжется менеджер по продажам и вы обсудитеусловия
+              <ManagerIcon />С вами свяжется менеджер по продажам и вы обсудите условия
             </div>
             <div className={styles.item}>
               <AgreementIcon />
@@ -61,9 +62,14 @@ const Page: FC = () => {
             </div>
           </div>
           <div className={styles.buttons}>
-            <Button className={styles.button} variant='negative' icon={false}>
-              Отправить заявку
-            </Button>
+            <ConditionsPopupButton
+              buttonText='Отправить заявку'
+              formTitle='Заказать звонок'
+              submitButtonText='Отправить'
+              cancelButtonText='Отменить'
+              icon={false}
+              apiEndpoint='feedback/'
+            />
             <Button className={styles.button} variant='default' icon={false}>
               Скачать каталог новой коллекции
             </Button>

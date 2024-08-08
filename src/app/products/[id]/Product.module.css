@@ -99,8 +99,10 @@
 }
 
 .modalImage {
-  object-fit: scale-down;
-  width: 200px;
+  width: 279px;
+  max-height: 330px;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .modalBodyTitle {
