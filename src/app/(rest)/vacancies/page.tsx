@@ -42,7 +42,7 @@ const Page: FC = () => {
                 submitButtonText='Отправить'
                 cancelButtonText='Отменить'
                 icon={false}
-                apiEndpoint='feedback/'
+                apiEndpoint='feedback/resume/'
               />
             </div>
           </div>

@@ -86,7 +86,7 @@ const Page: FC<Props> = ({ params: { id } }) => {
               submitButtonText='Отправить'
               cancelButtonText='Отменить'
               icon={false}
-              apiEndpoint='feedback/'
+              apiEndpoint='feedback/resume/'
             />
           </div>
         </div>

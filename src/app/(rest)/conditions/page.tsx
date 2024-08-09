@@ -68,7 +68,7 @@ const Page: FC = () => {
               submitButtonText='Отправить'
               cancelButtonText='Отменить'
               icon={false}
-              apiEndpoint='feedback/'
+              apiEndpoint='feedback/callback/'
             />
 
             <Button className={styles.button} variant='default' icon={false}>
