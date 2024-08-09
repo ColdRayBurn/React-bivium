@@ -30,26 +30,13 @@ const Page: FC = async () => {
         mobilePicture={meta.banner.pictureMobile}
       />
       <Lookbooks
-        items={[
-          {
-            topText: 'Трейл',
-            bottomText: 'Экипировка',
-            picture: '/images/lookbook-1.png',
-            mobilePicture: null
-          },
-          {
-            topText: 'Асфальт',
-            bottomText: 'Экипировка',
-            picture: '/images/lookbook-2.png',
-            mobilePicture: null
-          },
-          {
-            topText: 'Зима',
-            bottomText: 'Экипировка',
-            picture: '/images/lookbook-3.jpg',
-            mobilePicture: null
-          }
-        ]}
+        items={meta.lookBooks.map(book => ({
+          topText: book.topText,
+          bottomText: book.bottomText,
+          picture: book.picture,
+          mobilePicture: book.pictureMobile,
+          link: book.link
+        }))}
       />
       <Banner
         className={styles.bannerAmbassadors}
