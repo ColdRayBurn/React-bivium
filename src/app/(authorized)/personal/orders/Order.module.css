@@ -22,3 +22,9 @@
 .productsList {
   width: 100%;
 }
+
+@media (--tablet-media) {
+  .products {
+    display: flex;
+  }
+}

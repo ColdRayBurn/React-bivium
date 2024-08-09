@@ -5,6 +5,8 @@
   flex-wrap: wrap;
   flex-grow: 1;
   gap: 20px;
+
+  max-width: 900px;
 }
 
 .wrapper > * {
@@ -21,6 +23,7 @@
 @media (--tablet-media) {
   .wrapper {
     margin-top: 45px;
+    max-width: 100%;
   }
 
   .wrapper > * {
