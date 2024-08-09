@@ -43,7 +43,7 @@ const Footer: FC = async () => {
                 formTitle='Связаться с нами'
                 submitButtonText='Отправить'
                 cancelButtonText='Отменить'
-                apiEndpoint='feedback/'
+                apiEndpoint='feedback/contact-us/'
               />
             </div>
           </div>

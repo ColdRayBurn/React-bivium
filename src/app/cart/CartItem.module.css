@@ -58,6 +58,10 @@
   font-size: 14px;
   font-weight: 500;
   color: #3d4143;
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 .footer {

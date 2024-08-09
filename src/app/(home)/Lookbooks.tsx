@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import classNames from 'classnames';
+import { formatUrl } from '@/utils/formatUrl';
 import styles from './Lookbooks.module.css';
 
 interface ILookbook {
@@ -23,8 +24,8 @@ const Lookbooks: FC<Props> = ({ items }) => {
             key={itemIndex}
             className={styles.item}
             style={{
-              '--picture': `url(${item.picture})`,
-              '--mobile-picture': `url(${item.mobilePicture ?? item.picture})`
+              '--picture': `url(${formatUrl(item.picture)})`,
+              '--mobile-picture': `url(${formatUrl(item.mobilePicture ?? item.picture)})`
             }}
           >
             <div className={styles.itemTopText}>{item.topText}</div>

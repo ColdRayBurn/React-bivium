@@ -12,6 +12,8 @@ import { formatPrice } from '@/utils/formatPrice';
 import { useAppDispatch } from '@/redux/hooks';
 import { cartPut, cartRemove } from '@/redux/slices/cartSlice';
 
+import PencilIcon from '@icons/pencil.svg';
+
 interface Props {
   id: number;
   image: string;
@@ -49,7 +51,12 @@ const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) =>
             </div>
             <div className={styles.propertiesItem}>
               <div className={styles.propertiesItemName}>Размер:</div>
-              <div className={styles.propertiesItemValue}>{size}</div>
+              <div className={styles.propertiesItemValue}>
+                {size}
+                <button>
+                  <PencilIcon />
+                </button>
+              </div>
             </div>
           </div>
         </div>
