@@ -19,6 +19,11 @@ export interface IMetaHomepageResponse {
     picture: string;
     pictureMobile: string;
   };
+  thirdBanner: {
+    name: string;
+    picture: string;
+    pictureMobile: string;
+  };
   lookBooks: {
     name: string;
     picture: string;
@@ -138,3 +143,16 @@ export interface IOrderResponse {
     inStock: boolean;
   }[];
 }
+
+export interface IVacancy {
+  id: number;
+  name: string;
+  image: string;
+  division: string;
+  city: string;
+  salary: string;
+  workType: string;
+  experience: string;
+}
+
+export type IVacanciesResponse = Omit<IVacancy, 'image'>[];

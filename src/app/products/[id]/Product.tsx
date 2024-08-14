@@ -31,7 +31,18 @@ import styles from './Product.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, color, sizes, inStock }) => {
+const Product: FC<IProduct> = ({
+  id,
+  images,
+  name,
+  gender,
+  season,
+  sportType,
+  color,
+  sizes,
+  inStock,
+  isAmbassadors
+}) => {
   const router = useRouter();
 
   const { isAuthorized } = useAppSelector(selector => selector.user);
@@ -74,12 +85,20 @@ const Product: FC<IProduct> = ({ id, images, name, gender, season, sportType, co
         <MediaQuery minWidth={1281}>
           <div className={styles.images}>
             {images.map((image, imageIndex) => (
-              <img key={imageIndex} className={styles.image} src={formatUrl(image)} alt='' />
+              <div
+                key={imageIndex}
+                className={classNames(
+                  styles.imageWrapper,
+                  imageIndex === 0 && isAmbassadors && styles.ambassadorsChoiceBadge
+                )}
+              >
+                <img className={styles.image} src={formatUrl(image)} alt='' />
+              </div>
             ))}
           </div>
         </MediaQuery>
         <MediaQuery maxWidth={1280}>
-          <Carousel images={images} />
+          <Carousel images={images} isAmbassadors={isAmbassadors} />
         </MediaQuery>
         <div className={styles.body}>
           <div className={styles.name}>{name}</div>

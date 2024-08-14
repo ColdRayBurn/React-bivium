@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { notFound } from 'next/navigation';
 
 import Catalog from './Catalog';
 import ExpandableText from '@/components/ui/ExpandableText/ExpandableText';
@@ -14,9 +13,10 @@ import styles from './page.module.css';
 
 interface Props {
   params: { category: [CategoryCode] | undefined };
+  searchParams: { searchQuery?: string };
 }
 
-const Page: FC<Props> = async ({ params }) => {
+const Page: FC<Props> = async ({ params, searchParams }) => {
   const category =
     params.category !== undefined && params.category[0] in categoryMap ? categoryMap[params.category[0]] : null;
 
@@ -25,7 +25,8 @@ const Page: FC<Props> = async ({ params }) => {
       searchParams: {
         limit: 8,
         offset: 0,
-        ...(category !== null && { category })
+        ...(category !== null && !searchParams.searchQuery && { category }),
+        ...(searchParams.searchQuery && { q: searchParams.searchQuery })
       }
     })
     .json<ICatalogResponse>();

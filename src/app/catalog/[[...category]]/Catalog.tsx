@@ -8,7 +8,7 @@ import SortDropdown from './SortDropdown';
 
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Button from '@/components/ui/Button/Button';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 import styles from './Catalog.module.css';
 
@@ -37,7 +37,9 @@ const getCategoryFromPath = (path: string): string | null => {
 };
 
 const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) => {
+  const searchParams = useSearchParams();
   const pathname = usePathname();
+
   const sectionName = getCategoryFromPath(pathname) || 'Каталог';
 
   const filters = useAppSelector(selector => selector.filters);
@@ -72,8 +74,8 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
       <div className={styles.header}>
         <MediaQuery minWidth={1281}>
           <div className={styles.headerColumn}>
-            <h1 className={styles.title}>{sectionName}</h1>
-            <Filter />
+            <h1 className={styles.title}>{searchParams.has('searchQuery') ? 'Результат поиска' : sectionName}</h1>
+            {!searchParams.has('searchQuery') && <Filter />}
           </div>
           <div className={styles.headerColumn}>
             <div className={styles.productsAmount}>{total} товаров</div>

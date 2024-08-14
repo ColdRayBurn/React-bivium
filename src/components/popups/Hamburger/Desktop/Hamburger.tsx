@@ -151,9 +151,12 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                   Подписки
                 </Link>
                 {isAuthorized && (
-                  <button className={styles.menuItem} type='button' onClick={signout}>
-                    Выйти
-                  </button>
+                  <>
+                    <div className={styles.menuItemsSeparator}></div>
+                    <button className={styles.menuItem} type='button' onClick={signout}>
+                      Выйти
+                    </button>
+                  </>
                 )}
               </>
             )}
@@ -259,9 +262,6 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
                 </Link>
                 <Link className={styles.menuItem} href='/testers' onClick={onCloseHandler}>
                   Стать тестировщиком
-                </Link>
-                <Link className={styles.menuItem} href='/certificates' onClick={onCloseHandler}>
-                  Сертификаты
                 </Link>
                 <Link className={styles.menuItem} href='' onClick={onCloseHandler}>
                   Команда бренда

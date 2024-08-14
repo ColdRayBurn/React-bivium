@@ -1,3 +1,26 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper.ambassadorsChoiceBadge::after {
+  z-index: 1;
+  position: absolute;
+  padding: 4px 6px;
+
+  display: block;
+  content: 'Выбор амбассадоров';
+
+  top: 0;
+  right: 0;
+
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #fff;
+  background-color: #000;
+}
+
 .carousel,
 .thumbsCarousel {
   width: 100%;

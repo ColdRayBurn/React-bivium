@@ -68,7 +68,13 @@ const UserData: FC = () => {
         <Input placeholder='Отчество' type='text' {...register('patronymic')} />
       </div>
       <ControlLabel className={styles.birthday} title='Дата рождения' htmlFor={birthdayInputId}>
-        <Input id={birthdayInputId} type='text' placeholder='ДД. ММ. ГГГГ' {...register('birthday')} />
+        <Input
+          id={birthdayInputId}
+          type='text'
+          mask='99.99.9999'
+          placeholder='ДД. ММ. ГГГГ'
+          {...register('birthday')}
+        />
       </ControlLabel>
       <ControlLabel className={styles.gender} title='Пол'>
         <div className={styles.genderWrapper}>
@@ -77,7 +83,13 @@ const UserData: FC = () => {
         </div>
       </ControlLabel>
       <ControlLabel className={styles.phonenumber} title='Телефон' htmlFor={phonenumberInputId}>
-        <Input id={phonenumberInputId} type='text' placeholder='+7 ___ ___ __ __' {...register('phonenumber')} />
+        <Input
+          id={phonenumberInputId}
+          type='text'
+          mask='+7\ 999 999 99 99'
+          placeholder='+7 ___ ___ __ __'
+          {...register('phonenumber')}
+        />
       </ControlLabel>
       <ControlLabel className={styles.email} title='E-Mail' htmlFor={emailInputId}>
         <Input

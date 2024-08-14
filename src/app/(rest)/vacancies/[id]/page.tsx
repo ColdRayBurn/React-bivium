@@ -1,43 +1,49 @@
 import { FC } from 'react';
 
 import Article from '@/components/Article/Article';
-import Button from '@/components/ui/Button/Button';
+import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
+
+import api from '@/api';
+import { IVacancy } from '@/api/models';
+
+import { formatUrl } from '@/utils/formatUrl';
 
 import styles from './page.module.css';
-import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 interface Props {
   params: { id: string };
 }
 
-const Page: FC<Props> = ({ params: { id } }) => {
+const Page: FC<Props> = async ({ params: { id } }) => {
+  const vacancy = await api.get(`vacancies/${id}/`).json<IVacancy>();
+
   return (
     <Article
       breadсrumbs={[
         { name: 'О компании', path: '/about-company' },
         { name: 'Вакансии', path: '/vacancies' },
-        { name: 'Дизайнер спортивного направления', path: `/vacancies/${id}` }
+        { name: vacancy.name, path: `/vacancies/${vacancy.id}` }
       ]}
-      title='Дизайнер спортивного направления'
+      title={vacancy.name}
       content={
         <div className={styles.wrapper}>
-          <img className={styles.image} src='https://placehold.co/600x400/EEE/31343C' alt='' />
+          <img className={styles.image} src={formatUrl(vacancy.image)} alt='' />
           <div className={styles.details}>
             <div className={styles.detailsItem}>
               <div className={styles.detailsItemTitle}>Город</div>
-              <div className={styles.detailsItemValue}>Москва</div>
+              <div className={styles.detailsItemValue}>{vacancy.city}</div>
             </div>
             <div className={styles.detailsItem}>
               <div className={styles.detailsItemTitle}>Зарплата</div>
-              <div className={styles.detailsItemValue}>от 80000 руб</div>
+              <div className={styles.detailsItemValue}>{vacancy.salary}</div>
             </div>
             <div className={styles.detailsItem}>
               <div className={styles.detailsItemTitle}>Опыт работы</div>
-              <div className={styles.detailsItemValue}>Опыт работы от 1 года</div>
+              <div className={styles.detailsItemValue}>{vacancy.experience}</div>
             </div>
             <div className={styles.detailsItem}>
               <div className={styles.detailsItemTitle}>Тип работы</div>
-              <div className={styles.detailsItemValue}>Полная 5/2</div>
+              <div className={styles.detailsItemValue}>{vacancy.workType}</div>
             </div>
           </div>
           <div className={styles.description}>

@@ -1,6 +1,7 @@
 'use client';
 
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
+import classNames from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbs } from 'swiper/modules';
@@ -11,13 +12,14 @@ import styles from './Carousel.module.css';
 
 interface Props {
   images: string[];
+  isAmbassadors: boolean;
 }
 
-const Carousel: FC<Props> = ({ images }) => {
+const Carousel: FC<Props> = ({ images, isAmbassadors }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, isAmbassadors && styles.ambassadorsChoiceBadge)}>
       <Swiper
         thumbs={{ swiper: thumbsSwiper, slideThumbActiveClass: styles.thumbsCarouselSlide_active }}
         className={styles.carousel}

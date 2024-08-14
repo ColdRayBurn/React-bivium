@@ -6,6 +6,7 @@ import { Montserrat, Fira_Sans_Extra_Condensed } from 'next/font/google';
 
 import Header from '@/components/layouts/Header/Header';
 import Footer from '@/components/layouts/Footer/Footer';
+import CookieToast from '@/components/CookieToast/CookieToast';
 
 import StoreProvider from '@/redux/StoreProvider';
 import { IUser } from '@/models';
@@ -51,6 +52,7 @@ const RootLayout: FC<Props> = ({ children }) => {
           {children}
           <Footer />
         </StoreProvider>
+        <CookieToast />
       </body>
     </html>
   );

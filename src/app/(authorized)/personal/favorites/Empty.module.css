@@ -5,12 +5,14 @@
 .title {
   font-family: var(--font-fira-sans-extra-condensed), sans-serif;
   font-size: 36px;
-  font-weight: 400;
+  font-weight: 500;
   color: #000;
 }
 
 .button {
   margin-top: 50px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 @media (--tablet-media) {

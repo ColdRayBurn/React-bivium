@@ -42,8 +42,8 @@ const Page: FC = async () => {
         className={styles.bannerAmbassadors}
         title='Наши амбассадоры'
         subtitle='Знакомьтесь,'
-        picture={meta.banner.picture}
-        mobilePicture={meta.banner.pictureMobile}
+        picture={meta.thirdBanner.picture}
+        mobilePicture={meta.thirdBanner.pictureMobile}
       />
       <div className={classNames(styles.ambassadorsProducts, 'container')}>
         <AmbassadorsProducts />

@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useAppSelector } from '@/redux/hooks';
 
 import { getUnixTime, subMonths } from 'date-fns';
@@ -6,6 +7,8 @@ import api from '@/api';
 import { ICatalogResponse } from '@/api/models';
 
 const useCatalog = (initialProducts: ICatalogResponse['products']) => {
+  const searchParams = useSearchParams();
+
   const filtersState = useAppSelector(selector => selector.filters);
   const [sortType, setSortType] = useState<SortType>('popular');
 
@@ -72,7 +75,8 @@ const useCatalog = (initialProducts: ICatalogResponse['products']) => {
         searchParams: {
           limit: 8,
           offset: 0,
-          ...filters
+          ...(searchParams.has('searchQuery') && { q: searchParams.get('searchQuery')! }),
+          ...(!searchParams.has('searchQuery') && { ...filters })
         }
       })
       .json<ICatalogResponse>()
@@ -83,7 +87,7 @@ const useCatalog = (initialProducts: ICatalogResponse['products']) => {
 
     setIsLoading(true);
     return () => abortController.abort('aborted');
-  }, [filters]);
+  }, [filters, searchParams]);
 
   const fetchNext = () => {
     if (isLoading) {

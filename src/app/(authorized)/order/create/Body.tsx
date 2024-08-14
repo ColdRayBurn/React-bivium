@@ -94,6 +94,7 @@ const Body: FC<Props> = ({ orderData }) => {
             <div className={styles.phonenumberFormTitle}>Номер телефона*</div>
             <Input
               className={styles.phonenumberFormControl}
+              mask='+7\ 999 999 99 99'
               placeholder='+7 ___ ___ __ __'
               defaultValue={phonenumber ?? undefined}
             />

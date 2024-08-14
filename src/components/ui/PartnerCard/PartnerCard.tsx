@@ -20,7 +20,7 @@ const PartnerCard: FC<Props> = ({ image, name, address, phonenumber, email, clas
       <a className={styles.boldText} href={`tel:${phonenumber}`}>
         {phonenumber}
       </a>
-      <a className={styles.boldText} href={`mailto:${email}`}>
+      <a className={classNames(styles.boldText, styles.email)} href={`mailto:${email}`}>
         {email}
       </a>
     </div>

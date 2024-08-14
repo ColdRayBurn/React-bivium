@@ -1,9 +1,18 @@
 .image {
-  margin-bottom: 50px;
+  float: left;
+
+  width: 450px;
+  height: 490px;
+
+  margin-right: 50px;
+  margin-bottom: 25px;
 }
 
 @media (--tablet-media) {
   .image {
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin: 0 0 20px 0;
   }
 }

@@ -2,11 +2,17 @@ import { FC } from 'react';
 import Link from 'next/link';
 
 import Article from '@/components/Article/Article';
-
-import styles from './page.module.css';
 import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
-const Page: FC = () => {
+import api from '@/api';
+import { IVacanciesResponse } from '@/api/models';
+
+import styles from './page.module.css';
+
+const Page: FC = async () => {
+  const vacancies = await api.get('vacancies/').json<IVacanciesResponse>();
+  const vacanciesSectionsNames = vacancies.map(vacancy => vacancy.division);
+
   return (
     <Article
       breadсrumbs={[
@@ -47,44 +53,26 @@ const Page: FC = () => {
             </div>
           </div>
           <div className={styles.vacancies}>
-            <div className={styles.vacanciesSection}>
-              <div className={styles.vacanciesSectionTitle}>Отдел дизайна</div>
-              <div className={styles.vacanciesSectionBody}>
-                <Link className={styles.vacanciesItem} href={`/vacancies/${1337}`}>
-                  <div className={styles.vacanciesItemHeader}>
-                    <div className={styles.vacanciesItemTitle}>Дизайнер спортивного направления</div>
-                    <div className={styles.vacanciesItemSalary}>от 80000 руб</div>
-                  </div>
-                  <div className={styles.vacanciesItemDescription}>Москва / Опыт работы от года / Полная 5/2</div>
-                </Link>
-                <Link className={styles.vacanciesItem} href={`/vacancies/${1337}`}>
-                  <div className={styles.vacanciesItemHeader}>
-                    <div className={styles.vacanciesItemTitle}>Дизайнер спортивного направления</div>
-                    <div className={styles.vacanciesItemSalary}>от 80000 руб</div>
-                  </div>
-                  <div className={styles.vacanciesItemDescription}>Москва / Опыт работы от года / Полная 5/2</div>
-                </Link>
+            {vacanciesSectionsNames.map((sectionName, sectionIndex) => (
+              <div key={sectionIndex} className={styles.vacanciesSection}>
+                <div className={styles.vacanciesSectionTitle}>{sectionName}</div>
+                <div className={styles.vacanciesSectionBody}>
+                  {vacancies
+                    .filter(vacancy => vacancy.division === sectionName)
+                    .map((vacancy, vacancyIndex) => (
+                      <Link key={vacancyIndex} className={styles.vacanciesItem} href={`/vacancies/${vacancy.id}`}>
+                        <div className={styles.vacanciesItemHeader}>
+                          <div className={styles.vacanciesItemTitle}>{vacancy.name}</div>
+                          <div className={styles.vacanciesItemSalary}>{vacancy.salary}</div>
+                        </div>
+                        <div className={styles.vacanciesItemDescription}>
+                          {vacancy.city} / {vacancy.experience} / {vacancy.workType}
+                        </div>
+                      </Link>
+                    ))}
+                </div>
               </div>
-            </div>
-            <div className={styles.vacanciesSection}>
-              <div className={styles.vacanciesSectionTitle}>Отдел дизайна</div>
-              <div className={styles.vacanciesSectionBody}>
-                <Link className={styles.vacanciesItem} href={`/vacancies/${1337}`}>
-                  <div className={styles.vacanciesItemHeader}>
-                    <div className={styles.vacanciesItemTitle}>Дизайнер спортивного направления</div>
-                    <div className={styles.vacanciesItemSalary}>от 80000 руб</div>
-                  </div>
-                  <div className={styles.vacanciesItemDescription}>Москва / Опыт работы от года / Полная 5/2</div>
-                </Link>
-                <Link className={styles.vacanciesItem} href={`/vacancies/${1337}`}>
-                  <div className={styles.vacanciesItemHeader}>
-                    <div className={styles.vacanciesItemTitle}>Дизайнер спортивного направления</div>
-                    <div className={styles.vacanciesItemSalary}>от 80000 руб</div>
-                  </div>
-                  <div className={styles.vacanciesItemDescription}>Москва / Опыт работы от года / Полная 5/2</div>
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </>
       }

@@ -30,6 +30,7 @@ export interface IProduct {
   description: string;
   views: number;
   categoryId: number;
+  isAmbassadors: boolean;
 }
 
 export interface ICatalogProduct {

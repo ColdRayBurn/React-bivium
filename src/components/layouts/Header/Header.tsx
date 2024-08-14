@@ -3,8 +3,9 @@
 import { FC, useRef, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
+import HeaderSearch from './HeaderSearch/HeaderSearch';
 import Hamburger from '@/components/popups/Hamburger/Desktop/Hamburger';
 
 import HamburgerIcon from '@icons/hamburger.svg';
@@ -25,6 +26,7 @@ const Header: FC = () => {
   const cart = useAppSelector(selector => selector.cart);
   const favorites = useAppSelector(selector => selector.favorites);
 
+  const router = useRouter();
   const pathname = usePathname();
 
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -58,7 +60,7 @@ const Header: FC = () => {
   }, [pathname]);
 
   const onSearchSubmit = (query: string) => {
-    console.log(query);
+    router.push(`/catalog?searchQuery=${query}`);
   };
 
   return (
@@ -77,6 +79,9 @@ const Header: FC = () => {
             </MediaQuery>
           </Link>
           <div className={styles.controls}>
+            <MediaQuery minWidth={1281}>
+              <HeaderSearch onSubmit={onSearchSubmit} />
+            </MediaQuery>
             <Link
               className={styles.control}
               href={isAuthorized ? '/personal/favorites' : '/signin'}
