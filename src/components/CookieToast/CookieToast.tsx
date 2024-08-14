@@ -10,9 +10,7 @@ import styles from './CookieToast.module.css';
 
 const CookieToast: FC = () => {
   const router = useRouter();
-  const [isAccepted, setIsAccepted] = useState(
-    (typeof window !== undefined && !!localStorage.getItem('cookies')) || false
-  );
+  const [isAccepted, setIsAccepted] = useState(!!localStorage.getItem('cookies') || false);
 
   if (isAccepted) {
     return null;

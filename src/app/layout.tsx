@@ -1,12 +1,12 @@
 import { FC, ReactNode } from 'react';
 
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { cookies } from 'next/headers';
 import { Montserrat, Fira_Sans_Extra_Condensed } from 'next/font/google';
 
 import Header from '@/components/layouts/Header/Header';
 import Footer from '@/components/layouts/Footer/Footer';
-import CookieToast from '@/components/CookieToast/CookieToast';
 
 import StoreProvider from '@/redux/StoreProvider';
 import { IUser } from '@/models';
@@ -16,6 +16,10 @@ import './globals.css';
 interface Props {
   children: ReactNode;
 }
+
+const CookieToast = dynamic(() => import('@/components/CookieToast/CookieToast'), {
+  ssr: false
+});
 
 const montserrat = Montserrat({ subsets: ['cyrillic'], fallback: ['sans-serif'] });
 const firaSansExtraCondensed = Fira_Sans_Extra_Condensed({
