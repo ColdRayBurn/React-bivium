@@ -13,10 +13,13 @@ export const PATCH = async (request: NextRequest) => {
     const payload = await request.json();
     const user = JSON.stringify({ ...JSON.parse(cookies().get('user')!.value), ...payload });
 
-    ky.patch('api/user/', {
+    const d = await ky.patch('api/user/', {
       prefixUrl: process.env.NEXT_PUBLIC_URL,
       retry: 0,
-      json: payload
+      json: payload,
+      headers: {
+        Authorization: `Bearer ${(JSON.parse(cookies().get('user')!.value) as IUser).token}`
+      }
     });
 
     cookies().set({
