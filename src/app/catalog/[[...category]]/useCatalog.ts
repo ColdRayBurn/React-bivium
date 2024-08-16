@@ -70,14 +70,15 @@ const useCatalog = (initialProducts: ICatalogResponse['products']) => {
     const abortController = new AbortController();
 
     api
-      .get('catalog/', {
+      .get(searchParams.has('searchQuery') ? 'catalog/search/' : 'catalog/', {
         signal: abortController.signal,
-        searchParams: {
-          limit: 8,
-          offset: 0,
-          ...(searchParams.has('searchQuery') && { q: searchParams.get('searchQuery')! }),
-          ...(!searchParams.has('searchQuery') && { ...filters })
-        }
+        searchParams: searchParams.has('searchQuery')
+          ? { q: searchParams.get('searchQuery')! }
+          : {
+              limit: 8,
+              offset: 0,
+              ...filters
+            }
       })
       .json<ICatalogResponse>()
       .then(catalog => {

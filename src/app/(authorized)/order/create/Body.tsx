@@ -105,7 +105,7 @@ const Body: FC<Props> = ({ orderData }) => {
           </div>
           <div className={styles.phonenumberFormDeliveryType}>
             <RadioButton
-              text='Доставка СДЕК'
+              text='Доставка СДЭК'
               name='deliveryType'
               value='CDEK'
               defaultChecked

@@ -13,7 +13,7 @@ export const PATCH = async (request: NextRequest) => {
     const payload = await request.json();
     const user = JSON.stringify({ ...JSON.parse(cookies().get('user')!.value), ...payload });
 
-    const d = await ky.patch('api/user/', {
+    await ky.patch('api/user/', {
       prefixUrl: process.env.NEXT_PUBLIC_URL,
       retry: 0,
       json: payload,

@@ -21,13 +21,16 @@ const Page: FC<Props> = async ({ params, searchParams }) => {
     params.category !== undefined && params.category[0] in categoryMap ? categoryMap[params.category[0]] : null;
 
   const { filters, products } = await api
-    .get('catalog/', {
-      searchParams: {
-        limit: 8,
-        offset: 0,
-        ...(category !== null && !searchParams.searchQuery && { category }),
-        ...(searchParams.searchQuery && { q: searchParams.searchQuery })
-      }
+    .get(searchParams.searchQuery ? 'catalog/search/' : 'catalog/', {
+      searchParams: searchParams.searchQuery
+        ? {
+            q: searchParams.searchQuery
+          }
+        : {
+            limit: 8,
+            offset: 0,
+            ...(category !== null && { category })
+          }
     })
     .json<ICatalogResponse>();
 

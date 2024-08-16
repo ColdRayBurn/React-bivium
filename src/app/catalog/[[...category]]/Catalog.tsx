@@ -110,7 +110,7 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
           type='button'
           icon={false}
           onClick={fetchNext}
-          style={{ visibility: offset <= total - limit ? 'visible' : 'hidden' }}
+          style={{ visibility: !searchParams.has('searchQuery') && offset <= total - limit ? 'visible' : 'hidden' }}
         >
           Показать ещё
         </Button>
@@ -120,7 +120,9 @@ const Catalog: FC<Props> = ({ initialProducts, availableFilters, categoryId }) =
           </div>
         </MediaQuery>
         <div className={styles.footerColumn}>
-          <div className={styles.productsAmount}>{total} товаров</div>
+          <div className={styles.productsAmount}>
+            {products.length}/{total} товаров
+          </div>
           <SortDropdown sortType={sortType} setSortType={setSortType} />
         </div>
       </div>
