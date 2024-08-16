@@ -153,6 +153,7 @@ export interface IVacancy {
   salary: string;
   workType: string;
   experience: string;
+  description: string;
 }
 
 export type IVacanciesResponse = Omit<IVacancy, 'image'>[];
