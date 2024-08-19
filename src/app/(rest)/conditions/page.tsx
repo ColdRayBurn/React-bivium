@@ -71,7 +71,12 @@ const Page: FC = () => {
               apiEndpoint='feedback/callback/'
             />
 
-            <Button className={styles.button} variant='default' icon={false}>
+            <Button
+              className={styles.button}
+              variant='default'
+              icon={false}
+              onClick={() => window.open('https://bivium.all4it.org/upload/catalog.pdf', '_blank')}
+            >
               Скачать каталог новой коллекции
             </Button>
           </div>
