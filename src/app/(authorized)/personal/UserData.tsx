@@ -37,6 +37,7 @@ const UserData: FC = () => {
       name: user.name ?? undefined,
       surname: user.surname ?? undefined,
       patronymic: user.patronymic ?? undefined,
+      birthday: user.birthday ?? undefined,
       gender: user.gender ?? undefined,
       phonenumber: user.phonenumber ?? undefined,
       email: user.email ?? undefined
@@ -71,7 +72,8 @@ const UserData: FC = () => {
         <Input
           id={birthdayInputId}
           type='text'
-          mask='99.99.9999'
+          mask='XX.XX.XXXX'
+          replacement={{ X: /\d/ }}
           placeholder='ДД. ММ. ГГГГ'
           {...register('birthday')}
         />
@@ -86,7 +88,8 @@ const UserData: FC = () => {
         <Input
           id={phonenumberInputId}
           type='text'
-          mask='+7\ 999 999 99 99'
+          mask='+7 XXX XXX XX XX'
+          replacement={{ X: /\d/ }}
           placeholder='+7 ___ ___ __ __'
           {...register('phonenumber')}
         />
