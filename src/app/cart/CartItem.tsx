@@ -5,6 +5,7 @@ import styles from './CartItem.module.css';
 
 import CrossIcon from '@icons/cross.svg';
 import NumberInput from '@/components/ui/NumberInput/NumberInput';
+import SizeDropdown from './SizeDropdown';
 
 import { formatUrl } from '@/utils/formatUrl';
 import { formatPrice } from '@/utils/formatPrice';
@@ -12,26 +13,25 @@ import { formatPrice } from '@/utils/formatPrice';
 import { useAppDispatch } from '@/redux/hooks';
 import { cartPut, cartRemove } from '@/redux/slices/cartSlice';
 
-import PencilIcon from '@icons/pencil.svg';
-
 interface Props {
   id: number;
-  image: string;
   name: string;
+  price: number;
+  image: string;
+  amount: number;
   color: string;
   size: string;
-  price: number;
-  amount: number;
+  productId: number;
 }
 
-const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) => {
+const CartItem: FC<Props> = ({ id, productId, image, name, color, size, price, amount }) => {
   const dispatch = useAppDispatch();
 
   const onQuantityChange = (previousValue: number, value: number) => {
     if (previousValue > value) {
       dispatch(cartRemove({ id }));
     } else {
-      dispatch(cartPut({ id, image, name, color, size, price, amount }));
+      dispatch(cartPut({ id, productId, image, name, color, size, price, amount }));
     }
   };
 
@@ -49,15 +49,7 @@ const CartItem: FC<Props> = ({ id, image, name, color, size, price, amount }) =>
               <div className={styles.propertiesItemName}>Цвет:</div>
               <div className={styles.propertiesItemValue}>{color}</div>
             </div>
-            <div className={styles.propertiesItem}>
-              <div className={styles.propertiesItemName}>Размер:</div>
-              <div className={styles.propertiesItemValue}>
-                {size}
-                <button>
-                  <PencilIcon />
-                </button>
-              </div>
-            </div>
+            <SizeDropdown productId={productId} defaultSelectedId={id} defaultSelectedName={size} quantity={amount} />
           </div>
         </div>
       </div>

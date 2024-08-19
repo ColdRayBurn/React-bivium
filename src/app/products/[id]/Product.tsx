@@ -69,7 +69,8 @@ const Product: FC<IProduct> = ({
           color,
           image: images[0],
           price: selectedSize.price,
-          size: selectedSize.size
+          size: selectedSize.size,
+          productId: id
         })
       );
 

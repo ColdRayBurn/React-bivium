@@ -116,6 +116,7 @@ export interface ICartResponse {
     amount: number;
     color: string;
     size: string;
+    productId: number;
   }[];
   totalPrice: number;
 }

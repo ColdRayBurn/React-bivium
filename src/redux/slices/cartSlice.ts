@@ -11,6 +11,7 @@ interface ICartProduct {
   price: number;
   image: string;
   amount: number;
+  productId: number;
 }
 
 interface Cart {
