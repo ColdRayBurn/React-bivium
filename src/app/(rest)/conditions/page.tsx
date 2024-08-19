@@ -32,7 +32,7 @@ const Page: FC = () => {
             <br />
             <br />
             Чтобы начать совместную работу, напишите письмо в свободной форме, о своем проекте и пришлите его по адресу{' '}
-            <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
+            <a href='mailto:zakaz@bivium.ru'>zakaz@bivium.ru</a>
           </div>
           <div className={styles.items}>
             <div className={styles.item}>
@@ -42,7 +42,7 @@ const Page: FC = () => {
             <div className={styles.item}>
               <FormIcon />
               <span>
-                Заполнить Анкету и выслать её по адресу <a href='zakaz@bivium.ru'>zakaz@bivium.ru</a>
+                Заполнить Анкету и выслать её по адресу <a href='mailto:zakaz@bivium.ru'>zakaz@bivium.ru</a>
               </span>
             </div>
             <div className={styles.item}>
