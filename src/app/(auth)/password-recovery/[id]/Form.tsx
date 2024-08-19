@@ -8,9 +8,7 @@ import { useParams, useRouter } from 'next/navigation';
 import api from '@/api';
 
 interface ApiResponse {
-  errorMessage: string;
-  message?: string;
-  error?: string;
+  errorMessage?: string;
 }
 
 const Form: FC = () => {
@@ -44,25 +42,21 @@ const Form: FC = () => {
     setError('');
     setSuccess(false);
 
-    try {
-      const response = await api.patch('authorization/change-password/', {
-        json: {
-          hash: hash,
-          newPassword: password,
-          newPasswordCheck: confirmPassword
-        }
-      });
-
-      const data: ApiResponse = await response.json();
-
-      if (response.ok && !(data.error || data.errorMessage)) {
-        setSuccess(true);
-        setShowPopup(true);
-      } else {
-        setError(data.errorMessage || 'Произошла ошибка при смене пароля');
+    const response = await api.patch('authorization/change-password/', {
+      json: {
+        hash: hash,
+        newPassword: password,
+        newPasswordCheck: confirmPassword
       }
-    } catch (error) {
-      setError('Произошла ошибка при соединении с сервером');
+    });
+
+    const data: ApiResponse = await response.json();
+
+    if (response.ok) {
+      setSuccess(true);
+      setShowPopup(true);
+    } else {
+      setError(data.errorMessage || 'Произошла ошибка при смене пароля');
     }
   };
 
