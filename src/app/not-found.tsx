@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import DeliveryInformation from '@/components/ui/DeliveryInformation/DeliveryInformation';
 
 import styles from '@/app/not-found.module.css';
+import ClientPopupLink from '@/components/ClientPopupButton/ClientPopupLink';
 
 const NotFound: FC = () => {
   return (
@@ -28,7 +29,14 @@ const NotFound: FC = () => {
             </li>
             <li>Используйте поиск на сайте, чтобы найти нужную информацию.</li>
             <li>
-              <Link href={'/'}>Свяжитесь с нами</Link>, если вы считаете, что это ошибка.
+              <ClientPopupLink
+                formTitle='Связаться с нами'
+                linkText='Связаться с нами'
+                cancelText='Отменить'
+                submitText='Отправить'
+                apiEndpoint='feedback/contact-us/'
+              />
+              , если вы считаете, что это ошибка.
             </li>
           </ul>
         </div>

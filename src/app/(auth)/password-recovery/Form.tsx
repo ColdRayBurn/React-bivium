@@ -41,10 +41,10 @@ const Form: FC = () => {
 
       const data: ApiResponse = await response.json();
 
-      if (response.ok) {
+      if (response.ok && !(data.error || data.message)) {
         setSuccess(true);
       } else {
-        setError(data.message || 'Произошла ошибка при отправке e-mail');
+        setError(data.error || data.message || 'Произошла ошибка при отправке e-mail');
       }
     } catch (error) {
       setError('Произошла ошибка при соединении с сервером');
