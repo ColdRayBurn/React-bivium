@@ -32,7 +32,7 @@ const Page: FC = () => {
             </p>
           </div>
           <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>Философии нашего продукта — движение</h2>
+            <h2 className={styles.sectionTitle}>Философия нашего продукта — движение</h2>
             <div className={styles.sectionParagraph}>
               Bivium – это история настоящих профессионалов, объединившихся с целью создания одежды нового уровня.
               Благодаря совместной работе именитых спортсменов, экспертов и производителей текстильного рынка был
