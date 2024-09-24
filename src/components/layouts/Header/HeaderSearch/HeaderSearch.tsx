@@ -9,7 +9,6 @@ import SearchIcon from '@icons/search.svg';
 interface Props {
   isHomePage: boolean;
   isScrolled: boolean;
-  // eslint-disable-next-line no-unused-vars
   onSubmit: (query: string) => void;
 }
 
