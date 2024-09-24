@@ -20,10 +20,17 @@ interface Props {
   quantity: number;
 }
 
-const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelectedName, quantity }) => {
+const SizeDropdown: FC<Props> = ({
+  productId,
+  defaultSelectedId,
+  defaultSelectedName,
+  quantity,
+}) => {
   const dispatch = useAppDispatch();
   const [isEditMode, setIsEditMode] = useState(false);
-  const [sizes, setSizes] = useState<{ id: number; name: string; inStock: boolean }[]>([]);
+  const [sizes, setSizes] = useState<
+    { id: number; name: string; inStock: boolean }[]
+  >([]);
   const [selectedSize, setSelectedSize] = useState<number | null>(null);
 
   useEffect(() => {
@@ -34,8 +41,14 @@ const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelected
     api
       .get(`products/${productId}/`)
       .json<IProduct>()
-      .then(product => {
-        setSizes(product.sizes.map(size => ({ id: size.id, name: size.size, inStock: size.inStock })));
+      .then((product) => {
+        setSizes(
+          product.sizes.map((size) => ({
+            id: size.id,
+            name: size.size,
+            inStock: size.inStock,
+          })),
+        );
       });
   }, [isEditMode, sizes, productId]);
 
@@ -51,8 +64,8 @@ const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelected
         json: {
           previousId: defaultSelectedId,
           newId: selectedSize,
-          quantity
-        }
+          quantity,
+        },
       })
       .then(() => {
         dispatch(cartFetch());
@@ -66,7 +79,11 @@ const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelected
         {(!isEditMode || !sizes.length) && (
           <>
             <div className={styles.size}>{defaultSelectedName}</div>
-            <button className={styles.editButton} type='button' onClick={() => setIsEditMode(true)}>
+            <button
+              className={styles.editButton}
+              type="button"
+              onClick={() => setIsEditMode(true)}
+            >
               <PencilIcon />
             </button>
           </>
@@ -74,10 +91,12 @@ const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelected
         {isEditMode && !!sizes.length && (
           <select
             className={styles.select}
-            defaultValue={sizes.find(size => size.id === defaultSelectedId)?.id}
-            onChange={event => setSelectedSize(Number(event.target.value))}
+            defaultValue={
+              sizes.find((size) => size.id === defaultSelectedId)?.id
+            }
+            onChange={(event) => setSelectedSize(Number(event.target.value))}
           >
-            {sizes.map(size => (
+            {sizes.map((size) => (
               <option key={size.id} value={size.id} disabled={!size.inStock}>
                 {size.name}
               </option>
@@ -86,7 +105,12 @@ const SizeDropdown: FC<Props> = ({ productId, defaultSelectedId, defaultSelected
         )}
       </div>
       {isEditMode && !!sizes.length && (
-        <Button className={styles.submitButton} variant='negative' icon={false} onClick={onSubmit}>
+        <Button
+          className={styles.submitButton}
+          variant="negative"
+          icon={false}
+          onClick={onSubmit}
+        >
           Сохранить
         </Button>
       )}

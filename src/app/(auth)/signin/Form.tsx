@@ -33,14 +33,14 @@ const Form: FC = () => {
   const [messages, setMessages] = useState<IFormMessage[]>([]);
   const { handleSubmit, register } = useForm<IForm>({ mode: 'onSubmit' });
 
-  const onSubmit: SubmitHandler<IForm> = async data => {
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
     try {
       const user = await ky
         .post('/next-api/auth/signin', {
           json: {
             username: data.email,
-            password: data.password
-          }
+            password: data.password,
+          },
         })
         .json<IUser>();
 
@@ -49,27 +49,40 @@ const Form: FC = () => {
 
       router.push('/personal');
     } catch (error: unknown) {
-      setMessages([{ text: await (error as HTTPError).response.json(), color: 'red' }]);
+      setMessages([
+        { text: await (error as HTTPError).response.json(), color: 'red' },
+      ]);
     }
   };
 
-  const onInvalid: SubmitErrorHandler<IForm> = errors => {
+  const onInvalid: SubmitErrorHandler<IForm> = (errors) => {
     setMessages(() => {
       const messages: IFormMessage[] = [];
 
-      errors?.email?.message && messages.push({ text: errors!.email!.message!, color: 'red' });
-      errors?.password?.message && messages.push({ text: errors!.password!.message!, color: 'red' });
+      errors?.email?.message &&
+        messages.push({ text: errors!.email!.message!, color: 'red' });
+      errors?.password?.message &&
+        messages.push({ text: errors!.password!.message!, color: 'red' });
 
       return messages;
     });
   };
 
   return (
-    <form className={styles.wrapper} onSubmit={handleSubmit(onSubmit, onInvalid)}>
+    <form
+      className={styles.wrapper}
+      onSubmit={handleSubmit(onSubmit, onInvalid)}
+    >
       {!!messages.length && (
         <div className={styles.messages}>
           {messages.map((message, messageIndex) => (
-            <div key={messageIndex} className={classNames(styles.messagesItem, message.color && styles[message.color])}>
+            <div
+              key={messageIndex}
+              className={classNames(
+                styles.messagesItem,
+                message.color && styles[message.color],
+              )}
+            >
               {message.text}
             </div>
           ))}
@@ -77,28 +90,39 @@ const Form: FC = () => {
       )}
       <div className={styles.body}>
         <Input
-          type='email'
-          placeholder='E-Mail'
-          {...register('email', { required: "Поле 'E-Mail' обязательно к заполнению." })}
+          type="email"
+          placeholder="E-Mail"
+          {...register('email', {
+            required: "Поле 'E-Mail' обязательно к заполнению.",
+          })}
         />
         <Input
-          type='password'
-          placeholder='Пароль'
-          {...register('password', { required: "Поле 'Пароль' обязательно к заполнению." })}
+          type="password"
+          placeholder="Пароль"
+          {...register('password', {
+            required: "Поле 'Пароль' обязательно к заполнению.",
+          })}
         />
-        <Link className={styles.link} href='/password-recovery'>
+        <Link className={styles.link} href="/password-recovery">
           Забыли пароль?
         </Link>
       </div>
       <div className={styles.footer}>
-        <Button variant='negative' icon={false} type='submit' className={styles.button}>
+        <Button
+          variant="negative"
+          icon={false}
+          type="submit"
+          className={styles.button}
+        >
           Войти
         </Button>
-        <p className={styles.signupText}>У Вас ещё нет профиля? Зарегистрируйтесь сейчас!</p>
+        <p className={styles.signupText}>
+          У Вас ещё нет профиля? Зарегистрируйтесь сейчас!
+        </p>
         <Button
-          variant='default'
+          variant="default"
           icon={false}
-          type='button'
+          type="button"
           className={styles.button}
           onClick={() => router.push('/signup')}
         >

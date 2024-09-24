@@ -6,6 +6,7 @@ import PhoneIcon from '@icons/phone.svg';
 import InstagramIcon from '@icons/instagram.svg';
 import TelegramIcon from '@icons/telegram.svg';
 import VKIcon from '@icons/vk.svg';
+import LineIcon from '@icons/line.svg';
 
 import VisaIcon from '@icons/visa.svg';
 import MastercardIcon from '@icons/mastercard.svg';
@@ -20,32 +21,27 @@ import FooterLinks from './FooterLinks';
 
 import api from '@/api';
 import { IMetaFooterResponse } from '@/api/models';
-import ClientPopupButton from '@/components/ClientPopupButton/ClientPopupButton';
 
 const Footer: FC = async () => {
   const meta = await api.get('meta/footer/').json<IMetaFooterResponse>();
 
   return (
     <footer className={styles.wrapper}>
-      <div className='container'>
+      <div className={styles.footerContainer}>
         <div className={styles.row}>
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Обратная связь</h2>
             <h4 className={styles.blockSubtitle}>
-              <a className={styles.phonenumberLink} href={`tel:${meta.feedback.phone}`}>
-                <PhoneIcon />
+              <a
+                className={styles.phonenumberLink}
+                href={`tel:${meta.feedback.phone}`}
+              >
                 {formatPhoneNumber(meta.feedback.phone)}
               </a>
+              <div className={styles.phoneLine}>
+                <LineIcon />
+              </div>
             </h4>
-            <div className={styles.blockBody}>
-              <ClientPopupButton
-                buttonText='Связаться с нами'
-                formTitle='Связаться с нами'
-                submitButtonText='Отправить'
-                cancelButtonText='Отменить'
-                apiEndpoint='feedback/contact-us/'
-              />
-            </div>
           </div>
           <div className={styles.block}>
             <h2 className={styles.blockTitle}>Мы в соцсетях</h2>
@@ -53,24 +49,36 @@ const Footer: FC = async () => {
             <div className={styles.blockBody}>
               <div className={styles.socialIcons}>
                 <a
-                  href='https://www.instagram.com/bivium_sportwear?igsh=MXcyNWMxbGxvbGJicw=='
-                  target='_blank'
-                  rel='noopener noreferrer'
+                  href="https://www.instagram.com/bivium_sportwear?igsh=MXcyNWMxbGxvbGJicw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <InstagramIcon />
                 </a>
-                <a href='https://t.me/bivium_sw' target='_blank' rel='noopener noreferrer'>
+                <LineIcon />
+                <a
+                  href="https://t.me/bivium_sw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TelegramIcon />
                 </a>
-                <a href='https://vk.com/bivium_sw' target='_blank' rel='noopener noreferrer'>
+                <LineIcon />
+                <a
+                  href="https://vk.com/bivium_sw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <VKIcon />
                 </a>
               </div>
             </div>
           </div>
           <div className={styles.block}>
-            <h2 className={styles.blockTitle}>Удобная оплата</h2>
-            <h4 className={styles.blockSubtitle}>{meta.paymentInformation.text}</h4>
+            <h2 className={styles.blockTitle}>Способы оплаты</h2>
+            <h4 className={styles.blockSubtitle}>
+              {meta.paymentInformation.text}
+            </h4>
             <div className={styles.blockBody}>
               <div className={styles.paymentMethods}>
                 <div className={styles.paymentMethod}>
@@ -92,7 +100,7 @@ const Footer: FC = async () => {
         <FooterLinks />
         <div className={styles.bottom}>
           <div className={styles.copyright}>BIVIUM © 2024</div>
-          <Link className={styles.logotype} href='/'>
+          <Link className={styles.logotype} href="/">
             <LogotypeIcon />
           </Link>
         </div>

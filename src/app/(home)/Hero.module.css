@@ -5,7 +5,7 @@
 .carousel,
 .carouselWrapper,
 .carouselSlide {
-  height: 100%;
+  height: 100vh;
 }
 
 .carousel {
@@ -23,7 +23,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 25%, transparent 50%), var(--picture);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 25%,
+      transparent 50%
+    ),
+    var(--picture);
 }
 
 .carouselSlideContainer {
@@ -76,12 +81,17 @@
   }
 
   .carouselSlide {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 50%, transparent 100%), var(--picture-mobile);
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5) 50%,
+        transparent 100%
+      ),
+      var(--picture-mobile);
   }
 
   .carouselSlideContainer {
     justify-content: unset;
-    padding-block: 30px;
+    padding-top: 100px;
   }
 
   .carouselSlideTitle {
