@@ -31,3 +31,12 @@
 .button {
   position: relative;
 }
+
+.controlWhiteBorder {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.controlWhiteBorder::placeholder {
+  color: #fff;
+}
