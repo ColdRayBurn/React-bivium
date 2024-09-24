@@ -14,7 +14,11 @@ const Accordion: FC<Props> = ({ buttonText, children }) => {
 
   return (
     <div className={classNames(styles.wrapper, isExpanded && styles.expanded)}>
-      <button className={styles.button} type='button' onClick={() => setIsExpanded(!isExpanded)}>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
         <div className={styles.buttonText}>{buttonText}</div>
         <div className={styles.buttonIcon}></div>
       </button>

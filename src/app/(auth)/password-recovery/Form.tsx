@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client';
 
 import { FC, FormEvent, useState } from 'react';
@@ -36,7 +37,7 @@ const Form: FC = () => {
 
     try {
       const response = await api.post('authorization/recovery-password/', {
-        json: { username: email }
+        json: { username: email },
       });
 
       const data: ApiResponse = await response.json();
@@ -44,7 +45,9 @@ const Form: FC = () => {
       if (response.ok && !(data.error || data.message)) {
         setSuccess(true);
       } else {
-        setError(data.error || data.message || 'Произошла ошибка при отправке e-mail');
+        setError(
+          data.error || data.message || 'Произошла ошибка при отправке e-mail',
+        );
       }
     } catch (error) {
       setError('Произошла ошибка при соединении с сервером');
@@ -54,30 +57,43 @@ const Form: FC = () => {
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
       <div className={styles.body}>
-        <div className={styles.bodyTitle}>Введите e-mail на который отправить ссылку для смены пароля</div>
+        <div className={styles.bodyTitle}>
+          Введите e-mail на который отправить ссылку для смены пароля
+        </div>
         <div className={styles.bodyField}>
           {error && <p className={styles.errorText}>{error}</p>}
-          {success && <p className={styles.successText}>Ссылка на восстановление пароля отправлена!</p>}
+          {success && (
+            <p className={styles.successText}>
+              Ссылка на восстановление пароля отправлена!
+            </p>
+          )}
           <div className={styles.bodyFieldLabel}>E-mail</div>
           <Input
-            type='email'
-            placeholder='E-Mail'
+            type="email"
+            placeholder="E-Mail"
             value={email}
             required={false}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             className={error ? styles.inputError : ''}
           />
         </div>
       </div>
       <div className={styles.footer}>
-        <Button variant='negative' icon={false} type='submit' className={styles.button}>
+        <Button
+          variant="negative"
+          icon={false}
+          type="submit"
+          className={styles.button}
+        >
           Отправить
         </Button>
-        <p className={styles.signupText}>У Вас ещё нет профиля? Зарегистрируйтесь сейчас!</p>
+        <p className={styles.signupText}>
+          У Вас ещё нет профиля? Зарегистрируйтесь сейчас!
+        </p>
         <Button
-          variant='default'
+          variant="default"
           icon={false}
-          type='button'
+          type="button"
           className={styles.button}
           onClick={() => router.push('/signup')}
         >

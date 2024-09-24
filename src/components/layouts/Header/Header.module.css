@@ -17,8 +17,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  border-bottom: 1px solid #3d4143;
 }
 
 .logotype {
@@ -27,6 +25,11 @@
   letter-spacing: 8px;
   text-transform: uppercase;
   translate: 36px 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .controls {
@@ -71,7 +74,7 @@
 
 .navigationItem {
   padding-block: 15px;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 600;
   color: #3d4143;
 }
@@ -88,6 +91,142 @@
   }
 
   .navigation {
+    display: none;
+  }
+
+  .logotype {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    translate: 36px 0;
+
+    position: unset;
+    transform: unset;
+  }
+}
+
+.homeHeader {
+  position: fixed;
+  background-color: transparent;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  & > div {
+    & a {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    & svg {
+      color: white;
+      stroke: white;
+      transition:
+        color 0.3s ease,
+        stroke 0.3s ease;
+      & g {
+        fill: white;
+        stroke: none;
+      }
+      & path {
+        stroke: white;
+      }
+    }
+  }
+
+  .svgSwitchColor {
+    fill: white !important;
+    stroke: none !important;
+    & g {
+      fill: white !important;
+      stroke: none !important;
+    }
+    & path {
+      fill: white !important;
+      stroke: none !important;
+    }
+  }
+}
+
+.homeHeaderScrolled {
+  position: fixed;
+  background-color: white;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  & > div {
+    & a {
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    & svg {
+      color: black;
+      stroke: black;
+      transition:
+        color 0.3s ease,
+        stroke 0.3s ease;
+      & g {
+        fill: black;
+        stroke: none;
+      }
+      & path {
+        stroke: black;
+      }
+    }
+  }
+
+  .svgSwitchColor {
+    fill: black !important;
+    stroke: none !important;
+    & g {
+      fill: black !important;
+      stroke: none !important;
+    }
+    & path {
+      fill: black !important;
+      stroke: none !important;
+    }
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  gap: 20px;
+
+  & svg {
+    fill: white !important;
+    stroke: none !important;
+    & g {
+      fill: white !important;
+      stroke: none !important;
+    }
+    & path {
+      fill: white !important;
+      stroke: none !important;
+    }
+  }
+}
+
+.headerWrapperScrolled {
+  & svg {
+    fill: black !important;
+    stroke: none !important;
+    & g {
+      fill: black !important;
+      stroke: none !important;
+    }
+    & path {
+      fill: black !important;
+      stroke: none !important;
+    }
+  }
+}
+
+@media (--tablet-media) {
+  .headerWrapper a {
     display: none;
   }
 }
