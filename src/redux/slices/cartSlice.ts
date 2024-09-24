@@ -28,6 +28,22 @@ const put = createAsyncThunk('cart/put', async (item: ICartProduct) => {
   return response;
 });
 
+const replace = createAsyncThunk(
+  'cart/replace',
+  async ({
+    previousId,
+    newId,
+    quantity
+  }: {
+    previousId: number;
+    newId: number;
+    quantity: number;
+    sizeName: string;
+  }) => {
+    await api.post('cart/change-size/', { json: { previousId, newId, quantity } });
+  }
+);
+
 const remove = createAsyncThunk('cart/remove', async ({ id, all }: { id: number; all?: boolean }) => {
   const response = await api
     .delete(`cart/${id}/`, {
@@ -81,9 +97,25 @@ const cartSlice = createSlice({
         state.products[productIndex].amount--;
       }
     });
+
+    builder.addMatcher(replace.settled, (state, action) => {
+      const productIndex = state.products.findIndex(product => product.id);
+      state.products[productIndex].id = action.meta.arg.newId;
+      state.products[productIndex].amount = action.meta.arg.quantity;
+      state.products[productIndex].size = action.meta.arg.sizeName;
+    });
+
+    // builder.addMatcher(fetch.settled, (state, action) => {
+    //   if (action.meta.requestStatus === 'fulfilled') {
+    //     const fetchedItems = action.payload as ICartProduct[];
+    //     const cartItems = state.products;
+    //     const filteredItems = cartItems.filter(item => !fetchedItems.map(item => item.id).includes(item.id));
+    //     state.products = [...filteredItems, ...fetchedItems];
+    //   }
+    // });
   }
 });
 
-export { fetch as cartFetch, put as cartPut, remove as cartRemove };
+export { fetch as cartFetch, put as cartPut, remove as cartRemove, replace as cartReplace };
 export const { cartClear } = cartSlice.actions;
 export default cartSlice;

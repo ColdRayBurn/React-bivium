@@ -9,7 +9,7 @@ import api from '@/api';
 import { IProduct } from '@/models';
 
 import { useAppDispatch } from '@/redux/hooks';
-import { cartFetch } from '@/redux/slices/cartSlice';
+import { cartReplace } from '@/redux/slices/cartSlice';
 
 import styles from './SizeDropdown.module.css';
 
@@ -59,17 +59,14 @@ const SizeDropdown: FC<Props> = ({
       return;
     }
 
-    api
-      .post('cart/change-size/', {
-        json: {
-          previousId: defaultSelectedId,
-          newId: selectedSize,
-          quantity,
-        },
+    dispatch(
+      cartReplace({
+        previousId: defaultSelectedId,
+        newId: selectedSize,
+        quantity,
+        sizeName: sizes.find(size => size.id === selectedSize)!.name
       })
-      .then(() => {
-        dispatch(cartFetch());
-      });
+    );
   };
 
   return (
@@ -78,12 +75,10 @@ const SizeDropdown: FC<Props> = ({
         <div className={styles.title}>Размер:</div>
         {(!isEditMode || !sizes.length) && (
           <>
-            <div className={styles.size}>{defaultSelectedName}</div>
-            <button
-              className={styles.editButton}
-              type="button"
-              onClick={() => setIsEditMode(true)}
-            >
+            <div className={styles.size}>
+              {sizes.find(size => size.id === selectedSize)?.name ?? defaultSelectedName}
+            </div>
+            <button className={styles.editButton} type='button' onClick={() => setIsEditMode(true)}>
               <PencilIcon />
             </button>
           </>
