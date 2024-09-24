@@ -4,8 +4,6 @@
   "rules": {
     "prettier/prettier": "warn",
     "react/react-in-jsx-scope": "off",
-    "no-console": "warn",
-    "no-unused-vars": "warn",
     "no-debugger": "warn",
     "react/prop-types": "off"
   }

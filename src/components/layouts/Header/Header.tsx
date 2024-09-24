@@ -141,20 +141,24 @@ const Header: FC = () => {
           </Link>
           <div className={styles.controls}>
             <MediaQuery minWidth={1281}>
-              <HeaderSearch onSubmit={onSearchSubmit} />
+              <HeaderSearch
+                onSubmit={onSearchSubmit}
+                isScrolled={isScrolled}
+                isHomePage={isHomePage}
+              />
             </MediaQuery>
             <MediaQuery maxWidth={1280}>
               <HeaderMobileSearch onSubmit={onSearchSubmit} />
             </MediaQuery>
             <Link
-              className={styles.control}
+              className={`${styles.control} ${isHomePage && !isScrolled ? styles.controlScrolled : ''}`}
               href={isAuthorized ? '/personal/favorites' : '/signin'}
               data-amount={favorites.length ? favorites.length : undefined}
             >
               <HeartIcon />
             </Link>
             <Link
-              className={styles.control}
+              className={`${styles.control} ${isHomePage && !isScrolled ? styles.controlScrolled : ''}`}
               href="/cart"
               data-amount={
                 !!cart.products.length ? cart.products.length : undefined
