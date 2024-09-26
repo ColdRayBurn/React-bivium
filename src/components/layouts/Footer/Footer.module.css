@@ -1,13 +1,7 @@
 .wrapper {
-  padding: 53px 179px 56px 80px;
+  padding-block: 50px;
   color: #fff;
   background-color: #000;
-}
-
-.footerContainer {
-  width: 100%;
-  max-width: 1820px;
-  margin: 0 auto;
 }
 
 .row {
@@ -27,20 +21,18 @@
 }
 
 .blockTitle {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 24px;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-size: 30px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .blockSubtitle {
-  margin-top: 12px;
-  font-size: 14px;
+  margin-top: 5px;
   font-weight: 600;
 }
 
 .blockBody {
-  margin-top: 38px;
+  margin-top: 15px;
 }
 
 .phonenumberLink {
@@ -48,16 +40,10 @@
   align-items: center;
   column-gap: 10px;
   width: fit-content;
-  font-size: 32px;
-}
-
-.phoneLine {
-  margin-top: 33px;
 }
 
 .socialIcons {
   display: flex;
-  align-items: center;
   column-gap: 20px;
 }
 
@@ -85,10 +71,10 @@
 }
 
 .linksTitle {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 24px;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-size: 26px;
   text-transform: uppercase;
-  font-weight: 600;
+  letter-spacing: 5px;
 }
 
 .linksWrapper {
@@ -104,7 +90,7 @@
   font-size: 20px;
   font-weight: 600;
 
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .bottom {
@@ -119,16 +105,12 @@
 }
 
 .copyright {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 20px;
+  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-size: 30px;
   font-weight: 600;
 }
 
 @media (--tablet-media) {
-  .wrapper {
-    padding: 33px 20px 50px;
-  }
-
   .row:first-child {
     grid-template-columns: 1fr;
     row-gap: 40px;

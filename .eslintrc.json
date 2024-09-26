@@ -1,10 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
-  "plugins": ["eslint-plugin-prettier/recommended"],
   "rules": {
-    "prettier/prettier": "warn",
-    "react/react-in-jsx-scope": "off",
-    "no-debugger": "warn",
-    "react/prop-types": "off"
-  }
+    "@next/next/no-img-element": "off"
+  },
+  "plugins": ["eslint-plugin-prettier/recommended"]
 }

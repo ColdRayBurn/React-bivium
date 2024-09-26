@@ -10,13 +10,7 @@ interface NewsItemProps {
   description: string;
 }
 
-const NewsItem: FC<NewsItemProps> = ({
-  id,
-  image,
-  name,
-  date,
-  description,
-}) => {
+const NewsItem: FC<NewsItemProps> = ({ id, image, name, date, description }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [lineClamp, setLineClamp] = useState<number | undefined>(undefined);
@@ -57,14 +51,12 @@ const NewsItem: FC<NewsItemProps> = ({
               ref={descriptionRef}
               style={{
                 WebkitLineClamp: isExpanded ? 'unset' : lineClamp,
-                display: isExpanded ? 'block' : '-webkit-box',
+                display: isExpanded ? 'block' : '-webkit-box'
               }}
             >
               {description}
             </div>
-            {showButton && !isExpanded && (
-              <div className={styles.readMoreButton}>Читать далее</div>
-            )}
+            {showButton && !isExpanded && <div className={styles.readMoreButton}>Читать далее</div>}
           </div>
         </div>
       </Link>

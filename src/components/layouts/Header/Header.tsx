@@ -23,17 +23,15 @@ import styles from './Header.module.css';
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Header: FC = () => {
-  const { isAuthorized } = useAppSelector((selector) => selector.user);
-  const cart = useAppSelector((selector) => selector.cart);
-  const favorites = useAppSelector((selector) => selector.favorites);
+  const { isAuthorized } = useAppSelector(selector => selector.user);
+  const cart = useAppSelector(selector => selector.cart);
+  const favorites = useAppSelector(selector => selector.favorites);
 
   const router = useRouter();
   const pathname = usePathname();
 
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
-
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
@@ -66,72 +64,14 @@ const Header: FC = () => {
     router.push(`/catalog?searchQuery=${query}`);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const isHomePage = pathname === '/';
-
   return (
     <>
-      <header
-        ref={headerRef}
-        className={`${styles.header} ${isHomePage ? (isScrolled ? styles.homeHeaderScrolled : styles.homeHeader) : ''}`}
-      >
+      <header ref={headerRef} className={styles.header}>
         <div className={styles.top}>
-          <div
-            className={`${styles.headerWrapper} ${isHomePage ? (isScrolled ? styles.headerWrapperScrolled : '') : styles.headerWrapperScrolled}`}
-          >
-            <button
-              className={styles.hamburgerMenuButton}
-              type="button"
-              onClick={() => setIsHamburgerOpen(true)}
-            >
-              <HamburgerIcon />
-            </button>
-            <Link
-              className={`${styles.navigationItem} ${activeCategory === 'Новинки' ? styles.active : ''}`}
-              href="/catalog"
-              onClick={() => setActiveCategory('Новинки')}
-            >
-              Новинки
-            </Link>
-            <Link
-              className={`${styles.navigationItem} ${activeCategory === 'Экипировка' ? styles.active : ''}`}
-              href="/catalog/equipment"
-              onClick={() => setActiveCategory('Экипировка')}
-            >
-              Экипировка
-            </Link>
-            <Link
-              className={`${styles.navigationItem} ${activeCategory === 'Одежда' ? styles.active : ''}`}
-              href="/catalog/clothing"
-              onClick={() => setActiveCategory('Одежда')}
-            >
-              Одежда
-            </Link>
-            <Link
-              className={`${styles.navigationItem} ${activeCategory === 'Аксессуары' ? styles.active : ''}`}
-              href="/catalog/accessories"
-              onClick={() => setActiveCategory('Аксессуары')}
-            >
-              Аксессуары
-            </Link>
-          </div>
-          <Link className={styles.logotype} href="/">
+          <button className={styles.hamburgerMenuButton} type='button' onClick={() => setIsHamburgerOpen(true)}>
+            <HamburgerIcon />
+          </button>
+          <Link className={styles.logotype} href='/'>
             <MediaQuery minWidth={1281}>
               <HeaderIcon />
             </MediaQuery>
@@ -141,44 +81,62 @@ const Header: FC = () => {
           </Link>
           <div className={styles.controls}>
             <MediaQuery minWidth={1281}>
-              <HeaderSearch
-                onSubmit={onSearchSubmit}
-                isScrolled={isScrolled}
-                isHomePage={isHomePage}
-              />
+              <HeaderSearch onSubmit={onSearchSubmit} />
             </MediaQuery>
             <MediaQuery maxWidth={1280}>
               <HeaderMobileSearch onSubmit={onSearchSubmit} />
             </MediaQuery>
             <Link
-              className={`${styles.control} ${isHomePage && !isScrolled ? styles.controlScrolled : ''}`}
+              className={styles.control}
               href={isAuthorized ? '/personal/favorites' : '/signin'}
               data-amount={favorites.length ? favorites.length : undefined}
             >
               <HeartIcon />
             </Link>
             <Link
-              className={`${styles.control} ${isHomePage && !isScrolled ? styles.controlScrolled : ''}`}
-              href="/cart"
-              data-amount={
-                !!cart.products.length ? cart.products.length : undefined
-              }
+              className={styles.control}
+              href='/cart'
+              data-amount={!!cart.products.length ? cart.products.length : undefined}
             >
               <BagIcon />
             </Link>
-            <Link
-              className={styles.control}
-              href={isAuthorized ? '/personal' : '/signin'}
-            >
+            <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
               <UserIcon />
             </Link>
           </div>
         </div>
+        <div className={styles.navigation}>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Новинки' ? styles.active : ''}`}
+            href='/catalog'
+            onClick={() => setActiveCategory('Новинки')}
+          >
+            Новинки
+          </Link>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Экипировка' ? styles.active : ''}`}
+            href='/catalog/equipment'
+            onClick={() => setActiveCategory('Экипировка')}
+          >
+            Экипировка
+          </Link>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Одежда' ? styles.active : ''}`}
+            href='/catalog/clothing'
+            onClick={() => setActiveCategory('Одежда')}
+          >
+            Одежда
+          </Link>
+          <Link
+            className={`${styles.navigationItem} ${activeCategory === 'Аксессуары' ? styles.active : ''}`}
+            href='/catalog/accessories'
+            onClick={() => setActiveCategory('Аксессуары')}
+          >
+            Аксессуары
+          </Link>
+        </div>
       </header>
-      <Hamburger
-        isOpened={isHamburgerOpen}
-        onClose={() => setIsHamburgerOpen(false)}
-      />
+      <Hamburger isOpened={isHamburgerOpen} onClose={() => setIsHamburgerOpen(false)} />
     </>
   );
 };

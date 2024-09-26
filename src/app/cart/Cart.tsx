@@ -7,16 +7,16 @@ import InformationText from '@/components/ui/InformationText/InformationText';
 import { useAppSelector } from '@/redux/hooks';
 
 const Cart: FC = () => {
-  const { products } = useAppSelector((selector) => selector.cart);
+  const { products } = useAppSelector(selector => selector.cart);
 
   return (
     <div className={styles.wrapper}>
-      {products.map((product) => (
+      {products.map(product => (
         <CartItem key={product.id} {...product} />
       ))}
       <div className={styles.informationText}>
-        <InformationText text="Продукты, помещённые в корзину не резервируются" />
-        <InformationText text="Промокоды не суммируются" />
+        <InformationText text='Продукты, помещённые в корзину не резервируются' />
+        <InformationText text='Промокоды не суммируются' />
       </div>
     </div>
   );

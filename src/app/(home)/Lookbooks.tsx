@@ -25,7 +25,7 @@ const Lookbooks: FC<Props> = ({ items }) => {
             className={styles.item}
             style={{
               '--picture': `url(${formatUrl(item.picture)})`,
-              '--mobile-picture': `url(${formatUrl(item.mobilePicture ?? item.picture)})`,
+              '--mobile-picture': `url(${formatUrl(item.mobilePicture ?? item.picture)})`
             }}
           >
             <div className={styles.itemTopText}>{item.topText}</div>

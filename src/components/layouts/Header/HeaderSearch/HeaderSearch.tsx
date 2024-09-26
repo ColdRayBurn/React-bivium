@@ -7,12 +7,10 @@ import classnames from 'classnames';
 import SearchIcon from '@icons/search.svg';
 
 interface Props {
-  isHomePage: boolean;
-  isScrolled: boolean;
   onSubmit: (query: string) => void;
 }
 
-const HeaderSearch: FC<Props> = ({ onSubmit, isScrolled, isHomePage }) => {
+const HeaderSearch: FC<Props> = ({ onSubmit }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [isExpanded, setExpanded] = useState(false);
 
@@ -24,7 +22,7 @@ const HeaderSearch: FC<Props> = ({ onSubmit, isScrolled, isHomePage }) => {
       input.value = '';
       setExpanded(false);
     } else {
-      setExpanded((isExpanded) => !isExpanded);
+      setExpanded(isExpanded => !isExpanded);
     }
   };
 
@@ -32,16 +30,12 @@ const HeaderSearch: FC<Props> = ({ onSubmit, isScrolled, isHomePage }) => {
     <div className={styles.wrapper}>
       <input
         ref={inputRef}
-        className={classnames(
-          styles.control,
-          isExpanded && styles.control_expanded,
-          isHomePage && !isScrolled && styles.controlWhiteBorder,
-        )}
-        type="search"
-        placeholder="Поиск по товарам"
-        onKeyUp={(event) => event.key === 'Enter' && onSubmitHandler()}
+        className={classnames(styles.control, isExpanded && styles.control_expanded)}
+        type='search'
+        placeholder='Поиск по товарам'
+        onKeyUp={event => event.key === 'Enter' && onSubmitHandler()}
       />
-      <button className={styles.button} type="button" onClick={onSubmitHandler}>
+      <button className={styles.button} type='button' onClick={onSubmitHandler}>
         <SearchIcon />
       </button>
     </div>

@@ -13,17 +13,17 @@ const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 const Catalog: FC = () => {
   return (
     <section className={classNames(styles.container, 'container')}>
-      <Link className={styles.card} href="/catalog/mens-running">
+      <Link className={styles.card} href='/catalog/mens-running'>
         Мужская
         <br />
         экипировка
       </Link>
-      <Link className={styles.card} href="/catalog/womens-running">
+      <Link className={styles.card} href='/catalog/womens-running'>
         Женская
         <br />
         экипировка
       </Link>
-      <Link className={styles.card} href="/catalog/mens-clothing">
+      <Link className={styles.card} href='/catalog/mens-clothing'>
         <MediaQuery minWidth={1281}>
           Мужская
           <br />
@@ -31,7 +31,7 @@ const Catalog: FC = () => {
         </MediaQuery>
         <MediaQuery maxWidth={1280}>Мужская одежда</MediaQuery>
       </Link>
-      <Link className={styles.card} href="/catalog/womens-clothing">
+      <Link className={styles.card} href='/catalog/womens-clothing'>
         <MediaQuery minWidth={1281}>
           Женская
           <br />
@@ -39,7 +39,7 @@ const Catalog: FC = () => {
         </MediaQuery>
         <MediaQuery maxWidth={1280}>Женская одежда</MediaQuery>
       </Link>
-      <Link className={styles.card} href="/catalog/accessories">
+      <Link className={styles.card} href='/catalog/accessories'>
         Аксессуары
       </Link>
     </section>

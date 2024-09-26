@@ -6,16 +6,15 @@ const api = ky.extend({
   cache: 'no-cache',
   hooks: {
     beforeRequest: [
-      (request) => {
-        const token =
-          typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+      request => {
+        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
         if (token !== null) {
           request.headers.set('Authorization', `Bearer ${token}`);
         }
-      },
-    ],
-  },
+      }
+    ]
+  }
 });
 
 export default api;
