@@ -10,37 +10,44 @@ import styles from './Catalog.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const Catalog: FC = () => {
+interface Props {
+  className?: string;
+}
+
+const Catalog: FC<Props> = ({ className }) => {
   return (
-    <section className={classNames(styles.container, 'container')}>
-      <Link className={styles.card} href='/catalog/mens-running'>
-        Мужская
-        <br />
-        экипировка
+    <section className={classNames(className, styles.wrapper, 'container')}>
+      <Link
+        className={styles.card}
+        href='/catalog/mens-running'
+        style={{ backgroundImage: 'url(https://i.imgur.com/yF9iKg0.png)' }}
+      >
+        <div className={styles.card__title}>Мужская коллекция</div>
+        <div className={styles.card__badge}>S24_run</div>
       </Link>
-      <Link className={styles.card} href='/catalog/womens-running'>
-        Женская
-        <br />
-        экипировка
+      <Link
+        className={styles.card}
+        href='/catalog/womens-running'
+        style={{ backgroundImage: 'url(https://i.imgur.com/wigbpDj.png)' }}
+      >
+        <div className={styles.card__title}>Женская коллекция</div>
+        <div className={styles.card__badge}>S24_run</div>
       </Link>
-      <Link className={styles.card} href='/catalog/mens-clothing'>
-        <MediaQuery minWidth={1281}>
-          Мужская
-          <br />
-          одежда
-        </MediaQuery>
-        <MediaQuery maxWidth={1280}>Мужская одежда</MediaQuery>
+      <Link
+        className={styles.card}
+        href='/catalog/mens-running'
+        style={{ backgroundImage: 'url(https://i.imgur.com/zZgtjzB.png)' }}
+      >
+        <div className={styles.card__title}>Повседневная одежда</div>
+        <div className={styles.card__badge}>S24_r25</div>
       </Link>
-      <Link className={styles.card} href='/catalog/womens-clothing'>
-        <MediaQuery minWidth={1281}>
-          Женская
-          <br />
-          одежда
-        </MediaQuery>
-        <MediaQuery maxWidth={1280}>Женская одежда</MediaQuery>
-      </Link>
-      <Link className={styles.card} href='/catalog/accessories'>
-        Аксессуары
+      <Link
+        className={styles.card}
+        href='/catalog/accessories'
+        style={{ backgroundImage: 'url(https://i.imgur.com/tLxypel.png)' }}
+      >
+        <div className={styles.card__title}>Аксессуары</div>
+        <div className={styles.card__badge}>S24_run</div>
       </Link>
     </section>
   );

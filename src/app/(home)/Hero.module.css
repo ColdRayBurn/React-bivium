@@ -1,109 +1,54 @@
 .wrapper {
-  aspect-ratio: 3.2;
-}
-
-.carousel,
-.carouselWrapper,
-.carouselSlide {
-  height: 100%;
-}
-
-.carousel {
-  overflow-x: hidden;
-}
-
-.carouselWrapper {
-  display: flex;
-}
-
-.carouselSlide {
   position: relative;
-  flex-shrink: 0;
-
+  height: calc(100vh - var(--header-height, 0px));
+  background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 25%, transparent 50%), var(--picture);
 }
 
-.carouselSlideContainer {
-  padding-block: 70px 75px;
-  height: 100%;
+.text {
+  position: absolute;
+  max-width: 425px;
+
+  right: 35px;
+  bottom: 150px;
+
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 20px;
+  text-align: right;
+
+  color: #fff;
+}
+
+.text b {
+  font-size: 22px;
+}
+
+.logotype {
+  position: absolute;
+
+  bottom: 85px;
+  right: 50%;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.carouselSlideTitle {
-  max-width: 50%;
-
-  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
-  font-size: 96px;
-  font-weight: 700;
-  text-transform: uppercase;
-
-  color: #fff;
-}
-
-.carouselSlideSubtitle {
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 24px;
-  color: #fff;
-}
-
-.carouselSlideFooter {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 65%;
+  row-gap: 30px;
+
+  translate: 50% 0;
 }
 
-.carouselSlideButton {
-  background-color: rgba(0, 0, 0, 0.35) !important;
-}
-
-.carouselSlideDescription {
-  font-family: var(--font-montserrat), sans-serif;
-  font-style: italic;
-  text-align: right;
+.logotype__icon {
   color: #fff;
 }
 
-@media (--tablet-media) {
-  .wrapper {
-    aspect-ratio: 0.625;
-  }
+.logotype__button {
+  padding: 5px 15px;
 
-  .carouselSlide {
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 50%, transparent 100%), var(--picture-mobile);
-  }
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+  color: #fff;
 
-  .carouselSlideContainer {
-    justify-content: unset;
-    padding-block: 30px;
-  }
-
-  .carouselSlideTitle {
-    font-size: 48px;
-    max-width: none;
-  }
-
-  .carouselSlideSubtitle {
-    margin-top: 30px;
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .carouselSlideFooter {
-    margin-top: auto;
-    align-items: unset;
-    flex-direction: column;
-    justify-content: unset;
-  }
-
-  .carouselSlideDescription {
-    margin-top: 30px;
-    text-align: left;
-  }
+  border-radius: 9999px;
+  border: 1px solid #fff;
 }

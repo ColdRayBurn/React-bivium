@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerTitle {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.headerNavigation {
+  display: flex;
+}
+
+.headerNavigationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+}
+
+.headerNavigationButton.headerNavigationButton_disabled svg path {
+  fill: none;
+  stroke: currentColor;
+}
+
+.carousel {
+  margin-top: 40px;
+  overflow-x: hidden;
+}
+
+.carouselWrapper {
+  display: flex;
+}
+
+.carouselSlide {
+  flex-shrink: 0;
+}

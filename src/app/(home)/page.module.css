@@ -1,29 +1,19 @@
 .wrapper {
-  padding-bottom: 40px;
+  padding-bottom: 45px;
+}
+
+.catalog {
+  margin-top: 40px;
+}
+
+.banner {
+  margin-top: 70px;
 }
 
 .ambassadorsProducts {
-  margin-top: 75px;
-}
-
-.deliveryInformation {
   margin-top: 60px;
 }
 
-@media (--tablet-media) {
-  .wrapper {
-    padding-bottom: 35px;
-  }
-
-  .bannerAmbassadors {
-    aspect-ratio: 0.75 !important;
-  }
-
-  .ambassadorsProducts {
-    margin-top: 40px;
-  }
-
-  .deliveryInformation {
-    margin-top: 30px;
-  }
+.news {
+  margin-top: 55px;
 }

@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  column-gap: 5px;
+  width: fit-content;
+}
+
+.color {
+  position: relative;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid transparent;
+  border-radius: 100%;
+
+  --color-background: transparent;
+}
+
+.color::before {
+  position: absolute;
+  content: '';
+
+  top: 50%;
+  right: 50%;
+
+  width: 24px;
+  height: 24px;
+
+  translate: 50% -50%;
+  border-radius: 100%;
+
+  background-color: var(--color-background);
+}
+
+.color.selected {
+  border-color: #000;
+}
