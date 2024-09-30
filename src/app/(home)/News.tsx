@@ -49,15 +49,17 @@ const News: FC<Props> = ({ className }) => {
         spaceBetween={isTouch ? 0 : 10}
         allowTouchMove={isTouch}
         onInit={swiper => {
-          swiper.params.navigation = {
-            enabled: true,
-            prevEl: previousButtonRef.current,
-            nextEl: nextButtonRef.current,
-            disabledClass: styles.navigationButton_disabled
-          };
+          setTimeout(() => {
+            swiper.params.navigation = {
+              enabled: true,
+              prevEl: previousButtonRef.current,
+              nextEl: nextButtonRef.current,
+              disabledClass: styles.navigationButton_disabled
+            };
 
-          swiper.navigation.init();
-          swiper.navigation.update();
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }, 1000);
         }}
       >
         <SwiperSlide className={styles.carouselSlide}>
