@@ -60,15 +60,17 @@ const AmbassadorsProducts: FC<Props> = ({ className }) => {
         spaceBetween={isMobile ? 0 : 50}
         allowTouchMove={isTablet || isMobile}
         onInit={swiper => {
-          swiper.params.navigation = {
-            enabled: true,
-            prevEl: previousButtonRef.current,
-            nextEl: nextButtonRef.current,
-            disabledClass: styles.navigationButton_disabled
-          };
+          setTimeout(() => {
+            swiper.params.navigation = {
+              enabled: true,
+              prevEl: previousButtonRef.current,
+              nextEl: nextButtonRef.current,
+              disabledClass: styles.navigationButton_disabled
+            };
 
-          swiper.navigation.init();
-          swiper.navigation.update();
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }, 1000);
         }}
       >
         <SwiperSlide className={styles.carouselSlide}>
