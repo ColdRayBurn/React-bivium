@@ -23,12 +23,13 @@
   height: 30px;
 }
 
-.headerNavigationButton.headerNavigationButton_disabled svg path {
+.navigationButton_disabled svg path {
   fill: none;
   stroke: currentColor;
 }
 
 .carousel {
+  position: relative;
   margin-top: 40px;
   overflow-x: hidden;
 }
@@ -39,4 +40,45 @@
 
 .carouselSlide {
   flex-shrink: 0;
+}
+
+.carouselNavigation {
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  translate: 0 -50%;
+  pointer-events: none;
+}
+
+.carouselNavigationButton {
+  padding: 10px;
+  background-color: #fff;
+  pointer-events: all;
+}
+
+@media (--mobile-media) {
+  .wrapper {
+    padding-inline: 0;
+  }
+
+  .headerTitle {
+    font-size: 21px;
+    font-weight: 600;
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+
+  .headerNavigation {
+    display: none;
+  }
+
+  .carouselSlide {
+    max-width: 100%;
+  }
 }

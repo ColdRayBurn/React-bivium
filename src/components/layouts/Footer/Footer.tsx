@@ -2,7 +2,6 @@ import { FC } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-import PhoneIcon from '@icons/phone.svg';
 import InstagramIcon from '@icons/instagram.svg';
 import TelegramIcon from '@icons/telegram.svg';
 import VKIcon from '@icons/vk.svg';
@@ -33,18 +32,11 @@ const Footer: FC = async () => {
             <h2 className={styles.blockTitle}>Обратная связь</h2>
             <h4 className={styles.blockSubtitle}>
               <a className={styles.phonenumberLink} href={`tel:${meta.feedback.phone}`}>
-                <PhoneIcon />
                 {formatPhoneNumber(meta.feedback.phone)}
               </a>
             </h4>
             <div className={styles.blockBody}>
-              <ClientPopupButton
-                buttonText='Связаться с нами'
-                formTitle='Связаться с нами'
-                submitButtonText='Отправить'
-                cancelButtonText='Отменить'
-                apiEndpoint='feedback/contact-us/'
-              />
+              <div className={styles.divider}></div>
             </div>
           </div>
           <div className={styles.block}>
@@ -59,9 +51,11 @@ const Footer: FC = async () => {
                 >
                   <InstagramIcon />
                 </a>
+                <div className={styles.divider}></div>
                 <a href='https://t.me/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <TelegramIcon />
                 </a>
+                <div className={styles.divider}></div>
                 <a href='https://vk.com/bivium_sw' target='_blank' rel='noopener noreferrer'>
                   <VKIcon />
                 </a>
@@ -69,7 +63,7 @@ const Footer: FC = async () => {
             </div>
           </div>
           <div className={styles.block}>
-            <h2 className={styles.blockTitle}>Удобная оплата</h2>
+            <h2 className={styles.blockTitle}>Способы оплаты</h2>
             <h4 className={styles.blockSubtitle}>{meta.paymentInformation.text}</h4>
             <div className={styles.blockBody}>
               <div className={styles.paymentMethods}>

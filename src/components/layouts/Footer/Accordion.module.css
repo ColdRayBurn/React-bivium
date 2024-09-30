@@ -6,11 +6,12 @@
 }
 
 .buttonText {
-  font-family: var(--font-fira-sans-extra-condensed), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
+
   font-size: 26px;
+  font-weight: 600;
 
   text-transform: uppercase;
-  letter-spacing: 5px;
 }
 
 .buttonIcon {

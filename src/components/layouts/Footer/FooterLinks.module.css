@@ -12,7 +12,9 @@
 
   font-family: var(--font-montserrat), sans-serif;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 600;
+
+  color: #f4f4f4;
 }
 
 .item + .item {

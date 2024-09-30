@@ -2,6 +2,8 @@
 
 import { FC, useRef } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { useMediaQuery } from 'react-responsive';
 import classNames from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,7 +19,10 @@ interface Props {
   className?: string;
 }
 
+const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
+
 const News: FC<Props> = ({ className }) => {
+  const isTouch = useMediaQuery({ maxWidth: 1280 });
   const previousButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -25,28 +30,30 @@ const News: FC<Props> = ({ className }) => {
     <section className={classNames(className, styles.wrapper, 'container')}>
       <div className={styles.header}>
         <h2 className={styles.headerTitle}>Новости и мероприятия</h2>
-        <div className={styles.headerNavigation}>
-          <button ref={previousButtonRef} className={classNames(styles.headerNavigationButton)} type='button'>
-            <ArrowLeftSmIcon />
-          </button>
-          <button ref={nextButtonRef} className={classNames(styles.headerNavigationButton)} type='button'>
-            <ArrowRightSmIcon />
-          </button>
-        </div>
+        <MediaQuery minWidth={768}>
+          <div className={styles.headerNavigation}>
+            <button ref={previousButtonRef} className={classNames(styles.headerNavigationButton)} type='button'>
+              <ArrowLeftSmIcon />
+            </button>
+            <button ref={nextButtonRef} className={classNames(styles.headerNavigationButton)} type='button'>
+              <ArrowRightSmIcon />
+            </button>
+          </div>
+        </MediaQuery>
       </div>
       <Swiper
         className={styles.carousel}
         modules={[Navigation]}
         wrapperClass={styles.carouselWrapper}
-        slidesPerView={2}
-        spaceBetween={10}
-        allowTouchMove={false}
+        slidesPerView={isTouch ? 1 : 2}
+        spaceBetween={isTouch ? 0 : 10}
+        allowTouchMove={isTouch}
         onInit={swiper => {
           swiper.params.navigation = {
             enabled: true,
             prevEl: previousButtonRef.current,
             nextEl: nextButtonRef.current,
-            disabledClass: styles.headerNavigationButton_disabled
+            disabledClass: styles.navigationButton_disabled
           };
 
           swiper.navigation.init();
@@ -122,6 +129,16 @@ const News: FC<Props> = ({ className }) => {
             </button>
           </Link>
         </SwiperSlide>
+        <MediaQuery maxWidth={767}>
+          <div className={styles.carouselNavigation}>
+            <button ref={previousButtonRef} className={classNames(styles.carouselNavigationButton)} type='button'>
+              <ArrowLeftSmIcon />
+            </button>
+            <button ref={nextButtonRef} className={classNames(styles.carouselNavigationButton)} type='button'>
+              <ArrowRightSmIcon />
+            </button>
+          </div>
+        </MediaQuery>
       </Swiper>
     </section>
   );

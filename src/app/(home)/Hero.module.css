@@ -52,3 +52,39 @@
   border-radius: 9999px;
   border: 1px solid #fff;
 }
+
+@media (--tablet-media) {
+  .logotype {
+    bottom: 230px;
+  }
+
+  .logotype__icon {
+    visibility: hidden;
+  }
+
+  .text {
+    right: 35px;
+    bottom: 70px;
+  }
+}
+
+@media (--mobile-media) {
+  .logotype {
+    bottom: 50%;
+    translate: 50% 50%;
+  }
+
+  .logotype__icon {
+    visibility: visible;
+  }
+
+  .text {
+    padding-inline: 30px;
+
+    width: 100%;
+    max-width: none;
+
+    right: 0;
+    bottom: 70px;
+  }
+}

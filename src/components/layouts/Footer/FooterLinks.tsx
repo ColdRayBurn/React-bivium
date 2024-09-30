@@ -20,25 +20,25 @@ const FooterLinks: FC = () => {
           <div className={footerStyles.links}>
             <div className={footerStyles.linksTitle}>Помощь</div>
             <div className={footerStyles.linksWrapper}>
-              <Link className={footerStyles.linksItem} href='/contacts'>
+              <Link className={footerLinksStyles.item} href='/contacts'>
                 Контакты
               </Link>
-              <Link className={footerStyles.linksItem} href='/sizes'>
+              <Link className={footerLinksStyles.item} href='/sizes'>
                 Размерная таблица
               </Link>
-              <Link className={footerStyles.linksItem} href='/payment'>
+              <Link className={footerLinksStyles.item} href='/payment'>
                 Оплата товара
               </Link>
-              <Link className={footerStyles.linksItem} href='/delivery'>
+              <Link className={footerLinksStyles.item} href='/delivery'>
                 Условия доставки
               </Link>
-              <Link className={footerStyles.linksItem} href='/return'>
+              <Link className={footerLinksStyles.item} href='/return'>
                 Возврат товара
               </Link>
-              <Link className={footerStyles.linksItem} href='/care'>
+              <Link className={footerLinksStyles.item} href='/care'>
                 Знаки и уход за товарами
               </Link>
-              <Link className={footerStyles.linksItem} href=''>
+              <Link className={footerLinksStyles.item} href=''>
                 Акции
               </Link>
             </div>
@@ -46,28 +46,28 @@ const FooterLinks: FC = () => {
           <div className={footerStyles.links}>
             <div className={footerStyles.linksTitle}>О компании</div>
             <div className={footerStyles.linksWrapper}>
-              <Link className={footerStyles.linksItem} href='/news'>
+              <Link className={footerLinksStyles.item} href='/news'>
                 Новости
               </Link>
-              <Link className={footerStyles.linksItem} href=''>
+              <Link className={footerLinksStyles.item} href=''>
                 Команда
               </Link>
-              <Link className={footerStyles.linksItem} href='/manufacturing'>
+              <Link className={footerLinksStyles.item} href='/manufacturing'>
                 О производстве
               </Link>
-              <Link className={footerStyles.linksItem} href='/certificates'>
+              <Link className={footerLinksStyles.item} href='/certificates'>
                 Сертификаты
               </Link>
-              <Link className={footerStyles.linksItem} href='/vacancies'>
+              <Link className={footerLinksStyles.item} href='/vacancies'>
                 Вакансии
               </Link>
-              <Link className={footerStyles.linksItem} href='/contacts'>
+              <Link className={footerLinksStyles.item} href='/contacts'>
                 Магазины
               </Link>
-              <Link className={footerStyles.linksItem} href='/public-offer'>
+              <Link className={footerLinksStyles.item} href='/public-offer'>
                 Публичная оферта
               </Link>
-              <Link className={footerStyles.linksItem} href='/privacy-policy'>
+              <Link className={footerLinksStyles.item} href='/privacy-policy'>
                 Политика конфиденциальности
               </Link>
             </div>
@@ -75,16 +75,16 @@ const FooterLinks: FC = () => {
           <div className={footerStyles.links}>
             <div className={footerStyles.linksTitle}>Сотрудничество</div>
             <div className={footerStyles.linksWrapper}>
-              <Link className={footerStyles.linksItem} href='/conditions'>
+              <Link className={footerLinksStyles.item} href='/conditions'>
                 Условия сотрудничества для оптовых покупателей
               </Link>
-              <Link className={footerStyles.linksItem} href='/ambassadors'>
+              <Link className={footerLinksStyles.item} href='/ambassadors'>
                 Стать амбасадором или представителем бренда
               </Link>
-              <Link className={footerStyles.linksItem} href='/testers'>
+              <Link className={footerLinksStyles.item} href='/testers'>
                 Стать тестировщиком
               </Link>
-              <Link className={footerStyles.linksItem} href=''>
+              <Link className={footerLinksStyles.item} href=''>
                 Команда бренда
               </Link>
             </div>
@@ -94,59 +94,59 @@ const FooterLinks: FC = () => {
       <MediaQuery maxWidth={1280}>
         <div className={footerLinksStyles.wrapper}>
           <Accordion buttonText='О компании'>
-            <Link className={footerStyles.linksItem} href='/about-company'>
+            <Link className={footerLinksStyles.item} href='/about-company'>
               О бренде
             </Link>
-            <Link className={footerStyles.linksItem} href='/manufacturing'>
+            <Link className={footerLinksStyles.item} href='/manufacturing'>
               О производстве
             </Link>
-            <Link className={footerStyles.linksItem} href='/certificates'>
+            <Link className={footerLinksStyles.item} href='/certificates'>
               Сертификаты
             </Link>
-            <Link className={footerStyles.linksItem} href='/vacancies'>
+            <Link className={footerLinksStyles.item} href='/vacancies'>
               Вакансии
             </Link>
-            <Link className={footerStyles.linksItem} href='/contacts'>
+            <Link className={footerLinksStyles.item} href='/contacts'>
               Магазины
             </Link>
-            <Link className={footerStyles.linksItem} href='/public-offer'>
+            <Link className={footerLinksStyles.item} href='/public-offer'>
               Публичная оферта
             </Link>
-            <Link className={footerStyles.linksItem} href='/privacy-policy'>
+            <Link className={footerLinksStyles.item} href='/privacy-policy'>
               Политика конфиденциальности
             </Link>
           </Accordion>
           <Accordion buttonText='Помощь'>
-            <Link className={footerStyles.linksItem} href='/contacts'>
+            <Link className={footerLinksStyles.item} href='/contacts'>
               Контакты
             </Link>
-            <Link className={footerStyles.linksItem} href='/sizes'>
+            <Link className={footerLinksStyles.item} href='/sizes'>
               Размерная таблица
             </Link>
-            <Link className={footerStyles.linksItem} href='/payment'>
+            <Link className={footerLinksStyles.item} href='/payment'>
               Оплата товара
             </Link>
-            <Link className={footerStyles.linksItem} href='/delivery'>
+            <Link className={footerLinksStyles.item} href='/delivery'>
               Условия доставки
             </Link>
-            <Link className={footerStyles.linksItem} href='/return'>
+            <Link className={footerLinksStyles.item} href='/return'>
               Возврат товара
             </Link>
-            <Link className={footerStyles.linksItem} href='/care'>
+            <Link className={footerLinksStyles.item} href='/care'>
               Знаки и уход за товарами
             </Link>
           </Accordion>
           <Accordion buttonText='Сотрудничество'>
-            <Link className={footerStyles.linksItem} href='/conditions'>
+            <Link className={footerLinksStyles.item} href='/conditions'>
               Условия сотрудничества для оптовых покупателей
             </Link>
-            <Link className={footerStyles.linksItem} href='/ambassadors'>
+            <Link className={footerLinksStyles.item} href='/ambassadors'>
               Стать амбасадором или представителем бренда
             </Link>
-            <Link className={footerStyles.linksItem} href='/testers'>
+            <Link className={footerLinksStyles.item} href='/testers'>
               Стать тестировщиком
             </Link>
-            <Link className={footerStyles.linksItem} href=''>
+            <Link className={footerLinksStyles.item} href=''>
               Команда бренда
             </Link>
           </Accordion>

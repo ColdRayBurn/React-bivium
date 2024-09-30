@@ -69,3 +69,27 @@
 .colorpicker {
   margin: 10px auto 0 auto;
 }
+
+@media (--tablet-media) {
+  .wrapper {
+    max-width: 300px;
+  }
+
+  .productImage {
+    aspect-ratio: 2;
+  }
+}
+
+@media (--mobile-media) {
+  .wrapper {
+    max-width: none;
+  }
+
+  .ambassadorImage {
+    margin-left: auto;
+  }
+
+  .ambassadorBody {
+    margin-inline: auto;
+  }
+}

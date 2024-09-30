@@ -17,3 +17,23 @@
 .news {
   margin-top: 55px;
 }
+
+@media (--tablet-media) {
+  .banner {
+    margin-top: 40px;
+  }
+
+  .ambassadorsProducts {
+    margin-top: 50px;
+  }
+
+  .news {
+    margin-top: 40px;
+  }
+}
+
+@media (--mobile-media) {
+  .ambassadorsProducts {
+    margin-top: 45px;
+  }
+}
