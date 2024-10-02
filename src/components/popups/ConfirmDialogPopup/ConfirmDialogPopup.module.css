@@ -41,7 +41,7 @@
   justify-content: center;
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .wrapper {
     padding: 30px 20px;
     width: calc(100dvw - 50px);

@@ -20,7 +20,7 @@
   flex-basis: 100%;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     margin-top: 45px;
     max-width: 100%;

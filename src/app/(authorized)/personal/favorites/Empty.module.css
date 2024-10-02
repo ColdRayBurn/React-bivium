@@ -15,7 +15,7 @@
   font-weight: 500;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     margin-top: 75px;
     padding-bottom: 0;

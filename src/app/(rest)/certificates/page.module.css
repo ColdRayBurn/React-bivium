@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .certificates {
     column-gap: 20px;
     margin-top: 20px;

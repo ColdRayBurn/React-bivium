@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     right: 15px;
     width: calc(100% - 30px);

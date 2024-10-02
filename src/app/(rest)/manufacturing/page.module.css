@@ -4,7 +4,7 @@
   margin-block: 40px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .video {
     margin-block: 20px;
   }

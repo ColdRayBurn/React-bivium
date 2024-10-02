@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .products {
     display: flex;
   }

@@ -5,7 +5,7 @@
   padding-bottom: 60px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     display: flex;
     flex-direction: column;

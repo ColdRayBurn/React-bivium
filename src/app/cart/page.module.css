@@ -23,7 +23,7 @@
   margin-top: 90px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .container {
     padding-top: 20px;
   }

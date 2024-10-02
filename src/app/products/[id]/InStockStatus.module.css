@@ -29,7 +29,7 @@
   color: #ed0006;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     font-size: 14px;
   }

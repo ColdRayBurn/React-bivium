@@ -64,7 +64,7 @@
   font-family: var(--font-montserrat);
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .breadcrumbs {
     margin-left: 0;
     max-width: 100%;

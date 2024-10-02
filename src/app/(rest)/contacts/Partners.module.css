@@ -30,7 +30,7 @@
   gap: 30px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .cities {
     margin-top: 30px;
   }

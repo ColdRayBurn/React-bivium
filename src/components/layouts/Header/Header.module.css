@@ -1,4 +1,7 @@
-.header {
+.wrapper {
+  --color-accent-primary: #fff;
+  --color-accent-secondary: #000;
+
   position: sticky;
   z-index: 1337;
 
@@ -6,36 +9,73 @@
   right: 0;
 
   width: 100%;
-  background-color: #fff;
 
-  transition: transform 200ms ease;
+  color: var(--color-accent-primary);
+  background-color: transparent;
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease;
 }
 
-.top {
-  padding: 12.5px 50px;
+.wrapper.fixed {
+  position: fixed;
+}
 
+.wrapper.background {
+  --color-accent-primary: #000;
+  --color-accent-secondary: #fff;
+  background-color: #fff;
+}
+
+.container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  padding-block: 45px;
+}
 
-  border-bottom: 1px solid #3d4143;
+.hamburgerMenuButton svg {
+  width: 36px;
+}
+
+.navigation {
+  display: flex;
+  column-gap: 30px;
+  margin-left: 30px;
+}
+
+.navigationItem {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.firstLogotype svg {
+  height: 50px;
 }
 
 .logotype {
-  font-size: 72px;
-  font-weight: 900;
-  letter-spacing: 8px;
-  text-transform: uppercase;
-  translate: 36px 0;
+  position: absolute;
+  right: 50%;
+  translate: 50% 0;
+}
+
+.logotype svg {
+  width: 160px;
 }
 
 .controls {
   display: flex;
   column-gap: 15px;
+  margin-left: auto;
 }
 
 .control {
   position: relative;
+}
+
+.control svg {
+  width: 20px;
+  height: 20px;
 }
 
 .control[data-amount]::after {
@@ -56,38 +96,38 @@
   font-weight: 500;
   line-height: 1;
 
-  color: #fff;
-  background-color: #000;
+  color: var(--color-accent-secondary);
+  background-color: var(--color-accent-primary);
 
   border-radius: 100%;
-  translate: 25% -25%;
+  translate: 35% -25%;
 }
 
-.navigation {
-  display: flex;
-  justify-content: center;
-  column-gap: 30px;
-}
-
-.navigationItem {
-  padding-block: 15px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #3d4143;
-}
-
-.navigationItem.active {
-  color: #000000;
-  border-bottom: 4px solid #000;
-}
-
-@media (--tablet-media) {
-  .top {
-    padding: 20px 30px;
-    border-bottom: none;
+@media (--media-tablet) {
+  .container {
+    padding-block: 20px;
   }
 
   .navigation {
+    display: none;
+  }
+
+  .controls,
+  .hamburgerMenuButton {
+    align-self: flex-start;
+  }
+
+  .hamburgerMenuButton {
+    margin-left: 15px;
+  }
+
+  .hamburgerMenuButton svg {
+    height: 20px;
+  }
+}
+
+@media (--media-mobile) {
+  .logotype {
     display: none;
   }
 }

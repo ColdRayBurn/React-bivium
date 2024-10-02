@@ -43,7 +43,7 @@
   display: none;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .sizeButton {
     width: 60px;
     font-size: 23px;

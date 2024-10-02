@@ -73,7 +73,7 @@
   margin-top: 60px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .orderDetails {
     flex-direction: column;
   }

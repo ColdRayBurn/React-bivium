@@ -191,7 +191,7 @@
   margin-top: 10px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     top: 15%;
   }

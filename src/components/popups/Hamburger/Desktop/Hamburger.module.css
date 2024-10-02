@@ -76,7 +76,7 @@
   column-gap: 10px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .menu {
     padding: 30px 35px;
 

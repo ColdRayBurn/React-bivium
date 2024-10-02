@@ -10,33 +10,50 @@ export interface IAuthResponse {
 }
 
 export interface IMetaHomepageResponse {
-  heroCarousel: {
+  hero: {
+    button: {
+      text: string;
+      url: string;
+    };
     picture: string;
-    pictureMobile: string | null;
-  };
-  banner: {
-    name: string;
-    picture: string;
-    pictureMobile: string;
-  };
-  thirdBanner: {
-    name: string;
-    picture: string;
-    pictureMobile: string;
-  };
-  lookBooks: {
-    name: string;
-    picture: string;
-    pictureMobile: string;
-    topText: string;
-    bottomText: string;
-    link: string;
-  }[];
-  description: {
-    name: string;
     text: string;
-    title: string;
   };
+  catalog: {
+    title: string;
+    badge: string;
+    pictureUrl: string;
+    url: string;
+  }[];
+  banner: {
+    title: string;
+    button: {
+      text: string;
+      url: string;
+    };
+    description: string;
+    pictureUrl: string;
+    mobilePictureUrl: string;
+  };
+  ambassadorsProducts: {
+    ambassador: {
+      name: string;
+      comment: string;
+      picture: string;
+    };
+    product: {
+      id: number;
+      name: string;
+      price: number;
+      images: string[];
+    };
+  }[];
+  news: {
+    id: number;
+    name: string;
+    date: number;
+    description: string;
+    image: string;
+  }[];
 }
 
 export interface IMetaContactspageResponse {

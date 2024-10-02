@@ -31,14 +31,14 @@
   background-color: #fff;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     grid-template-columns: 1fr;
     padding-inline: 0;
   }
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .card {
     display: flex;
     align-items: center;

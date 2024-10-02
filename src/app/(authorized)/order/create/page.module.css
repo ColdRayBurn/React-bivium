@@ -15,7 +15,7 @@
   margin-top: 5px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .content {
     flex-direction: column;
     row-gap: 10px;

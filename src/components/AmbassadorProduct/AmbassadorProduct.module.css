@@ -70,7 +70,7 @@
   margin: 10px auto 0 auto;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     max-width: 300px;
   }
@@ -80,7 +80,7 @@
   }
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .wrapper {
     max-width: none;
   }

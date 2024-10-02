@@ -5,7 +5,7 @@
   aspect-ratio: 3;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     padding-block: 50px;
     aspect-ratio: 1;

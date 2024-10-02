@@ -51,7 +51,7 @@
   margin-top: 100px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .container {
     margin-top: 10px;
     padding-bottom: 0;

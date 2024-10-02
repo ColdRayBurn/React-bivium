@@ -18,7 +18,7 @@
   margin-top: 55px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .banner {
     margin-top: 40px;
   }
@@ -32,7 +32,7 @@
   }
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .ambassadorsProducts {
     margin-top: 45px;
   }

@@ -1,8 +1,6 @@
 .title {
-  font-family: var(--font-montserrat), sans-serif;
   font-size: 40px;
   font-weight: 500;
-  color: #000;
 }
 
 .image {
@@ -28,7 +26,6 @@
 }
 
 .imageTitleBodyText {
-  font-family: var(--font-montserrat), sans-serif;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
@@ -44,10 +41,8 @@
   margin-top: 20px;
   padding: 5px 15px;
 
-  font-family: var(--font-montserrat), sans-serif;
   font-size: 21px;
   font-weight: 500;
-
   color: #fff;
 
   border: 1px solid #fff;
@@ -61,20 +56,18 @@
   right: 30px;
   bottom: 50px;
 
-  font-family: var(--font-montserrat), sans-serif;
   font-size: 24px;
   font-weight: 600;
-
   color: #fff;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     padding-inline: 0;
   }
 
   .title {
-    padding-inline: var(--container-padding);
+    padding-inline: var(--page-padding);
   }
 
   .image {
@@ -83,15 +76,17 @@
   }
 
   .imageDescription {
-    max-width: none;
-    font-size: 32px;
     left: 0;
+
     width: 100%;
+    max-width: none;
+
+    font-size: 32px;
     padding-inline: 20px;
   }
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .title {
     font-size: 24px;
     font-weight: 600;

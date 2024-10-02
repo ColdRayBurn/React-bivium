@@ -26,7 +26,7 @@
   overflow-y: auto;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .button {
     padding: 0;
     border: none;

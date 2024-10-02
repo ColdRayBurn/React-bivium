@@ -24,7 +24,7 @@
   background-color: #dadada;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .button:not(.buttonDropdownItem) {
     padding: 0;
     border: none;

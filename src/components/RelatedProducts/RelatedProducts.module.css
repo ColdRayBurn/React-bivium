@@ -51,7 +51,7 @@
   width: 100% !important;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .title {
     font-size: 16px;
     font-weight: 600;

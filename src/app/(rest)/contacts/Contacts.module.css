@@ -48,7 +48,7 @@
   object-fit: cover;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .image {
     display: none;
   }

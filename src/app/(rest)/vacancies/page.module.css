@@ -77,7 +77,7 @@
   color: #979797;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .contactsItems {
     flex-direction: column;
     row-gap: 25px;

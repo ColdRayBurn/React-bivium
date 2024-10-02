@@ -101,7 +101,7 @@
   justify-content: center;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .phonenumberForm {
     grid-template-columns: 1fr;
   }

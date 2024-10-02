@@ -33,7 +33,7 @@
   margin-top: 60px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     padding-block: 20px;
   }

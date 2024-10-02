@@ -8,19 +8,24 @@ import classNames from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
+import AmbassadorProduct from '@/components/AmbassadorProduct/AmbassadorProduct';
+
 import ArrowLeftSmIcon from '@icons/arrow-left-sm.svg';
 import ArrowRightSmIcon from '@icons/arrow-right-sm.svg';
 
-import AmbassadorProduct from '@/components/AmbassadorProduct/AmbassadorProduct';
+import { formatUrl } from '@/utils/formatUrl';
+import { IMetaHomepageResponse } from '@/api/models';
+
 import styles from './AmbassadorsProducts.module.css';
 
 interface Props {
+  ambassadorsProducts: IMetaHomepageResponse['ambassadorsProducts'];
   className?: string;
 }
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const AmbassadorsProducts: FC<Props> = ({ className }) => {
+const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
   const isTablet = useMediaQuery({ maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -73,21 +78,11 @@ const AmbassadorsProducts: FC<Props> = ({ className }) => {
           }, 1000);
         }}
       >
-        <SwiperSlide className={styles.carouselSlide}>
-          <AmbassadorProduct />
-        </SwiperSlide>
-        <SwiperSlide className={styles.carouselSlide}>
-          <AmbassadorProduct />
-        </SwiperSlide>
-        <SwiperSlide className={styles.carouselSlide}>
-          <AmbassadorProduct />
-        </SwiperSlide>
-        <SwiperSlide className={styles.carouselSlide}>
-          <AmbassadorProduct />
-        </SwiperSlide>
-        <SwiperSlide className={styles.carouselSlide}>
-          <AmbassadorProduct />
-        </SwiperSlide>
+        {ambassadorsProducts.map((product, productIndex) => (
+          <SwiperSlide key={productIndex} className={styles.carouselSlide}>
+            <AmbassadorProduct product={product} />
+          </SwiperSlide>
+        ))}
         <MediaQuery maxWidth={767}>
           <div className={styles.carouselNavigation}>
             <button ref={previousButtonRef} className={classNames(styles.carouselNavigationButton)} type='button'>

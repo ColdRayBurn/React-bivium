@@ -11,7 +11,7 @@
   margin-top: 115px;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     padding-bottom: 45px;
   }

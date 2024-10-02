@@ -64,7 +64,7 @@
   text-decoration: underline;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     justify-content: center;
   }

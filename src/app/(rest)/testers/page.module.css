@@ -16,7 +16,7 @@
   width: 40%;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .button {
     justify-content: center;
     margin-top: 20px;

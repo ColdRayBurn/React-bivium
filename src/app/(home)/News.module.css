@@ -23,6 +23,11 @@
   height: 30px;
 }
 
+.headerNavigationButton svg {
+  width: 18px;
+  height: 18px;
+}
+
 .navigationButton_disabled svg path {
   fill: none;
   stroke: currentColor;
@@ -132,13 +137,18 @@
   pointer-events: all;
 }
 
-@media (--tablet-media) {
+.carouselNavigationButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (--media-tablet) {
   .carousel {
     margin-top: 20px;
   }
 }
 
-@media (--mobile-media) {
+@media (--media-mobile) {
   .wrapper {
     padding-inline: 0;
   }

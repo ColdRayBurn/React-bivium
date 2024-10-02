@@ -1,6 +1,8 @@
 'use client';
 
 import { FC, useRef, useEffect, useState } from 'react';
+import classNames from 'classnames';
+
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -10,11 +12,11 @@ import HeaderMobileSearch from './HeaderMobileSearch/HeaderMobileSearch';
 import Hamburger from '@/components/popups/Hamburger/Desktop/Hamburger';
 
 import HamburgerIcon from '@icons/hamburger.svg';
+import LogotypeIcon from '@icons/logotype.svg';
 import BiviumIcon from '@icons/bivium.svg';
 import HeartIcon from '@icons/heart.svg';
-import BagIcon from '@icons/bag.svg';
+import BasketIcon from '@icons/basket.svg';
 import UserIcon from '@icons/user.svg';
-import HeaderIcon from '@icons/header-logo.svg';
 
 import { useAppSelector } from '@/redux/hooks';
 
@@ -33,31 +35,27 @@ const Header: FC = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-
-  const getCategoryFromPath = (path: string): string | null => {
-    if (path.startsWith('/catalog/equipment')) return 'Экипировка';
-    if (path.startsWith('/catalog/clothing')) return 'Одежда';
-    if (path.startsWith('/catalog/accessories')) return 'Аксессуары';
-    if (path.startsWith('/catalog')) return 'Новинки';
-    return null;
-  };
-
   useEffect(() => {
-    const onLoad = () => {
-      document.styleSheets[0].insertRule(`
-        :root {
-          --header-height: ${getComputedStyle(headerRef.current!).height}
-        }
-      `);
+    const header = headerRef.current!;
+
+    const onScroll = () => {
+      header.classList.toggle(styles.background, window.scrollY > 0);
     };
 
-    window.addEventListener('load', onLoad);
-    return () => window.removeEventListener('load', onLoad);
-  }, []);
+    if (pathname === '/') {
+      header.classList.toggle(styles.fixed, true);
+      header.classList.toggle(styles.background, window.scrollY > 0);
+      window.addEventListener('scroll', onScroll);
+    } else {
+      header.classList.toggle(styles.fixed, false);
+      header.classList.toggle(styles.background, true);
+    }
 
-  useEffect(() => {
-    setActiveCategory(getCategoryFromPath(pathname));
+    return () => {
+      if (pathname === '/') {
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
   }, [pathname]);
 
   const onSearchSubmit = (query: string) => {
@@ -66,18 +64,34 @@ const Header: FC = () => {
 
   return (
     <>
-      <header ref={headerRef} className={styles.header}>
-        <div className={styles.top}>
-          <button className={styles.hamburgerMenuButton} type='button' onClick={() => setIsHamburgerOpen(true)}>
-            <HamburgerIcon />
-          </button>
+      <header ref={headerRef} className={styles.wrapper}>
+        <div className={classNames(styles.container, 'container')}>
+          <MediaQuery minWidth={1920}>
+            <button className={styles.hamburgerMenuButton} type='button' onClick={() => setIsHamburgerOpen(true)}>
+              <HamburgerIcon />
+            </button>
+          </MediaQuery>
+          <MediaQuery maxWidth={1919}>
+            <Link className={styles.firstLogotype} href='/'>
+              <LogotypeIcon />
+            </Link>
+          </MediaQuery>
+          <div className={styles.navigation}>
+            <Link className={styles.navigationItem} href='/catalog'>
+              Новинки
+            </Link>
+            <Link className={styles.navigationItem} href='/catalog/equipment'>
+              Экипировка
+            </Link>
+            <Link className={styles.navigationItem} href='/catalog/clothing'>
+              Одежда
+            </Link>
+            <Link className={styles.navigationItem} href='/catalog/accessories'>
+              Аксессуары
+            </Link>
+          </div>
           <Link className={styles.logotype} href='/'>
-            <MediaQuery minWidth={1281}>
-              <HeaderIcon />
-            </MediaQuery>
-            <MediaQuery maxWidth={1280}>
-              <BiviumIcon />
-            </MediaQuery>
+            <BiviumIcon />
           </Link>
           <div className={styles.controls}>
             <MediaQuery minWidth={1281}>
@@ -86,54 +100,33 @@ const Header: FC = () => {
             <MediaQuery maxWidth={1280}>
               <HeaderMobileSearch onSubmit={onSearchSubmit} />
             </MediaQuery>
-            <Link
-              className={styles.control}
-              href={isAuthorized ? '/personal/favorites' : '/signin'}
-              data-amount={favorites.length ? favorites.length : undefined}
-            >
-              <HeartIcon />
-            </Link>
+            <MediaQuery minWidth={1920}>
+              <Link
+                className={styles.control}
+                href={isAuthorized ? '/personal/favorites' : '/signin'}
+                data-amount={favorites.length > 0 ? favorites.length : undefined}
+              >
+                <HeartIcon />
+              </Link>
+            </MediaQuery>
             <Link
               className={styles.control}
               href='/cart'
               data-amount={!!cart.products.length ? cart.products.length : undefined}
             >
-              <BagIcon />
+              <BasketIcon />
             </Link>
-            <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
-              <UserIcon />
-            </Link>
+            <MediaQuery minWidth={1920}>
+              <Link className={styles.control} href={isAuthorized ? '/personal' : '/signin'}>
+                <UserIcon />
+              </Link>
+            </MediaQuery>
           </div>
-        </div>
-        <div className={styles.navigation}>
-          <Link
-            className={`${styles.navigationItem} ${activeCategory === 'Новинки' ? styles.active : ''}`}
-            href='/catalog'
-            onClick={() => setActiveCategory('Новинки')}
-          >
-            Новинки
-          </Link>
-          <Link
-            className={`${styles.navigationItem} ${activeCategory === 'Экипировка' ? styles.active : ''}`}
-            href='/catalog/equipment'
-            onClick={() => setActiveCategory('Экипировка')}
-          >
-            Экипировка
-          </Link>
-          <Link
-            className={`${styles.navigationItem} ${activeCategory === 'Одежда' ? styles.active : ''}`}
-            href='/catalog/clothing'
-            onClick={() => setActiveCategory('Одежда')}
-          >
-            Одежда
-          </Link>
-          <Link
-            className={`${styles.navigationItem} ${activeCategory === 'Аксессуары' ? styles.active : ''}`}
-            href='/catalog/accessories'
-            onClick={() => setActiveCategory('Аксессуары')}
-          >
-            Аксессуары
-          </Link>
+          <MediaQuery maxWidth={1919}>
+            <button className={styles.hamburgerMenuButton} type='button' onClick={() => setIsHamburgerOpen(true)}>
+              <HamburgerIcon />
+            </button>
+          </MediaQuery>
         </div>
       </header>
       <Hamburger isOpened={isHamburgerOpen} onClose={() => setIsHamburgerOpen(false)} />

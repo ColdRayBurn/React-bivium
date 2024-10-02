@@ -44,7 +44,7 @@
   border-color: #dadada !important;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .image {
     aspect-ratio: 1;
   }

@@ -48,7 +48,7 @@
   margin-inline: auto;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .header {
     align-items: initial;
     flex-direction: column;

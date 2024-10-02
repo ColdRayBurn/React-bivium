@@ -53,6 +53,11 @@
   column-gap: 20px;
 }
 
+.socialIcons svg {
+  width: 30px;
+  height: 30px;
+}
+
 .paymentMethods {
   display: flex;
   column-gap: 10px;
@@ -68,6 +73,11 @@
 
   border-radius: 6px;
   background-color: #fff;
+}
+
+.paymentMethod svg {
+  width: 50%;
+  height: 50%;
 }
 
 .links {
@@ -125,7 +135,7 @@
   background-color: #fe2e00;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .row:first-child {
     grid-template-columns: 1fr;
     row-gap: 40px;

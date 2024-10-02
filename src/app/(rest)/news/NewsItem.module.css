@@ -82,7 +82,7 @@
   width: 100%;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .newsItem {
     display: block;
     align-items: center;

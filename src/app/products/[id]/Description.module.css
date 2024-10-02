@@ -15,7 +15,7 @@
   color: #3d4143;
 }
 
-@media (--tablet-media) {
+@media (--media-tablet) {
   .wrapper {
     padding-block: 40px 60px;
   }
