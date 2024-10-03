@@ -81,14 +81,11 @@ const News: FC<Props> = ({ news, className }) => {
                 <div className={styles.newsItemTitleArrow}>
                   <ArrowRightMdIcon />
                 </div>
-                <div className={styles.newsItemTitleText}>
-                  ПАША, ТУТ ЗАГОЛОВОК, А НЕ description
-                  {/* {parse(newsItem.title)} */}
-                </div>
+                <div className={styles.newsItemTitleText}>{/* {parse(newsItem.title)} */}</div>
               </div>
               <div className={styles.newsItemBadges}>
                 <div className={styles.newsItemBadgesItem}>{formatDate(dateFromUnixTime(newsItem.date), 'dd/MM')}</div>
-                <div className={styles.newsItemBadgesItem}>ПАША БЛЯДЬ, ГОРОД ГДЕ???</div>
+                <div className={styles.newsItemBadgesItem}>ГОРОД</div>
               </div>
               <button className={styles.newsItemButton} type='button'>
                 Подробнее

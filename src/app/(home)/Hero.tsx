@@ -24,13 +24,7 @@ const Hero: FC<Props> = ({ hero }) => {
 
   return (
     <div className={styles.wrapper} style={{ backgroundImage: `url(${formatUrl(hero.picture)})` }}>
-      <div className={styles.text}>
-        ПАША ОПЯТЬ НЕВНИМАТЕЛЬНО
-        <br />
-        СМОТРИТ МОИ ЭНДПОИНТЫ
-        <br />
-        ЗАЕБАЛ УЖЕ
-      </div>
+      <div className={styles.text}>1</div>
       <div className={styles.logotype}>
         <MediaQuery minWidth={768}>
           <LogotypeIcon className={styles.logotype__icon} />
