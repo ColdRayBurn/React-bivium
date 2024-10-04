@@ -81,7 +81,7 @@ const News: FC<Props> = ({ news, className }) => {
                 <div className={styles.newsItemTitleArrow}>
                   <ArrowRightMdIcon />
                 </div>
-                <div className={styles.newsItemTitleText}>{/* {parse(newsItem.title)} */}</div>
+                <div className={styles.newsItemTitleText}>{parse(newsItem.name)}</div>
               </div>
               <div className={styles.newsItemBadges}>
                 <div className={styles.newsItemBadgesItem}>{formatDate(dateFromUnixTime(newsItem.date), 'dd/MM')}</div>

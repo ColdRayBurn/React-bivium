@@ -44,7 +44,7 @@ const Banner: FC<Props> = ({ banner, className }) => {
             {banner.button.text}
           </button>
         </div>
-        <div className={styles.imageDescription}>{banner.description}</div>
+        <div className={styles.imageDescription}>{parse(banner.description)}</div>
       </div>
     </section>
   );

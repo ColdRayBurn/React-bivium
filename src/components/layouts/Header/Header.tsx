@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 import HeaderSearch from './HeaderSearch/HeaderSearch';
-import HeaderMobileSearch from './HeaderMobileSearch/HeaderMobileSearch';
 import Hamburger from '@/components/popups/Hamburger/Desktop/Hamburger';
 
 import HamburgerIcon from '@icons/hamburger.svg';
@@ -94,12 +93,7 @@ const Header: FC = () => {
             <BiviumIcon />
           </Link>
           <div className={styles.controls}>
-            <MediaQuery minWidth={1281}>
-              <HeaderSearch onSubmit={onSearchSubmit} />
-            </MediaQuery>
-            <MediaQuery maxWidth={1280}>
-              <HeaderMobileSearch onSubmit={onSearchSubmit} />
-            </MediaQuery>
+            <HeaderSearch onSubmit={onSearchSubmit} />
             <MediaQuery minWidth={1920}>
               <Link
                 className={styles.control}

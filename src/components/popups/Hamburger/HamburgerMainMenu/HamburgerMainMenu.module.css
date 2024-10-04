@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.item {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.item svg {
+  width: 14px;
+  height: 14px;
+}
+
+.divider {
+  width: 36px;
+  height: 2px;
+  background-color: currentColor;
+}

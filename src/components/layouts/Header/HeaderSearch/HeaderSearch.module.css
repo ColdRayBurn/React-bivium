@@ -1,27 +1,25 @@
 .wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .control {
   position: absolute;
   visibility: hidden;
 
-  top: 50%;
-  right: -10px;
+  padding-bottom: 3px;
+  right: 20px;
 
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 500;
 
-  padding: 15px 40px 15px 10px;
-  translate: 0 -50%;
-
-  border: 1px solid #000;
-  border-radius: 6px;
+  border-bottom: 1px solid currentColor;
 }
 
 .control::placeholder {
   opacity: 1;
-  color: #979797;
+  color: currentColor;
 }
 
 .control_expanded {
@@ -30,4 +28,15 @@
 
 .button {
   position: relative;
+}
+
+.button svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (--media-tablet) {
+  .control {
+    width: 150px;
+  }
 }

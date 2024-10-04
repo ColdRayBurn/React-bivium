@@ -1,6 +1,9 @@
 .ambassador {
   display: flex;
   justify-content: space-between;
+  width: fit-content;
+  margin-inline: auto;
+  column-gap: 30px;
 }
 
 .ambassadorImage {

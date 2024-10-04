@@ -5,6 +5,7 @@
   --page-padding: 50px;
   --page-max-width: 1920px;
   --color-text-primary: #000;
+  --color-accent-primary: #fe2e00;
 }
 
 * {
@@ -19,6 +20,7 @@
 
 html {
   box-sizing: border-box;
+  scrollbar-gutter: stable;
 }
 
 body {

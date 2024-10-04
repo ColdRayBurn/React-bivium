@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.socialIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.divider {
+  width: 36px;
+  height: 2px;
+  background-color: currentColor;
+}
+
+.phoneNumber {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--color-accent-primary);
+}
