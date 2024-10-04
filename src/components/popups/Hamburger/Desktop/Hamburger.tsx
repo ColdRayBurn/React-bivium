@@ -30,10 +30,6 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
     onClose();
   };
 
-  useEffect(() => {
-    document.body.style.overflow = isOpened ? 'hidden' : '';
-  }, [isOpened]);
-
   if (!isOpened) {
     return null;
   }

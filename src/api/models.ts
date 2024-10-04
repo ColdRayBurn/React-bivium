@@ -53,6 +53,7 @@ export interface IMetaHomepageResponse {
     date: number;
     description: string;
     image: string;
+    city: string | null;
   }[];
 }
 
