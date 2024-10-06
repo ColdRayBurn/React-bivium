@@ -13,7 +13,6 @@ import AmbassadorProduct from '@/components/AmbassadorProduct/AmbassadorProduct'
 import ArrowLeftSmIcon from '@icons/arrow-left-sm.svg';
 import ArrowRightSmIcon from '@icons/arrow-right-sm.svg';
 
-import { formatUrl } from '@/utils/formatUrl';
 import { IMetaHomepageResponse } from '@/api/models';
 
 import styles from './AmbassadorsProducts.module.css';
@@ -64,18 +63,16 @@ const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
         })()}
         spaceBetween={isMobile ? 0 : 50}
         allowTouchMove={isTablet || isMobile}
-        onInit={swiper => {
-          setTimeout(() => {
-            swiper.params.navigation = {
-              enabled: true,
-              prevEl: previousButtonRef.current,
-              nextEl: nextButtonRef.current,
-              disabledClass: styles.navigationButton_disabled
-            };
+        onBeforeInit={swiper => {
+          swiper.params.navigation = {
+            enabled: true,
+            prevEl: previousButtonRef.current,
+            nextEl: nextButtonRef.current,
+            disabledClass: styles.navigationButton_disabled
+          };
 
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }, 1000);
+          swiper.navigation.init();
+          swiper.navigation.update();
         }}
       >
         {ambassadorsProducts.map((product, productIndex) => (

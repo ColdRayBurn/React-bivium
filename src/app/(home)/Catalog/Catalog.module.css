@@ -1,0 +1,56 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.card {
+  padding: 20px;
+  aspect-ratio: 16 / 9;
+
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 600;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.card__title {
+  font-size: 24px;
+  color: #fff;
+}
+
+.card__badge {
+  padding: 2.5px 5px;
+  margin-top: 5px;
+
+  font-size: 14px;
+  width: fit-content;
+
+  color: #000;
+  background-color: #fff;
+}
+
+@media (--media-tablet) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    padding-inline: 0;
+  }
+}
+
+@media (--media-mobile) {
+  .card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card__title {
+    font-size: 21px;
+  }
+
+  .card__badge {
+    margin-top: 10px;
+  }
+}

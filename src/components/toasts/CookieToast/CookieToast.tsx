@@ -1,15 +1,14 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import classNames from 'classnames';
+import Link from 'next/link';
 
-import Button from '../ui/Button/Button';
-import CrossIcon from '@icons/cross.svg';
+import Toast from '../Toast/Toast';
 
 import styles from './CookieToast.module.css';
 
 const CookieToast: FC = () => {
-  const router = useRouter();
   const [isAccepted, setIsAccepted] = useState(!!localStorage.getItem('cookies') || false);
 
   if (isAccepted) {
@@ -17,31 +16,28 @@ const CookieToast: FC = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.title}>Cookie-файлы на сайте</div>
+    <Toast title='Cookie-файлы на сайте' onClose={() => setIsAccepted(true)}>
       <div className={styles.text}>
         Для обеспечения высокого качества обслуживания и улучшения работы нашего интернет-магазина одежды, мы используем
         файлы cookie. Cookie – это небольшие текстовые файлы, которые сохраняются на вашем устройстве и помогают нам
         узнавать вас при последующих визитах, а также анализировать ваши предпочтения и поведение на сайте.
       </div>
       <div className={styles.buttons}>
-        <Button className={styles.button} variant='default' icon={false} onClick={() => router.push('/cookies')}>
+        <Link className={styles.button} href='/cookies'>
           Подробнее
-        </Button>
-        <Button
-          className={styles.button}
-          variant='negative'
-          icon={false}
+        </Link>
+        <button
+          className={classNames(styles.button, styles.button_filled)}
+          type='button'
           onClick={() => {
             localStorage.setItem('cookies', 'true');
             setIsAccepted(true);
           }}
         >
           Принять все
-        </Button>
+        </button>
       </div>
-      <CrossIcon className={styles.closeIcon} onClick={() => setIsAccepted(true)} />
-    </div>
+    </Toast>
   );
 };
 

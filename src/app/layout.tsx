@@ -17,7 +17,11 @@ interface Props {
   children: ReactNode;
 }
 
-const CookieToast = dynamic(() => import('@/components/CookieToast/CookieToast'), {
+const CookieToast = dynamic(() => import('@/components/toasts/CookieToast/CookieToast'), {
+  ssr: false
+});
+
+const MailingToast = dynamic(() => import('@/components/toasts/MailingToast/MailingToast'), {
   ssr: false
 });
 
@@ -55,8 +59,9 @@ const RootLayout: FC<Props> = ({ children }) => {
           <Header />
           {children}
           <Footer />
+          <CookieToast />
+          <MailingToast />
         </StoreProvider>
-        <CookieToast />
       </body>
     </html>
   );

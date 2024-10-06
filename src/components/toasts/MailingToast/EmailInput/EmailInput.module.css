@@ -1,0 +1,46 @@
+.wrapper {
+  width: fit-content;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.inputWrapper {
+  margin-top: 5px;
+  padding-right: 10px;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid currentColor;
+}
+
+.control {
+  padding: 10px;
+}
+
+.icon {
+  width: 16px;
+}
+
+.valid .icon {
+  color: #3ab940;
+}
+
+.invalid .icon {
+  color: #fe2e00;
+}
+
+@media (--media-mobile) {
+  .wrapper,
+  .inputWrapper {
+    width: 100%;
+  }
+
+  .control {
+    flex-grow: 1;
+  }
+}

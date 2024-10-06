@@ -56,18 +56,16 @@ const News: FC<Props> = ({ news, className }) => {
         slidesPerView={isTouch ? 1 : 2}
         spaceBetween={isTouch ? 0 : 10}
         allowTouchMove={isTouch}
-        onInit={swiper => {
-          setTimeout(() => {
-            swiper.params.navigation = {
-              enabled: true,
-              prevEl: previousButtonRef.current,
-              nextEl: nextButtonRef.current,
-              disabledClass: styles.navigationButton_disabled
-            };
+        onBeforeInit={swiper => {
+          swiper.params.navigation = {
+            enabled: true,
+            prevEl: previousButtonRef.current,
+            nextEl: nextButtonRef.current,
+            disabledClass: styles.navigationButton_disabled
+          };
 
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }, 1000);
+          swiper.navigation.init();
+          swiper.navigation.update();
         }}
       >
         {news.map((newsItem, newsItemIndex) => (
@@ -85,7 +83,7 @@ const News: FC<Props> = ({ news, className }) => {
               </div>
               <div className={styles.newsItemBadges}>
                 <div className={styles.newsItemBadgesItem}>{formatDate(dateFromUnixTime(newsItem.date), 'dd/MM')}</div>
-                <div className={styles.newsItemBadgesItem} style={{ opacity: newsItem.city === null ? 0 : '' }}>
+                <div className={styles.newsItemBadgesItem} style={{ opacity: newsItem.city === null ? 0 : '0' }}>
                   {newsItem.city ?? ''}
                 </div>
               </div>

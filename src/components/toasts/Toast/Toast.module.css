@@ -1,0 +1,52 @@
+.wrapper {
+  position: fixed;
+  z-index: 1;
+
+  bottom: 90px;
+  right: 30px;
+
+  padding: 20px;
+  width: 620px;
+
+  background-color: #fff;
+  border: 1px solid #99779977;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+
+.closeButton {
+  padding: 5px;
+  border-radius: 100%;
+  border: 1px solid currentColor;
+}
+
+.closeButton svg {
+  width: 9px;
+  height: 9px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.body {
+  margin-top: 20px;
+}
+
+@media (--media-tablet) {
+  .wrapper {
+    right: 20px;
+    bottom: 20px;
+    width: calc(100% - 20px * 2);
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}

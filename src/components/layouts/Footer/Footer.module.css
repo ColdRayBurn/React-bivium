@@ -6,7 +6,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 100px;
 }
 
@@ -37,6 +37,10 @@
   margin-top: 15px;
 }
 
+.blockBody > .divider {
+  margin-top: calc(40px - 15px);
+}
+
 .phonenumberLink {
   display: flex;
   align-items: center;
@@ -51,6 +55,7 @@
   display: flex;
   align-items: center;
   column-gap: 20px;
+  margin-top: calc(40px - 15px);
 }
 
 .socialIcons svg {
@@ -133,6 +138,10 @@
   height: 2px;
 
   background-color: #fe2e00;
+}
+
+.logotype svg {
+  height: 50px;
 }
 
 @media (--media-tablet) {

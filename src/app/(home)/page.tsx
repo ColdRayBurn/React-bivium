@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import Hero from './Hero';
-import Catalog from './Catalog';
-import Banner from './Banner';
-import AmbassadorsProducts from './AmbassadorsProducts';
-import News from './News';
+import Hero from './Hero/Hero';
+import Catalog from './Catalog/Catalog';
+import Banner from './Banner/Banner';
+import AmbassadorsProducts from './AmbassadorsProducts/AmbassadorsProducts';
+import News from './News/News';
 
 import api from '@/api';
 import { IMetaHomepageResponse } from '@/api/models';

@@ -68,6 +68,11 @@
   margin-top: 5px;
 }
 
+.newsItemTitleArrow svg {
+  width: 18px;
+  height: 18px;
+}
+
 .newsItemTitleText {
   max-width: 250px;
 
@@ -156,7 +161,7 @@
   .headerTitle {
     font-size: 21px;
     font-weight: 600;
-    padding-inline: var(--container-padding);
+    padding-inline: var(--page-padding);
   }
 
   .newsItem {
@@ -166,7 +171,8 @@
   }
 
   .newsItemTitle {
-    margin-block: auto;
+    margin: auto;
+    padding-inline: 40px;
   }
 
   .newsItemButton {
