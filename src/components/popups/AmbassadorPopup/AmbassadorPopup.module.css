@@ -16,6 +16,7 @@
   border: 5px solid transparent;
 
   box-shadow: 0 0 0px 1px #fff;
+  object-fit: cover;
 }
 
 .ambassadorArrow {
@@ -40,8 +41,8 @@
   border-radius: 25px;
 
   background-color: #fff;
-  background-position: 115% center;
-  background-size: 25% auto;
+  background-position: right center;
+  background-size: auto 100%;
   background-repeat: no-repeat;
 }
 
@@ -97,6 +98,7 @@
   .comment {
     padding: 20px 25px;
     width: 500px;
+    background-position-x: 300%;
   }
 
   .commentText {
@@ -134,5 +136,6 @@
   .comment {
     width: calc(100% - 72px);
     margin-left: auto;
+    background-image: none !important;
   }
 }

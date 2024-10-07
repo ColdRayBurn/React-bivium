@@ -1,4 +1,5 @@
 import { FC, Dispatch, SetStateAction } from 'react';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -7,6 +8,8 @@ import ArrowRightIcon from '@icons/arrows-right.svg';
 import styles from './HamburgerMainMenu.module.css';
 
 import { Menu } from '../Desktop/Hamburger';
+
+const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 interface Props {
   setMenu: Dispatch<SetStateAction<Menu | null>>;
@@ -68,6 +71,19 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
         type='button'
         onClick={() =>
           setMenu({
+            title: 'Лукбук BIVIUM',
+            items: []
+          })
+        }
+      >
+        Лукбук BIVIUM
+        <ArrowRightIcon />
+      </button>
+      <button
+        className={styles.item}
+        type='button'
+        onClick={() =>
+          setMenu({
             title: 'Помощь',
             items: [
               { name: 'Контакты', url: '/contacts' },
@@ -84,10 +100,12 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
         Помощь
         <ArrowRightIcon />
       </button>
-      <div className={styles.divider}></div>
-      <Link className={styles.item} href='/' onClick={() => onClose()}>
-        Личный кабинет
-      </Link>
+      <MediaQuery maxWidth={1919}>
+        <div className={styles.divider}></div>
+        <Link className={styles.item} href='/' onClick={() => onClose()}>
+          Личный кабинет
+        </Link>
+      </MediaQuery>
       <Link className={styles.item} href='/' onClick={() => onClose()}>
         Избранное
       </Link>

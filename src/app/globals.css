@@ -33,6 +33,8 @@ body {
   flex-direction: column;
 
   font-family: var(--font-montserrat), sans-serif;
+  line-height: 1.5;
+
   color: var(--color-text-primary);
 }
 

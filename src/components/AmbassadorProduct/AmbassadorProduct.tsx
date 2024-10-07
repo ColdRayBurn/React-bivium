@@ -40,7 +40,19 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
           <img className={styles.ambassadorImage} src={formatUrl(ambassador.picture)} alt='' />
           <div className={styles.ambassadorBody}>
             <div className={styles.ambassadorName}>
-              <div className={styles.ambassadorNameText}>{ambassador.name}</div>
+              <div className={styles.ambassadorNameText}>
+                {ambassador.name.split(' ').map((item, itemIndex) => (
+                  <>
+                    {itemIndex === 0 ? (
+                      <>
+                        {item} <br />
+                      </>
+                    ) : (
+                      item
+                    )}
+                  </>
+                ))}
+              </div>
               <div className={styles.ambassadorNameIcon}>
                 <CommentIcon />
               </div>

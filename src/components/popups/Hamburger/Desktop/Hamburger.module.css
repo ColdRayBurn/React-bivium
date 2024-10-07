@@ -33,6 +33,8 @@
 @media (--media-tablet) {
   .body {
     margin-top: 90px;
+    margin-left: auto;
+    margin-right: var(--margin);
   }
 }
 
