@@ -59,12 +59,19 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
                 <CommentIcon />
               </div>
             </div>
-            <button className={styles.ambassadorButton} type='button' onClick={() => setIsAmbassadorPopupShown(true)}>
+            <button
+              className={styles.ambassadorButton}
+              type='button'
+              onClick={event => {
+                event.preventDefault();
+                setIsAmbassadorPopupShown(true);
+              }}
+            >
               Читать комментарий
             </button>
           </div>
         </div>
-        <img className={styles.productImage} src={formatUrl(product.images[0])} alt='' />
+        <img className={styles.productImage} src={formatUrl(product.imagePreview)} alt='' />
         <div className={styles.productName}>{product.name}</div>
         <div className={styles.productPrice}>{formatPrice(product.price)}</div>
         <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
