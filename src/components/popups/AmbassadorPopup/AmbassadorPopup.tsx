@@ -31,7 +31,7 @@ const AmbassadorPopup: FC<Props> = ({ ambassador, product, isOpen, onClose }) =>
           <img className={styles.ambassadorImage} src={formatUrl(ambassador.imageUrl)} alt='' />
           <ArrowLeft className={styles.ambassadorArrow} />
         </div>
-        <div className={styles.comment} style={{ backgroundImage: `url(${formatUrl(product.imageUrl)})` }}>
+        <div className={styles.comment}>
           <div className={styles.commentTitle}>{product.name}</div>
           <div className={styles.commentText}>{parse(ambassador.comment)}</div>
           <a className={styles.commentButton} href={`/products/${product.id}`}>
@@ -40,6 +40,7 @@ const AmbassadorPopup: FC<Props> = ({ ambassador, product, isOpen, onClose }) =>
           <button className={styles.commentCloseButton} type='button' onClick={onClose}>
             <CrossIcon />
           </button>
+          <img className={styles.commentImage} src={formatUrl(product.imageUrl)} alt='' />
         </div>
       </div>
     </OverlayingPopup>

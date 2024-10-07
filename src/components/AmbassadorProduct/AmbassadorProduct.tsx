@@ -37,7 +37,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
 
   return (
     <>
-      <Link className={classNames(className, styles.wrapper)} href={`/products/${product.id}`}>
+      <div className={classNames(className, styles.wrapper)}>
         <div className={styles.ambassador}>
           <img className={styles.ambassadorImage} src={formatUrl(ambassador.picture)} alt='' />
           <div className={styles.ambassadorBody}>
@@ -71,11 +71,13 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
             </button>
           </div>
         </div>
-        <img className={styles.productImage} src={formatUrl(product.imagePreview)} alt='' />
+        <Link href={`/products/${product.id}`}>
+          <img className={styles.productImage} src={formatUrl(product.imagePreview)} alt='' />
+        </Link>
         <div className={styles.productName}>{product.name}</div>
         <div className={styles.productPrice}>{formatPrice(product.price)}</div>
         <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
-      </Link>
+      </div>
       <AmbassadorPopup
         ambassador={{ comment: ambassador.comment, imageUrl: ambassador.picture }}
         product={{ id: product.id, imageUrl: product.imagePreview, name: product.name }}

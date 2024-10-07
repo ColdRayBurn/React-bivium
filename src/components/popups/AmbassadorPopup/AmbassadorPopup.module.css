@@ -41,9 +41,21 @@
   border-radius: 25px;
 
   background-color: #fff;
-  background-position: right center;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.commentImage {
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+
+  translate: calc(100% - 100px) -50%;
+
+  width: auto;
+  height: 100%;
+
+  object-fit: cover;
 }
 
 .commentTitle {
@@ -53,6 +65,10 @@
 
 .commentText {
   margin-top: 10px;
+
+  position: relative;
+  z-index: 1;
+
   font-size: 19px;
   font-weight: 500;
 }
@@ -103,6 +119,7 @@
 
   .commentText {
     font-size: 12px;
+    padding-right: 50px;
   }
 
   .commentTitle {
@@ -136,6 +153,14 @@
   .comment {
     width: calc(100% - 72px);
     margin-left: auto;
-    background-image: none !important;
+  }
+
+  .commentImage {
+    visibility: hidden;
+  }
+
+  .commentText {
+    max-height: 25lh;
+    overflow-x: auto;
   }
 }
