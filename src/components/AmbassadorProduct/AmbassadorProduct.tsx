@@ -26,6 +26,7 @@ interface Props {
       name: string;
       price: number;
       images: string[];
+      imagePreview: string;
     };
   };
   className?: string;
@@ -70,7 +71,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
       </Link>
       <AmbassadorPopup
         ambassador={{ comment: ambassador.comment, imageUrl: ambassador.picture }}
-        product={{ id: product.id, imageUrl: product.images[0], name: product.name }}
+        product={{ id: product.id, imageUrl: product.imagePreview, name: product.name }}
         isOpen={isAmbassadorPopupShown}
         onClose={() => setIsAmbassadorPopupShown(false)}
       />

@@ -44,6 +44,7 @@ export interface IMetaHomepageResponse {
       id: number;
       name: string;
       price: number;
+      imagePreview: string;
       images: string[];
     };
   }[];
