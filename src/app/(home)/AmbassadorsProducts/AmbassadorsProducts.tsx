@@ -8,8 +8,6 @@ import classNames from 'classnames';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import AmbassadorProduct from '@/components/AmbassadorProduct/AmbassadorProduct';
-
 import ArrowLeftSmIcon from '@icons/arrow-left-sm.svg';
 import ArrowRightSmIcon from '@icons/arrow-right-sm.svg';
 
@@ -22,6 +20,7 @@ interface Props {
   className?: string;
 }
 
+const AmbassadorProduct = dynamic(() => import('@/components/AmbassadorProduct/AmbassadorProduct'), { ssr: false });
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
