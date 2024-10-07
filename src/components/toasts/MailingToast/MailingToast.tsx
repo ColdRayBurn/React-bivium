@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useRef } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 
 import Toast from '../Toast/Toast';
 import EmailInput from './EmailInput/EmailInput';
@@ -14,9 +14,14 @@ import styles from './MailingToast.module.css';
 const MailingToast: FC = () => {
   const { email: defaultEmail } = useAppSelector(user => user.user);
 
-  const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(false);
   const [email, setEmail] = useState<string | null>(defaultEmail || null);
   const checkboxRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    const isMailingSubscribtionExists = !!localStorage.getItem('mailingSubscription');
+    setIsShown(!isMailingSubscribtionExists);
+  }, []);
 
   const onSubmit = () => {
     if (email === null || !checkboxRef.current?.checked) {
@@ -28,6 +33,9 @@ const MailingToast: FC = () => {
         json: {
           email
         }
+      })
+      .then(() => {
+        localStorage.setItem('mailingSubscription', 'true');
       })
       .finally(() => {
         setIsShown(false);

@@ -83,8 +83,8 @@ const News: FC<Props> = ({ news, className }) => {
               </div>
               <div className={styles.newsItemBadges}>
                 <div className={styles.newsItemBadgesItem}>{formatDate(dateFromUnixTime(newsItem.date), 'dd/MM')}</div>
-                <div className={styles.newsItemBadgesItem} style={{ opacity: newsItem.city === null ? 0 : '0' }}>
-                  {newsItem.city ?? ''}
+                <div className={styles.newsItemBadgesItem} style={{ opacity: newsItem.city === null ? 0 : '' }}>
+                  {newsItem.city ?? '0'}
                 </div>
               </div>
               <button className={styles.newsItemButton} type='button'>

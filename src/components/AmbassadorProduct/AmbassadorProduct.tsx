@@ -55,7 +55,12 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
         <div className={styles.productPrice}>{formatPrice(product.price)}</div>
         <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
       </div>
-      <AmbassadorPopup isOpen={isAmbassadorPopupShown} onClose={() => setIsAmbassadorPopupShown(false)} />
+      <AmbassadorPopup
+        ambassador={{ comment: ambassador.comment, imageUrl: ambassador.picture }}
+        product={{ id: product.id, imageUrl: product.images[0], name: product.name }}
+        isOpen={isAmbassadorPopupShown}
+        onClose={() => setIsAmbassadorPopupShown(false)}
+      />
     </>
   );
 };
