@@ -1,11 +1,11 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 import AmbassadorProduct from '@/components/AmbassadorProduct/AmbassadorProduct';
@@ -25,11 +25,27 @@ interface Props {
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
+  const swiperRef = useRef<SwiperClass>();
+
   const isTablet = useMediaQuery({ maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const previousButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    swiperRef.current!.navigation.destroy();
+
+    swiperRef.current!.params.navigation = {
+      enabled: true,
+      prevEl: previousButtonRef.current,
+      nextEl: nextButtonRef.current,
+      disabledClass: styles.navigationButton_disabled
+    };
+
+    swiperRef.current!.navigation.init();
+    swiperRef.current!.navigation.update();
+  }, [isTablet, isMobile]);
 
   return (
     <section className={classNames(className, styles.wrapper, 'container')}>
@@ -63,16 +79,8 @@ const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
         })()}
         spaceBetween={isMobile ? 0 : 50}
         allowTouchMove={isTablet || isMobile}
-        onBeforeInit={swiper => {
-          swiper.params.navigation = {
-            enabled: true,
-            prevEl: previousButtonRef.current,
-            nextEl: nextButtonRef.current,
-            disabledClass: styles.navigationButton_disabled
-          };
-
-          swiper.navigation.init();
-          swiper.navigation.update();
+        onInit={swiper => {
+          swiperRef.current = swiper;
         }}
       >
         {ambassadorsProducts.map((product, productIndex) => (

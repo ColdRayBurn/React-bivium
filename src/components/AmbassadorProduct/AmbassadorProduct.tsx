@@ -43,7 +43,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
             <div className={styles.ambassadorName}>
               <div className={styles.ambassadorNameText}>
                 {ambassador.name.split(' ').map((item, itemIndex) => (
-                  <>
+                  <span key={itemIndex}>
                     {itemIndex === 0 ? (
                       <>
                         {item} <br />
@@ -51,7 +51,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
                     ) : (
                       item
                     )}
-                  </>
+                  </span>
                 ))}
               </div>
               <div className={styles.ambassadorNameIcon}>

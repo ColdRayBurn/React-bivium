@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import dynamic from 'next/dynamic';
 
 import Hero from './Hero/Hero';
 import Catalog from './Catalog/Catalog';
 import Banner from './Banner/Banner';
-const AmbassadorsProducts = dynamic(() => import('./AmbassadorsProducts/AmbassadorsProducts'), { ssr: false });
+import AmbassadorsProducts from './AmbassadorsProducts/AmbassadorsProducts';
 import News from './News/News';
 
 import api from '@/api';
