@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 import { format as formatDate, fromUnixTime as dateFromUnixTime } from 'date-fns';
 import classNames from 'classnames';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 import ArrowLeftSmIcon from '@icons/arrow-left-sm.svg';
@@ -30,6 +30,8 @@ interface Props {
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const News: FC<Props> = ({ news, className }) => {
+  const swiperRef = useRef<SwiperClass>();
+
   const isTouch = useMediaQuery({ maxWidth: 1280 });
   const previousButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
@@ -56,16 +58,20 @@ const News: FC<Props> = ({ news, className }) => {
         slidesPerView={isTouch ? 1 : 2}
         spaceBetween={isTouch ? 0 : 10}
         allowTouchMove={isTouch}
-        onBeforeInit={swiper => {
-          swiper.params.navigation = {
-            enabled: true,
-            prevEl: previousButtonRef.current,
-            nextEl: nextButtonRef.current,
-            disabledClass: styles.navigationButton_disabled
-          };
+        onInit={swiper => {
+          swiperRef.current = swiper;
 
-          swiper.navigation.init();
-          swiper.navigation.update();
+          setTimeout(() => {
+            swiperRef.current!.params.navigation = {
+              enabled: true,
+              prevEl: previousButtonRef.current,
+              nextEl: nextButtonRef.current,
+              disabledClass: styles.navigationButton_disabled
+            };
+
+            swiperRef.current!.navigation.init();
+            swiperRef.current!.navigation.update();
+          }, 1000);
         }}
       >
         {news.map((newsItem, newsItemIndex) => (
