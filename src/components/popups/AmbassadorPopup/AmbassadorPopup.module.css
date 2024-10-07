@@ -89,6 +89,7 @@
 
 .commentCloseButton {
   position: absolute;
+  z-index: 1;
   padding: 6px;
 
   top: 40px;
