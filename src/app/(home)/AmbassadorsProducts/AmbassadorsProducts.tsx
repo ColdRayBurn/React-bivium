@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
@@ -32,20 +32,6 @@ const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
 
   const previousButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    swiperRef.current!.navigation.destroy();
-
-    swiperRef.current!.params.navigation = {
-      enabled: true,
-      prevEl: previousButtonRef.current,
-      nextEl: nextButtonRef.current,
-      disabledClass: styles.navigationButton_disabled
-    };
-
-    swiperRef.current!.navigation.init();
-    swiperRef.current!.navigation.update();
-  }, [isTablet, isMobile]);
 
   return (
     <section className={classNames(className, styles.wrapper, 'container')}>
@@ -81,6 +67,18 @@ const AmbassadorsProducts: FC<Props> = ({ ambassadorsProducts, className }) => {
         allowTouchMove={isTablet || isMobile}
         onInit={swiper => {
           swiperRef.current = swiper;
+
+          setTimeout(() => {
+            swiperRef.current!.params.navigation = {
+              enabled: true,
+              prevEl: previousButtonRef.current,
+              nextEl: nextButtonRef.current,
+              disabledClass: styles.navigationButton_disabled
+            };
+
+            swiperRef.current!.navigation.init();
+            swiperRef.current!.navigation.update();
+          }, 1000);
         }}
       >
         {ambassadorsProducts.map((product, productIndex) => (
