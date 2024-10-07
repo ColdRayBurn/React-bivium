@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
+import Link from 'next/link';
 import classNames from 'classnames';
 
 import { formatUrl } from '@/utils/formatUrl';
@@ -35,7 +36,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
 
   return (
     <>
-      <div className={classNames(className, styles.wrapper)}>
+      <Link className={classNames(className, styles.wrapper)} href={`/products/${product.id}`}>
         <div className={styles.ambassador}>
           <img className={styles.ambassadorImage} src={formatUrl(ambassador.picture)} alt='' />
           <div className={styles.ambassadorBody}>
@@ -66,7 +67,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
         <div className={styles.productName}>{product.name}</div>
         <div className={styles.productPrice}>{formatPrice(product.price)}</div>
         <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
-      </div>
+      </Link>
       <AmbassadorPopup
         ambassador={{ comment: ambassador.comment, imageUrl: ambassador.picture }}
         product={{ id: product.id, imageUrl: product.images[0], name: product.name }}
