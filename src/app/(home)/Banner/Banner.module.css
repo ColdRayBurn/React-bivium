@@ -37,6 +37,11 @@
   margin-block: auto 10px;
 }
 
+.imageTitleBodyArrows svg {
+  width: 18px;
+  height: 18px;
+}
+
 .imageTitleButton {
   margin-top: 20px;
   padding: 5px 15px;

@@ -69,6 +69,7 @@
 }
 
 .paymentMethod {
+  padding: 10px;
   height: 50px;
   aspect-ratio: 1.5;
 
@@ -81,8 +82,8 @@
 }
 
 .paymentMethod svg {
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .links {
@@ -155,5 +156,14 @@
   .copyright {
     font-size: 32px;
     font-weight: 700;
+  }
+
+  .blockTitle {
+    font-weight: 600;
+  }
+
+  .phonenumberLink {
+    font-size: 20px;
+    font-weight: 600;
   }
 }
