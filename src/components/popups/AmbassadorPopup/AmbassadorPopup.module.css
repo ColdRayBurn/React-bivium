@@ -10,6 +10,7 @@
 .wrapper.wrapper_reversed .ambassadorArrow {
   left: 0;
   translate: -50% -50%;
+  rotate: 180deg;
 }
 
 .ambassador {
@@ -80,6 +81,9 @@
 
   font-size: 19px;
   font-weight: 500;
+
+  max-height: 20lh;
+  overflow-y: auto;
 }
 
 .commentButton {
