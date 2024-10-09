@@ -3,6 +3,15 @@
   column-gap: 10px;
 }
 
+.wrapper.wrapper_reversed {
+  flex-direction: row-reverse;
+}
+
+.wrapper.wrapper_reversed .ambassadorArrow {
+  left: 0;
+  translate: -50% -50%;
+}
+
 .ambassador {
   position: relative;
   height: fit-content;
@@ -114,7 +123,7 @@
 
   .comment {
     padding: 20px 25px;
-    width: 500px;
+    width: 400px;
     background-position-x: 300%;
   }
 
@@ -135,8 +144,6 @@
 
 @media (--media-mobile) {
   .wrapper {
-    width: 100%;
-    padding-inline: var(--page-padding);
     flex-direction: column;
   }
 
@@ -147,12 +154,12 @@
   .ambassadorArrow {
     bottom: 0;
     left: 50%;
-    translate: -50% 100%;
+    translate: -50% 70%;
     rotate: 90deg;
   }
 
   .comment {
-    width: calc(100% - 72px);
+    width: 270px;
     margin-left: auto;
   }
 

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, RefObject, useRef } from 'react';
 import parse from 'html-react-parser';
 import styles from './AmbassadorPopup.module.css';
 
@@ -10,6 +10,7 @@ import ArrowLeft from '@icons/arrow-left.svg';
 import { formatUrl } from '@/utils/formatUrl';
 
 interface Props {
+  rootRef: RefObject<HTMLElement>;
   ambassador: {
     imageUrl: string;
     comment: string;
@@ -23,12 +24,43 @@ interface Props {
   onClose: () => void;
 }
 
-const AmbassadorPopup: FC<Props> = ({ ambassador, product, isOpen, onClose }) => {
+const AmbassadorPopup: FC<Props> = ({ rootRef, ambassador, product, isOpen, onClose }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const ambassadorImageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const wrapperElement = wrapperRef.current!;
+    const ambassadorImageElement = rootRef.current!;
+    const rootElement = rootRef.current!;
+
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+    if (!isOpen) {
+      return;
+    }
+
+    wrapperElement.style.position = 'absolute';
+    wrapperElement.style.top = `${rootElement.getBoundingClientRect().top}px`;
+
+    if (rootElement.getBoundingClientRect().left + wrapperElement.getBoundingClientRect().width > window.innerWidth) {
+      wrapperElement.style.right = `calc(100dvw - ${rootElement.getBoundingClientRect().left}px - ${rootElement.getBoundingClientRect().width}px)`;
+      wrapperElement.classList.toggle(styles.wrapper_reversed, true);
+    } else {
+      wrapperElement.style.left = `${rootElement.getBoundingClientRect().left}px`;
+      wrapperElement.classList.toggle(styles.wrapper_reversed, false);
+    }
+  }, [rootRef, isOpen]);
+
   return (
     <OverlayingPopup isOpen={isOpen} onClose={onClose}>
-      <div className={styles.wrapper}>
+      <div ref={wrapperRef} className={styles.wrapper}>
         <div className={styles.ambassador}>
-          <img className={styles.ambassadorImage} src={formatUrl(ambassador.imageUrl)} alt='' />
+          <img
+            ref={ambassadorImageRef}
+            className={styles.ambassadorImage}
+            src={formatUrl(ambassador.imageUrl)}
+            alt=''
+          />
           <ArrowLeft className={styles.ambassadorArrow} />
         </div>
         <div className={styles.comment}>

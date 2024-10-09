@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useState, useRef } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
@@ -34,12 +34,13 @@ interface Props {
 
 const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, className }) => {
   const [isAmbassadorPopupShown, setIsAmbassadorPopupShown] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   return (
     <>
       <div className={classNames(className, styles.wrapper)}>
         <div className={styles.ambassador}>
-          <img className={styles.ambassadorImage} src={formatUrl(ambassador.picture)} alt='' />
+          <img ref={imageRef} className={styles.ambassadorImage} src={formatUrl(ambassador.picture)} alt='' />
           <div className={styles.ambassadorBody}>
             <div className={styles.ambassadorName}>
               <div className={styles.ambassadorNameText}>
@@ -79,6 +80,7 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
         <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
       </div>
       <AmbassadorPopup
+        rootRef={imageRef}
         ambassador={{ comment: ambassador.comment, imageUrl: ambassador.picture }}
         product={{ id: product.id, imageUrl: product.imagePreview, name: product.name }}
         isOpen={isAmbassadorPopupShown}
