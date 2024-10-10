@@ -1,7 +1,10 @@
 import { FC, Dispatch, SetStateAction } from 'react';
-import dynamic from 'next/dynamic';
-import classNames from 'classnames';
+import { useMediaQuery } from 'react-responsive';
+
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+import classNames from 'classnames';
 
 import ArrowRightIcon from '@icons/arrows-right.svg';
 
@@ -9,15 +12,17 @@ import styles from './HamburgerMainMenu.module.css';
 
 import { Menu } from '../Desktop/Hamburger';
 
-const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
-
 interface Props {
   setMenu: Dispatch<SetStateAction<Menu | null>>;
   onClose: () => void;
   className?: string;
 }
 
+const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
+
 const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
+  const isTouch = useMediaQuery({ maxWidth: 1919 });
+
   return (
     <div className={classNames(styles.wrapper, className)}>
       <Link className={styles.item} href='/contacts' onClick={() => onClose()}>
@@ -27,8 +32,9 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
       <button
         className={styles.item}
         type='button'
-        onClick={() =>
+        onClick={event =>
           setMenu({
+            rootElement: !isTouch ? event.currentTarget : undefined,
             title: 'Каталог',
             items: [
               { name: 'Бег', url: '/' },
@@ -49,8 +55,9 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
       <button
         className={styles.item}
         type='button'
-        onClick={() =>
+        onClick={event =>
           setMenu({
+            rootElement: !isTouch ? event.currentTarget : undefined,
             title: 'Сотрудничество',
             items: [
               { name: 'Условия сотрудничества для оптовых покупателей', url: '/conditions' },
@@ -69,8 +76,9 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
       <button
         className={styles.item}
         type='button'
-        onClick={() =>
+        onClick={event =>
           setMenu({
+            rootElement: !isTouch ? event.currentTarget : undefined,
             title: 'Лукбук BIVIUM',
             items: []
           })
@@ -82,8 +90,9 @@ const HamburgerMainMenu: FC<Props> = ({ setMenu, onClose, className }) => {
       <button
         className={styles.item}
         type='button'
-        onClick={() =>
+        onClick={event =>
           setMenu({
+            rootElement: !isTouch ? event.currentTarget : undefined,
             title: 'Помощь',
             items: [
               { name: 'Контакты', url: '/contacts' },

@@ -1,6 +1,7 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useState, useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import Portal from '@/components/Portal';
 import HamburgerMainMenu from '../HamburgerMainMenu/HamburgerMainMenu';
@@ -10,6 +11,7 @@ import HamburgerFooter from '../HamburgerFooter/HamburgerFooter';
 import styles from './Hamburger.module.css';
 
 export interface Menu {
+  rootElement?: HTMLElement;
   title: string;
   items: {
     name: string;
@@ -23,6 +25,8 @@ interface Props {
 }
 
 const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
+  const hamburgerRef = useRef<HTMLDivElement>(null);
+  const isTouch = useMediaQuery({ maxWidth: 1919 });
   const [menu, setMenu] = useState<Menu | null>(null);
 
   const onCloseHandler = () => {
@@ -37,9 +41,12 @@ const Hamburger: FC<Props> = ({ isOpened, onClose }) => {
   return (
     <Portal>
       <div className={styles.wrapper} onClick={onCloseHandler}>
-        <div className={styles.body} onClick={event => event.stopPropagation()}>
-          {!menu && <HamburgerMainMenu className={styles.mainMenu} setMenu={setMenu} onClose={onCloseHandler} />}
-          {menu && <HamburgerMenu menu={menu} setMenu={setMenu} onClose={onCloseHandler} />}
+        <div ref={hamburgerRef} className={styles.body} onClick={event => event.stopPropagation()}>
+          {isTouch && !menu && (
+            <HamburgerMainMenu className={styles.mainMenu} setMenu={setMenu} onClose={onCloseHandler} />
+          )}
+          {!isTouch && <HamburgerMainMenu className={styles.mainMenu} setMenu={setMenu} onClose={onCloseHandler} />}
+          {menu && <HamburgerMenu hamburgerRef={hamburgerRef} menu={menu} setMenu={setMenu} onClose={onCloseHandler} />}
           <HamburgerFooter className={styles.footer} />
         </div>
       </div>

@@ -1,4 +1,5 @@
-import { FC, Dispatch, SetStateAction } from 'react';
+import { FC, Dispatch, SetStateAction, useEffect, useState, RefObject, useRef } from 'react';
+import classNames from 'classnames';
 import Link from 'next/link';
 
 import ArrowLeftIcon from '@icons/arrow-left.svg';
@@ -8,14 +9,39 @@ import styles from './HamburgerMenu.module.css';
 import { Menu } from '../Desktop/Hamburger';
 
 interface Props {
+  hamburgerRef: RefObject<HTMLElement>;
   menu: Menu;
   setMenu: Dispatch<SetStateAction<Menu | null>>;
   onClose: () => void;
 }
 
-const HamburgerMenu: FC<Props> = ({ menu: { title, items }, setMenu, onClose }) => {
+const HamburgerMenu: FC<Props> = ({ hamburgerRef, menu: { rootElement, title, items }, setMenu, onClose }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isPopup, setIsPopup] = useState(false);
+
+  useEffect(() => {
+    const wrapperElement = wrapperRef.current!;
+    const hamburgerElement = hamburgerRef.current!;
+
+    setIsPopup(rootElement !== undefined);
+    if (rootElement === undefined) {
+      return;
+    }
+
+    setTimeout(() => {
+      wrapperElement.style.top = `calc(${rootElement.getBoundingClientRect().top}px - 30px)`;
+      wrapperElement.style.left = `calc(${getComputedStyle(hamburgerElement).width} + ${getComputedStyle(hamburgerElement).marginLeft} +  10px)`;
+    }, 1);
+
+    rootElement.style.color = 'var(--color-accent-primary)';
+
+    return () => {
+      rootElement.style.color = '';
+    };
+  }, [rootElement, hamburgerRef]);
+
   return (
-    <div className={styles.wrapper}>
+    <div ref={wrapperRef} className={classNames(styles.wrapper, isPopup && styles.popup)}>
       <ArrowLeftIcon className={styles.arrow} />
       <div className={styles.body}>
         <button className={styles.title} type='button' onClick={() => setMenu(null)}>
