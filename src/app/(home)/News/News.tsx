@@ -33,6 +33,8 @@ const News: FC<Props> = ({ news, className }) => {
   const swiperRef = useRef<SwiperClass>();
 
   const isTouch = useMediaQuery({ maxWidth: 1280 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const previousButtonRef = useRef<HTMLButtonElement>(null);
   const nextButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -79,7 +81,9 @@ const News: FC<Props> = ({ news, className }) => {
             <Link
               className={styles.newsItem}
               href={`/news/${newsItem.id}`}
-              style={{ backgroundImage: `url(${formatUrl(newsItem.image)})` }}
+              style={{
+                backgroundImage: `url(${formatUrl(isMobile ? (newsItem.imageMobile ?? newsItem.image) : newsItem.image)})`
+              }}
             >
               <div className={styles.newsItemTitle}>
                 <div className={styles.newsItemTitleArrow}>

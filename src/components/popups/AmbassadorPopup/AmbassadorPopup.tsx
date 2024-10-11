@@ -26,14 +26,10 @@ interface Props {
 
 const AmbassadorPopup: FC<Props> = ({ rootRef, ambassador, product, isOpen, onClose }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const ambassadorImageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const wrapperElement = wrapperRef.current!;
-    const ambassadorImageElement = rootRef.current!;
     const rootElement = rootRef.current!;
-
-    document.body.style.overflow = isOpen ? 'hidden' : '';
 
     if (!isOpen) {
       return;
@@ -49,18 +45,28 @@ const AmbassadorPopup: FC<Props> = ({ rootRef, ambassador, product, isOpen, onCl
       wrapperElement.style.left = `${rootElement.getBoundingClientRect().left}px`;
       wrapperElement.classList.toggle(styles.wrapper_reversed, false);
     }
+
+    const onScroll = () => {
+      wrapperElement.style.top = `${rootElement.getBoundingClientRect().top}px`;
+
+      if (rootElement.getBoundingClientRect().left + wrapperElement.getBoundingClientRect().width > window.innerWidth) {
+        wrapperElement.style.right = `calc(100dvw - ${rootElement.getBoundingClientRect().left}px - ${rootElement.getBoundingClientRect().width}px)`;
+        wrapperElement.classList.toggle(styles.wrapper_reversed, true);
+      } else {
+        wrapperElement.style.left = `${rootElement.getBoundingClientRect().left}px`;
+        wrapperElement.classList.toggle(styles.wrapper_reversed, false);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, [rootRef, isOpen]);
 
   return (
     <OverlayingPopup isOpen={isOpen} onClose={onClose}>
       <div ref={wrapperRef} className={styles.wrapper}>
         <div className={styles.ambassador}>
-          <img
-            ref={ambassadorImageRef}
-            className={styles.ambassadorImage}
-            src={formatUrl(ambassador.imageUrl)}
-            alt=''
-          />
+          <img className={styles.ambassadorImage} src={formatUrl(ambassador.imageUrl)} alt='' />
           <ArrowLeft className={styles.ambassadorArrow} />
         </div>
         <div className={styles.comment}>
