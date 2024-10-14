@@ -33,7 +33,6 @@ const Order: FC<Props> = ({ id, products }) => {
               name={product.name}
               price={product.price}
               inStock={product.inStock}
-              small
             />
           ))}
         </MediaQuery>

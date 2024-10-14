@@ -74,7 +74,6 @@ const Page: FC = () => {
                   image={formatUrl(item.image)}
                   name={item.name}
                   price={item.price}
-                  small
                   inStock={item.inStock}
                 />
                 <button
