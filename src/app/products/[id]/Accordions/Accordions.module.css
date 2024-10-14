@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.divider {
+  margin-left: calc(14px + 10px);
+
+  width: 50px;
+  height: 2px;
+
+  background-color: currentColor;
+}
+
+.accordionLink {
+  width: fit-content;
+
+  display: block;
+  margin-top: 1lh;
+
+  font-size: 21px;
+  font-weight: 600;
+
+  text-decoration: underline;
+}

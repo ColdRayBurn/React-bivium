@@ -1,60 +1,37 @@
 .wrapper {
-  position: relative;
-
-  display: block;
-  width: 265px;
-
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 16px;
-
-  color: #3d4143;
-}
-
-.badge {
-  position: absolute;
-  padding: 5px;
-
-  top: 0;
-  left: 0;
-
-  font-family: var(--font-montserrat), sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-
-  color: #fff;
-  background-color: #000;
-}
-
-.favoriteButton {
-  position: absolute;
-
-  top: 0;
-  right: 0;
-
-  color: #000;
-}
-
-.favoriteButton:hover svg,
-.favoriteButton:focus-visible svg,
-.favoriteButton_active svg {
-  fill: currentColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .image {
-  aspect-ratio: 0.8;
+  width: 400px;
+  aspect-ratio: 0.65;
   object-fit: scale-down;
+  cursor: pointer;
 }
 
 .name {
-  margin-top: 25px;
-  font-weight: 600;
+  margin-top: 20px;
+
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .price {
-  margin-top: 10px;
-  font-weight: 300;
+  margin-top: 5px;
+
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.wrapper.small {
-  width: 160px;
+.colorSelector {
+  margin-top: 10px;
+}
+
+@media (--media-mobile) {
+  .image {
+    width: 250px;
+    aspect-ratio: 1;
+  }
 }

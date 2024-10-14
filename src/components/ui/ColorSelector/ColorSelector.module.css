@@ -7,10 +7,10 @@
 .color {
   position: relative;
 
-  width: 30px;
-  height: 30px;
+  width: var(--size);
+  height: var(--size);
 
-  border: 1px solid transparent;
+  border: var(--border-size) solid transparent;
   border-radius: 100%;
 
   --color-background: transparent;
@@ -23,8 +23,8 @@
   top: 50%;
   right: 50%;
 
-  width: 24px;
-  height: 24px;
+  width: calc(var(--size) - var(--border-size) * 4);
+  height: calc(var(--size) - var(--border-size) * 4);
 
   translate: 50% -50%;
   border-radius: 100%;
@@ -34,4 +34,14 @@
 
 .color.selected {
   border-color: #000;
+}
+
+.sm {
+  --size: 30px;
+  --border-size: 1px;
+}
+
+.md {
+  --size: 50px;
+  --border-size: 2px;
 }

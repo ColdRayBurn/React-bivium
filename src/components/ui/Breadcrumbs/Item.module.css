@@ -1,5 +1,3 @@
-.wrapper.withArrow {
-  display: inline-flex;
-  align-items: center;
-  column-gap: 10px;
+.wrapper:last-child {
+  color: var(--color-text-primary);
 }

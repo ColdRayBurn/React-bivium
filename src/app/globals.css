@@ -4,7 +4,9 @@
 :root {
   --page-padding: 50px;
   --color-text-primary: #000;
+  --color-text-secondary: #9c9c9c;
   --color-accent-primary: #fe2e00;
+  --color-background-primary: #f4f4f4;
 }
 
 * {

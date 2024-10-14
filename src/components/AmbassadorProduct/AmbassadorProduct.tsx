@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { formatUrl } from '@/utils/formatUrl';
 import { formatPrice } from '@/utils/formatPrice';
 
-import ColorPicker from './ColorPicker/ColorPicker';
+import ColorSelector from '../ui/ColorSelector/ColorSelector';
 import AmbassadorPopup from '../popups/AmbassadorPopup/AmbassadorPopup';
 
 import CommentIcon from '@icons/comment.svg';
@@ -77,7 +77,12 @@ const AmbassadorProduct: FC<Props> = ({ product: { ambassador, product }, classN
         </Link>
         <div className={styles.productName}>{product.name}</div>
         <div className={styles.productPrice}>{formatPrice(product.price)}</div>
-        <ColorPicker className={styles.colorpicker} colors={['#136FA3', '#FD6727', '#4FAD50']} onSelect={console.log} />
+        <ColorSelector
+          className={styles.colorpicker}
+          colors={['#136FA3', '#FD6727', '#4FAD50']}
+          onSelect={console.log}
+          size='sm'
+        />
       </div>
       <AmbassadorPopup
         rootRef={imageRef}

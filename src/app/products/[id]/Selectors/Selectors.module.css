@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  column-gap: 40px;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.selectorTitle {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.divider {
+  margin-top: auto;
+
+  width: 2px;
+  height: 50px;
+
+  background-color: currentColor;
+}
+
+@media (--media-mobile) {
+  .wrapper {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  .divider {
+    width: 50px;
+    height: 2px;
+  }
+}

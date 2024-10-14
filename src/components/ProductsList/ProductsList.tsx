@@ -1,10 +1,11 @@
 'use client';
 
 import { FC } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import dynamic from 'next/dynamic';
+import classNames from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
 
 import ProductCard from '../ui/ProductCard/ProductCard';
 import { IProductCard } from '@/models';
@@ -22,52 +23,59 @@ interface Props {
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const ProductsList: FC<Props> = ({ title, products, className }) => {
+  const isTablet = useMediaQuery({ maxWidth: 1919 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
-    <section className={className}>
-      {title && <h2 className={styles.title}>{title}</h2>}
+    <section className={classNames(styles.wrapper, className)}>
+      <div className={classNames(styles.header, 'container')}>
+        {title && <h2 className={styles.title}>{title}</h2>}
+        <div className={styles.pagination}>
+          <div className={classNames(styles.paginationItem, styles.active)}></div>
+          <div className={styles.paginationItem}></div>
+          <div className={styles.paginationItem}></div>
+        </div>
+      </div>
       <div className={styles.content}>
-        <MediaQuery minWidth={1281}>
-          {!!products &&
-            products.map(product => (
+        <Swiper
+          className={styles.carousel}
+          wrapperClass={styles.carouselWrapper}
+          slidesPerView={(() => {
+            if (isMobile) {
+              return 1;
+            }
+
+            if (isTablet) {
+              return 'auto';
+            }
+
+            return 3;
+          })()}
+          spaceBetween={(() => {
+            if (isMobile) {
+              return undefined;
+            }
+
+            if (isTablet) {
+              return 100;
+            }
+
+            return undefined;
+          })()}
+        >
+          {products.map(product => (
+            <SwiperSlide key={product.id} className={styles.carouselSlide}>
               <ProductCard
-                key={product.id}
+                className={styles.product}
                 id={product.id}
                 name={product.name}
                 price={product.price}
                 image={formatUrl(product.image)}
                 inStock={product.inStock}
               />
-            ))}
-        </MediaQuery>
-        <MediaQuery maxWidth={1280}>
-          <Swiper
-            className={styles.carousel}
-            wrapperClass={styles.carouselWrapper}
-            slidesPerView={products.length > 1 ? 2 : 1}
-            spaceBetween={30}
-            pagination={{
-              enabled: products.length > 1,
-              type: 'bullets',
-              horizontalClass: styles.carouselBullets,
-              bulletClass: styles.carouselBulletsItem,
-              bulletActiveClass: styles.carouselBulletsItem_active
-            }}
-            modules={[Pagination]}
-          >
-            {products.map(product => (
-              <SwiperSlide key={product.id} className={styles.carouselSlide}>
-                <ProductCard
-                  className={styles.product}
-                  id={product.id}
-                  name={product.name}
-                  price={product.price}
-                  image={formatUrl(product.image)}
-                  inStock={product.inStock}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </MediaQuery>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

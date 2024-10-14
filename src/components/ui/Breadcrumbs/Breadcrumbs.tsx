@@ -18,16 +18,10 @@ const Breadcrumbs: FC<Props> = ({ className, breadсrumbs, withArrow }) => {
     <div className={classNames(className, styles.wrapper)}>
       {breadсrumbs.length > 1 ? (
         breadсrumbs.map((breadсrumb, breadсrumbIndex) => (
-          <Item
-            key={breadсrumbIndex}
-            name={breadсrumb.name}
-            path={breadсrumb.path}
-            withArrow={!breadсrumbIndex && withArrow}
-            withSlash={!!breadсrumbIndex}
-          />
+          <Item key={breadсrumbIndex} name={breadсrumb.name} path={breadсrumb.path} withSlash={!!breadсrumbIndex} />
         ))
       ) : (
-        <Item name={breadсrumbs[0].name} path={breadсrumbs[0].path} withArrow />
+        <Item name={breadсrumbs[0].name} path={breadсrumbs[0].path} />
       )}
     </div>
   );

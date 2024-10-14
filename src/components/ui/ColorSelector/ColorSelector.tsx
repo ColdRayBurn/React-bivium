@@ -2,19 +2,25 @@
 
 import { FC, useState } from 'react';
 import classNames from 'classnames';
-import styles from './ColorPicker.module.css';
+import styles from './ColorSelector.module.css';
 
 interface Props {
   colors: [string, ...string[]];
   onSelect: (color: string) => void;
+  size: 'sm' | 'md';
   className?: string;
 }
 
-const ColorPicker: FC<Props> = ({ colors, onSelect, className }) => {
+const ColorSelector: FC<Props> = ({ colors, size, onSelect, className }) => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   return (
-    <div className={classNames(className, styles.wrapper)}>
+    <div
+      className={classNames(className, styles.wrapper, {
+        [styles.sm]: size === 'sm',
+        [styles.md]: size === 'md'
+      })}
+    >
       {colors.map((color, colorIndex) => (
         <button
           key={colorIndex}
@@ -31,4 +37,4 @@ const ColorPicker: FC<Props> = ({ colors, onSelect, className }) => {
   );
 };
 
-export default ColorPicker;
+export default ColorSelector;
