@@ -1,0 +1,13 @@
+.carousel {
+  width: 570px;
+  height: 9 / 16;
+  overflow-x: hidden;
+}
+
+.carouselWrapper {
+  display: flex;
+}
+
+.carouselSlide {
+  flex-shrink: 0;
+}

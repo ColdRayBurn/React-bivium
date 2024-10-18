@@ -17,65 +17,6 @@
   margin-left: 50px;
 }
 
-.price {
-  margin-top: 30px;
-
-  font-size: 40px;
-  font-weight: 600;
-}
-
-.price span {
-  font-size: 24px;
-}
-
-.actions {
-  margin-top: 30px;
-}
-
-.bottom {
-  display: flex;
-}
-
-.bottomColumn:last-child {
-  width: fit-content;
-  margin-left: auto;
-}
-
-.deliveryInfo {
-  margin-top: 15px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  color: var(--color-text-secondary);
-}
-
-.description {
-  margin-top: 40px;
-  font-size: 20px;
-}
-
-.description a {
-  color: #1d6ed4;
-}
-
-.ambassadorComment {
-  margin-top: 40px;
-}
-
-.contactsLink {
-  margin-top: 85px;
-
-  display: block;
-  width: fit-content;
-
-  font-size: 21px;
-  font-weight: 600;
-
-  text-decoration: underline;
-  text-transform: uppercase;
-}
-
 @media (--media-tablet) {
   .body {
     flex-direction: column;
@@ -84,26 +25,6 @@
   .product {
     margin-left: 0;
     margin-top: 20px;
-  }
-
-  .price {
-    margin-top: 40px;
-  }
-
-  .actions {
-    margin-top: 20px;
-  }
-
-  .bottom {
-    flex-direction: column;
-  }
-
-  .bottomColumn:last-child {
-    margin-top: 50px;
-  }
-
-  .contactsLink {
-    margin-left: calc(14px + 10px);
   }
 }
 
@@ -118,21 +39,5 @@
 
   .product {
     margin-top: 30px;
-  }
-
-  .price {
-    margin-top: 30px;
-  }
-
-  .actions {
-    margin-top: 15px;
-  }
-
-  .ambassadorComment {
-    margin-top: 30px;
-  }
-
-  .contactsLink {
-    margin-top: 40px;
   }
 }

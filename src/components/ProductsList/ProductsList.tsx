@@ -1,11 +1,11 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
 import ProductCard from '../ui/ProductCard/ProductCard';
 import { IProductCard } from '@/models';
@@ -20,9 +20,9 @@ interface Props {
   className?: string;
 }
 
-const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
-
 const ProductsList: FC<Props> = ({ title, products, className }) => {
+  const paginationContainerRef = useRef<HTMLDivElement>(null);
+
   const isTablet = useMediaQuery({ maxWidth: 1919 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -30,16 +30,21 @@ const ProductsList: FC<Props> = ({ title, products, className }) => {
     <section className={classNames(styles.wrapper, className)}>
       <div className={classNames(styles.header, 'container')}>
         {title && <h2 className={styles.title}>{title}</h2>}
-        <div className={styles.pagination}>
+        <div ref={paginationContainerRef} className={styles.pagination}>
           <div className={classNames(styles.paginationItem, styles.active)}></div>
-          <div className={styles.paginationItem}></div>
-          <div className={styles.paginationItem}></div>
         </div>
       </div>
       <div className={styles.content}>
         <Swiper
           className={styles.carousel}
           wrapperClass={styles.carouselWrapper}
+          pagination={{
+            el: paginationContainerRef.current,
+            bulletClass: styles.paginationItem,
+            bulletActiveClass: styles.active,
+            clickable: true
+          }}
+          modules={[Pagination]}
           slidesPerView={(() => {
             if (isMobile) {
               return 1;

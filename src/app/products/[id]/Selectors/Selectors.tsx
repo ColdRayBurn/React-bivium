@@ -6,26 +6,24 @@ import dynamic from 'next/dynamic';
 import SizeSelector from '../SizeSelector/SizeSelector';
 import ColorSelector from '@/components/ui/ColorSelector/ColorSelector';
 
+import { Size } from '../SizeSelector/SizeSelector';
+
 import styles from './Selectors.module.css';
 
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
-const Selectors: FC = () => {
+interface Props {
+  sizes: Size[];
+  onSizeSelect?: (id: number) => void;
+}
+
+const Selectors: FC<Props> = ({ sizes, onSizeSelect }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.selector}>
         <div className={styles.selectorTitle}>Размер</div>
         <div className={styles.selectorBody}>
-          <SizeSelector
-            sizes={[
-              { id: 1, name: 'XS' },
-              { id: 2, name: 'S' },
-              { id: 3, name: 'M', isDisabled: true },
-              { id: 4, name: 'L', isDefaultSelected: true },
-              { id: 5, name: 'XL' }
-            ]}
-            onSelect={console.log}
-          />
+          <SizeSelector sizes={sizes as [Size, ...Size[]]} onSelect={onSizeSelect} />
         </div>
       </div>
       <div className={styles.divider}></div>

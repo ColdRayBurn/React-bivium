@@ -27,10 +27,17 @@ export interface IProduct {
     size: string;
   }[];
   images: string[];
+  imagePreview: string;
   description: string;
   views: number;
   categoryId: number;
   isAmbassadors: boolean;
+  ambassador: {
+    comment: string;
+    image: string;
+  } | null;
+  specifications: string;
+  sizesTableImage: string;
 }
 
 export interface ICatalogProduct {

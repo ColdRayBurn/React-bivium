@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import parse from 'html-react-parser';
-import Link from 'next/link';
 import classNames from 'classnames';
 
 import api from '@/api';
@@ -8,10 +6,8 @@ import { IProduct } from '@/models';
 import { getCatalogCategoryCodeById, getCatalogCategoryNameByCode } from '@/utils/catalogCategoriesMap';
 
 import Breadcrumbs from '@/components/ui/Breadcrumbs/Breadcrumbs';
-import Selectors from './Selectors/Selectors';
-import Actions from './Actions/Actions';
-import AmbassadorComment from './AmbassadorComment/AmbassadorComment';
-import Accordions from './Accordions/Accordions';
+import Gallery from './Gallery/Gallery';
+import Product from './Product/Product';
 import RelatedProducts from '@/components/RelatedProducts/RelatedProducts';
 
 import styles from './page.module.css';
@@ -38,27 +34,8 @@ const Page: FC<Props> = async ({ params: { id } }) => {
           ]}
         />
         <div className={styles.body}>
-          <div>Галерея</div>
-          <div className={styles.product}>
-            <Selectors />
-            <div className={styles.price}>
-              {product.sizes[0].price} <span>₽</span>
-            </div>
-            <Actions className={styles.actions} />
-            <div className={styles.bottom}>
-              <div className={styles.bottomColumn}>
-                <div className={styles.deliveryInfo}>Бесплатная доставка от 5 000 ₽</div>
-                <div className={styles.description}>{parse(product.description)}</div>
-                <AmbassadorComment className={styles.ambassadorComment} />
-              </div>
-              <div className={styles.bottomColumn}>
-                <Accordions />
-                <Link className={styles.contactsLink} href='/contacts'>
-                  Где купить?
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Gallery className={styles.gallery} images={product.images} />
+          <Product className={styles.product} product={product} />
         </div>
       </main>
       <RelatedProducts relatedTo={product.id} />

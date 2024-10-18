@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 import classNames from 'classnames';
 import styles from './SizeSelector.module.css';
 
-type Size = {
+export type Size = {
   id: number;
   name: string;
   isDefaultSelected?: boolean;

@@ -1,0 +1,105 @@
+.wrapper {
+  width: 100%;
+}
+
+.price {
+  margin-top: 30px;
+
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.price span {
+  font-size: 24px;
+}
+
+.actions {
+  margin-top: 30px;
+}
+
+.bottom {
+  display: flex;
+  column-gap: 110px;
+}
+
+.bottomColumn:last-child {
+  width: 300px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.deliveryInfo {
+  margin-top: 15px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: var(--color-text-secondary);
+}
+
+.description {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.description a {
+  color: #1d6ed4;
+}
+
+.ambassadorComment {
+  margin-top: 40px;
+}
+
+.contactsLink {
+  margin-top: 85px;
+
+  display: block;
+  width: fit-content;
+
+  font-size: 21px;
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+@media (--media-tablet) {
+  .price {
+    margin-top: 40px;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  .bottom {
+    flex-direction: column;
+  }
+
+  .bottomColumn:last-child {
+    margin-top: 50px;
+    margin-left: 0;
+  }
+
+  .contactsLink {
+    margin-left: calc(14px + 10px);
+  }
+}
+
+@media (--media-mobile) {
+  .price {
+    margin-top: 30px;
+  }
+
+  .actions {
+    margin-top: 15px;
+  }
+
+  .ambassadorComment {
+    margin-top: 30px;
+  }
+
+  .contactsLink {
+    margin-top: 40px;
+  }
+}

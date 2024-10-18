@@ -10,7 +10,7 @@ import ArrowLeft from '@icons/arrow-left.svg';
 import { formatUrl } from '@/utils/formatUrl';
 
 interface Props {
-  rootRef: RefObject<HTMLElement>;
+  rootRef?: RefObject<HTMLElement>;
   ambassador: {
     imageUrl: string;
     comment: string;
@@ -28,6 +28,10 @@ const AmbassadorPopup: FC<Props> = ({ rootRef, ambassador, product, isOpen, onCl
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!rootRef) {
+      return;
+    }
+
     const wrapperElement = wrapperRef.current!;
     const rootElement = rootRef.current!;
 
