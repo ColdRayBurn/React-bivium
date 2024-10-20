@@ -1,13 +1,156 @@
+.wrapper {
+  display: flex;
+  --carousel-height: 860px;
+}
+
 .carousel {
+  position: relative;
+
   width: 570px;
-  height: 9 / 16;
+  height: var(--carousel-height);
+
   overflow-x: hidden;
 }
 
 .carouselWrapper {
   display: flex;
+  height: 100%;
 }
 
 .carouselSlide {
   flex-shrink: 0;
+}
+
+.carouselSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navigationButton {
+  position: absolute;
+  top: 50%;
+  padding: 10px 15px;
+  background-color: #fff;
+  translate: 0 -50%;
+}
+
+.navigationButton_previous {
+  left: 0;
+}
+
+.navigationButton_next {
+  right: 0;
+}
+
+.navigationButton svg {
+  width: 13px;
+  height: 13px;
+}
+
+.navigationButton svg path {
+  stroke: currentColor;
+}
+
+.navigationButton_disabled svg path {
+  fill: none;
+  stroke: currentColor;
+}
+
+.thumbsCarousel {
+  position: relative;
+  margin-left: 5px;
+
+  width: 100px;
+  height: calc(var(--carousel-height) - var(--carousel-height) / 5);
+
+  overflow-y: hidden;
+}
+
+.thumbsCarouselWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbsCarouselSlide {
+  flex-shrink: 0;
+  height: calc(var(--carousel-height) / 5);
+}
+
+.thumbsCarouselSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideNextButton {
+  position: absolute;
+  top: calc(var(--carousel-height) / 5 * 3 + 5px * 3);
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: calc(var(--carousel-height) / 5 - 5px * 3);
+
+  backdrop-filter: blur(2px);
+}
+
+.slideNextButton svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (--media-tablet) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .carousel {
+    margin-left: calc(var(--page-padding) * -1);
+    width: calc(100% + var(--page-padding) * 2);
+    --carousel-height: 1250px;
+  }
+
+  .thumbsCarousel {
+    margin-top: 5px;
+    margin-left: var(--page-padding);
+
+    width: calc(100px * 5 + 5px * 5);
+    height: 140px;
+
+    overflow-x: hidden;
+  }
+
+  .thumbsCarouselWrapper {
+    flex-direction: row;
+  }
+
+  .thumbsCarouselSlide {
+    width: 100px;
+    height: 100%;
+  }
+
+  .slideNextButton {
+    top: 0;
+    left: calc(100px * 4 + 5px * 4);
+    height: 140px;
+  }
+}
+
+@media (--media-mobile) {
+  .carousel {
+    --carousel-height: 590px;
+  }
+
+  .thumbsCarousel {
+    margin-left: calc(var(--page-padding) * -1);
+    width: calc(100% + var(--page-padding) * 2);
+  }
+
+  .slideNextButton {
+    visibility: hidden;
+  }
 }
