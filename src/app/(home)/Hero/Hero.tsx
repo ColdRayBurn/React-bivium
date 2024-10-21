@@ -2,6 +2,8 @@
 
 import { FC } from 'react';
 import parse from 'html-react-parser';
+import { useMediaQuery } from 'react-responsive';
+
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 
@@ -21,9 +23,19 @@ interface Props {
 
 const Hero: FC<Props> = ({ hero }) => {
   const router = useRouter();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
-    <div className={styles.wrapper} style={{ backgroundImage: `url(${formatUrl(hero.picture)})` }}>
+    <div className={styles.wrapper}>
+      <video
+        className={styles.video}
+        poster={isMobile ? formatUrl(hero.pictureMobile) : formatUrl(hero.picture)}
+        autoPlay
+        loop
+        muted
+      >
+        <source src={isMobile ? formatUrl(hero.videoMobile) : formatUrl(hero.video)} type='video/mp4' />
+      </video>
       <div className={styles.text}>{parse(hero.text)}</div>
       <div className={styles.logotype}>
         <MediaQuery minWidth={768}>

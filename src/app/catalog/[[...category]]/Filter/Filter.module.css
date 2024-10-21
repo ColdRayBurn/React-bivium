@@ -22,7 +22,7 @@
 
 .modalMenu {
   z-index: auto;
-  max-height: calc(100dvh - var(--container-padding));
+  max-height: calc(100vh - var(--container-padding));
   overflow-y: auto;
 }
 

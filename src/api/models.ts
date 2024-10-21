@@ -16,6 +16,9 @@ export interface IMetaHomepageResponse {
       url: string;
     };
     picture: string;
+    pictureMobile: string;
+    video: string;
+    videoMobile: string;
     text: string;
   };
   catalog: {
