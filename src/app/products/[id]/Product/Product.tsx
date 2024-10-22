@@ -70,7 +70,11 @@ const Product: FC<Props> = ({ product, className }) => {
           )}
         </div>
         <div className={styles.bottomColumn}>
-          <Accordions className={styles.accordions} specifications={product.specifications} sizesTableImage='' />
+          <Accordions
+            className={styles.accordions}
+            specifications={product.specifications}
+            sizesTableImage={product.sizesTableImage}
+          />
           <Link className={styles.contactsLink} href='/contacts'>
             Где купить?
           </Link>
