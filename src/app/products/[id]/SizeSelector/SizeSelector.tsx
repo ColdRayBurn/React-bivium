@@ -34,7 +34,7 @@ const SizeSelector: FC<Props> = ({ sizes, onSelect }) => {
             typeof onSelect === 'function' && onSelect(size.id);
           }}
         >
-          {size.name}
+          {size.name.replace(/\(.+\)$/, '')}
         </button>
       ))}
     </div>

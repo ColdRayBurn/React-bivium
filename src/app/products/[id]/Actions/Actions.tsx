@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
@@ -33,6 +34,8 @@ interface Props {
 const MediaQuery = dynamic(() => import('react-responsive'), { ssr: false });
 
 const Actions: FC<Props> = ({ product, selectedSizeId, className }) => {
+  const router = useRouter();
+  const { isAuthorized } = useAppSelector(selector => selector.user);
   const cart = useAppSelector(selector => selector.cart);
   const favorites = useAppSelector(selector => selector.favorites);
   const dispatch = useAppDispatch();
@@ -61,6 +64,11 @@ const Actions: FC<Props> = ({ product, selectedSizeId, className }) => {
         )}
         type='button'
         onClick={() => {
+          if (!isAuthorized) {
+            router.push('/signin');
+            return;
+          }
+
           dispatch(
             favorites.findIndex(item => item.id === product.id) !== -1
               ? removeFavorites({
