@@ -1,6 +1,6 @@
 # Bivium.ru: Frontend with React
 
-Welcome to the frontend of the website Bivium.ru, built using React. This repository is responsible for the user interface, connecting users with the backend API, and dynamically rendering content based on server data. It is designed to provide a seamless and interactive experience for customers browsing and purchasing sportswear.
+Welcome to the frontend of the new website Bivium.ru (currently under construction), built using React. This repository is responsible for the user interface, connecting users with the backend API, and dynamically rendering content based on server data. It is designed to provide a seamless and interactive experience for customers browsing and purchasing sportswear.
 
 
 ## Architecture
